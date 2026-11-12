@@ -26,7 +26,6 @@ function resolveRepoHref(site: SiteConfig): string | null {
 
 export function HeaderNav({ site }: HeaderNavProps) {
   const creatorHref = site.creatorUrl.trim();
-  const bmcHref = (site.buyMeACoffeeUrl ?? '').trim();
   const repoHref = resolveRepoHref(site);
 
   return (
@@ -64,18 +63,6 @@ export function HeaderNav({ site }: HeaderNavProps) {
             >
               <span>itsallan.me</span>
               <ExternalLink size={12} aria-hidden="true" />
-            </a>
-          ) : null}
-
-          {bmcHref && bmcHref !== '#' ? (
-            <a
-              href={bmcHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline bmc-button header-bmc-btn"
-            >
-              <span aria-hidden="true">☕</span>
-              <span>Buy me a coffee</span>
             </a>
           ) : null}
 

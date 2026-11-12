@@ -23,10 +23,7 @@ describe('HeaderNav, HeroSection, and StorySection', () => {
     expect(screen.getByText('17')).toBeInTheDocument();
     expect(screen.getByText('21')).toBeInTheDocument();
     expect(screen.getAllByRole('link', { name: /itsallan\.me/i }).length).toBeGreaterThan(0);
-    expect(screen.getByRole('link', { name: /Buy me a coffee/i })).toHaveAttribute(
-      'href',
-      'https://www.buymeacoffee.com/allanidrajith'
-    );
+    expect(screen.queryByRole('link', { name: /Buy me a coffee/i })).not.toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /GitHub/i })).not.toBeInTheDocument();
 
     const links = screen.getAllByRole('link');
