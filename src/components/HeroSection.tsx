@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { Apple, ArrowRight, Check, Copy, ExternalLink, Terminal } from 'lucide-react';
+import { ArrowRight, Check, Copy, ExternalLink, Terminal } from 'lucide-react';
 import type { CatalogTotals, CliCommandMode, SiteConfig } from '../data/types';
 import { useDesktopRelease } from '../hooks/useDesktopRelease';
+import { AppleLogo } from './icons/AppleLogo';
 import { copyText } from '../lib/clipboard';
 import { navigateToSection } from '../lib/navigation';
 import '../styles/landing.css';
@@ -148,7 +149,7 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
               className="btn-outline hero-mac-btn"
               title={`Download Hivework ${desktop.displayVersion} for macOS`}
             >
-              <Apple size={14} aria-hidden="true" />
+              <AppleLogo size={14} aria-hidden="true" />
               <span>macOS App ({desktop.displayVersion})</span>
             </a>
             <a

@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Apple, Check, Copy, Download, Terminal } from 'lucide-react';
+import { Check, Copy, Download, Terminal } from 'lucide-react';
 import type { CliCommandMode, DivisionEntry, ToolEntry } from '../data/types';
 import { useDesktopRelease } from '../hooks/useDesktopRelease';
+import { AppleLogo } from './icons/AppleLogo';
 import { buildInstallCommand } from '../lib/cliBuilder';
 import { copyText } from '../lib/clipboard';
 import '../styles/sections.css';
@@ -161,7 +162,7 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
           <div className="matrix-download-content">
             <div className="matrix-download-badge-row">
               <span className="pill-badge pill-badge-mac">
-                <Apple size={13} aria-hidden="true" />
+                <AppleLogo size={13} aria-hidden="true" />
                 <span>macOS Desktop App</span>
               </span>
               <span className="matrix-download-version">{desktop.displayVersion} · Apple Silicon &amp; Intel</span>

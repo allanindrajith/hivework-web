@@ -1,6 +1,7 @@
-import { Download, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import type { SiteConfig } from '../data/types';
 import { useDesktopRelease } from '../hooks/useDesktopRelease';
+import { AppleLogo } from './icons/AppleLogo';
 import { navigateToSection, type SectionId } from '../lib/navigation';
 import '../styles/landing.css';
 
@@ -86,7 +87,7 @@ export function HeaderNav({ site }: HeaderNavProps) {
             className="btn-outline header-mac-btn"
             title={`Download Hivework ${desktop.displayVersion} for macOS (Universal DMG)`}
           >
-            <Download size={13} aria-hidden="true" />
+            <AppleLogo size={13} aria-hidden="true" />
             <span>macOS App</span>
           </a>
 
