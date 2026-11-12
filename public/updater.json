@@ -1,14 +1,14 @@
 {
   "version": "0.4.0",
-  "notes": "Hivework v0.4.0 — Unified 296 hive-* agent corpus, Obsidian & Honeycomb Amber UI matching hivework.online, and dual-endpoint self-updater.",
-  "pub_date": "2026-11-13T00:00:00Z",
+  "notes": "Hivework v0.4.0 \u2014 Unified 296 hive-* agent corpus, Obsidian & Honeycomb Amber UI matching hivework.online, and dual-endpoint self-updater.",
+  "pub_date": "2026-11-12T23:35:22Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTM2Uwd1hVUTJxR1FtR0NpMDR3c21wRTd0RG85eEQzUDZra3piZlczU0cvRXVndmtIZVZ5ZGYwVXNkZ0hBaExWM0JDVWRCeE8yV2lTU2VleSs3RDQ5Njh4SEVqTDdMQVE0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0NTI0OTE5CWZpbGU6SGl2ZXdvcmsuYXBwLnRhci5negpxSkF2ZHZsZ3hzVzZhQ1JOVXdMVmY0ZkUxeHVaNnhoUDNad1RRRjFrdGY2YjVTTVZTVTJ6aEF1Q2tyRmNwcGdhVGpxaFJhakhkZ2Z2R3RhNGtna3hEQT09Cg==",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTM2Uwd1hVUTJxR2JhQ1U4OEJUbU1CdlJIUkFpOWRiUlM2aE8wdm9qVjd5YWJMK0h2ZWU1Zy9CRktQRjlzd3g1MEpRKzBoWWQ4NTk5Ni9mSTRDM3JadURadG1nZ1FvbFFzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0NTI2NDk4CWZpbGU6SGl2ZXdvcmsuYXBwLnRhci5negp2YzhONkRyMnJZbzRYMkFxRHlJM1VlSjZxUThsLzQrUW5ZVnBXYUlGUk1TR0Z3R2l0RDBvK0hEdHppekdya21rc3pUV285bkM3TXVGSGdJRFBPdmpEdz09Cg==",
       "url": "https://github.com/allanindrajith/hivework-app/releases/download/v0.4.0/Hivework.app.tar.gz"
     },
     "darwin-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTM2Uwd1hVUTJxR1FtR0NpMDR3c21wRTd0RG85eEQzUDZra3piZlczU0cvRXVndmtIZVZ5ZGYwVXNkZ0hBaExWM0JDVWRCeE8yV2lTU2VleSs3RDQ5Njh4SEVqTDdMQVE0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0NTI0OTE5CWZpbGU6SGl2ZXdvcmsuYXBwLnRhci5negpxSkF2ZHZsZ3hzVzZhQ1JOVXdMVmY0ZkUxeHVaNnhoUDNad1RRRjFrdGY2YjVTTVZTVTJ6aEF1Q2tyRmNwcGdhVGpxaFJhakhkZ2Z2R3RhNGtna3hEQT09Cg==",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTM2Uwd1hVUTJxR2JhQ1U4OEJUbU1CdlJIUkFpOWRiUlM2aE8wdm9qVjd5YWJMK0h2ZWU1Zy9CRktQRjlzd3g1MEpRKzBoWWQ4NTk5Ni9mSTRDM3JadURadG1nZ1FvbFFzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0NTI2NDk4CWZpbGU6SGl2ZXdvcmsuYXBwLnRhci5negp2YzhONkRyMnJZbzRYMkFxRHlJM1VlSjZxUThsLzQrUW5ZVnBXYUlGUk1TR0Z3R2l0RDBvK0hEdHppekdya21rc3pUV285bkM3TXVGSGdJRFBPdmpEdz09Cg==",
       "url": "https://github.com/allanindrajith/hivework-app/releases/download/v0.4.0/Hivework.app.tar.gz"
     }
   }
