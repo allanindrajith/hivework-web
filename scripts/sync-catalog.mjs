@@ -330,10 +330,50 @@ export function syncCatalog(repoRoot = DEFAULT_REPO_ROOT) {
   fs.copyFileSync(path.join(repoRoot, 'assets/logo.svg'), path.join(publicDir, 'logo.svg'));
   fs.copyFileSync(path.join(repoRoot, 'assets/logo-icon.svg'), path.join(publicDir, 'logo-icon.svg'));
 
+  syncDesktopApp(appDir);
+
   console.log(
     `[sync-catalog] ✓ ${shouldWriteJson ? 'Synced' : 'Up-to-date'} catalog (${data.totals.agents} agents, ${data.totals.skills} skills, ${data.totals.employees} employees, ${data.totals.tools} tools, ${data.totals.divisions} divisions) -> ${targetJsonPath}`
   );
   return data;
+}
+
+function syncDesktopApp(appDir) {
+  const siblingAppDir = path.resolve(appDir, '../Hivework-app');
+  if (!fs.existsSync(siblingAppDir)) return;
+
+  const tauriConfPath = path.join(siblingAppDir, 'src-tauri/tauri.conf.json');
+  if (!fs.existsSync(tauriConfPath)) return;
+
+  try {
+    const tauriConf = JSON.parse(fs.readFileSync(tauriConfPath, 'utf8'));
+    const version = tauriConf.version;
+    if (!version) return;
+
+    const updaterPath = path.join(appDir, 'public/updater.json');
+    if (fs.existsSync(updaterPath)) {
+      const updater = JSON.parse(fs.readFileSync(updaterPath, 'utf8'));
+      if (updater.version !== version) {
+        updater.version = version;
+        fs.writeFileSync(updaterPath, JSON.stringify(updater, null, 2) + '\n', 'utf8');
+        console.log(`[sync-catalog] ✓ Synced public/updater.json to v${version}`);
+      }
+    }
+
+    const dmgSource = path.join(siblingAppDir, 'src-tauri/target/release/bundle/dmg/Hivework.dmg');
+    if (fs.existsSync(dmgSource)) {
+      const dmgDest = path.join(appDir, 'public/downloads/Hivework.dmg');
+      const rootDmgDest = path.join(appDir, 'public/Hivework.dmg');
+      fs.mkdirSync(path.dirname(dmgDest), { recursive: true });
+      fs.copyFileSync(dmgSource, dmgDest);
+      fs.copyFileSync(dmgSource, rootDmgDest);
+      const stats = fs.statSync(dmgSource);
+      const sizeMb = (stats.size / (1024 * 1024)).toFixed(1);
+      console.log(`[sync-catalog] ✓ Synced desktop app bundle v${version} (${sizeMb} MB) -> public/downloads/Hivework.dmg`);
+    }
+  } catch (err) {
+    console.warn(`[sync-catalog] ⚠ Could not auto-sync desktop app: ${err.message}`);
+  }
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
