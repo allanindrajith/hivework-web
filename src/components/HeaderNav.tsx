@@ -1,5 +1,6 @@
 import { Download, ExternalLink } from 'lucide-react';
 import type { SiteConfig } from '../data/types';
+import { useDesktopRelease } from '../hooks/useDesktopRelease';
 import { navigateToSection, type SectionId } from '../lib/navigation';
 import '../styles/landing.css';
 
@@ -26,6 +27,7 @@ function resolveRepoHref(site: SiteConfig): string | null {
 }
 
 export function HeaderNav({ site }: HeaderNavProps) {
+  const desktop = useDesktopRelease();
   const creatorHref = site.creatorUrl.trim();
   const repoHref = resolveRepoHref(site);
 
@@ -79,10 +81,10 @@ export function HeaderNav({ site }: HeaderNavProps) {
           ) : null}
 
           <a
-            href="/downloads/Hivework.dmg"
+            href={desktop.dmgUrl}
             download="Hivework.dmg"
             className="btn-outline header-mac-btn"
-            title="Download Hivework v0.4.0 for macOS (Universal DMG)"
+            title={`Download Hivework ${desktop.displayVersion} for macOS (Universal DMG)`}
           >
             <Download size={13} aria-hidden="true" />
             <span>macOS App</span>

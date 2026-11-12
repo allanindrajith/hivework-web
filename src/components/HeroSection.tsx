@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Apple, ArrowRight, Check, Copy, ExternalLink, Terminal } from 'lucide-react';
 import type { CatalogTotals, CliCommandMode, SiteConfig } from '../data/types';
+import { useDesktopRelease } from '../hooks/useDesktopRelease';
 import { copyText } from '../lib/clipboard';
 import { navigateToSection } from '../lib/navigation';
 import '../styles/landing.css';
@@ -50,6 +51,7 @@ const QUICK_START_TABS: readonly QuickStartTab[] = [
 ];
 
 export function HeroSection({ totals, site }: HeroSectionProps) {
+  const desktop = useDesktopRelease();
   const [activeTabId, setActiveTabId] = useState<QuickStartTabId>('install-all');
   const [cliMode, setCliMode] = useState<CliCommandMode>('local');
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'failed'>('idle');
@@ -141,13 +143,13 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
               <ArrowRight size={16} aria-hidden="true" />
             </a>
             <a
-              href="/downloads/Hivework.dmg"
+              href={desktop.dmgUrl}
               download="Hivework.dmg"
               className="btn-outline hero-mac-btn"
-              title="Download Hivework v0.4.0 for macOS"
+              title={`Download Hivework ${desktop.displayVersion} for macOS`}
             >
               <Apple size={14} aria-hidden="true" />
-              <span>macOS App (.dmg)</span>
+              <span>macOS App ({desktop.displayVersion})</span>
             </a>
             <a
               href="/agents"

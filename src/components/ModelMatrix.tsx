@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Apple, Check, Copy, Download, Terminal } from 'lucide-react';
 import type { CliCommandMode, DivisionEntry, ToolEntry } from '../data/types';
+import { useDesktopRelease } from '../hooks/useDesktopRelease';
 import { buildInstallCommand } from '../lib/cliBuilder';
 import { copyText } from '../lib/clipboard';
 import '../styles/sections.css';
@@ -26,6 +27,7 @@ function formatScope(tool: ToolEntry): string {
 }
 
 export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
+  const desktop = useDesktopRelease();
   const orderedTools = useMemo(
     () => [...tools].sort((a, b) => a.order - b.order),
     [tools]
@@ -162,7 +164,7 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
                 <Apple size={13} aria-hidden="true" />
                 <span>macOS Desktop App</span>
               </span>
-              <span className="matrix-download-version">v0.4.0 · Apple Silicon &amp; Intel</span>
+              <span className="matrix-download-version">{desktop.displayVersion} · Apple Silicon &amp; Intel</span>
             </div>
             <h3 className="matrix-download-title">Prefer a native desktop GUI on your Mac?</h3>
             <p className="matrix-download-desc">
@@ -171,13 +173,13 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
           </div>
           <div className="matrix-download-action">
             <a
-              href="/downloads/Hivework.dmg"
+              href={desktop.dmgUrl}
               download="Hivework.dmg"
               className="btn-primary matrix-download-btn"
             >
               <Download size={16} aria-hidden="true" />
               <span>Download for macOS</span>
-              <span className="matrix-download-filetag">DMG · 9.3 MB</span>
+              <span className="matrix-download-filetag">DMG · {desktop.displayVersion}</span>
             </a>
           </div>
         </aside>
