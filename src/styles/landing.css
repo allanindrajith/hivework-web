@@ -427,8 +427,11 @@
 }
 
 .story-header {
-  max-width: 70ch;
+  max-width: 72ch;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: var(--space-2xl);
+  text-align: center;
 }
 
 .section-heading {

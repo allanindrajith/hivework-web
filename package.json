@@ -7,6 +7,7 @@
     "sync": "node scripts/sync-catalog.mjs",
     "dev": "vite",
     "build": "tsc --noEmit && vite build && node scripts/verify-dist.mjs",
+    "deploy": "npm run build && rsync -avz --delete --exclude='.well-known' --exclude='cgi-bin' dist/ cpanel:~/hivework.online/",
     "test": "vitest run"
   },
   "dependencies": {
