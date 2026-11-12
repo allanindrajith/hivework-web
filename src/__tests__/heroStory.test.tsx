@@ -122,10 +122,7 @@ describe('HeaderNav, HeroSection, and StorySection', () => {
     expect(screen.getByText(/03\. Native Compilation via/i)).toBeInTheDocument();
     // Anchored regex prevents matching "hello@itsallan.me", which also contains "itsallan.me"
     expect(screen.getByRole('link', { name: /^itsallan\.me$/i })).toHaveAttribute('href', 'https://itsallan.me');
-    expect(screen.getByRole('link', { name: /Buy me a coffee/i })).toHaveAttribute(
-      'href',
-      'https://www.buymeacoffee.com/allanidrajith'
-    );
+    expect(screen.queryByRole('link', { name: /Buy me a coffee/i })).not.toBeInTheDocument();
     expect(screen.getByRole('link', { name: /^hello@itsallan\.me$/i })).toHaveAttribute(
       'href',
       'mailto:hello@itsallan.me'

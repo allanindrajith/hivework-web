@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Check, Copy, Terminal } from 'lucide-react';
+import { Apple, Check, Copy, Download, Terminal } from 'lucide-react';
 import type { CliCommandMode, DivisionEntry, ToolEntry } from '../data/types';
 import { buildInstallCommand } from '../lib/cliBuilder';
 import { copyText } from '../lib/clipboard';
@@ -154,6 +154,33 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
             </button>
           ))}
         </div>
+
+        <aside className="matrix-download-card" aria-label="Hivework for macOS">
+          <div className="matrix-download-content">
+            <div className="matrix-download-badge-row">
+              <span className="pill-badge pill-badge-mac">
+                <Apple size={13} aria-hidden="true" />
+                <span>macOS Desktop App</span>
+              </span>
+              <span className="matrix-download-version">v0.4.0 · Apple Silicon &amp; Intel</span>
+            </div>
+            <h3 className="matrix-download-title">Prefer a native desktop GUI on your Mac?</h3>
+            <p className="matrix-download-desc">
+              Download Hivework directly to macOS to visually inspect, configure, and switch between all {orderedTools.length} harnesses and 345 agent personas—no terminal required.
+            </p>
+          </div>
+          <div className="matrix-download-action">
+            <a
+              href="/downloads/Hivework.dmg"
+              download="Hivework.dmg"
+              className="btn-primary matrix-download-btn"
+            >
+              <Download size={16} aria-hidden="true" />
+              <span>Download for macOS</span>
+              <span className="matrix-download-filetag">DMG · 9.3 MB</span>
+            </a>
+          </div>
+        </aside>
 
         <div className="matrix-layout">
           <div className="matrix-tool-grid" role="group" aria-label="AI coding harnesses">

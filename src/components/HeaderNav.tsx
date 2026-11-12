@@ -1,4 +1,4 @@
-import { ExternalLink } from 'lucide-react';
+import { Download, ExternalLink } from 'lucide-react';
 import type { SiteConfig } from '../data/types';
 import { navigateToSection, type SectionId } from '../lib/navigation';
 import '../styles/landing.css';
@@ -77,6 +77,16 @@ export function HeaderNav({ site }: HeaderNavProps) {
               GitHub
             </a>
           ) : null}
+
+          <a
+            href="/downloads/Hivework.dmg"
+            download="Hivework.dmg"
+            className="btn-outline header-mac-btn"
+            title="Download Hivework v0.4.0 for macOS (Universal DMG)"
+          >
+            <Download size={13} aria-hidden="true" />
+            <span>macOS App</span>
+          </a>
 
           <a
             href="/harnesses"

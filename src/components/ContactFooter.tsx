@@ -152,6 +152,19 @@ export function ContactFooter({ site }: ContactFooterProps) {
                 </a>
               ) : null}
 
+              {site.buyMeACoffeeUrl ? (
+                <a
+                  href={site.buyMeACoffeeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline bmc-button"
+                >
+                  <span aria-hidden="true">☕</span>
+                  <span>Buy me a coffee</span>
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+              ) : null}
+
               {xHref ? (
                 <a
                   href={xHref}

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Check, Copy, ExternalLink, Terminal } from 'lucide-react';
+import { Apple, ArrowRight, Check, Copy, ExternalLink, Terminal } from 'lucide-react';
 import type { CatalogTotals, CliCommandMode, SiteConfig } from '../data/types';
 import { copyText } from '../lib/clipboard';
 import { navigateToSection } from '../lib/navigation';
@@ -139,6 +139,15 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
             >
               <span>Connect {totals.tools} Harnesses</span>
               <ArrowRight size={16} aria-hidden="true" />
+            </a>
+            <a
+              href="/downloads/Hivework.dmg"
+              download="Hivework.dmg"
+              className="btn-outline hero-mac-btn"
+              title="Download Hivework v0.4.0 for macOS"
+            >
+              <Apple size={14} aria-hidden="true" />
+              <span>macOS App (.dmg)</span>
             </a>
             <a
               href="/agents"

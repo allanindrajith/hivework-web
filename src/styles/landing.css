@@ -94,6 +94,37 @@
   font-size: 13px;
 }
 
+.header-mac-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border-color: rgba(245, 158, 11, 0.4);
+  color: var(--ink-strong);
+  transition: all 0.15s ease;
+}
+
+.header-mac-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary-soft);
+  background-color: rgba(245, 158, 11, 0.08);
+}
+
+.hero-mac-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-color: rgba(245, 158, 11, 0.4);
+  color: var(--primary-soft);
+}
+
+.hero-mac-btn:hover {
+  border-color: var(--primary);
+  background-color: rgba(245, 158, 11, 0.08);
+}
+
 .header-bmc-btn {
   padding: 6px 12px;
   font-size: 12px;

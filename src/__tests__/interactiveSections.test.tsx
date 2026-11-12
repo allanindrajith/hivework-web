@@ -62,6 +62,16 @@ describe('ModelMatrix', () => {
     await waitFor(() => expect(writeText).toHaveBeenCalledWith(expectedCmd));
     await waitFor(() => expect(screen.getByText(/Copied/i)).toBeInTheDocument());
   });
+
+  it('renders direct macOS desktop app download CTA with link to Hivework.dmg', () => {
+    render(<ModelMatrix tools={catalog.tools} divisions={catalog.divisions} />);
+
+    const downloadLink = screen.getByRole('link', { name: /Download for macOS/i });
+    expect(downloadLink).toBeInTheDocument();
+    expect(downloadLink).toHaveAttribute('href', '/downloads/Hivework.dmg');
+    expect(downloadLink).toHaveAttribute('download', 'Hivework.dmg');
+    expect(screen.getByText(/Prefer a native desktop GUI on your Mac\?/i)).toBeInTheDocument();
+  });
 });
 
 describe('WorkforceSection', () => {
@@ -216,7 +226,10 @@ describe('ContactFooter', () => {
       'href',
       'https://itsallan.me'
     );
-    expect(screen.queryByRole('link', { name: /Buy me a coffee/i })).not.toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Buy me a coffee/i })).toHaveAttribute(
+      'href',
+      'https://www.buymeacoffee.com/allanidrajith'
+    );
 
     const footerMark = screen.getByRole('img', { name: /Hivework/i });
     expect(footerMark).toHaveAttribute('src', './logo-icon.svg');
