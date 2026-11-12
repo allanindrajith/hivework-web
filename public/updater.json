@@ -2,5 +2,14 @@
   "version": "0.4.0",
   "notes": "Hivework v0.4.0 — Unified 296 hive-* agent corpus, Obsidian & Honeycomb Amber UI matching hivework.online, and dual-endpoint self-updater.",
   "pub_date": "2026-11-13T00:00:00Z",
-  "platforms": {}
+  "platforms": {
+    "darwin-aarch64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTM2Uwd1hVUTJxR1FtR0NpMDR3c21wRTd0RG85eEQzUDZra3piZlczU0cvRXVndmtIZVZ5ZGYwVXNkZ0hBaExWM0JDVWRCeE8yV2lTU2VleSs3RDQ5Njh4SEVqTDdMQVE0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0NTI0OTE5CWZpbGU6SGl2ZXdvcmsuYXBwLnRhci5negpxSkF2ZHZsZ3hzVzZhQ1JOVXdMVmY0ZkUxeHVaNnhoUDNad1RRRjFrdGY2YjVTTVZTVTJ6aEF1Q2tyRmNwcGdhVGpxaFJhakhkZ2Z2R3RhNGtna3hEQT09Cg==",
+      "url": "https://github.com/allanindrajith/hivework-app/releases/download/v0.4.0/Hivework.app.tar.gz"
+    },
+    "darwin-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTM2Uwd1hVUTJxR1FtR0NpMDR3c21wRTd0RG85eEQzUDZra3piZlczU0cvRXVndmtIZVZ5ZGYwVXNkZ0hBaExWM0JDVWRCeE8yV2lTU2VleSs3RDQ5Njh4SEVqTDdMQVE0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0NTI0OTE5CWZpbGU6SGl2ZXdvcmsuYXBwLnRhci5negpxSkF2ZHZsZ3hzVzZhQ1JOVXdMVmY0ZkUxeHVaNnhoUDNad1RRRjFrdGY2YjVTTVZTVTJ6aEF1Q2tyRmNwcGdhVGpxaFJhakhkZ2Z2R3RhNGtna3hEQT09Cg==",
+      "url": "https://github.com/allanindrajith/hivework-app/releases/download/v0.4.0/Hivework.app.tar.gz"
+    }
+  }
 }
