@@ -5,6 +5,7 @@ import type { CatalogData } from '../data/types';
 import { siteConfig } from '../data/site';
 import { ModelMatrix } from '../components/ModelMatrix';
 import { WorkforceSection } from '../components/WorkforceSection';
+import { SkillsSection } from '../components/SkillsSection';
 import { ContactFooter } from '../components/ContactFooter';
 import { App } from '../App';
 
@@ -107,6 +108,65 @@ describe('WorkforceSection', () => {
       )
     );
   });
+
+  it('allows selecting individual agents into a custom CLI command cart and links every agent to GitHub source', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.assign(navigator, { clipboard: { writeText } });
+
+    render(
+      <WorkforceSection
+        divisions={catalog.divisions}
+        runbooks={catalog.runbooks}
+        repoUrl={siteConfig.repoUrl}
+      />
+    );
+
+    const selectBtns = screen.getAllByRole('button', { name: /Select agent/i });
+    expect(selectBtns.length).toBeGreaterThan(0);
+
+    fireEvent.click(selectBtns[0]);
+    expect(screen.getByRole('region', { name: /Selected agent CLI builder/i })).toBeInTheDocument();
+
+    const copyCustomBtn = screen.getByRole('button', { name: /Copy selected agents command/i });
+    fireEvent.click(copyCustomBtn);
+    await waitFor(() =>
+      expect(writeText).toHaveBeenCalledWith(expect.stringMatching(/\.\/scripts\/install\.sh --agent hive-/))
+    );
+
+    const ghSourceLinks = screen.getAllByRole('link', { name: /View .* on GitHub/i });
+    expect(ghSourceLinks.length).toBeGreaterThan(0);
+    expect(ghSourceLinks[0].getAttribute('href')).toMatch(
+      /^https:\/\/github\.com\/allanindrajith\/hivework\/blob\/main\//
+    );
+  });
+});
+
+describe('SkillsSection', () => {
+  it('renders 21 modular skills and 10 Goldfish reviewers with GitHub SKILL.md links and CLI copy', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.assign(navigator, { clipboard: { writeText } });
+
+    render(
+      <SkillsSection
+        skills={catalog.skills}
+        reviewers={catalog.reviewers}
+        repoUrl={siteConfig.repoUrl}
+      />
+    );
+
+    expect(screen.getByText('hive-brainstorm')).toBeInTheDocument();
+    expect(screen.getByText('hive-design-critic')).toBeInTheDocument();
+
+    const brainstormLink = screen.getByRole('link', { name: /Open hive-brainstorm SKILL\.md on GitHub/i });
+    expect(brainstormLink).toHaveAttribute(
+      'href',
+      'https://github.com/allanindrajith/hivework/blob/main/skills/hive-brainstorm/SKILL.md'
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: /Goldfish Reviewers \(10\)/i }));
+    expect(screen.getByText('hive-design-critic')).toBeInTheDocument();
+    expect(screen.queryByText('hive-brainstorm')).not.toBeInTheDocument();
+  });
 });
 
 describe('ContactFooter', () => {
@@ -129,6 +189,10 @@ describe('ContactFooter', () => {
     expect(screen.getByRole('link', { name: /^itsallan\.me$/i })).toHaveAttribute(
       'href',
       'https://itsallan.me'
+    );
+    expect(screen.getByRole('link', { name: /Buy me a coffee/i })).toHaveAttribute(
+      'href',
+      'https://www.buymeacoffee.com/allanidrajith'
     );
 
     const footerMark = screen.getByRole('img', { name: /Hivework/i });
@@ -165,20 +229,22 @@ describe('ContactFooter', () => {
 });
 
 describe('App', () => {
-  it('composes all landing page sections with valid anchor targets and verified counts', () => {
+  it('composes all hub sections with clean path URLs (zero # hashes) and verified counts', () => {
     const { container } = render(<App />);
 
     expect(container.querySelector('#hero')).toBeInTheDocument();
     expect(container.querySelector('#story')).toBeInTheDocument();
     expect(container.querySelector('#model-matrix')).toBeInTheDocument();
     expect(container.querySelector('#workforce')).toBeInTheDocument();
+    expect(container.querySelector('#skills')).toBeInTheDocument();
+    expect(container.querySelector('#runbooks')).toBeInTheDocument();
     expect(container.querySelector('#contact')).toBeInTheDocument();
 
     const links = screen.getAllByRole('link');
     links.forEach((link) => {
-      const href = link.getAttribute('href');
+      const href = link.getAttribute('href') ?? '';
       expect(href).toBeTruthy();
-      expect(href).not.toBe('#');
+      expect(href.startsWith('#')).toBe(false);
     });
   });
 });

@@ -5,9 +5,10 @@ export const siteConfig: SiteConfig = {
   siteUrl: 'https://hivework.online',
   creatorName: 'Allan',
   creatorUrl: 'https://itsallan.me',
+  buyMeACoffeeUrl: 'https://www.buymeacoffee.com/allanidrajith',
   primaryEmail: 'hello@hivework.online',
   forwardTargetEmail: 'hello@itsallan.me',
-  repoUrl: '',
+  repoUrl: 'https://github.com/allanindrajith/hivework',
   xUrl: '',
-  githubUrl: '',
+  githubUrl: 'https://github.com/allanindrajith/hivework-web',
 };

@@ -94,6 +94,11 @@
   font-size: 13px;
 }
 
+.header-bmc-btn {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
 .header-cta {
   padding: 6px 12px;
   font-size: 12px;

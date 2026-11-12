@@ -3,10 +3,13 @@ import {
   Box,
   Boxes,
   Check,
+  ChevronDown,
+  ChevronUp,
   ClipboardList,
   Code,
   Copy,
   DollarSign,
+  ExternalLink,
   FlaskConical,
   Gamepad2,
   GraduationCap,
@@ -14,22 +17,30 @@ import {
   Map as MapIcon,
   Megaphone,
   PenTool,
+  Plus,
   Search,
   ShieldCheck,
   Sparkles,
   Stethoscope,
   Target,
+  Terminal,
   TrendingUp,
+  X,
   type LucideIcon,
 } from 'lucide-react';
-import type { DivisionEntry, RunbookEntry } from '../data/types';
-import { buildRunbookCommand } from '../lib/cliBuilder';
+import type { CliCommandMode, DivisionEntry, RunbookEntry } from '../data/types';
+import {
+  buildGitHubBlobUrl,
+  buildInstallCommand,
+  buildRunbookCommand,
+} from '../lib/cliBuilder';
 import { copyText } from '../lib/clipboard';
 import '../styles/sections.css';
 
 export interface WorkforceSectionProps {
   divisions: DivisionEntry[];
   runbooks: RunbookEntry[];
+  repoUrl?: string;
 }
 
 const DIVISION_ICON_MAP: Record<string, LucideIcon> = {
@@ -57,8 +68,16 @@ function getDivisionIcon(iconName: string): LucideIcon {
   return DIVISION_ICON_MAP[iconName] ?? Sparkles;
 }
 
-export function WorkforceSection({ divisions, runbooks }: WorkforceSectionProps) {
+export function WorkforceSection({
+  divisions,
+  runbooks,
+  repoUrl = 'https://github.com/allanindrajith/hivework',
+}: WorkforceSectionProps) {
   const [query, setQuery] = useState('');
+  const [expandedDivisions, setExpandedDivisions] = useState<Record<string, boolean>>({});
+  const [selectedAgents, setSelectedAgents] = useState<string[]>([]);
+  const [includeSkillsInCart, setIncludeSkillsInCart] = useState(true);
+  const [cliMode, setCliMode] = useState<CliCommandMode>('local');
   const [copyFeedback, setCopyFeedback] = useState<{
     slug: string;
     status: 'copied' | 'failed';
@@ -88,16 +107,41 @@ export function WorkforceSection({ divisions, runbooks }: WorkforceSectionProps)
         return true;
       }
 
-      return division.samples.some(
-        (sample) =>
-          sample.name.toLowerCase().includes(trimmedQuery) ||
-          sample.slug.toLowerCase().includes(trimmedQuery) ||
-          sample.description.toLowerCase().includes(trimmedQuery)
+      const pool = division.agents ?? division.samples;
+      return pool.some(
+        (agent) =>
+          agent.name.toLowerCase().includes(trimmedQuery) ||
+          agent.slug.toLowerCase().includes(trimmedQuery) ||
+          agent.description.toLowerCase().includes(trimmedQuery)
       );
     });
   }, [divisions, trimmedQuery]);
 
-  const handleCopyRunbook = async (slug: string, command: string) => {
+  const customAgentCommand = useMemo(
+    () =>
+      buildInstallCommand({
+        mode: cliMode,
+        repoUrl,
+        agents: selectedAgents,
+        skills: includeSkillsInCart,
+      }),
+    [cliMode, repoUrl, selectedAgents, includeSkillsInCart]
+  );
+
+  const toggleSelectAgent = (slug: string) => {
+    setSelectedAgents((prev) =>
+      prev.includes(slug) ? prev.filter((item) => item !== slug) : [...prev, slug]
+    );
+  };
+
+  const toggleExpandDivision = (divisionId: string) => {
+    setExpandedDivisions((prev) => ({
+      ...prev,
+      [divisionId]: !prev[divisionId],
+    }));
+  };
+
+  const handleCopyCommand = async (slug: string, command: string) => {
     if (resetTimerRef.current !== null) {
       window.clearTimeout(resetTimerRef.current);
       resetTimerRef.current = null;
@@ -118,13 +162,109 @@ export function WorkforceSection({ divisions, runbooks }: WorkforceSectionProps)
         <div className="section-header-block">
           <p className="section-eyebrow">WORKFORCE EXPLORER · {divisions.length} DIVISIONS</p>
           <h2 id="workforce-heading" className="section-heading">
-            Browse specialized agent divisions and NEXUS runbooks
+            Browse specialized agent divisions, build custom CLI rosters, and link to GitHub
           </h2>
           <p className="section-lead">
-            Filter all {divisions.length} functional divisions by domain or sample persona, or copy
-            a pre-assembled NEXUS scenario roster command.
+            Filter all {divisions.length} functional divisions, select individual agents to assemble
+            a custom <code className="inline-code">./scripts/install.sh --agent</code> command, or
+            inspect each persona&apos;s raw Markdown on GitHub.
           </p>
         </div>
+
+        {selectedAgents.length > 0 ? (
+          <div
+            className="hairline-card custom-cart-bar"
+            role="region"
+            aria-label="Selected agent CLI builder"
+          >
+            <div className="custom-cart-header">
+              <div className="custom-cart-title-row">
+                <span className="pill-badge">
+                  <Terminal size={12} aria-hidden="true" />
+                  <span>{selectedAgents.length} Selected for CLI</span>
+                </span>
+                <label className="matrix-flag-toggle">
+                  <input
+                    type="checkbox"
+                    checked={includeSkillsInCart}
+                    onChange={(e) => setIncludeSkillsInCart(e.target.checked)}
+                  />
+                  <code>--skills</code>
+                </label>
+                <div className="terminal-mode-switch" role="group" aria-label="Cart CLI mode">
+                  <button
+                    type="button"
+                    className="terminal-mode-btn"
+                    aria-pressed={cliMode === 'local'}
+                    onClick={() => setCliMode('local')}
+                  >
+                    Local CLI
+                  </button>
+                  <button
+                    type="button"
+                    className="terminal-mode-btn"
+                    aria-pressed={cliMode === 'bootstrap'}
+                    onClick={() => setCliMode('bootstrap')}
+                  >
+                    Git Clone + Run
+                  </button>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                className="terminal-copy-btn"
+                onClick={() => setSelectedAgents([])}
+                aria-label="Clear selected agents"
+              >
+                <X size={12} aria-hidden="true" />
+                <span>Clear</span>
+              </button>
+            </div>
+
+            <div className="runbook-roster-chips custom-cart-chips">
+              {selectedAgents.map((slug) => (
+                <button
+                  key={slug}
+                  type="button"
+                  className="cart-agent-chip"
+                  onClick={() => toggleSelectAgent(slug)}
+                  aria-label={`Remove ${slug}`}
+                >
+                  <code>{slug}</code>
+                  <X size={11} aria-hidden="true" />
+                </button>
+              ))}
+            </div>
+
+            <div className="skills-cli-banner-row">
+              <pre className="terminal-code-wrap skills-code-wrap">
+                <span className="terminal-prompt" aria-hidden="true">
+                  &gt;
+                </span>
+                <code className="terminal-command">{customAgentCommand}</code>
+              </pre>
+
+              <button
+                type="button"
+                className="terminal-copy-btn"
+                onClick={() => handleCopyCommand('custom-cart', customAgentCommand)}
+                aria-label="Copy selected agents command"
+              >
+                {copyFeedback?.slug === 'custom-cart' && copyFeedback.status === 'copied' ? (
+                  <Check size={14} aria-hidden="true" />
+                ) : (
+                  <Copy size={14} aria-hidden="true" />
+                )}
+                <span>
+                  {copyFeedback?.slug === 'custom-cart' && copyFeedback.status === 'copied'
+                    ? 'Copied'
+                    : 'Copy CLI command'}
+                </span>
+              </button>
+            </div>
+          </div>
+        ) : null}
 
         <div className="workforce-toolbar">
           <div className="workforce-search-wrap">
@@ -134,7 +274,7 @@ export function WorkforceSection({ divisions, runbooks }: WorkforceSectionProps)
               id="division-search"
               className="workforce-search-input"
               aria-label="Search divisions"
-              placeholder="Filter divisions or agents (e.g. engineering, security, godot)..."
+              placeholder="Filter divisions or 296 agents (e.g. engineering, security, godot, architect)..."
               value={query}
               onChange={(event) => setQuery(event.target.value)}
             />
@@ -162,6 +302,36 @@ export function WorkforceSection({ divisions, runbooks }: WorkforceSectionProps)
           <div className="grid-responsive workforce-grid">
             {filteredDivisions.map((division) => {
               const Icon = getDivisionIcon(division.icon);
+              const allAgents = division.agents ?? division.samples.map((s) => ({
+                ...s,
+                path: `${division.slug}/${s.slug}.md`,
+              }));
+
+              const matchingAgents = trimmedQuery
+                ? allAgents.filter(
+                    (a) =>
+                      a.name.toLowerCase().includes(trimmedQuery) ||
+                      a.slug.toLowerCase().includes(trimmedQuery) ||
+                      a.description.toLowerCase().includes(trimmedQuery)
+                  )
+                : allAgents;
+
+              const agentsToDisplay =
+                matchingAgents.length > 0 ? matchingAgents : allAgents;
+              const isExpanded = Boolean(expandedDivisions[division.id] || trimmedQuery);
+              const visibleAgents = isExpanded
+                ? agentsToDisplay
+                : agentsToDisplay.slice(0, 4);
+
+              const divisionCliCmd = buildInstallCommand({
+                mode: cliMode,
+                repoUrl,
+                division: division.slug,
+              });
+              const isDivCopied =
+                copyFeedback?.slug === `div-${division.slug}` &&
+                copyFeedback.status === 'copied';
+
               return (
                 <article key={division.id} className="hairline-card division-card">
                   <div className="division-card-header">
@@ -180,22 +350,110 @@ export function WorkforceSection({ divisions, runbooks }: WorkforceSectionProps)
                     </span>
                   </div>
 
-                  {division.samples.length > 0 ? (
+                  {visibleAgents.length > 0 ? (
                     <ul className="division-samples">
-                      {division.samples.slice(0, 4).map((sample) => (
-                        <li key={sample.slug} className="division-sample-item">
-                          <div className="division-sample-head">
-                            <span className="division-sample-name">{sample.name}</span>
-                            <code className="inline-code">{sample.slug}</code>
-                          </div>
-                          <p className="division-sample-desc">{sample.description}</p>
-                        </li>
-                      ))}
+                      {visibleAgents.map((agent) => {
+                        const isSelected = selectedAgents.includes(agent.slug);
+                        const agentGithubUrl = buildGitHubBlobUrl(
+                          repoUrl,
+                          agent.path || `${division.slug}/${agent.slug}.md`
+                        );
+                        return (
+                          <li key={agent.slug} className="division-sample-item">
+                            <div className="division-sample-head">
+                              <span className="division-sample-name">{agent.name}</span>
+                              <div className="division-agent-actions">
+                                <button
+                                  type="button"
+                                  className={
+                                    isSelected
+                                      ? 'agent-select-btn agent-select-btn-active'
+                                      : 'agent-select-btn'
+                                  }
+                                  aria-pressed={isSelected}
+                                  aria-label={`Select agent ${agent.slug}`}
+                                  onClick={() => toggleSelectAgent(agent.slug)}
+                                >
+                                  {isSelected ? (
+                                    <>
+                                      <Check size={11} aria-hidden="true" />
+                                      <span>Selected</span>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <Plus size={11} aria-hidden="true" />
+                                      <span>+ CLI</span>
+                                    </>
+                                  )}
+                                </button>
+                                <a
+                                  href={agentGithubUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="agent-github-link"
+                                  aria-label={`View ${agent.slug} on GitHub`}
+                                  title={`Open ${agent.slug}.md on GitHub`}
+                                >
+                                  <code>{agent.slug}</code>
+                                  <ExternalLink size={11} aria-hidden="true" />
+                                </a>
+                              </div>
+                            </div>
+                            <p className="division-sample-desc">{agent.description}</p>
+                          </li>
+                        );
+                      })}
                     </ul>
                   ) : null}
 
                   <div className="division-card-footer">
-                    <code className="inline-code">--division {division.slug}</code>
+                    <button
+                      type="button"
+                      className="terminal-copy-btn skill-mini-btn"
+                      onClick={() =>
+                        handleCopyCommand(`div-${division.slug}`, divisionCliCmd)
+                      }
+                      aria-label={`Copy division ${division.slug} CLI command`}
+                    >
+                      {isDivCopied ? (
+                        <Check size={12} aria-hidden="true" />
+                      ) : (
+                        <Copy size={12} aria-hidden="true" />
+                      )}
+                      <span>
+                        {isDivCopied ? 'Copied' : `--division ${division.slug}`}
+                      </span>
+                    </button>
+
+                    {agentsToDisplay.length > 4 && !trimmedQuery ? (
+                      <button
+                        type="button"
+                        className="division-expand-btn"
+                        onClick={() => toggleExpandDivision(division.id)}
+                      >
+                        {isExpanded ? (
+                          <>
+                            <span>Show top 4</span>
+                            <ChevronUp size={13} aria-hidden="true" />
+                          </>
+                        ) : (
+                          <>
+                            <span>Show all {agentsToDisplay.length}</span>
+                            <ChevronDown size={13} aria-hidden="true" />
+                          </>
+                        )}
+                      </button>
+                    ) : (
+                      <a
+                        href={`${repoUrl.replace(/\/+$/, '')}/tree/main/${division.slug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="skill-github-link"
+                      >
+                        <span>GitHub dir</span>
+                        <ExternalLink size={11} aria-hidden="true" />
+                      </a>
+                    )}
                   </div>
                 </article>
               );
@@ -203,12 +461,13 @@ export function WorkforceSection({ divisions, runbooks }: WorkforceSectionProps)
           </div>
         )}
 
-        <div className="runbooks-block">
+        <div id="runbooks" className="runbooks-block">
           <div className="runbooks-header">
             <h3 className="runbooks-heading">NEXUS Scenario Runbooks</h3>
             <p className="runbooks-lead">
               Install a scenario&apos;s core always-on roster in one command using{' '}
-              <code className="inline-code">--agent</code> slugs.
+              <code className="inline-code">--agent</code> slugs, or open the full playbook on
+              GitHub.
             </p>
           </div>
 
@@ -218,11 +477,12 @@ export function WorkforceSection({ divisions, runbooks }: WorkforceSectionProps)
                 runbook.roster.find((group) => group.activation === 'always') ??
                 runbook.roster[0];
               const coreAgents = coreGroup?.agents ?? [];
-              const runbookCommand = buildRunbookCommand(coreAgents);
+              const runbookCommand = buildRunbookCommand(coreAgents, { mode: cliMode });
               const isCopied =
                 copyFeedback?.slug === runbook.slug && copyFeedback.status === 'copied';
               const isFailed =
                 copyFeedback?.slug === runbook.slug && copyFeedback.status === 'failed';
+              const runbookDocUrl = buildGitHubBlobUrl(repoUrl, runbook.doc);
 
               return (
                 <article key={runbook.slug} className="hairline-card runbook-card">
@@ -233,7 +493,20 @@ export function WorkforceSection({ divisions, runbooks }: WorkforceSectionProps)
                     </span>
                   </div>
 
-                  <h4 className="runbook-title">{runbook.title}</h4>
+                  <div className="runbook-title-row">
+                    <h4 className="runbook-title">{runbook.title}</h4>
+                    <a
+                      href={runbookDocUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="skill-github-link"
+                      aria-label={`View ${runbook.title} playbook on GitHub`}
+                    >
+                      <span>Playbook .md</span>
+                      <ExternalLink size={12} aria-hidden="true" />
+                    </a>
+                  </div>
+
                   <p className="runbook-summary">{runbook.summary}</p>
 
                   <div className="runbook-roster-box">
@@ -261,7 +534,7 @@ export function WorkforceSection({ divisions, runbooks }: WorkforceSectionProps)
                       <button
                         type="button"
                         className="terminal-copy-btn"
-                        onClick={() => handleCopyRunbook(runbook.slug, runbookCommand)}
+                        onClick={() => handleCopyRunbookCompat(runbook.slug, runbookCommand)}
                         aria-label={`Copy ${runbook.title} command`}
                       >
                         {isCopied ? (
@@ -289,4 +562,8 @@ export function WorkforceSection({ divisions, runbooks }: WorkforceSectionProps)
       </div>
     </section>
   );
+
+  function handleCopyRunbookCompat(slug: string, command: string) {
+    return handleCopyCommand(slug, command);
+  }
 }

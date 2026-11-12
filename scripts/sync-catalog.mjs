@@ -19,12 +19,20 @@ function parseFrontmatter(content) {
     if (keyMatch) {
       currentKey = keyMatch[1];
       let val = keyMatch[2].trim();
-      if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+      if (val === '>-' || val === '>' || val === '|-' || val === '|') {
+        val = '';
+      } else if (
+        (val.startsWith('"') && val.endsWith('"')) ||
+        (val.startsWith("'") && val.endsWith("'"))
+      ) {
         val = val.slice(1, -1);
       }
       data[currentKey] = val;
     } else if (currentKey && (line.startsWith('  ') || line.startsWith('\t'))) {
-      data[currentKey] += ' ' + line.trim();
+      const part = line.trim();
+      if (part) {
+        data[currentKey] = data[currentKey] ? `${data[currentKey]} ${part}` : part;
+      }
     }
   }
   return data;
@@ -120,15 +128,23 @@ export function buildCatalog(repoRoot) {
     const mdFiles = walkDirForMarkdown(divDir);
     totalAgents += mdFiles.length;
 
-    const samples = mdFiles.slice(0, 4).map((filePath) => {
+    const agents = mdFiles.map((filePath) => {
       const content = fs.readFileSync(filePath, 'utf8');
       const fm = parseFrontmatter(content);
+      const relPath = path.relative(repoRoot, filePath).split(path.sep).join('/');
       return {
         name: fm.name || path.basename(filePath, '.md'),
         description: fm.description || '',
         slug: path.basename(filePath, '.md'),
+        path: relPath,
       };
     });
+
+    const samples = agents.slice(0, 4).map(({ name, description, slug }) => ({
+      name,
+      description,
+      slug,
+    }));
 
     divisions.push({
       id: key,
@@ -138,21 +154,52 @@ export function buildCatalog(repoRoot) {
       color: meta.color,
       agentCount: mdFiles.length,
       samples,
+      agents,
     });
   }
 
   const skillsDir = path.join(repoRoot, 'skills');
-  let skillCount = 0;
+  const skills = [];
   if (fs.existsSync(skillsDir)) {
-    const entries = fs.readdirSync(skillsDir, { withFileTypes: true });
-    skillCount = entries.filter((e) => e.isDirectory() && !e.name.startsWith('.')).length;
+    const entries = fs
+      .readdirSync(skillsDir, { withFileTypes: true })
+      .filter((e) => e.isDirectory() && !e.name.startsWith('.'))
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    for (const entry of entries) {
+      const skillFile = path.join(skillsDir, entry.name, 'SKILL.md');
+      let fm = {};
+      if (fs.existsSync(skillFile)) {
+        fm = parseFrontmatter(fs.readFileSync(skillFile, 'utf8'));
+      }
+      skills.push({
+        slug: entry.name,
+        name: fm.name || entry.name,
+        description: fm.description || '',
+        path: `skills/${entry.name}/SKILL.md`,
+      });
+    }
   }
 
   const agentsDir = path.join(repoRoot, 'agents');
-  let reviewerCount = 0;
+  const reviewers = [];
   if (fs.existsSync(agentsDir)) {
-    const entries = fs.readdirSync(agentsDir);
-    reviewerCount = entries.filter((f) => f.endsWith('.md') && !f.startsWith('.')).length;
+    const entries = fs
+      .readdirSync(agentsDir)
+      .filter((f) => f.endsWith('.md') && !f.startsWith('.'))
+      .sort((a, b) => a.localeCompare(b));
+
+    for (const fileName of entries) {
+      const fullPath = path.join(agentsDir, fileName);
+      const fm = parseFrontmatter(fs.readFileSync(fullPath, 'utf8'));
+      const slug = path.basename(fileName, '.md');
+      reviewers.push({
+        slug,
+        name: fm.name || slug,
+        description: fm.description || '',
+        path: `agents/${fileName}`,
+      });
+    }
   }
 
   const runbooks = runbooksJson.runbooks.map((r) => ({
@@ -166,12 +213,14 @@ export function buildCatalog(repoRoot) {
       agents: totalAgents,
       divisions: divisions.length,
       tools: tools.length,
-      skills: skillCount,
-      reviewers: reviewerCount,
+      skills: skills.length,
+      reviewers: reviewers.length,
       runbooks: runbooks.length,
     },
     tools,
     divisions,
+    skills,
+    reviewers,
     runbooks,
   };
 }
@@ -181,6 +230,8 @@ function extractCatalogPayload(catalog) {
     totals: catalog?.totals,
     tools: catalog?.tools,
     divisions: catalog?.divisions,
+    skills: catalog?.skills,
+    reviewers: catalog?.reviewers,
     runbooks: catalog?.runbooks,
   };
 }
@@ -188,7 +239,10 @@ function extractCatalogPayload(catalog) {
 export function syncCatalog(repoRoot = DEFAULT_REPO_ROOT) {
   const data = buildCatalog(repoRoot);
 
-  const appDir = path.join(repoRoot, 'app');
+  const appDir =
+    repoRoot === DEFAULT_REPO_ROOT
+      ? path.resolve(__dirname, '..')
+      : path.join(repoRoot, 'app');
   const targetJsonPath = path.join(appDir, 'src/data/catalog.generated.json');
   let shouldWriteJson = true;
 
@@ -228,7 +282,7 @@ export function syncCatalog(repoRoot = DEFAULT_REPO_ROOT) {
   fs.copyFileSync(path.join(repoRoot, 'assets/logo-icon.svg'), path.join(publicDir, 'logo-icon.svg'));
 
   console.log(
-    `[sync-catalog] ✓ ${shouldWriteJson ? 'Synced' : 'Up-to-date'} catalog (${data.totals.agents} agents, ${data.totals.tools} tools, ${data.totals.divisions} divisions) -> ${targetJsonPath}`
+    `[sync-catalog] ✓ ${shouldWriteJson ? 'Synced' : 'Up-to-date'} catalog (${data.totals.agents} agents, ${data.totals.skills} skills, ${data.totals.tools} tools, ${data.totals.divisions} divisions) -> ${targetJsonPath}`
   );
   return data;
 }

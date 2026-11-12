@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Check, Copy, ExternalLink, Mail } from 'lucide-react';
 import type { SiteConfig } from '../data/types';
 import { copyText } from '../lib/clipboard';
+import { navigateToSection } from '../lib/navigation';
 import '../styles/sections.css';
 
 export interface ContactFooterProps {
@@ -54,6 +55,7 @@ export function ContactFooter({ site }: ContactFooterProps) {
   const creatorHref = resolveExternalHref(site.creatorUrl);
   const repoHref = resolveExternalHref(site.repoUrl) ?? resolveExternalHref(site.githubUrl);
   const xHref = resolveExternalHref(site.xUrl);
+  const bmcHref = resolveExternalHref(site.buyMeACoffeeUrl);
 
   return (
     <footer id="contact" className="site-footer" aria-labelledby="contact-heading">
@@ -162,6 +164,19 @@ export function ContactFooter({ site }: ContactFooterProps) {
                   <ExternalLink size={14} aria-hidden="true" />
                 </a>
               ) : null}
+
+              {bmcHref ? (
+                <a
+                  href={bmcHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline bmc-button"
+                >
+                  <span aria-hidden="true">☕</span>
+                  <span>Buy me a coffee</span>
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+              ) : null}
             </div>
           </div>
         </div>
@@ -188,7 +203,11 @@ export function ContactFooter({ site }: ContactFooterProps) {
             </p>
           </div>
 
-          <a href="#top" className="site-nav-link">
+          <a
+            href="/"
+            className="site-nav-link"
+            onClick={(e) => navigateToSection('hero', e)}
+          >
             Back to top
           </a>
         </div>

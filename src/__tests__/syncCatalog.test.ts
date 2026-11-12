@@ -9,6 +9,8 @@ import { verifyDistHtml } from '../../scripts/verify-dist.mjs';
 function createFixtureRepo(rootDir: string) {
   fs.mkdirSync(path.join(rootDir, 'engineering'), { recursive: true });
   fs.mkdirSync(path.join(rootDir, 'strategy'), { recursive: true });
+  fs.mkdirSync(path.join(rootDir, 'skills/hive-brainstorm'), { recursive: true });
+  fs.mkdirSync(path.join(rootDir, 'agents'), { recursive: true });
   fs.mkdirSync(path.join(rootDir, 'assets'), { recursive: true });
 
   fs.writeFileSync(
@@ -73,6 +75,18 @@ function createFixtureRepo(rootDir: string) {
     'utf8'
   );
 
+  fs.writeFileSync(
+    path.join(rootDir, 'skills/hive-brainstorm/SKILL.md'),
+    '---\nname: hive-brainstorm\ndescription: >-\n  Interactive brainstorming skill\n  for structured RFCs.\n---\nSkill Body\n',
+    'utf8'
+  );
+
+  fs.writeFileSync(
+    path.join(rootDir, 'agents/hive-design-critic.md'),
+    '---\nname: hive-design-critic\ndescription: Hostile design critic persona.\n---\nReviewer Body\n',
+    'utf8'
+  );
+
   fs.writeFileSync(path.join(rootDir, 'assets/logo.svg'), '<svg></svg>', 'utf8');
   fs.writeFileSync(path.join(rootDir, 'assets/logo-icon.svg'), '<svg></svg>', 'utf8');
 }
@@ -91,6 +105,20 @@ describe('sync-catalog', () => {
       Array.from({ length: 17 }, (_, i) => i + 1)
     );
     expect(catalogData.divisions[0]).toHaveProperty('samples');
+    expect(catalogData.divisions[0]).toHaveProperty('agents');
+    expect(catalogData.divisions[0].agents.length).toBe(catalogData.divisions[0].agentCount);
+    expect(catalogData.divisions[0].agents[0]).toHaveProperty('path');
+    expect(catalogData.skills).toHaveLength(21);
+    expect(catalogData.skills[0]).toMatchObject({
+      slug: expect.stringMatching(/^hive-/),
+      path: expect.stringMatching(/^skills\/hive-.*\/SKILL\.md$/),
+    });
+    expect(catalogData.skills[0].description).not.toMatch(/^>-/);
+    expect(catalogData.reviewers).toHaveLength(10);
+    expect(catalogData.reviewers[0]).toMatchObject({
+      slug: expect.stringMatching(/^hive-/),
+      path: expect.stringMatching(/^agents\/hive-.*\.md$/),
+    });
   });
 
   it('throws descriptive error when tools.json or divisions.json is missing', () => {

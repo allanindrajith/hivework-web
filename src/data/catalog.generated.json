@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-12T19:23:36.062Z",
+  "generatedAt": "2026-11-12T22:22:43.109Z",
   "totals": {
     "agents": 296,
     "divisions": 18,
@@ -654,6 +654,44 @@
           "description": "Expert in narrative theory, story structure, character arcs, and literary analysis — grounds advice in established frameworks from Propp to Campbell to modern narratology",
           "slug": "hive-narratologist"
         }
+      ],
+      "agents": [
+        {
+          "name": "Anthropologist",
+          "description": "Expert in cultural systems, rituals, kinship, belief systems, and ethnographic method — builds culturally coherent societies that feel lived-in rather than invented",
+          "slug": "hive-anthropologist",
+          "path": "academic/hive-anthropologist.md"
+        },
+        {
+          "name": "Geographer",
+          "description": "Expert in physical and human geography, climate systems, cartography, and spatial analysis — builds geographically coherent worlds where terrain, climate, resources, and settlement patterns make scientific sense",
+          "slug": "hive-geographer",
+          "path": "academic/hive-geographer.md"
+        },
+        {
+          "name": "Historian",
+          "description": "Expert in historical analysis, periodization, material culture, and historiography — validates historical coherence and enriches settings with authentic period detail grounded in primary and secondary sources",
+          "slug": "hive-historian",
+          "path": "academic/hive-historian.md"
+        },
+        {
+          "name": "Narratologist",
+          "description": "Expert in narrative theory, story structure, character arcs, and literary analysis — grounds advice in established frameworks from Propp to Campbell to modern narratology",
+          "slug": "hive-narratologist",
+          "path": "academic/hive-narratologist.md"
+        },
+        {
+          "name": "Psychologist",
+          "description": "Expert in human behavior, personality theory, motivation, and cognitive patterns — builds psychologically credible characters and interactions grounded in clinical and research frameworks",
+          "slug": "hive-psychologist",
+          "path": "academic/hive-psychologist.md"
+        },
+        {
+          "name": "Statistician",
+          "description": "Expert in quantitative research methodology, experimental design, and statistical inference — pressure-tests claims, designs sound studies, and separates real signal from noise, chance, and bias",
+          "slug": "hive-statistician",
+          "path": "academic/hive-statistician.md"
+        }
       ]
     },
     {
@@ -683,6 +721,68 @@
           "name": "Persona Walkthrough Specialist",
           "description": "Simulate cognitive walkthroughs of web pages from a defined persona's psychological perspective — captures emotional reactions and rational thought at each scroll position, then delivers structured CRO reports grounded in LIFT, Cialdini, and Fogg frameworks",
           "slug": "hive-persona-walkthrough"
+        }
+      ],
+      "agents": [
+        {
+          "name": "Brand Guardian",
+          "description": "Expert brand strategist and guardian specializing in brand identity development, consistency maintenance, and strategic brand positioning",
+          "slug": "hive-brand-guardian",
+          "path": "design/hive-brand-guardian.md"
+        },
+        {
+          "name": "Image Prompt Engineer",
+          "description": "Expert photography prompt engineer specializing in crafting detailed, evocative prompts for AI image generation. Masters the art of translating visual concepts into precise language that produces stunning, professional-quality photography through generative AI tools.",
+          "slug": "hive-image-prompt-engineer",
+          "path": "design/hive-image-prompt-engineer.md"
+        },
+        {
+          "name": "Inclusive Visuals Specialist",
+          "description": "Representation expert who defeats systemic AI biases to generate culturally accurate, affirming, and non-stereotypical images and video.",
+          "slug": "hive-inclusive-visuals-specialist",
+          "path": "design/hive-inclusive-visuals-specialist.md"
+        },
+        {
+          "name": "Persona Walkthrough Specialist",
+          "description": "Simulate cognitive walkthroughs of web pages from a defined persona's psychological perspective — captures emotional reactions and rational thought at each scroll position, then delivers structured CRO reports grounded in LIFT, Cialdini, and Fogg frameworks",
+          "slug": "hive-persona-walkthrough",
+          "path": "design/hive-persona-walkthrough.md"
+        },
+        {
+          "name": "UI Designer",
+          "description": "Expert UI designer specializing in visual design systems, component libraries, and pixel-perfect interface creation. Creates beautiful, consistent, accessible user interfaces that enhance UX and reflect brand identity",
+          "slug": "hive-ui-designer",
+          "path": "design/hive-ui-designer.md"
+        },
+        {
+          "name": "UI Finish-Gate Reviewer",
+          "description": "Product-interface reviewer who catches generic, interchangeable UI before it ships by grounding critique in real product evidence, a written design contract, and a hard implementation finish gate.",
+          "slug": "hive-ui-finish-gate-reviewer",
+          "path": "design/hive-ui-finish-gate-reviewer.md"
+        },
+        {
+          "name": "UX Architect",
+          "description": "Technical architecture and UX specialist who provides developers with solid foundations, CSS systems, and clear implementation guidance",
+          "slug": "hive-ux-architect",
+          "path": "design/hive-ux-architect.md"
+        },
+        {
+          "name": "UX Researcher",
+          "description": "Expert user experience researcher specializing in user behavior analysis, usability testing, and data-driven design insights. Provides actionable research findings that improve product usability and user satisfaction",
+          "slug": "hive-ux-researcher",
+          "path": "design/hive-ux-researcher.md"
+        },
+        {
+          "name": "Visual Storyteller",
+          "description": "Expert visual communication specialist focused on creating compelling visual narratives, multimedia content, and brand storytelling through design. Specializes in transforming complex information into engaging visual stories that connect with audiences and drive emotional engagement.",
+          "slug": "hive-visual-storyteller",
+          "path": "design/hive-visual-storyteller.md"
+        },
+        {
+          "name": "Whimsy Injector",
+          "description": "Expert creative specialist focused on adding personality, delight, and playful elements to brand experiences. Creates memorable, joyful interactions that differentiate brands through unexpected moments of whimsy",
+          "slug": "hive-whimsy-injector",
+          "path": "design/hive-whimsy-injector.md"
         }
       ]
     },
@@ -714,6 +814,404 @@
           "description": "Architect and validator for Applicant Tracking Systems (ATS) and resume parsers. Combines deterministic information retrieval (BM25/TF-IDF and n-grams without AI), quantified Google/IBM X-Y-Z heuristics calibrated by seniority, layout linearization and PDF text layer integrity auditing, regulatory compliance (EU AI Act, NYC LL 144), sub-5ms client-side execution, and Agent-Native BYOK architecture.",
           "slug": "hive-ats-validator-architect"
         }
+      ],
+      "agents": [
+        {
+          "name": "AI Data Remediation Engineer",
+          "description": "Specialist in self-healing data pipelines — uses air-gapped local SLMs and semantic clustering to automatically detect, classify, and fix data anomalies at scale. Focuses exclusively on the remediation layer: intercepting bad data, generating deterministic fix logic via Ollama, and guaranteeing zero data loss. Not a general data engineer — a surgical specialist for when your data is broken and the pipeline can't stop.",
+          "slug": "hive-ai-data-remediation-engineer",
+          "path": "engineering/hive-ai-data-remediation-engineer.md"
+        },
+        {
+          "name": "AI Engineer",
+          "description": "Expert AI/ML engineer specializing in machine learning model development, deployment, and integration into production systems. Focused on building intelligent features, data pipelines, and AI-powered applications with emphasis on practical, scalable solutions.",
+          "slug": "hive-ai-engineer",
+          "path": "engineering/hive-ai-engineer.md"
+        },
+        {
+          "name": "API Platform Engineer",
+          "description": "Expert API platform engineer for public and partner APIs — contract-first design (OpenAPI/gRPC), versioning and deprecation policy, SDK generation, API gateway concerns (auth, rate limiting, quotas), and developer-portal DX.",
+          "slug": "hive-api-platform-engineer",
+          "path": "engineering/hive-api-platform-engineer.md"
+        },
+        {
+          "name": "ATS Validator Architect",
+          "description": "Architect and validator for Applicant Tracking Systems (ATS) and resume parsers. Combines deterministic information retrieval (BM25/TF-IDF and n-grams without AI), quantified Google/IBM X-Y-Z heuristics calibrated by seniority, layout linearization and PDF text layer integrity auditing, regulatory compliance (EU AI Act, NYC LL 144), sub-5ms client-side execution, and Agent-Native BYOK architecture.",
+          "slug": "hive-ats-validator-architect",
+          "path": "engineering/hive-ats-validator-architect.md"
+        },
+        {
+          "name": "Autonomous Optimization Architect",
+          "description": "Intelligent system governor that continuously shadow-tests APIs for performance while enforcing strict financial and security guardrails against runaway costs.",
+          "slug": "hive-autonomous-optimization-architect",
+          "path": "engineering/hive-autonomous-optimization-architect.md"
+        },
+        {
+          "name": "Backend Architect",
+          "description": "Senior backend architect specializing in scalable system design, database architecture, API development, and cloud infrastructure. Builds robust, secure, performant server-side applications and microservices",
+          "slug": "hive-backend-architect",
+          "path": "engineering/hive-backend-architect.md"
+        },
+        {
+          "name": "China Network Engineer",
+          "description": "Expert in mainland China's mainstream enterprise networking stacks — Huawei VRP, H3C Comware, Ruijie RGOS, and Hillstone StoneOS — covering routing, switching, firewalling, NAT, and MLPS 2.0 (等保) compliant border design for domestic deployments.",
+          "slug": "hive-china-network-engineer",
+          "path": "engineering/hive-china-network-engineer.md"
+        },
+        {
+          "name": "CMS Developer",
+          "description": "Drupal and WordPress specialist for theme development, custom plugins/modules, content architecture, and code-first CMS implementation",
+          "slug": "hive-cms-developer",
+          "path": "engineering/hive-cms-developer.md"
+        },
+        {
+          "name": "Code Reviewer",
+          "description": "Expert code reviewer who provides constructive, actionable feedback focused on correctness, maintainability, security, and performance — not style preferences.",
+          "slug": "hive-code-reviewer",
+          "path": "engineering/hive-code-reviewer.md"
+        },
+        {
+          "name": "Codebase Onboarding Engineer",
+          "description": "Expert developer onboarding specialist who helps new engineers understand unfamiliar codebases fast by reading source code, tracing code paths, and stating only facts grounded in the code.",
+          "slug": "hive-codebase-onboarding-engineer",
+          "path": "engineering/hive-codebase-onboarding-engineer.md"
+        },
+        {
+          "name": "Data Engineer",
+          "description": "Expert data engineer specializing in building reliable data pipelines, lakehouse architectures, and scalable data infrastructure. Masters ETL/ELT, Apache Spark, dbt, streaming systems, and cloud data platforms to turn raw data into trusted, analytics-ready assets.",
+          "slug": "hive-data-engineer",
+          "path": "engineering/hive-data-engineer.md"
+        },
+        {
+          "name": "Data Visualization Engineer",
+          "description": "Expert data visualization engineer — chart-type selection by data and question, perceptually honest encodings, colorblind-safe data palettes, accessible and interactive charts, and rendering large datasets performantly with D3, Vega, and charting libraries.",
+          "slug": "hive-data-visualization-engineer",
+          "path": "engineering/hive-data-visualization-engineer.md"
+        },
+        {
+          "name": "Database Optimizer",
+          "description": "Expert database specialist focusing on schema design, query optimization, indexing strategies, and performance tuning for PostgreSQL, MySQL, and modern databases like Supabase and PlanetScale.",
+          "slug": "hive-database-optimizer",
+          "path": "engineering/hive-database-optimizer.md"
+        },
+        {
+          "name": "Database Reliability Engineer",
+          "description": "Expert database reliability engineer (DBRE) — high availability and replication, automated failover, backup and point-in-time recovery, zero-downtime online schema migrations, connection pooling, and disaster-recovery drills. Focused on keeping data safe and available, not query tuning.",
+          "slug": "hive-database-reliability-engineer",
+          "path": "engineering/hive-database-reliability-engineer.md"
+        },
+        {
+          "name": "Desktop App Engineer",
+          "description": "Expert desktop application engineer for Electron and Tauri — secure IPC and process isolation, code signing and notarization, auto-update pipelines, native OS integration, and resource-footprint discipline.",
+          "slug": "hive-desktop-app-engineer",
+          "path": "engineering/hive-desktop-app-engineer.md"
+        },
+        {
+          "name": "Developer Tooling Engineer",
+          "description": "Expert developer-tooling and CLI engineer — building command-line tools and internal developer platforms with great DX: intuitive command design, helpful errors, shell completions, fast startup, cross-platform distribution, and scriptable, composable interfaces.",
+          "slug": "hive-developer-tooling-engineer",
+          "path": "engineering/hive-developer-tooling-engineer.md"
+        },
+        {
+          "name": "DevOps Automator",
+          "description": "Expert DevOps engineer specializing in infrastructure automation, CI/CD pipeline development, and cloud operations",
+          "slug": "hive-devops-automator",
+          "path": "engineering/hive-devops-automator.md"
+        },
+        {
+          "name": "Drupal Performance Engineer",
+          "description": "Expert Drupal 10/11 performance engineer specializing in Core Web Vitals, render and dynamic page caching, BigPipe, cache tags and contexts, database query and Views optimization, CSS/JS aggregation, responsive images and lazy loading, CDN integration, and opcache/PHP-FPM tuning for fast, audit-passing sites",
+          "slug": "hive-drupal-performance",
+          "path": "engineering/hive-drupal-performance.md"
+        },
+        {
+          "name": "Drupal Shopping Cart Engineer",
+          "description": "Expert Drupal e-commerce engineer specializing in Drupal Commerce for product catalog management, payment gateway integration, checkout workflow design, order management, tax and promotion configuration, and high-reliability storefront delivery on Drupal 10/11",
+          "slug": "hive-drupal-shopping-cart",
+          "path": "engineering/hive-drupal-shopping-cart.md"
+        },
+        {
+          "name": "Electrical Engineer",
+          "description": "Power systems engineer for telecom sites, buildings and infrastructure projects. Sizes loads, cables, batteries, rectifiers, generators and solar; designs earthing and lightning protection; reviews drawings, BOQs and commissioning records; and turns electrical requirements into software calculation rules and validation checks with explicit professional-review boundaries.",
+          "slug": "hive-electrical-engineer",
+          "path": "engineering/hive-electrical-engineer.md"
+        },
+        {
+          "name": "Email Intelligence Engineer",
+          "description": "Expert in extracting structured, reasoning-ready data from raw email threads for AI agents and automation systems",
+          "slug": "hive-email-intelligence-engineer",
+          "path": "engineering/hive-email-intelligence-engineer.md"
+        },
+        {
+          "name": "Embedded Firmware Engineer",
+          "description": "Specialist in bare-metal and RTOS firmware - ESP32/ESP-IDF, PlatformIO, Arduino, ARM Cortex-M, STM32 HAL/LL, Nordic nRF5/nRF Connect SDK, FreeRTOS, Zephyr",
+          "slug": "hive-embedded-firmware-engineer",
+          "path": "engineering/hive-embedded-firmware-engineer.md"
+        },
+        {
+          "name": "Feishu Integration Developer",
+          "description": "Full-stack integration expert specializing in the Feishu (Lark) Open Platform — proficient in Feishu bots, mini programs, approval workflows, Bitable (multidimensional spreadsheets), interactive message cards, Webhooks, SSO authentication, and workflow automation, building enterprise-grade collaboration and automation solutions within the Feishu ecosystem.",
+          "slug": "hive-feishu-integration-developer",
+          "path": "engineering/hive-feishu-integration-developer.md"
+        },
+        {
+          "name": "Filament Optimization Specialist",
+          "description": "Expert in restructuring and optimizing Filament PHP admin interfaces for maximum usability and efficiency. Focuses on impactful structural changes — not just cosmetic tweaks.",
+          "slug": "hive-filament-optimization-specialist",
+          "path": "engineering/hive-filament-optimization-specialist.md"
+        },
+        {
+          "name": "FinOps Engineer",
+          "description": "Expert cloud cost engineer for AWS/GCP/Azure — cost allocation and tagging, rightsizing, commitment planning (reserved instances/savings plans), egress and storage optimization, and unit-economics dashboards that tie spend to business value.",
+          "slug": "hive-finops-engineer",
+          "path": "engineering/hive-finops-engineer.md"
+        },
+        {
+          "name": "Frontend Developer",
+          "description": "Expert frontend developer specializing in modern web technologies, React/Vue/Angular frameworks, UI implementation, and performance optimization",
+          "slug": "hive-frontend-developer",
+          "path": "engineering/hive-frontend-developer.md"
+        },
+        {
+          "name": "GaussDB Expert Engineer",
+          "description": "Expert database specialist focusing on GaussDB OLTP — Huawei's self-developed enterprise-grade relational database (NOT GaussDB(DWS) OLAP, NOT GaussDB(for openGauss) cloud service, NOT GaussDB(for MySQL)). Covers schema design, distributed table design, query optimization, indexing, Ustore engine, and performance tuning for both distributed and centralized deployments.",
+          "slug": "hive-gaussdb-expert",
+          "path": "engineering/hive-gaussdb-expert.md"
+        },
+        {
+          "name": "Git Workflow Master",
+          "description": "Expert in Git workflows, branching strategies, and version control best practices including conventional commits, rebasing, worktrees, and CI-friendly branch management.",
+          "slug": "hive-git-workflow-master",
+          "path": "engineering/hive-git-workflow-master.md"
+        },
+        {
+          "name": "Internationalization Engineer",
+          "description": "Expert i18n engineer for ICU MessageFormat, CLDR plural rules, RTL and bidirectional layouts, locale-aware date/number/currency formatting, string extraction pipelines, and pseudo-localization testing.",
+          "slug": "hive-i18n-engineer",
+          "path": "engineering/hive-i18n-engineer.md"
+        },
+        {
+          "name": "Identity & Access Engineer",
+          "description": "Expert identity engineer for OAuth 2.0/OIDC flows, enterprise SSO (SAML/OIDC) and SCIM provisioning, passkeys/WebAuthn, session architecture, and multi-tenant authorization with RBAC/ABAC.",
+          "slug": "hive-identity-access-engineer",
+          "path": "engineering/hive-identity-access-engineer.md"
+        },
+        {
+          "name": "Incident Response Commander",
+          "description": "Expert incident commander specializing in production incident management, structured response coordination, post-mortem facilitation, SLO/SLI tracking, and on-call process design for reliable engineering organizations.",
+          "slug": "hive-incident-response-commander",
+          "path": "engineering/hive-incident-response-commander.md"
+        },
+        {
+          "name": "IoT Fleet Engineer",
+          "description": "Expert IoT and edge fleet engineer — device provisioning and identity, MQTT/telemetry pipelines, staged over-the-air (OTA) firmware updates with rollback, edge compute, and observability across fleets of unreliable, intermittently-connected devices.",
+          "slug": "hive-iot-fleet-engineer",
+          "path": "engineering/hive-iot-fleet-engineer.md"
+        },
+        {
+          "name": "IT Service Manager",
+          "description": "Expert IT service management specialist using ITIL 4 framework for service catalog design, incident and problem management, change control, SLA governance, CMDB maintenance, and continual service improvement — ensuring IT delivers reliable, measurable business value across any organization size",
+          "slug": "hive-it-service-manager",
+          "path": "engineering/hive-it-service-manager.md"
+        },
+        {
+          "name": "Knowledge Graph Engineer",
+          "description": "Structures information and capabilities into interconnected nodes (entities) and edges (relationships) — enabling dynamic context navigation, modular competency chaining, lower token costs, and hallucination reduction.",
+          "slug": "hive-knowledge-graph-engineer",
+          "path": "engineering/hive-knowledge-graph-engineer.md"
+        },
+        {
+          "name": "LLM Post-Training Engineer",
+          "description": "Evidence-driven owner for SFT, preference optimization, RLHF/RLVR, MoE post-training, and the release gates that turn a checkpoint into a defensible model change.",
+          "slug": "hive-llm-post-training-engineer",
+          "path": "engineering/hive-llm-post-training-engineer.md"
+        },
+        {
+          "name": "Minimal Change Engineer",
+          "description": "Engineering specialist focused on minimum-viable diffs — fixes only what was asked, refuses scope creep, prefers three similar lines over a premature abstraction. The discipline that prevents bug-fix PRs from becoming refactor avalanches.",
+          "slug": "hive-minimal-change-engineer",
+          "path": "engineering/hive-minimal-change-engineer.md"
+        },
+        {
+          "name": "Mobile App Builder",
+          "description": "Specialized mobile application developer with expertise in native iOS/Android development and cross-platform frameworks",
+          "slug": "hive-mobile-app-builder",
+          "path": "engineering/hive-mobile-app-builder.md"
+        },
+        {
+          "name": "Mobile Release Engineer",
+          "description": "Expert mobile release and distribution engineer for iOS and Android — code signing, provisioning, fastlane pipelines, App Store Connect and Play Console submission, phased rollouts, and crash-triaged release health.",
+          "slug": "hive-mobile-release-engineer",
+          "path": "engineering/hive-mobile-release-engineer.md"
+        },
+        {
+          "name": "Multi-Agent Systems Architect",
+          "description": "Systems architect specializing in the design, coordination, and governance of multi-agent AI pipelines — covering topology selection, context management, inter-agent trust, failure recovery, human-in-the-loop gating, and observability for production-grade agent systems.",
+          "slug": "hive-multi-agent-systems-architect",
+          "path": "engineering/hive-multi-agent-systems-architect.md"
+        },
+        {
+          "name": "Network Engineer",
+          "description": "Expert network engineer for Cisco IOS/IOS-XE, Cisco ASA/FTD, Juniper Junos, and Palo Alto PAN-OS routing, switching, firewalling, and troubleshooting.",
+          "slug": "hive-network-engineer",
+          "path": "engineering/hive-network-engineer.md"
+        },
+        {
+          "name": "OrgScript Engineer",
+          "description": "Expert in designing, parsing, and implementing OrgScript grammar, AST validation, and business logic definitions.",
+          "slug": "hive-orgscript-engineer",
+          "path": "engineering/hive-orgscript-engineer.md"
+        },
+        {
+          "name": "Payments & Billing Engineer",
+          "description": "Expert payments engineer for PSP integrations (Stripe, Adyen, Braintree, PayPal), idempotent payment flows, webhook processing, subscription billing, SCA/3DS, PCI scope reduction, and financial reconciliation.",
+          "slug": "hive-payments-billing-engineer",
+          "path": "engineering/hive-payments-billing-engineer.md"
+        },
+        {
+          "name": "PDF Engine Architect",
+          "description": "Architect and specialist in deterministic HTML-to-PDF document compilation, Playwright browser context pools, dynamic Euclidean page sizing, LayoutNG subpixel budgeting, tagged PDF (PDF/UA-1 & PDF/A-2b), and 1:1 sheet canvas editors.",
+          "slug": "hive-pdf-engine-architect",
+          "path": "engineering/hive-pdf-engine-architect.md"
+        },
+        {
+          "name": "Platform Engineer",
+          "description": "Expert internal developer platform (IDP) engineer specializing in golden paths, paved roads, and self-serve infrastructure that multiplies engineering velocity.",
+          "slug": "hive-platform-engineer",
+          "path": "engineering/hive-platform-engineer.md"
+        },
+        {
+          "name": "Privacy Engineer",
+          "description": "Expert privacy engineer who implements privacy in code — PII discovery and classification, data minimization, consent enforcement at the API layer, automated DSAR and deletion across services, pseudonymization/tokenization, and retention automation. Builds the technical controls a privacy policy only promises.",
+          "slug": "hive-privacy-engineer",
+          "path": "engineering/hive-privacy-engineer.md"
+        },
+        {
+          "name": "Prompt Engineer",
+          "description": "Specialist in crafting, testing, and systematically optimizing prompts for LLMs — turning vague instructions into reliable, production-grade AI behaviors.",
+          "slug": "hive-prompt-engineer",
+          "path": "engineering/hive-prompt-engineer.md"
+        },
+        {
+          "name": "RAG Pipeline Engineer",
+          "description": "Production RAG specialist focused on chunking strategy, retrieval quality, hybrid search, re-ranking, and eval-driven iteration. Builds pipelines that actually retrieve the right context — not just pipelines that run.",
+          "slug": "hive-rag-pipeline-engineer",
+          "path": "engineering/hive-rag-pipeline-engineer.md"
+        },
+        {
+          "name": "Rapid Prototyper",
+          "description": "Specialized in ultra-fast proof-of-concept development and MVP creation using efficient tools and frameworks",
+          "slug": "hive-rapid-prototyper",
+          "path": "engineering/hive-rapid-prototyper.md"
+        },
+        {
+          "name": "Realtime Collaboration Engineer",
+          "description": "Expert realtime systems engineer for WebSocket/SSE infrastructure, presence, CRDT and OT-based collaborative editing, offline-first sync engines, and fan-out scaling with reconnect-safe protocols.",
+          "slug": "hive-realtime-collaboration-engineer",
+          "path": "engineering/hive-realtime-collaboration-engineer.md"
+        },
+        {
+          "name": "Rust Refactoring Specialist",
+          "description": "Expert Rust engineer for repository-scale refactoring, safe renames, module restructuring, duplication removal, panic hardening, ownership improvements, and compiler or Clippy remediation.",
+          "slug": "hive-rust-refactoring-specialist",
+          "path": "engineering/hive-rust-refactoring-specialist.md"
+        },
+        {
+          "name": "Search Relevance Engineer",
+          "description": "Expert search engineer for Elasticsearch and OpenSearch — index and analyzer design, BM25 query tuning, hybrid lexical+vector retrieval, and judgment-based relevance evaluation with nDCG and online experiments.",
+          "slug": "hive-search-relevance-engineer",
+          "path": "engineering/hive-search-relevance-engineer.md"
+        },
+        {
+          "name": "Section 508 Accessibility Specialist",
+          "description": "Expert U.S. federal Section 508 accessibility engineer (the 508 legal baseline is WCAG 2.0 Level AA; WCAG 2.1/2.2 AA are recommended best practice, and ADA Title II requires WCAG 2.1 AA for state/local government) specializing in accessible web development, ARIA implementation, screen reader testing (JAWS/NVDA/VoiceOver), keyboard navigation, color contrast, accessible forms and PDFs, VPAT/ACR authoring, automated and manual auditing (axe/WAVE/Lighthouse), and remediation for government and enterprise sites",
+          "slug": "hive-section-508-specialist",
+          "path": "engineering/hive-section-508-specialist.md"
+        },
+        {
+          "name": "Senior Developer",
+          "description": "Premium implementation specialist - Masters Laravel/Livewire/FluxUI, advanced CSS, Three.js integration",
+          "slug": "hive-senior-developer",
+          "path": "engineering/hive-senior-developer.md"
+        },
+        {
+          "name": "ServiceNow Developer & Mentor",
+          "description": "ServiceNow platform developer and step-by-step troubleshooter — Business Rules, Script Includes, GlideRecord/GlideAggregate, Flow Designer, ACLs, and \"is this OOTB or did custom break it?\" isolation",
+          "slug": "hive-servicenow-developer-mentor",
+          "path": "engineering/hive-servicenow-developer-mentor.md"
+        },
+        {
+          "name": "Software Architect",
+          "description": "Expert software architect specializing in system design, domain-driven design, architectural patterns, and technical decision-making for scalable, maintainable systems.",
+          "slug": "hive-software-architect",
+          "path": "engineering/hive-software-architect.md"
+        },
+        {
+          "name": "Solidity Smart Contract Engineer",
+          "description": "Expert Solidity developer specializing in EVM smart contract architecture, gas optimization, upgradeable proxy patterns, DeFi protocol development, and security-first contract design across Ethereum and L2 chains.",
+          "slug": "hive-solidity-smart-contract-engineer",
+          "path": "engineering/hive-solidity-smart-contract-engineer.md"
+        },
+        {
+          "name": "SRE (Site Reliability Engineer)",
+          "description": "Expert site reliability engineer specializing in SLOs, error budgets, observability, chaos engineering, and toil reduction for production systems at scale.",
+          "slug": "hive-sre",
+          "path": "engineering/hive-sre.md"
+        },
+        {
+          "name": "Technical Writer",
+          "description": "Expert technical writer specializing in developer documentation, API references, README files, and tutorials. Transforms complex engineering concepts into clear, accurate, and engaging docs that developers actually read and use.",
+          "slug": "hive-technical-writer",
+          "path": "engineering/hive-technical-writer.md"
+        },
+        {
+          "name": "Universal Document Compiler",
+          "description": "Architect of schema-agnostic document ASTs, algorithmic data-shape layout inference, bidirectional CST-to-canvas synchronization, and universal paged document publishing.",
+          "slug": "hive-universal-document-compiler",
+          "path": "engineering/hive-universal-document-compiler.md"
+        },
+        {
+          "name": "USWDS Developer",
+          "description": "Expert U.S. Web Design System frontend developer specializing in USWDS components and design tokens, accessible-by-default patterns, responsive government UI, Sass settings/theming, the federal design language, integration into CMS platforms (Drupal/WordPress), and compliance with 21st Century IDEA and the Federal Website Standards",
+          "slug": "hive-uswds-developer",
+          "path": "engineering/hive-uswds-developer.md"
+        },
+        {
+          "name": "Video Streaming Engineer",
+          "description": "Expert video streaming engineer for adaptive bitrate delivery — HLS/DASH packaging, ffmpeg transcode ladders, CMAF low-latency, DRM, CDN delivery, and QoE-driven player tuning.",
+          "slug": "hive-video-streaming-engineer",
+          "path": "engineering/hive-video-streaming-engineer.md"
+        },
+        {
+          "name": "Voice AI Integration Engineer",
+          "description": "Expert in building end-to-end speech transcription pipelines using Whisper-style models and cloud ASR services — from raw audio ingestion through preprocessing, transcript cleanup, subtitle generation, speaker diarization, and structured downstream integration into apps, APIs, and CMS platforms.",
+          "slug": "hive-voice-ai-integration-engineer",
+          "path": "engineering/hive-voice-ai-integration-engineer.md"
+        },
+        {
+          "name": "WebAssembly Engineer",
+          "description": "Expert WebAssembly engineer — compiling Rust/C++/Go to Wasm, JS interop and the boundary marshalling cost, WASI and server-side runtimes (Wasmtime/Wasmer), the component model, and near-native performance tuning.",
+          "slug": "hive-webassembly-engineer",
+          "path": "engineering/hive-webassembly-engineer.md"
+        },
+        {
+          "name": "WeChat Mini Program Developer",
+          "description": "Expert WeChat Mini Program developer specializing in 小程序 development with WXML/WXSS/WXS, WeChat API integration, payment systems, subscription messaging, and the full WeChat ecosystem.",
+          "slug": "hive-wechat-mini-program-developer",
+          "path": "engineering/hive-wechat-mini-program-developer.md"
+        },
+        {
+          "name": "WordPress Performance Engineer",
+          "description": "Expert WordPress performance engineer specializing in Core Web Vitals, object caching (Redis/Memcached), page caching, database and WP_Query optimization, the Transients API, asset minification/deferral/critical CSS, image optimization and lazy loading, CDN integration, plugin performance auditing, and PHP-FPM/opcache tuning for fast, audit-passing sites",
+          "slug": "hive-wordpress-performance",
+          "path": "engineering/hive-wordpress-performance.md"
+        },
+        {
+          "name": "WordPress Shopping Cart Engineer",
+          "description": "Expert WordPress e-commerce engineer specializing in WooCommerce for product catalog management, payment gateway integration, checkout customization, order management, tax and coupon configuration, and conversion-optimized storefront delivery on WordPress",
+          "slug": "hive-wordpress-shopping-cart",
+          "path": "engineering/hive-wordpress-shopping-cart.md"
+        }
       ]
     },
     {
@@ -743,6 +1241,38 @@
           "name": "Investment Researcher",
           "description": "Expert investment researcher specializing in market research, due diligence, portfolio analysis, and asset valuation. Conducts rigorous fundamental and quantitative analysis to identify investment opportunities, assess risks, and support data-driven portfolio decisions across public equities, private markets, and alternative assets.",
           "slug": "hive-investment-researcher"
+        }
+      ],
+      "agents": [
+        {
+          "name": "Bookkeeper & Controller",
+          "description": "Expert bookkeeper and controller specializing in day-to-day accounting operations, financial reconciliations, month-end close processes, and internal controls. Ensures the accuracy, completeness, and timeliness of financial records while maintaining GAAP compliance and audit readiness at all times.",
+          "slug": "hive-bookkeeper-controller",
+          "path": "finance/hive-bookkeeper-controller.md"
+        },
+        {
+          "name": "Financial Analyst",
+          "description": "Expert financial analyst specializing in financial modeling, forecasting, scenario analysis, and data-driven decision support. Transforms raw financial data into actionable business intelligence that drives strategic planning, investment decisions, and operational optimization.",
+          "slug": "hive-financial-analyst",
+          "path": "finance/hive-financial-analyst.md"
+        },
+        {
+          "name": "FP&A Analyst",
+          "description": "Expert Financial Planning & Analysis (FP&A) analyst specializing in budgeting, variance analysis, financial planning, rolling forecasts, and strategic decision support. Bridges the gap between the numbers and the business narrative to drive operational performance and strategic resource allocation.",
+          "slug": "hive-fpa-analyst",
+          "path": "finance/hive-fpa-analyst.md"
+        },
+        {
+          "name": "Investment Researcher",
+          "description": "Expert investment researcher specializing in market research, due diligence, portfolio analysis, and asset valuation. Conducts rigorous fundamental and quantitative analysis to identify investment opportunities, assess risks, and support data-driven portfolio decisions across public equities, private markets, and alternative assets.",
+          "slug": "hive-investment-researcher",
+          "path": "finance/hive-investment-researcher.md"
+        },
+        {
+          "name": "Tax Strategist",
+          "description": "Expert tax strategist specializing in tax optimization, multi-jurisdictional compliance, transfer pricing, and strategic tax planning. Navigates complex tax codes to minimize liability while ensuring full regulatory compliance across local, state, federal, and international tax regimes.",
+          "slug": "hive-tax-strategist",
+          "path": "finance/hive-tax-strategist.md"
         }
       ]
     },
@@ -774,6 +1304,140 @@
           "description": "Godot 4 networking specialist - Masters the MultiplayerAPI, scene replication, ENet/WebRTC transport, RPCs, and authority models for real-time multiplayer games",
           "slug": "hive-godot-multiplayer-engineer"
         }
+      ],
+      "agents": [
+        {
+          "name": "Blender Add-on Engineer",
+          "description": "Blender tooling specialist - Builds Python add-ons, asset validators, exporters, and pipeline automations that turn repetitive DCC work into reliable one-click workflows",
+          "slug": "hive-blender-addon-engineer",
+          "path": "game-development/blender/hive-blender-addon-engineer.md"
+        },
+        {
+          "name": "Game Studio Orchestrator",
+          "description": "Turn any AI coding session into a full game development studio. Coordinates 6-phase studio pipelines, creative direction, engineering, audio, art, and continuous dev-QA quality loops across Godot, Unity, and Unreal.",
+          "slug": "hive-game-studio-orchestrator",
+          "path": "game-development/game-studio/hive-game-studio-orchestrator.md"
+        },
+        {
+          "name": "Godot Gameplay Scripter",
+          "description": "Composition and signal integrity specialist - Masters GDScript 2.0, C# integration, node-based architecture, and type-safe signal design for Godot 4 projects",
+          "slug": "hive-godot-gameplay-scripter",
+          "path": "game-development/godot/hive-godot-gameplay-scripter.md"
+        },
+        {
+          "name": "Godot Multiplayer Engineer",
+          "description": "Godot 4 networking specialist - Masters the MultiplayerAPI, scene replication, ENet/WebRTC transport, RPCs, and authority models for real-time multiplayer games",
+          "slug": "hive-godot-multiplayer-engineer",
+          "path": "game-development/godot/hive-godot-multiplayer-engineer.md"
+        },
+        {
+          "name": "Godot Shader Developer",
+          "description": "Godot 4 visual effects specialist - Masters the Godot Shading Language (GLSL-like), VisualShader editor, CanvasItem and Spatial shaders, post-processing, and performance optimization for 2D/3D effects",
+          "slug": "hive-godot-shader-developer",
+          "path": "game-development/godot/hive-godot-shader-developer.md"
+        },
+        {
+          "name": "Economy Designer",
+          "description": "Virtual economy architect - Masters currency systems, sources and sinks, monetization modeling, inflation control, and data-driven economic balancing for live games",
+          "slug": "hive-economy-designer",
+          "path": "game-development/hive-economy-designer.md"
+        },
+        {
+          "name": "Game Audio Engineer",
+          "description": "Interactive audio specialist - Masters FMOD/Wwise integration, adaptive music systems, spatial audio, and audio performance budgeting across all game engines",
+          "slug": "hive-game-audio-engineer",
+          "path": "game-development/hive-game-audio-engineer.md"
+        },
+        {
+          "name": "Game Designer",
+          "description": "Systems and mechanics architect - Masters GDD authorship, player psychology, economy balancing, and gameplay loop design across all engines and genres",
+          "slug": "hive-game-designer",
+          "path": "game-development/hive-game-designer.md"
+        },
+        {
+          "name": "Level Designer",
+          "description": "Spatial storytelling and flow specialist - Masters layout theory, pacing architecture, encounter design, and environmental narrative across all game engines",
+          "slug": "hive-level-designer",
+          "path": "game-development/hive-level-designer.md"
+        },
+        {
+          "name": "Narrative Designer",
+          "description": "Story systems and dialogue architect - Masters GDD-aligned narrative design, branching dialogue, lore architecture, and environmental storytelling across all game engines",
+          "slug": "hive-narrative-designer",
+          "path": "game-development/hive-narrative-designer.md"
+        },
+        {
+          "name": "Technical Artist",
+          "description": "Art-to-engine pipeline specialist - Masters shaders, VFX systems, LOD pipelines, performance budgeting, and cross-engine asset optimization",
+          "slug": "hive-technical-artist",
+          "path": "game-development/hive-technical-artist.md"
+        },
+        {
+          "name": "Roblox Avatar Creator",
+          "description": "Roblox UGC and avatar pipeline specialist - Masters Roblox's avatar system, UGC item creation, accessory rigging, texture standards, and the Creator Marketplace submission pipeline",
+          "slug": "hive-roblox-avatar-creator",
+          "path": "game-development/roblox-studio/hive-roblox-avatar-creator.md"
+        },
+        {
+          "name": "Roblox Experience Designer",
+          "description": "Roblox platform UX and monetization specialist - Masters engagement loop design, DataStore-driven progression, Roblox monetization systems (Passes, Developer Products, UGC), and player retention for Roblox experiences",
+          "slug": "hive-roblox-experience-designer",
+          "path": "game-development/roblox-studio/hive-roblox-experience-designer.md"
+        },
+        {
+          "name": "Roblox Systems Scripter",
+          "description": "Roblox platform engineering specialist - Masters Luau, the client-server security model, RemoteEvents/RemoteFunctions, DataStore, and module architecture for scalable Roblox experiences",
+          "slug": "hive-roblox-systems-scripter",
+          "path": "game-development/roblox-studio/hive-roblox-systems-scripter.md"
+        },
+        {
+          "name": "Unity Architect",
+          "description": "Data-driven modularity specialist - Masters ScriptableObjects, decoupled systems, and single-responsibility component design for scalable Unity projects",
+          "slug": "hive-unity-architect",
+          "path": "game-development/unity/hive-unity-architect.md"
+        },
+        {
+          "name": "Unity Editor Tool Developer",
+          "description": "Unity editor automation specialist - Masters custom EditorWindows, PropertyDrawers, AssetPostprocessors, ScriptedImporters, and pipeline automation that saves teams hours per week",
+          "slug": "hive-unity-editor-tool-developer",
+          "path": "game-development/unity/hive-unity-editor-tool-developer.md"
+        },
+        {
+          "name": "Unity Multiplayer Engineer",
+          "description": "Networked gameplay specialist - Masters Netcode for GameObjects, Unity Gaming Services (Relay/Lobby), client-server authority, lag compensation, and state synchronization",
+          "slug": "hive-unity-multiplayer-engineer",
+          "path": "game-development/unity/hive-unity-multiplayer-engineer.md"
+        },
+        {
+          "name": "Unity Shader Graph Artist",
+          "description": "Visual effects and material specialist - Masters Unity Shader Graph, HLSL, URP/HDRP rendering pipelines, and custom pass authoring for real-time visual effects",
+          "slug": "hive-unity-shader-graph-artist",
+          "path": "game-development/unity/hive-unity-shader-graph-artist.md"
+        },
+        {
+          "name": "Unreal Multiplayer Architect",
+          "description": "Unreal Engine networking specialist - Masters Actor replication, GameMode/GameState architecture, server-authoritative gameplay, network prediction, and dedicated server setup for UE5",
+          "slug": "hive-unreal-multiplayer-architect",
+          "path": "game-development/unreal-engine/hive-unreal-multiplayer-architect.md"
+        },
+        {
+          "name": "Unreal Systems Engineer",
+          "description": "Performance and hybrid architecture specialist - Masters C++/Blueprint continuum, Nanite geometry, Lumen GI, and Gameplay Ability System for AAA-grade Unreal Engine projects",
+          "slug": "hive-unreal-systems-engineer",
+          "path": "game-development/unreal-engine/hive-unreal-systems-engineer.md"
+        },
+        {
+          "name": "Unreal Technical Artist",
+          "description": "Unreal Engine visual pipeline specialist - Masters the Material Editor, Niagara VFX, Procedural Content Generation, and the art-to-engine pipeline for UE5 projects",
+          "slug": "hive-unreal-technical-artist",
+          "path": "game-development/unreal-engine/hive-unreal-technical-artist.md"
+        },
+        {
+          "name": "Unreal World Builder",
+          "description": "Open-world and environment specialist - Masters UE5 World Partition, Landscape, procedural foliage, HLOD, and large-scale level streaming for seamless open-world experiences",
+          "slug": "hive-unreal-world-builder",
+          "path": "game-development/unreal-engine/hive-unreal-world-builder.md"
+        }
       ]
     },
     {
@@ -804,6 +1468,86 @@
           "description": "Map aesthetics specialist who designs beautiful, readable, and effective maps — color theory, typography, label placement, basemap selection, and visual hierarchy for both print and web.",
           "slug": "hive-cartography-designer"
         }
+      ],
+      "agents": [
+        {
+          "name": "3D & Scene Developer",
+          "description": "Web 3D visualization specialist who creates immersive 3D scenes, terrain models, point cloud visualizations, and interactive web experiences using Cesium, ArcGIS Scene Viewer, and modern 3D web frameworks.",
+          "slug": "hive-3d-scene-developer",
+          "path": "gis/hive-3d-scene-developer.md"
+        },
+        {
+          "name": "GIS Analyst",
+          "description": "Day-to-day GIS operator who creates maps, manages layers, performs spatial queries, and maintains geospatial data integrity across desktop and web environments.",
+          "slug": "hive-analyst",
+          "path": "gis/hive-analyst.md"
+        },
+        {
+          "name": "BIM/GIS Specialist",
+          "description": "Integration specialist who bridges Building Information Modeling and Geographic Information Systems — Revit/IFC data conversion, indoor mapping, digital twin architecture, and facility management data models.",
+          "slug": "hive-bim-specialist",
+          "path": "gis/hive-bim-specialist.md"
+        },
+        {
+          "name": "Cartography Designer",
+          "description": "Map aesthetics specialist who designs beautiful, readable, and effective maps — color theory, typography, label placement, basemap selection, and visual hierarchy for both print and web.",
+          "slug": "hive-cartography-designer",
+          "path": "gis/hive-cartography-designer.md"
+        },
+        {
+          "name": "Drone/Reality Mapping Specialist",
+          "description": "Photogrammetry and reality capture expert who processes drone imagery into orthomosaics, digital terrain models, point clouds, and 3D meshes — bridging field capture and GIS-ready products.",
+          "slug": "hive-drone-reality-mapping",
+          "path": "gis/hive-drone-reality-mapping.md"
+        },
+        {
+          "name": "GeoAI/ML Engineer",
+          "description": "Geospatial machine learning specialist who builds models for feature extraction, object detection, image segmentation, and land cover classification from satellite and aerial imagery.",
+          "slug": "hive-geoai-ml-engineer",
+          "path": "gis/hive-geoai-ml-engineer.md"
+        },
+        {
+          "name": "Geoprocessing Specialist",
+          "description": "ArcPy and Python toolbox expert who automates spatial workflows — builds .pyt toolboxes, Model Builder processes, batch geoprocessing automation, and custom analysis scripts for ArcGIS Pro.",
+          "slug": "hive-geoprocessing-specialist",
+          "path": "gis/hive-geoprocessing-specialist.md"
+        },
+        {
+          "name": "GIS QA Engineer",
+          "description": "Quality assurance specialist who validates geospatial data integrity — topology checks, metadata audits, CRS consistency, accuracy assessment, and compliance verification.",
+          "slug": "hive-qa-engineer",
+          "path": "gis/hive-qa-engineer.md"
+        },
+        {
+          "name": "Solution Engineer",
+          "description": "Hands-on GIS prototype builder who takes strategy from Technical Consultant and turns it into working demos, proof-of-concepts, and technical validations across the full Esri and open-source stack.",
+          "slug": "hive-solution-engineer",
+          "path": "gis/hive-solution-engineer.md"
+        },
+        {
+          "name": "Spatial Data Engineer",
+          "description": "ETL specialist who transforms messy geospatial data from any source into clean, standardized, production-ready datasets — format conversion, CRS reprojection, attribute normalization, and automated pipelines.",
+          "slug": "hive-spatial-data-engineer",
+          "path": "gis/hive-spatial-data-engineer.md"
+        },
+        {
+          "name": "Spatial Data Scientist",
+          "description": "Advanced spatial analytics specialist who applies statistical modeling, spatial econometrics, clustering, and predictive analytics to geospatial data — finding patterns that aren't visible on a map.",
+          "slug": "hive-spatial-data-scientist",
+          "path": "gis/hive-spatial-data-scientist.md"
+        },
+        {
+          "name": "Technical Consultant",
+          "description": "Strategic GIS advisor who translates business problems into geospatial solutions — gap analysis, technology roadmaps, RFP responses, and digital transformation strategy across Esri and open-source ecosystems.",
+          "slug": "hive-technical-consultant",
+          "path": "gis/hive-technical-consultant.md"
+        },
+        {
+          "name": "Web GIS Developer",
+          "description": "Full-stack web GIS engineer who builds interactive mapping applications — MapLibre GL JS, ArcGIS JS API, Leaflet, real-time dashboards, REST API integration, and geospatial web services.",
+          "slug": "hive-web-gis-developer",
+          "path": "gis/hive-web-gis-developer.md"
+        }
       ]
     },
     {
@@ -828,6 +1572,26 @@
           "name": "Sovereign Health Systems Agent",
           "description": "Government health mandate engagement framework for AI agents operating at the intersection of national health infrastructure, UHC policy, and emerging market deployment. Defines how to navigate sovereign health ministry engagement, frame health technology for mandate alignment, and sequence a dual-market launch across regulated and sovereign contexts.",
           "slug": "hive-sovereign-health-systems-agent"
+        }
+      ],
+      "agents": [
+        {
+          "name": "Clinical Evidence Agent",
+          "description": "Evidence standards and clinical credibility framework for AI agents operating in healthcare contexts. Defines how to distinguish validated from unvalidated clinical claims, how to write for both peer review and investor audiences from the same evidence base, and how to frame clinical decision support without claiming diagnostic authority.",
+          "slug": "hive-clinical-evidence-agent",
+          "path": "healthcare/hive-clinical-evidence-agent.md"
+        },
+        {
+          "name": "Healthcare Innovation Strategist",
+          "description": "Strategic narrative architect for healthcare founders operating at the intersection of clinical credibility, healthcare finance, and complex deployment contexts. Maintains narrative coherence across investor, regulatory, sovereign, and clinical audiences. Built for founders who need to translate complex clinical and financial realities into language that moves capital, changes policy, and builds trust with doctors and patients simultaneously.",
+          "slug": "hive-innovation-strategist",
+          "path": "healthcare/hive-innovation-strategist.md"
+        },
+        {
+          "name": "Sovereign Health Systems Agent",
+          "description": "Government health mandate engagement framework for AI agents operating at the intersection of national health infrastructure, UHC policy, and emerging market deployment. Defines how to navigate sovereign health ministry engagement, frame health technology for mandate alignment, and sequence a dual-market launch across regulated and sovereign contexts.",
+          "slug": "hive-sovereign-health-systems-agent",
+          "path": "healthcare/hive-sovereign-health-systems-agent.md"
         }
       ]
     },
@@ -859,6 +1623,230 @@
           "description": "Expert app store marketing specialist focused on App Store Optimization (ASO), conversion rate optimization, and app discoverability",
           "slug": "hive-app-store-optimizer"
         }
+      ],
+      "agents": [
+        {
+          "name": "AEO Foundations Architect",
+          "description": "Expert in AI Engine Optimization infrastructure — implements llms.txt, AI-aware robots.txt, token-budgeted content, structured Markdown availability, and agent discovery files so AI crawlers, citation engines, and browsing agents can find, parse, and act on your site",
+          "slug": "hive-aeo-foundations",
+          "path": "marketing/hive-aeo-foundations.md"
+        },
+        {
+          "name": "Agentic Search Optimizer",
+          "description": "Expert in WebMCP readiness and agentic task completion — audits whether AI agents can actually accomplish tasks on your site (book, buy, register, subscribe), implements WebMCP declarative and imperative patterns, and measures task completion rates across AI browsing agents",
+          "slug": "hive-agentic-search-optimizer",
+          "path": "marketing/hive-agentic-search-optimizer.md"
+        },
+        {
+          "name": "AI Citation Strategist",
+          "description": "Expert in AI recommendation engine optimization (AEO/GEO) — audits brand visibility across ChatGPT, Claude, Gemini, and Perplexity, identifies why competitors get cited instead, and delivers content fixes that improve AI citations",
+          "slug": "hive-ai-citation-strategist",
+          "path": "marketing/hive-ai-citation-strategist.md"
+        },
+        {
+          "name": "App Store Optimizer",
+          "description": "Expert app store marketing specialist focused on App Store Optimization (ASO), conversion rate optimization, and app discoverability",
+          "slug": "hive-app-store-optimizer",
+          "path": "marketing/hive-app-store-optimizer.md"
+        },
+        {
+          "name": "Baidu SEO Specialist",
+          "description": "Expert Baidu search optimization specialist focused on Chinese search engine ranking, Baidu ecosystem integration, ICP compliance, Chinese keyword research, and mobile-first indexing for the China market.",
+          "slug": "hive-baidu-seo-specialist",
+          "path": "marketing/hive-baidu-seo-specialist.md"
+        },
+        {
+          "name": "Bilibili Content Strategist",
+          "description": "Expert Bilibili marketing specialist focused on UP主 growth, danmaku culture mastery, B站 algorithm optimization, community building, and branded content strategy for China's leading video community platform.",
+          "slug": "hive-bilibili-content-strategist",
+          "path": "marketing/hive-bilibili-content-strategist.md"
+        },
+        {
+          "name": "Book Co-Author",
+          "description": "Strategic thought-leadership book collaborator for founders, experts, and operators turning voice notes, fragments, and positioning into structured first-person chapters.",
+          "slug": "hive-book-co-author",
+          "path": "marketing/hive-book-co-author.md"
+        },
+        {
+          "name": "Carousel Growth Engine",
+          "description": "Autonomous TikTok and Instagram carousel generation specialist. Analyzes any website URL with Playwright, generates viral 6-slide carousels via Gemini image generation, publishes to TikTok and Instagram through their official APIs or a multi-platform publishing service with auto-added music, fetches analytics, and iteratively improves through a data-driven learning loop.",
+          "slug": "hive-carousel-growth-engine",
+          "path": "marketing/hive-carousel-growth-engine.md"
+        },
+        {
+          "name": "China E-Commerce Operator",
+          "description": "Expert China e-commerce operations specialist covering Taobao, Tmall, Pinduoduo, and JD ecosystems with deep expertise in product listing optimization, live commerce, store operations, 618/Double 11 campaigns, and cross-platform strategy.",
+          "slug": "hive-china-ecommerce-operator",
+          "path": "marketing/hive-china-ecommerce-operator.md"
+        },
+        {
+          "name": "China Market Localization Strategist",
+          "description": "Full-stack China market localization expert who transforms real-time trend signals into executable go-to-market strategies across Douyin, Xiaohongshu, WeChat, Bilibili, and beyond",
+          "slug": "hive-china-market-localization-strategist",
+          "path": "marketing/hive-china-market-localization-strategist.md"
+        },
+        {
+          "name": "Content Creator",
+          "description": "Expert content strategist and creator for multi-platform campaigns. Develops editorial calendars, creates compelling copy, manages brand storytelling, and optimizes content for engagement across all digital channels.",
+          "slug": "hive-content-creator",
+          "path": "marketing/hive-content-creator.md"
+        },
+        {
+          "name": "Cross-Border E-Commerce Specialist",
+          "description": "Full-funnel cross-border e-commerce strategist covering Amazon, Shopee, Lazada, AliExpress, Temu, and TikTok Shop operations, international logistics and overseas warehousing, compliance and taxation, multilingual listing optimization, brand globalization, and DTC independent site development.",
+          "slug": "hive-cross-border-ecommerce",
+          "path": "marketing/hive-cross-border-ecommerce.md"
+        },
+        {
+          "name": "Developer Community Builder",
+          "description": "Grows and sustains developer communities — Discord servers, GitHub discussions, forums, and contributor programs — turning users into advocates and advocates into contributors.",
+          "slug": "hive-developer-community-builder",
+          "path": "marketing/hive-developer-community-builder.md"
+        },
+        {
+          "name": "Douyin Strategist",
+          "description": "Short-video marketing expert specializing in the Douyin platform, with deep expertise in recommendation algorithm mechanics, viral video planning, livestream commerce workflows, and full-funnel brand growth through content matrix strategies.",
+          "slug": "hive-douyin-strategist",
+          "path": "marketing/hive-douyin-strategist.md"
+        },
+        {
+          "name": "Email Marketing Strategist",
+          "description": "Expert email marketing strategist for CRM-driven campaigns, lifecycle automation, segmentation architecture, and deliverability. Designs sequences (welcome, nurture, reactivation, win-back, review, referral) grounded in 2025-2026 benchmarks, AI-driven personalization, and post-Apple MPP measurement.",
+          "slug": "hive-email-strategist",
+          "path": "marketing/hive-email-strategist.md"
+        },
+        {
+          "name": "Global Podcast Strategist",
+          "description": "Expert podcast growth specialist focused on show positioning, audience development, content strategy, and monetisation. Transforms raw ideas into authoritative audio brands that compound listeners and revenue over time on Spotify, Apple Podcasts, and YouTube.",
+          "slug": "hive-global-podcast-strategist",
+          "path": "marketing/hive-global-podcast-strategist.md"
+        },
+        {
+          "name": "Growth Hacker",
+          "description": "Expert growth strategist specializing in rapid user acquisition through data-driven experimentation. Develops viral loops, optimizes conversion funnels, and finds scalable growth channels for exponential business growth.",
+          "slug": "hive-growth-hacker",
+          "path": "marketing/hive-growth-hacker.md"
+        },
+        {
+          "name": "Instagram Curator",
+          "description": "Expert Instagram marketing specialist focused on visual storytelling, community building, and multi-format content optimization. Masters aesthetic development and drives meaningful engagement.",
+          "slug": "hive-instagram-curator",
+          "path": "marketing/hive-instagram-curator.md"
+        },
+        {
+          "name": "Kuaishou Strategist",
+          "description": "Expert Kuaishou marketing strategist specializing in short-video content for China's lower-tier city markets, live commerce operations, community trust building, and grassroots audience growth on 快手.",
+          "slug": "hive-kuaishou-strategist",
+          "path": "marketing/hive-kuaishou-strategist.md"
+        },
+        {
+          "name": "LinkedIn Content Creator",
+          "description": "Expert LinkedIn content strategist focused on thought leadership, personal brand building, and high-engagement professional content. Masters LinkedIn's algorithm and culture to drive inbound opportunities for founders, job seekers, developers, and anyone building a professional presence.",
+          "slug": "hive-linkedin-content-creator",
+          "path": "marketing/hive-linkedin-content-creator.md"
+        },
+        {
+          "name": "Livestream Commerce Coach",
+          "description": "Veteran livestream e-commerce coach specializing in host training and live room operations across Douyin, Kuaishou, Taobao Live, and Channels, covering script design, product sequencing, paid-vs-organic traffic balancing, conversion closing techniques, and real-time data-driven optimization.",
+          "slug": "hive-livestream-commerce-coach",
+          "path": "marketing/hive-livestream-commerce-coach.md"
+        },
+        {
+          "name": "Multi-Platform Publisher",
+          "description": "Expert orchestrator for one-click Chinese blog publishing. Routes a single article to 知乎 / 小红书 / CSDN / B站 / 公众号 / 掘金 via Wechatsync (main channel) with xhs-mcp and biliup as specialized fallbacks. Handles per-platform content adaptation, draft-first publishing, rate control, and risk-avoidance. Does NOT auto-publish — always stops at draft for human review.",
+          "slug": "hive-multi-platform-publisher",
+          "path": "marketing/hive-multi-platform-publisher.md"
+        },
+        {
+          "name": "Podcast Strategist",
+          "description": "Content strategy and operations expert for the Chinese podcast market, with deep expertise in Xiaoyuzhou, Ximalaya, and other major audio platforms, covering show positioning, audio production, audience growth, multi-platform distribution, and monetization to help podcast creators build sticky audio content brands.",
+          "slug": "hive-podcast-strategist",
+          "path": "marketing/hive-podcast-strategist.md"
+        },
+        {
+          "name": "PR & Communications Manager",
+          "description": "Strategic public relations and communications specialist for media relations, press releases, crisis communications, executive thought leadership, brand reputation management, and integrated communications planning — building and protecting reputations through earned media, storytelling, and proactive narrative control",
+          "slug": "hive-pr-communications-manager",
+          "path": "marketing/hive-pr-communications-manager.md"
+        },
+        {
+          "name": "Private Domain Operator",
+          "description": "Expert in building enterprise WeChat (WeCom) private domain ecosystems, with deep expertise in SCRM systems, segmented community operations, Mini Program commerce integration, user lifecycle management, and full-funnel conversion optimization.",
+          "slug": "hive-private-domain-operator",
+          "path": "marketing/hive-private-domain-operator.md"
+        },
+        {
+          "name": "Reddit Community Builder",
+          "description": "Expert Reddit marketing specialist focused on authentic community engagement, value-driven content creation, and long-term relationship building. Masters Reddit culture navigation.",
+          "slug": "hive-reddit-community-builder",
+          "path": "marketing/hive-reddit-community-builder.md"
+        },
+        {
+          "name": "SEO Specialist",
+          "description": "Expert search engine optimization strategist specializing in technical SEO, content optimization, link authority building, and organic search growth. Drives sustainable traffic through data-driven search strategies.",
+          "slug": "hive-seo-specialist",
+          "path": "marketing/hive-seo-specialist.md"
+        },
+        {
+          "name": "Short-Video Editing Coach",
+          "description": "Hands-on short-video editing coach covering the full post-production pipeline, with mastery of CapCut Pro, Premiere Pro, DaVinci Resolve, and Final Cut Pro across composition and camera language, color grading, audio engineering, motion graphics and VFX, subtitle design, multi-platform export optimization, editing workflow efficiency, and AI-assisted editing.",
+          "slug": "hive-short-video-editing-coach",
+          "path": "marketing/hive-short-video-editing-coach.md"
+        },
+        {
+          "name": "Social Media Strategist",
+          "description": "Expert social media strategist for LinkedIn, Twitter, and professional platforms. Creates cross-platform campaigns, builds communities, manages real-time engagement, and develops thought leadership strategies.",
+          "slug": "hive-social-media-strategist",
+          "path": "marketing/hive-social-media-strategist.md"
+        },
+        {
+          "name": "TikTok Strategist",
+          "description": "Expert TikTok marketing specialist focused on viral content creation, algorithm optimization, and community building. Masters TikTok's unique culture and features for brand growth.",
+          "slug": "hive-tiktok-strategist",
+          "path": "marketing/hive-tiktok-strategist.md"
+        },
+        {
+          "name": "Twitter Engager",
+          "description": "Expert Twitter marketing specialist focused on real-time engagement, thought leadership building, and community-driven growth. Builds brand authority through authentic conversation participation and viral thread creation.",
+          "slug": "hive-twitter-engager",
+          "path": "marketing/hive-twitter-engager.md"
+        },
+        {
+          "name": "Video Optimization Specialist",
+          "description": "Video marketing strategist specializing in YouTube algorithm optimization, audience retention, chaptering, thumbnail concepts, and cross-platform video syndication.",
+          "slug": "hive-video-optimization-specialist",
+          "path": "marketing/hive-video-optimization-specialist.md"
+        },
+        {
+          "name": "WeChat Official Account Manager",
+          "description": "Expert WeChat Official Account (OA) strategist specializing in content marketing, subscriber engagement, and conversion optimization. Masters multi-format content and builds loyal communities through consistent value delivery.",
+          "slug": "hive-wechat-official-account",
+          "path": "marketing/hive-wechat-official-account.md"
+        },
+        {
+          "name": "Weibo Strategist",
+          "description": "Full-spectrum operations expert for Sina Weibo, with deep expertise in trending topic mechanics, Super Topic community management, public sentiment monitoring, fan economy strategies, and Weibo advertising, helping brands achieve viral reach and sustained growth on China's leading public discourse platform.",
+          "slug": "hive-weibo-strategist",
+          "path": "marketing/hive-weibo-strategist.md"
+        },
+        {
+          "name": "X/Twitter Intelligence Analyst",
+          "description": "Social intelligence specialist for X/Twitter research, trend detection, account monitoring, and evidence-backed audience insights using public signals and structured data workflows.",
+          "slug": "hive-x-twitter-intelligence-analyst",
+          "path": "marketing/hive-x-twitter-intelligence-analyst.md"
+        },
+        {
+          "name": "Xiaohongshu Specialist",
+          "description": "Expert Xiaohongshu marketing specialist focused on lifestyle content, trend-driven strategies, and authentic community engagement. Masters micro-content creation and drives viral growth through aesthetic storytelling.",
+          "slug": "hive-xiaohongshu-specialist",
+          "path": "marketing/hive-xiaohongshu-specialist.md"
+        },
+        {
+          "name": "Zhihu Strategist",
+          "description": "Expert Zhihu marketing specialist focused on thought leadership, community credibility, and knowledge-driven engagement. Masters question-answering strategy and builds brand authority through authentic expertise sharing.",
+          "slug": "hive-zhihu-strategist",
+          "path": "marketing/hive-zhihu-strategist.md"
+        }
       ]
     },
     {
@@ -888,6 +1876,50 @@
           "name": "PPC Campaign Strategist",
           "description": "Senior paid media strategist specializing in large-scale search, shopping, and performance max campaign architecture across Google, Microsoft, and Amazon ad platforms. Designs account structures, budget allocation frameworks, and bidding strategies that scale from $10K to $10M+ monthly spend.",
           "slug": "hive-ppc-strategist"
+        }
+      ],
+      "agents": [
+        {
+          "name": "Paid Media Auditor",
+          "description": "Comprehensive paid media auditor who systematically evaluates Google Ads, Microsoft Ads, and Meta accounts across 200+ checkpoints spanning account structure, tracking, bidding, creative, audiences, and competitive positioning. Produces actionable audit reports with prioritized recommendations and projected impact.",
+          "slug": "hive-auditor",
+          "path": "paid-media/hive-auditor.md"
+        },
+        {
+          "name": "Ad Creative Strategist",
+          "description": "Paid media creative specialist focused on ad copywriting, RSA optimization, asset group design, and creative testing frameworks across Google, Meta, Microsoft, and programmatic platforms. Bridges the gap between performance data and persuasive messaging.",
+          "slug": "hive-creative-strategist",
+          "path": "paid-media/hive-creative-strategist.md"
+        },
+        {
+          "name": "Paid Social Strategist",
+          "description": "Cross-platform paid social advertising specialist covering Meta (Facebook/Instagram), LinkedIn, TikTok, Pinterest, X, and Snapchat. Designs full-funnel social ad programs from prospecting through retargeting with platform-specific creative and audience strategies.",
+          "slug": "hive-paid-social-strategist",
+          "path": "paid-media/hive-paid-social-strategist.md"
+        },
+        {
+          "name": "PPC Campaign Strategist",
+          "description": "Senior paid media strategist specializing in large-scale search, shopping, and performance max campaign architecture across Google, Microsoft, and Amazon ad platforms. Designs account structures, budget allocation frameworks, and bidding strategies that scale from $10K to $10M+ monthly spend.",
+          "slug": "hive-ppc-strategist",
+          "path": "paid-media/hive-ppc-strategist.md"
+        },
+        {
+          "name": "Programmatic & Display Buyer",
+          "description": "Display advertising and programmatic media buying specialist covering managed placements, Google Display Network, DV360, trade desk platforms, partner media (newsletters, sponsored content), and ABM display strategies via platforms like Demandbase and 6Sense.",
+          "slug": "hive-programmatic-buyer",
+          "path": "paid-media/hive-programmatic-buyer.md"
+        },
+        {
+          "name": "Search Query Analyst",
+          "description": "Specialist in search term analysis, negative keyword architecture, and query-to-intent mapping. Turns raw search query data into actionable optimizations that eliminate waste and amplify high-intent traffic across paid search accounts.",
+          "slug": "hive-search-query-analyst",
+          "path": "paid-media/hive-search-query-analyst.md"
+        },
+        {
+          "name": "Tracking & Measurement Specialist",
+          "description": "Expert in conversion tracking architecture, tag management, and attribution modeling across Google Tag Manager, GA4, Google Ads, Meta CAPI, LinkedIn Insight Tag, and server-side implementations. Ensures every conversion is counted correctly and every dollar of ad spend is measurable.",
+          "slug": "hive-tracking-specialist",
+          "path": "paid-media/hive-tracking-specialist.md"
         }
       ]
     },
@@ -919,6 +1951,44 @@
           "description": "Holistic product leader who owns the full product lifecycle — from discovery and strategy through roadmap, stakeholder alignment, go-to-market, and outcome measurement. Bridges business goals, user needs, and technical reality to ship the right thing at the right time.",
           "slug": "hive-manager"
         }
+      ],
+      "agents": [
+        {
+          "name": "Behavioral Nudge Engine",
+          "description": "Behavioral psychology specialist that adapts software interaction cadences and styles to maximize user motivation and success.",
+          "slug": "hive-behavioral-nudge-engine",
+          "path": "product/hive-behavioral-nudge-engine.md"
+        },
+        {
+          "name": "DX Engineer",
+          "description": "Removes every unnecessary step between a developer and their first success — SDK samples, onboarding flows, error messages, and the feedback loops that make products feel like they were built by someone who's used them.",
+          "slug": "hive-dx-engineer",
+          "path": "product/hive-dx-engineer.md"
+        },
+        {
+          "name": "Feedback Synthesizer",
+          "description": "Expert in collecting, analyzing, and synthesizing user feedback from multiple channels to extract actionable product insights. Transforms qualitative feedback into quantitative priorities and strategic recommendations.",
+          "slug": "hive-feedback-synthesizer",
+          "path": "product/hive-feedback-synthesizer.md"
+        },
+        {
+          "name": "Product Manager",
+          "description": "Holistic product leader who owns the full product lifecycle — from discovery and strategy through roadmap, stakeholder alignment, go-to-market, and outcome measurement. Bridges business goals, user needs, and technical reality to ship the right thing at the right time.",
+          "slug": "hive-manager",
+          "path": "product/hive-manager.md"
+        },
+        {
+          "name": "Sprint Prioritizer",
+          "description": "Expert product manager specializing in agile sprint planning, feature prioritization, and resource allocation. Focused on maximizing team velocity and business value delivery through data-driven prioritization frameworks.",
+          "slug": "hive-sprint-prioritizer",
+          "path": "product/hive-sprint-prioritizer.md"
+        },
+        {
+          "name": "Trend Researcher",
+          "description": "Expert market intelligence analyst specializing in identifying emerging trends, competitive analysis, and opportunity assessment. Focused on providing actionable insights that drive product strategy and innovation decisions.",
+          "slug": "hive-trend-researcher",
+          "path": "product/hive-trend-researcher.md"
+        }
       ]
     },
     {
@@ -949,6 +2019,50 @@
           "description": "Converts specs to tasks and remembers previous projects. Focused on realistic scope, no background processes, exact spec requirements",
           "slug": "hive-project-manager-senior"
         }
+      ],
+      "agents": [
+        {
+          "name": "Experiment Tracker",
+          "description": "Expert project manager specializing in experiment design, execution tracking, and data-driven decision making. Focused on managing A/B tests, feature experiments, and hypothesis validation through systematic experimentation and rigorous analysis.",
+          "slug": "hive-experiment-tracker",
+          "path": "project-management/hive-experiment-tracker.md"
+        },
+        {
+          "name": "Jira Workflow Steward",
+          "description": "Expert delivery operations specialist who enforces Jira-linked Git workflows, traceable commits, structured pull requests, and release-safe branch strategy across software teams.",
+          "slug": "hive-jira-workflow-steward",
+          "path": "project-management/hive-jira-workflow-steward.md"
+        },
+        {
+          "name": "Meeting Notes Specialist",
+          "description": "Extract structured decisions, action items, and open questions from meeting transcripts or rough notes into a clean 4-section summary.",
+          "slug": "hive-meeting-notes-specialist",
+          "path": "project-management/hive-meeting-notes-specialist.md"
+        },
+        {
+          "name": "Senior Project Manager",
+          "description": "Converts specs to tasks and remembers previous projects. Focused on realistic scope, no background processes, exact spec requirements",
+          "slug": "hive-project-manager-senior",
+          "path": "project-management/hive-project-manager-senior.md"
+        },
+        {
+          "name": "Project Shepherd",
+          "description": "Expert project manager specializing in cross-functional project coordination, timeline management, and stakeholder alignment. Focused on shepherding projects from conception to completion while managing resources, risks, and communications across multiple teams and departments.",
+          "slug": "hive-project-shepherd",
+          "path": "project-management/hive-project-shepherd.md"
+        },
+        {
+          "name": "Studio Operations",
+          "description": "Expert operations manager specializing in day-to-day studio efficiency, process optimization, and resource coordination. Focused on ensuring smooth operations, maintaining productivity standards, and supporting all teams with the tools and processes needed for success.",
+          "slug": "hive-studio-operations",
+          "path": "project-management/hive-studio-operations.md"
+        },
+        {
+          "name": "Studio Producer",
+          "description": "Senior strategic leader specializing in high-level creative and technical project orchestration, resource allocation, and multi-project portfolio management. Focused on aligning creative vision with business objectives while managing complex cross-functional initiatives and ensuring optimal studio operations.",
+          "slug": "hive-studio-producer",
+          "path": "project-management/hive-studio-producer.md"
+        }
       ]
     },
     {
@@ -963,6 +2077,14 @@
           "name": "Research Synthesist",
           "description": "Expert in literature review, source evaluation, and evidence synthesis — turns a scattered pile of sources into a structured, honestly-weighted map of what the evidence actually supports",
           "slug": "hive-synthesist"
+        }
+      ],
+      "agents": [
+        {
+          "name": "Research Synthesist",
+          "description": "Expert in literature review, source evaluation, and evidence synthesis — turns a scattered pile of sources into a structured, honestly-weighted map of what the evidence actually supports",
+          "slug": "hive-synthesist",
+          "path": "research/hive-synthesist.md"
         }
       ]
     },
@@ -994,6 +2116,62 @@
           "description": "Coaches sales teams on elite discovery methodology — question design, current-state mapping, gap quantification, and call structure that surfaces real buying motivation.",
           "slug": "hive-discovery-coach"
         }
+      ],
+      "agents": [
+        {
+          "name": "Account Strategist",
+          "description": "Expert post-sale account strategist specializing in land-and-expand execution, stakeholder mapping, QBR facilitation, and net revenue retention. Turns closed deals into long-term platform relationships through systematic expansion planning and multi-threaded account development.",
+          "slug": "hive-account-strategist",
+          "path": "sales/hive-account-strategist.md"
+        },
+        {
+          "name": "Sales Coach",
+          "description": "Expert sales coaching specialist focused on rep development, pipeline review facilitation, call coaching, deal strategy, and forecast accuracy. Makes every rep and every deal better through structured coaching methodology and behavioral feedback.",
+          "slug": "hive-coach",
+          "path": "sales/hive-coach.md"
+        },
+        {
+          "name": "Deal Strategist",
+          "description": "Senior deal strategist specializing in MEDDPICC qualification, competitive positioning, and win planning for complex B2B sales cycles. Scores opportunities, exposes pipeline risk, and builds deal strategies that survive forecast review.",
+          "slug": "hive-deal-strategist",
+          "path": "sales/hive-deal-strategist.md"
+        },
+        {
+          "name": "Discovery Coach",
+          "description": "Coaches sales teams on elite discovery methodology — question design, current-state mapping, gap quantification, and call structure that surfaces real buying motivation.",
+          "slug": "hive-discovery-coach",
+          "path": "sales/hive-discovery-coach.md"
+        },
+        {
+          "name": "Sales Engineer",
+          "description": "Senior pre-sales engineer specializing in technical discovery, demo engineering, POC scoping, competitive battlecards, and bridging product capabilities to business outcomes. Wins the technical decision so the deal can close.",
+          "slug": "hive-engineer",
+          "path": "sales/hive-engineer.md"
+        },
+        {
+          "name": "Offer & Lead Gen Strategist",
+          "description": "Top-of-funnel architect who designs irresistible offers and lead magnets that attract qualified buyers at scale. Specializes in value-equation offer construction, lead magnet typology, multi-channel lead generation, and compounding reach through customers, employees, agencies, and affiliates.",
+          "slug": "hive-offer-lead-gen-strategist",
+          "path": "sales/hive-offer-lead-gen-strategist.md"
+        },
+        {
+          "name": "Outbound Strategist",
+          "description": "Signal-based outbound specialist who designs multi-channel prospecting sequences, defines ICPs, and builds pipeline through research-driven personalization — not volume.",
+          "slug": "hive-outbound-strategist",
+          "path": "sales/hive-outbound-strategist.md"
+        },
+        {
+          "name": "Pipeline Analyst",
+          "description": "Revenue operations analyst specializing in pipeline health diagnostics, deal velocity analysis, forecast accuracy, and data-driven sales coaching. Turns CRM data into actionable pipeline intelligence that surfaces risks before they become missed quarters.",
+          "slug": "hive-pipeline-analyst",
+          "path": "sales/hive-pipeline-analyst.md"
+        },
+        {
+          "name": "Proposal Strategist",
+          "description": "Strategic proposal architect who transforms RFPs and sales opportunities into compelling win narratives. Specializes in win theme development, competitive positioning, executive summary craft, and building proposals that persuade rather than merely comply.",
+          "slug": "hive-proposal-strategist",
+          "path": "sales/hive-proposal-strategist.md"
+        }
       ]
     },
     {
@@ -1023,6 +2201,140 @@
           "name": "Security Architect",
           "description": "Expert security architect specializing in threat modeling, secure-by-design architecture, trust-boundary analysis, defense-in-depth, and risk-based security reviews across web, API, cloud-native, and distributed systems. Designs the security model; hands code-level SAST/DAST and SDLC work to the AppSec Engineer.",
           "slug": "hive-architect"
+        }
+      ],
+      "agents": [
+        {
+          "name": "Adversarial Security Verifier",
+          "description": "Independent vulnerability refutation specialist — disproves candidate security findings, stress-tests preconditions and sad paths, verifies source execution traces, and eliminates false positives with zero tolerance for ungrounded assumptions.",
+          "slug": "hive-adversarial-verifier",
+          "path": "security/hive-adversarial-verifier.md"
+        },
+        {
+          "name": "AI-Generated Code Security Auditor",
+          "description": "Security reviewer for AI-generated and vibe-coded apps — hunts the hardcoded secrets, broken row-level security, and prompt-injection sinks that coding assistants ship by default, then drives a scan, fix, and rescan loop with honest, CWE-mapped findings.",
+          "slug": "hive-ai-generated-code-auditor",
+          "path": "security/hive-ai-generated-code-auditor.md"
+        },
+        {
+          "name": "Application Security Engineer",
+          "description": "AppSec specialist who secures the software development lifecycle through threat modeling, secure code review, SAST/DAST integration, and developer security education that makes secure code the default.",
+          "slug": "hive-appsec-engineer",
+          "path": "security/hive-appsec-engineer.md"
+        },
+        {
+          "name": "Security Architect",
+          "description": "Expert security architect specializing in threat modeling, secure-by-design architecture, trust-boundary analysis, defense-in-depth, and risk-based security reviews across web, API, cloud-native, and distributed systems. Designs the security model; hands code-level SAST/DAST and SDLC work to the AppSec Engineer.",
+          "slug": "hive-architect",
+          "path": "security/hive-architect.md"
+        },
+        {
+          "name": "Security Audit Orchestrator",
+          "description": "Multi-phase vulnerability discovery harness orchestrator — executes reconnaissance, maintains deterministic coverage ledgers, orchestrates parallel hunting waves, and drives adversarial validation through to structured schema-compliant reporting.",
+          "slug": "hive-audit-orchestrator",
+          "path": "security/hive-audit-orchestrator.md"
+        },
+        {
+          "name": "Blockchain Security Auditor",
+          "description": "Expert smart contract security auditor specializing in vulnerability detection, formal verification, exploit analysis, and comprehensive audit report writing for DeFi protocols and blockchain applications.",
+          "slug": "hive-blockchain-security-auditor",
+          "path": "security/hive-blockchain-security-auditor.md"
+        },
+        {
+          "name": "Client-Side & Browser Security Auditor",
+          "description": "Browser runtime and frontend application security auditor — uncovers DOM XSS, prototype pollution, cross-origin web messaging (postMessage) bypasses, iframe sandbox escapes, and client-side storage leaks.",
+          "slug": "hive-client-side-auditor",
+          "path": "security/hive-client-side-auditor.md"
+        },
+        {
+          "name": "Cloud Security Architect",
+          "description": "Cloud-native security specialist designing zero trust architectures, implementing defense-in-depth across AWS, Azure, and GCP, and securing infrastructure-as-code pipelines from day one.",
+          "slug": "hive-cloud-security-architect",
+          "path": "security/hive-cloud-security-architect.md"
+        },
+        {
+          "name": "Compliance Auditor",
+          "description": "Expert technical compliance auditor specializing in SOC 2, ISO 27001, HIPAA, and PCI-DSS audits — from readiness assessment through evidence collection to certification.",
+          "slug": "hive-compliance-auditor",
+          "path": "security/hive-compliance-auditor.md"
+        },
+        {
+          "name": "Data Isolation & Tenant Auditor",
+          "description": "Multi-tenant boundary and data lifecycle auditor — uncovers cross-tenant data leaks, search index pollution, shared cache poisoning, and tenant segregation failures across backups, migrations, and deletions.",
+          "slug": "hive-data-isolation-auditor",
+          "path": "security/hive-data-isolation-auditor.md"
+        },
+        {
+          "name": "Desktop, Mobile & IPC Security Auditor",
+          "description": "Native application, mobile OS, and local IPC auditor — investigates custom URL schemes, deep links, webview bridges, exported mobile components, Unix sockets, named pipes, and privileged helper daemons.",
+          "slug": "hive-desktop-mobile-ipc-auditor",
+          "path": "security/hive-desktop-mobile-ipc-auditor.md"
+        },
+        {
+          "name": "Incident Responder",
+          "description": "Digital forensics and incident response specialist who leads breach investigations, contains active threats, coordinates crisis response, and writes post-mortems that prevent recurrence.",
+          "slug": "hive-incident-responder",
+          "path": "security/hive-incident-responder.md"
+        },
+        {
+          "name": "Memory Safety & Binary Auditor",
+          "description": "Low-level systems and memory corruption auditor — investigates C, C++, Rust unsafe, Go FFI, binary loaders, and kernel interfaces for bounds violations, integer truncation, UAF, concurrency races, and ABI mismatches.",
+          "slug": "hive-memory-safety-auditor",
+          "path": "security/hive-memory-safety-auditor.md"
+        },
+        {
+          "name": "Penetration Tester",
+          "description": "Offensive security specialist conducting authorized penetration tests, red team operations, and vulnerability assessments across networks, web applications, and cloud infrastructure.",
+          "slug": "hive-penetration-tester",
+          "path": "security/hive-penetration-tester.md"
+        },
+        {
+          "name": "Resource Exhaustion & Availability Auditor",
+          "description": "DoS and economic exhaustion auditor — identifies algorithmic complexity traps, ReDoS, hash collision attacks, unbounded async queue growth, memory leaks, and third-party API billing/operator-spend bombs.",
+          "slug": "hive-resource-exhaustion-auditor",
+          "path": "security/hive-resource-exhaustion-auditor.md"
+        },
+        {
+          "name": "Protocol & RPC Security Auditor",
+          "description": "Distributed systems and messaging protocol auditor — hunts serialization flaws, schema validation bypasses, queue/broker poison messages, and state machine desyncs across gRPC, Protobuf, WebSockets, and webhooks.",
+          "slug": "hive-rpc-messaging-auditor",
+          "path": "security/hive-rpc-messaging-auditor.md"
+        },
+        {
+          "name": "Secrets & Credential Hygiene Engineer",
+          "description": "Owns the full lifecycle of secrets and credentials — detection, prevention, vaulting, rotation, and leak response — so an application runs on short-lived, least-privilege credentials that are never in the code and are already rotated by the time a leak is found.",
+          "slug": "hive-secrets-credential-engineer",
+          "path": "security/hive-secrets-credential-engineer.md"
+        },
+        {
+          "name": "Senior SecOps Engineer",
+          "description": "Defensive application security specialist who scans every code submission for secrets and sensitive data exposure before anything else, then implements or audits security controls following the organization's security standard — covering authentication, authorization, tokens, cookies, HTTP headers, CORS, rate limiting, CSP, secrets management, input validation, and secure logging.",
+          "slug": "hive-senior-secops",
+          "path": "security/hive-senior-secops.md"
+        },
+        {
+          "name": "Supply Chain & Release Auditor",
+          "description": "Software supply chain and CI/CD security reviewer — audits package registries, dependency lockfile integrity, build pipeline poisoning, artifact provenance, signing keys, and extension/plugin sandboxes.",
+          "slug": "hive-supply-chain-auditor",
+          "path": "security/hive-supply-chain-auditor.md"
+        },
+        {
+          "name": "Threat Detection Engineer",
+          "description": "Expert detection engineer specializing in SIEM rule development, MITRE ATT&CK coverage mapping, threat hunting, alert tuning, and detection-as-code pipelines for security operations teams.",
+          "slug": "hive-threat-detection-engineer",
+          "path": "security/hive-threat-detection-engineer.md"
+        },
+        {
+          "name": "Threat Intelligence Analyst",
+          "description": "Cyber threat intelligence specialist who tracks adversary groups, maps attack campaigns to MITRE ATT&CK, produces actionable intelligence reports, and builds detection rules that catch real threats.",
+          "slug": "hive-threat-intelligence-analyst",
+          "path": "security/hive-threat-intelligence-analyst.md"
+        },
+        {
+          "name": "Web Protocol & Auth Auditor",
+          "description": "HTTP protocol and authentication state specialist — uncovers request smuggling, HTTP/2 and HTTP/3 multiplexing desyncs, cache poisoning/deception, SSRF, OAuth/OIDC/SAML state confusion, and session fixation.",
+          "slug": "hive-web-protocol-auth-auditor",
+          "path": "security/hive-web-protocol-auth-auditor.md"
         }
       ]
     },
@@ -1054,6 +2366,44 @@
           "description": "Specialist in designing and developing immersive cockpit-based control systems for XR environments",
           "slug": "hive-xr-cockpit-interaction-specialist"
         }
+      ],
+      "agents": [
+        {
+          "name": "macOS Spatial/Metal Engineer",
+          "description": "Native Swift and Metal specialist building high-performance 3D rendering systems and spatial computing experiences for macOS and Vision Pro",
+          "slug": "hive-macos-spatial-metal-engineer",
+          "path": "spatial-computing/hive-macos-spatial-metal-engineer.md"
+        },
+        {
+          "name": "Terminal Integration Specialist",
+          "description": "Terminal emulation, text rendering optimization, and SwiftTerm integration for modern Swift applications",
+          "slug": "hive-terminal-integration-specialist",
+          "path": "spatial-computing/hive-terminal-integration-specialist.md"
+        },
+        {
+          "name": "visionOS Spatial Engineer",
+          "description": "Native visionOS spatial computing, SwiftUI volumetric interfaces, and Liquid Glass design implementation",
+          "slug": "hive-visionos-spatial-engineer",
+          "path": "spatial-computing/hive-visionos-spatial-engineer.md"
+        },
+        {
+          "name": "XR Cockpit Interaction Specialist",
+          "description": "Specialist in designing and developing immersive cockpit-based control systems for XR environments",
+          "slug": "hive-xr-cockpit-interaction-specialist",
+          "path": "spatial-computing/hive-xr-cockpit-interaction-specialist.md"
+        },
+        {
+          "name": "XR Immersive Developer",
+          "description": "Expert WebXR and immersive technology developer with specialization in browser-based AR/VR/XR applications",
+          "slug": "hive-xr-immersive-developer",
+          "path": "spatial-computing/hive-xr-immersive-developer.md"
+        },
+        {
+          "name": "XR Interface Architect",
+          "description": "Spatial interaction designer and interface strategist for immersive AR/VR/XR environments",
+          "slug": "hive-xr-interface-architect",
+          "path": "spatial-computing/hive-xr-interface-architect.md"
+        }
       ]
     },
     {
@@ -1083,6 +2433,374 @@
           "name": "Agents Orchestrator",
           "description": "Autonomous pipeline manager that orchestrates the entire development workflow. You are the leader of this process.",
           "slug": "hive-agents-orchestrator"
+        }
+      ],
+      "agents": [
+        {
+          "name": "Accounts Payable Agent",
+          "description": "Autonomous payment processing specialist that executes vendor payments, contractor invoices, and recurring bills across any payment rail — crypto, fiat, stablecoins. Integrates with AI agent workflows via tool calls.",
+          "slug": "hive-accounts-payable-agent",
+          "path": "specialized/hive-accounts-payable-agent.md"
+        },
+        {
+          "name": "Ruthless Strategic Advisor",
+          "description": "Uncompromising strategic advisor who stress-tests architectures, challenges assumptions first, and enforces evidence-backed technical truth.",
+          "slug": "hive-advisor",
+          "path": "specialized/hive-advisor.md"
+        },
+        {
+          "name": "Agentic Identity & Trust Architect",
+          "description": "Designs identity, authentication, and trust verification systems for autonomous AI agents operating in multi-agent environments. Ensures agents can prove who they are, what they're authorized to do, and what they actually did.",
+          "slug": "hive-agentic-identity-trust",
+          "path": "specialized/hive-agentic-identity-trust.md"
+        },
+        {
+          "name": "Agents Orchestrator",
+          "description": "Autonomous pipeline manager that orchestrates the entire development workflow. You are the leader of this process.",
+          "slug": "hive-agents-orchestrator",
+          "path": "specialized/hive-agents-orchestrator.md"
+        },
+        {
+          "name": "Automation Governance Architect",
+          "description": "Governance-first architect for business automations (n8n-first) who audits value, risk, and maintainability before implementation.",
+          "slug": "hive-automation-governance-architect",
+          "path": "specialized/hive-automation-governance-architect.md"
+        },
+        {
+          "name": "Business Strategist",
+          "description": "Senior management consulting specialist for competitive analysis, market entry strategy, business model design, growth planning, organizational strategy, and strategic decision-making — translating complex market dynamics into clear, actionable strategies that create sustainable competitive advantage",
+          "slug": "hive-business-strategist",
+          "path": "specialized/hive-business-strategist.md"
+        },
+        {
+          "name": "Change Management Consultant",
+          "description": "Expert change management specialist using ADKAR, Kotter, and Prosci frameworks to guide organizations through technology implementations, restructuring, culture transformation, and M&A integration — managing resistance, building adoption, and ensuring changes stick long after go-live",
+          "slug": "hive-change-management-consultant",
+          "path": "specialized/hive-change-management-consultant.md"
+        },
+        {
+          "name": "Chief Financial Officer",
+          "description": "Strategic finance executive who governs capital allocation, treasury operations, financial planning, M&A finance, investor relations, and board reporting — translating financial complexity into clear decisions that drive business performance and stakeholder confidence.",
+          "slug": "hive-chief-financial-officer",
+          "path": "specialized/hive-chief-financial-officer.md"
+        },
+        {
+          "name": "Chief of Staff",
+          "description": "Master coordinator for founders and executives — filters noise, owns processes, enforces consistency, routes decisions, and positions outputs for impact so the boss can think clearly.",
+          "slug": "hive-chief-of-staff",
+          "path": "specialized/hive-chief-of-staff.md"
+        },
+        {
+          "name": "Civil Engineer",
+          "description": "Expert civil and structural engineer with global standards coverage — Eurocode, DIN, ACI, AISC, ASCE, AS/NZS, CSA, GB, IS, AIJ, and more. Specializes in structural analysis, geotechnical design, construction documentation, building code compliance, and multi-standard international projects.",
+          "slug": "hive-civil-engineer",
+          "path": "specialized/hive-civil-engineer.md"
+        },
+        {
+          "name": "Codebase Archaeologist",
+          "description": "Multi-session, multi-tool drift detection specialist who audits codebases touched by several AI coding tools (Claude, Cursor, Copilot, Windsurf, etc.) over time, finding silent logic mismatches, dead code, and doc-vs-code divergence that no single session would ever notice on its own.",
+          "slug": "hive-codebase-archaeologist",
+          "path": "specialized/hive-codebase-archaeologist.md"
+        },
+        {
+          "name": "Corporate Training Designer",
+          "description": "Expert in enterprise training system design and curriculum development — proficient in training needs analysis, instructional design methodology, blended learning program design, internal trainer development, leadership programs, and training effectiveness evaluation and continuous optimization.",
+          "slug": "hive-corporate-training-designer",
+          "path": "specialized/hive-corporate-training-designer.md"
+        },
+        {
+          "name": "Cultural Intelligence Strategist",
+          "description": "CQ specialist that detects invisible exclusion, researches global context, and ensures software resonates authentically across intersectional identities.",
+          "slug": "hive-cultural-intelligence-strategist",
+          "path": "specialized/hive-cultural-intelligence-strategist.md"
+        },
+        {
+          "name": "Customer Service",
+          "description": "Friendly, professional customer service specialist for any industry — handling inquiries, complaints, account support, FAQs, and seamless escalation with warmth, efficiency, and a genuine commitment to customer satisfaction",
+          "slug": "hive-customer-service",
+          "path": "specialized/hive-customer-service.md"
+        },
+        {
+          "name": "Customer Success Manager",
+          "description": "Strategic customer success specialist for onboarding, health scoring, QBR facilitation, churn prevention, expansion identification, and renewal management — driving net revenue retention by turning customers into long-term partners who achieve measurable outcomes",
+          "slug": "hive-customer-success-manager",
+          "path": "specialized/hive-customer-success-manager.md"
+        },
+        {
+          "name": "Data Consolidation Agent",
+          "description": "AI agent that consolidates extracted sales data into live reporting dashboards with territory, rep, and pipeline summaries",
+          "slug": "hive-data-consolidation-agent",
+          "path": "specialized/hive-data-consolidation-agent.md"
+        },
+        {
+          "name": "Data Privacy Officer",
+          "description": "Corporate data privacy specialist and DPO who builds GDPR, CCPA, and global privacy compliance programs — covering data mapping, privacy impact assessments, consent management, breach response, vendor due diligence, and regulatory engagement.",
+          "slug": "hive-data-privacy-officer",
+          "path": "specialized/hive-data-privacy-officer.md"
+        },
+        {
+          "name": "Developer Advocate",
+          "description": "Expert developer advocate specializing in building developer communities, creating compelling technical content, optimizing developer experience (DX), and driving platform adoption through authentic engineering engagement. Bridges product and engineering teams with external developers.",
+          "slug": "hive-developer-advocate",
+          "path": "specialized/hive-developer-advocate.md"
+        },
+        {
+          "name": "Document Generator",
+          "description": "Expert document creation specialist who generates professional PDF, PPTX, DOCX, and XLSX files using code-based approaches with proper formatting, charts, and data visualization.",
+          "slug": "hive-document-generator",
+          "path": "specialized/hive-document-generator.md"
+        },
+        {
+          "name": "ESG & Sustainability Officer",
+          "description": "Corporate sustainability strategist and ESG reporting specialist who builds environmental, social, and governance programs, manages disclosures, drives decarbonization initiatives, and aligns business strategy with stakeholder and regulatory expectations.",
+          "slug": "hive-esg-sustainability-officer",
+          "path": "specialized/hive-esg-sustainability-officer.md"
+        },
+        {
+          "name": "FedRAMP & RMF Compliance Engineer",
+          "description": "Expert FedRAMP and NIST Risk Management Framework compliance engineer specializing in both FedRAMP authorization pathways — the traditional Rev5 path (NIST 800-53 Rev 5 control implementation, System Security Plans, 3PAO assessment, agency authorization) and the modernized FedRAMP 20x path (Key Security Indicators, automated machine-readable validation, compliance-as-code) — plus the ATO process, continuous monitoring (ConMon), POA&M management, FIPS 199 categorization, authorization boundary diagrams, OSCAL machine-readable packages, and cloud security compliance for government and regulated industries",
+          "slug": "hive-fedramp-rmf-compliance",
+          "path": "specialized/hive-fedramp-rmf-compliance.md"
+        },
+        {
+          "name": "Focus Music Architect",
+          "description": "Instrumental focus music specialist and neuroacoustic prompt engineer — crafts high-yield prompts, soundscape architectures, BPM curves, and binaural layers for deep cognitive flow and generative audio models.",
+          "slug": "hive-focus-music-architect",
+          "path": "specialized/hive-focus-music-architect.md"
+        },
+        {
+          "name": "French Consulting Market Navigator",
+          "description": "Navigate the French ESN/SI freelance ecosystem — margin models, platform mechanics (Malt, collective.work), portage salarial, rate positioning, and payment cycle realities",
+          "slug": "hive-french-consulting-market",
+          "path": "specialized/hive-french-consulting-market.md"
+        },
+        {
+          "name": "Government Digital Presales Consultant",
+          "description": "Presales expert for China's government digital transformation market (ToG), proficient in policy interpretation, solution design, bid document preparation, POC validation, compliance requirements (classified protection/cryptographic assessment/Xinchuang domestic IT), and stakeholder management — helping technical teams efficiently win government IT projects.",
+          "slug": "hive-government-digital-presales-consultant",
+          "path": "specialized/hive-government-digital-presales-consultant.md"
+        },
+        {
+          "name": "Grant Writer",
+          "description": "Expert grant writing specialist for nonprofits, research institutions, and social enterprises — covering prospect research, letter of inquiry writing, full proposal development, budget narratives, federal and foundation grants, and post-award reporting to maximize funding success",
+          "slug": "hive-grant-writer",
+          "path": "specialized/hive-grant-writer.md"
+        },
+        {
+          "name": "Aging Parent Care Companion",
+          "description": "Compassionate, HIPAA-aligned care coordination and decision-support agent for family caregivers managing an aging parent's appointments, medications, care team communication, and their own caregiver wellbeing",
+          "slug": "hive-healthcare-aging-parent-care-companion",
+          "path": "specialized/hive-healthcare-aging-parent-care-companion.md"
+        },
+        {
+          "name": "Healthcare Customer Service",
+          "description": "Empathetic healthcare customer service specialist for patient support, billing inquiries, appointment management, insurance questions, complaint resolution, and seamless escalation to clinical or administrative staff",
+          "slug": "hive-healthcare-customer-service",
+          "path": "specialized/hive-healthcare-customer-service.md"
+        },
+        {
+          "name": "Healthcare Marketing Compliance Specialist",
+          "description": "Expert in healthcare marketing compliance in China, proficient in the Advertising Law, Medical Advertisement Management Measures, Drug Administration Law, and related regulations — covering pharmaceuticals, medical devices, medical aesthetics, health supplements, and internet healthcare across content review, risk control, platform rule interpretation, and patient privacy protection, helping enterprises conduct effective health marketing within legal boundaries.",
+          "slug": "hive-healthcare-marketing-compliance",
+          "path": "specialized/hive-healthcare-marketing-compliance.md"
+        },
+        {
+          "name": "Hospitality Guest Services",
+          "description": "Comprehensive hospitality guest services specialist for hotels, resorts, restaurants, and event venues — covering reservations, check-in/check-out, concierge services, guest complaint resolution, loyalty program management, and post-stay follow-up to deliver exceptional guest experiences that drive loyalty and revenue",
+          "slug": "hive-hospitality-guest-services",
+          "path": "specialized/hive-hospitality-guest-services.md"
+        },
+        {
+          "name": "HR Onboarding",
+          "description": "Comprehensive HR onboarding specialist for employee orientation, documentation management, compliance tracking, benefits enrollment, culture integration, and new hire support — delivering a seamless first-day-to-first-year experience that drives retention and productivity",
+          "slug": "hive-hr-onboarding",
+          "path": "specialized/hive-hr-onboarding.md"
+        },
+        {
+          "name": "Identity Graph Operator",
+          "description": "Operates a shared identity graph that multiple AI agents resolve against. Ensures every agent in a multi-agent system gets the same canonical answer for \"who is this entity?\" - deterministically, even under concurrent writes.",
+          "slug": "hive-identity-graph-operator",
+          "path": "specialized/hive-identity-graph-operator.md"
+        },
+        {
+          "name": "Korean Business Navigator",
+          "description": "Korean business culture for foreign professionals — 품의 decision process, nunchi reading, KakaoTalk business etiquette, hierarchy navigation, and relationship-first deal mechanics",
+          "slug": "hive-korean-business-navigator",
+          "path": "specialized/hive-korean-business-navigator.md"
+        },
+        {
+          "name": "Language Translator",
+          "description": "Real-time Spanish ↔ English translation specialist with cultural context, regional dialect awareness, travel phrase guidance, and tone-appropriate communication for everyday, business, and emergency situations",
+          "slug": "hive-language-translator",
+          "path": "specialized/hive-language-translator.md"
+        },
+        {
+          "name": "Legal Billing & Time Tracking",
+          "description": "Comprehensive legal billing and time tracking specialist for accurate time capture, invoice generation, billing narrative writing, collections management, trust account compliance, and billing analysis — maximizing revenue recovery while maintaining client relationships and ethical compliance across any firm size or billing model",
+          "slug": "hive-legal-billing-time-tracking",
+          "path": "specialized/hive-legal-billing-time-tracking.md"
+        },
+        {
+          "name": "Legal Client Intake",
+          "description": "Comprehensive legal client intake specialist for qualifying prospects, collecting case information, scheduling consultations, managing conflict checks, and delivering attorney-ready intake summaries across any practice area and firm size",
+          "slug": "hive-legal-client-intake",
+          "path": "specialized/hive-legal-client-intake.md"
+        },
+        {
+          "name": "Legal Document Review",
+          "description": "Comprehensive legal document review specialist for contracts, litigation documents, and real estate agreements — summarizing documents, flagging risk clauses, comparing contract versions, and checking compliance across any law firm size or practice area",
+          "slug": "hive-legal-document-review",
+          "path": "specialized/hive-legal-document-review.md"
+        },
+        {
+          "name": "Loan Officer Assistant",
+          "description": "Comprehensive loan officer assistant for mortgage and lending professionals — covering borrower intake, pre-qualification, document collection, pipeline management, compliance tracking, rate quoting, and closing coordination across residential, commercial, and consumer lending",
+          "slug": "hive-loan-officer-assistant",
+          "path": "specialized/hive-loan-officer-assistant.md"
+        },
+        {
+          "name": "LSP/Index Engineer",
+          "description": "Language Server Protocol specialist building unified code intelligence systems through LSP client orchestration and semantic indexing",
+          "slug": "hive-lsp-index-engineer",
+          "path": "specialized/hive-lsp-index-engineer.md"
+        },
+        {
+          "name": "M&A Integration Manager",
+          "description": "Mergers and acquisitions integration specialist who designs and executes post-merger integration programs — covering Day 1 readiness, 100-day planning, synergy tracking, cultural integration, functional workstream coordination, and transition service agreement management.",
+          "slug": "hive-ma-integration-manager",
+          "path": "specialized/hive-ma-integration-manager.md"
+        },
+        {
+          "name": "Master Plan Architect",
+          "description": "Master planning architect, technical educator, and ruthless plan critic who specializes in deep architectural teaching, Red Teaming / risk critique, and crafting comprehensive Implementation Plans in Markdown with ZERO code execution.",
+          "slug": "hive-master-plan-architect",
+          "path": "specialized/hive-master-plan-architect.md"
+        },
+        {
+          "name": "MCP Builder",
+          "description": "Expert Model Context Protocol developer who designs, builds, and tests MCP servers that extend AI agent capabilities with custom tools, resources, and prompts.",
+          "slug": "hive-mcp-builder",
+          "path": "specialized/hive-mcp-builder.md"
+        },
+        {
+          "name": "Medical Billing & Coding Specialist",
+          "description": "Expert medical billing and coding specialist for ICD-10-CM/PCS, CPT, and HCPCS coding, claim submission, denial management, revenue cycle optimization, compliance auditing, and payer contract analysis — maximizing clean claim rates and revenue recovery for healthcare providers of all sizes",
+          "slug": "hive-medical-billing-coding-specialist",
+          "path": "specialized/hive-medical-billing-coding-specialist.md"
+        },
+        {
+          "name": "Model QA Specialist",
+          "description": "Independent model QA expert who audits ML and statistical models end-to-end - from documentation review and data reconstruction to replication, calibration testing, interpretability analysis, performance monitoring, and audit-grade reporting.",
+          "slug": "hive-model-qa",
+          "path": "specialized/hive-model-qa.md"
+        },
+        {
+          "name": "Operations Manager",
+          "description": "Business operations specialist who applies Lean, Six Sigma, and systems thinking to process mapping, capacity planning, KPI governance, vendor management, and organizational efficiency — turning operational complexity into repeatable, measurable performance.",
+          "slug": "hive-operations-manager",
+          "path": "specialized/hive-operations-manager.md"
+        },
+        {
+          "name": "Organizational Psychologist",
+          "description": "Applied organizational psychologist who diagnoses team dynamics, psychological safety, burnout risk, and culture health — using evidence-based frameworks to help leaders build high-performing, resilient, and psychologically safe organizations.",
+          "slug": "hive-organizational-psychologist",
+          "path": "specialized/hive-organizational-psychologist.md"
+        },
+        {
+          "name": "Personal Growth Mentor",
+          "description": "Cross-domain personal development mentor for goal clarity, habit design, strategic decisions, and accountability without motivational fluff.",
+          "slug": "hive-personal-growth-mentor",
+          "path": "specialized/hive-personal-growth-mentor.md"
+        },
+        {
+          "name": "Pricing Analyst",
+          "description": "Specialized pricing analyst who develops optimal pricing models through market research, competitor analysis, cost structure evaluation, and margin optimization — turning pricing from guesswork into a data-driven competitive advantage.",
+          "slug": "hive-pricing-analyst",
+          "path": "specialized/hive-pricing-analyst.md"
+        },
+        {
+          "name": "Real Estate Buyer & Seller",
+          "description": "Comprehensive real estate agent assistant for buyer representation, seller representation, listing management, offer negotiation, transaction coordination, and closing support — delivering a world-class client experience from first showing to final closing across residential and investment real estate",
+          "slug": "hive-real-estate-buyer-seller",
+          "path": "specialized/hive-real-estate-buyer-seller.md"
+        },
+        {
+          "name": "Recruitment Specialist",
+          "description": "Expert recruitment operations and talent acquisition specialist — skilled in China's major hiring platforms, talent assessment frameworks, and labor law compliance. Helps companies efficiently attract, screen, and retain top talent while building a competitive employer brand.",
+          "slug": "hive-recruitment-specialist",
+          "path": "specialized/hive-recruitment-specialist.md"
+        },
+        {
+          "name": "Report Distribution Agent",
+          "description": "AI agent that automates distribution of consolidated sales reports to representatives based on territorial parameters",
+          "slug": "hive-report-distribution-agent",
+          "path": "specialized/hive-report-distribution-agent.md"
+        },
+        {
+          "name": "Resume Tailor",
+          "description": "Candidate-side resume optimization specialist who analyzes job descriptions, maps real experience to role requirements, improves ATS keyword alignment, and rewrites bullets without fabricating qualifications.",
+          "slug": "hive-resume-tailor",
+          "path": "specialized/hive-resume-tailor.md"
+        },
+        {
+          "name": "Retail Customer Returns",
+          "description": "Comprehensive retail customer returns specialist for processing returns, exchanges, and refunds across in-store, online, and omnichannel retail — handling policy enforcement, fraud prevention, customer retention, vendor returns, and returns analytics to maximize recovery while preserving customer loyalty",
+          "slug": "hive-retail-customer-returns",
+          "path": "specialized/hive-retail-customer-returns.md"
+        },
+        {
+          "name": "Sales Data Extraction Agent",
+          "description": "AI agent specialized in monitoring Excel files and extracting key sales metrics (MTD, YTD, Year End) for internal live reporting",
+          "slug": "hive-sales-data-extraction-agent",
+          "path": "specialized/hive-sales-data-extraction-agent.md"
+        },
+        {
+          "name": "Sales Outreach",
+          "description": "Consultative B2B sales outreach specialist for cold prospecting, lead follow-up, objection handling, proposal writing, and pipeline management — combining data-driven targeting with genuine relationship-building to open doors and close deals",
+          "slug": "hive-sales-outreach",
+          "path": "specialized/hive-sales-outreach.md"
+        },
+        {
+          "name": "Salesforce Architect",
+          "description": "Solution architecture for Salesforce platform — multi-cloud design, integration patterns, governor limits, deployment strategy, and data model governance for enterprise-scale orgs",
+          "slug": "hive-salesforce-architect",
+          "path": "specialized/hive-salesforce-architect.md"
+        },
+        {
+          "name": "Strategy Duel Agent",
+          "description": "Conducts live strategy duels using game theory and the 36 Chinese stratagems",
+          "slug": "hive-strategy-duel-agent",
+          "path": "specialized/hive-strategy-duel-agent.md"
+        },
+        {
+          "name": "Study Abroad Advisor",
+          "description": "Full-spectrum study abroad planning expert covering the US, UK, Canada, Australia, Europe, Hong Kong, and Singapore — proficient in undergraduate, master's, and PhD application strategy, school selection, essay coaching, profile enhancement, standardized test planning, visa preparation, and overseas life adaptation, helping Chinese students craft personalized end-to-end study abroad plans.",
+          "slug": "hive-study-abroad-advisor",
+          "path": "specialized/hive-study-abroad-advisor.md"
+        },
+        {
+          "name": "Supply Chain Strategist",
+          "description": "Expert supply chain management and procurement strategy specialist — skilled in supplier development, strategic sourcing, quality control, and supply chain digitalization. Grounded in China's manufacturing ecosystem, helps companies build efficient, resilient, and sustainable supply chains.",
+          "slug": "hive-supply-chain-strategist",
+          "path": "specialized/hive-supply-chain-strategist.md"
+        },
+        {
+          "name": "Swarm Reality Simulator",
+          "description": "Multi-agent prediction and swarm simulation engine that tests ideas, product concepts, and policies by spinning up synthetic populations to reveal emergent behavior and unpredicted failure modes.",
+          "slug": "hive-swarm-reality-simulator",
+          "path": "specialized/hive-swarm-reality-simulator.md"
+        },
+        {
+          "name": "Workflow Architect",
+          "description": "Workflow design specialist who maps complete workflow trees for every system, user journey, and agent interaction — covering happy paths, all branch conditions, failure modes, recovery paths, handoff contracts, and observable states to produce build-ready specs that agents can implement against and QA can test against.",
+          "slug": "hive-workflow-architect",
+          "path": "specialized/hive-workflow-architect.md"
+        },
+        {
+          "name": "ZK Steward",
+          "description": "Knowledge-base steward in the spirit of Niklas Luhmann's Zettelkasten. Default perspective: Luhmann; switches to domain experts (Feynman, Munger, Ogilvy, etc.) by task. Enforces atomic notes, connectivity, and validation loops. Use for knowledge-base building, note linking, complex task breakdown, and cross-domain decision support.",
+          "slug": "hive-zk-steward",
+          "path": "specialized/hive-zk-steward.md"
         }
       ]
     },
@@ -1114,6 +2832,44 @@
           "description": "Expert infrastructure specialist focused on system reliability, performance optimization, and technical operations management. Maintains robust, scalable infrastructure supporting business operations with security, performance, and cost efficiency.",
           "slug": "hive-infrastructure-maintainer"
         }
+      ],
+      "agents": [
+        {
+          "name": "Analytics Reporter",
+          "description": "Expert data analyst transforming raw data into actionable business insights. Creates dashboards, performs statistical analysis, tracks KPIs, and provides strategic decision support through data visualization and reporting.",
+          "slug": "hive-analytics-reporter",
+          "path": "support/hive-analytics-reporter.md"
+        },
+        {
+          "name": "Executive Summary Generator",
+          "description": "Consultant-grade AI specialist trained to think and communicate like a senior strategy consultant. Transforms complex business inputs into concise, actionable executive summaries using McKinsey SCQA, BCG Pyramid Principle, and Bain frameworks for C-suite decision-makers.",
+          "slug": "hive-executive-summary-generator",
+          "path": "support/hive-executive-summary-generator.md"
+        },
+        {
+          "name": "Finance Tracker",
+          "description": "Expert financial analyst and controller specializing in financial planning, budget management, and business performance analysis. Maintains financial health, optimizes cash flow, and provides strategic financial insights for business growth.",
+          "slug": "hive-finance-tracker",
+          "path": "support/hive-finance-tracker.md"
+        },
+        {
+          "name": "Infrastructure Maintainer",
+          "description": "Expert infrastructure specialist focused on system reliability, performance optimization, and technical operations management. Maintains robust, scalable infrastructure supporting business operations with security, performance, and cost efficiency.",
+          "slug": "hive-infrastructure-maintainer",
+          "path": "support/hive-infrastructure-maintainer.md"
+        },
+        {
+          "name": "Legal Compliance Checker",
+          "description": "Expert legal and compliance specialist ensuring business operations, data handling, and content creation comply with relevant laws, regulations, and industry standards across multiple jurisdictions.",
+          "slug": "hive-legal-compliance-checker",
+          "path": "support/hive-legal-compliance-checker.md"
+        },
+        {
+          "name": "Support Responder",
+          "description": "Expert customer support specialist delivering exceptional customer service, issue resolution, and user experience optimization. Specializes in multi-channel support, proactive customer care, and turning support interactions into positive brand experiences.",
+          "slug": "hive-support-responder",
+          "path": "support/hive-support-responder.md"
+        }
       ]
     },
     {
@@ -1144,7 +2900,253 @@
           "description": "Expert performance testing and optimization specialist focused on measuring, analyzing, and improving system performance across all applications and infrastructure",
           "slug": "hive-performance-benchmarker"
         }
+      ],
+      "agents": [
+        {
+          "name": "Accessibility Auditor",
+          "description": "Expert accessibility specialist who audits interfaces against WCAG standards, tests with assistive technologies, and ensures inclusive design. Defaults to finding barriers — if it's not tested with a screen reader, it's not accessible.",
+          "slug": "hive-accessibility-auditor",
+          "path": "testing/hive-accessibility-auditor.md"
+        },
+        {
+          "name": "API Tester",
+          "description": "Expert API testing specialist focused on comprehensive API validation, performance testing, and quality assurance across all systems and third-party integrations",
+          "slug": "hive-api-tester",
+          "path": "testing/hive-api-tester.md"
+        },
+        {
+          "name": "Evidence Collector",
+          "description": "Screenshot-obsessed, fantasy-allergic QA specialist - Reports reproducible issues with evidence and marks untested scope honestly",
+          "slug": "hive-evidence-collector",
+          "path": "testing/hive-evidence-collector.md"
+        },
+        {
+          "name": "Performance Benchmarker",
+          "description": "Expert performance testing and optimization specialist focused on measuring, analyzing, and improving system performance across all applications and infrastructure",
+          "slug": "hive-performance-benchmarker",
+          "path": "testing/hive-performance-benchmarker.md"
+        },
+        {
+          "name": "Reality Checker",
+          "description": "Stops fantasy approvals, evidence-based certification - Default to \"NEEDS WORK\", requires overwhelming proof for production readiness",
+          "slug": "hive-reality-checker",
+          "path": "testing/hive-reality-checker.md"
+        },
+        {
+          "name": "Test Automation Engineer",
+          "description": "Expert end-to-end test automation engineer for Playwright and Cypress — resilient selectors, flake elimination, isolated test data, CI parallelization, and trace-driven failure debugging.",
+          "slug": "hive-test-automation-engineer",
+          "path": "testing/hive-test-automation-engineer.md"
+        },
+        {
+          "name": "Test Results Analyzer",
+          "description": "Expert test analysis specialist focused on comprehensive test result evaluation, quality metrics analysis, and actionable insight generation from testing activities",
+          "slug": "hive-test-results-analyzer",
+          "path": "testing/hive-test-results-analyzer.md"
+        },
+        {
+          "name": "Tool Evaluator",
+          "description": "Expert technology assessment specialist focused on evaluating, testing, and recommending tools, software, and platforms for business use and productivity optimization",
+          "slug": "hive-tool-evaluator",
+          "path": "testing/hive-tool-evaluator.md"
+        },
+        {
+          "name": "Workflow Optimizer",
+          "description": "Expert process improvement specialist focused on analyzing, optimizing, and automating workflows across all business functions for maximum productivity and efficiency",
+          "slug": "hive-workflow-optimizer",
+          "path": "testing/hive-workflow-optimizer.md"
+        }
       ]
+    }
+  ],
+  "skills": [
+    {
+      "slug": "hive-analysis-optimization",
+      "name": "hive-analysis-optimization",
+      "description": "Optimize binary/artifact analysis providers and shared analysis workflows for agent context, latency, CPU, and memory while preserving correctness and Evidence. Use for analysis bottlenecks and cache or query design; CI/test-suite optimization is outside this skill's scope.",
+      "path": "skills/hive-analysis-optimization/SKILL.md"
+    },
+    {
+      "slug": "hive-backend-patterns",
+      "name": "hive-backend-patterns",
+      "description": "Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes. Use when building or reviewing Node.js, Express, or Next.js API routes and their data access.",
+      "path": "skills/hive-backend-patterns/SKILL.md"
+    },
+    {
+      "slug": "hive-bootstrap",
+      "name": "hive-bootstrap",
+      "description": "Bootstrap directory README.md files across a repository subtree.",
+      "path": "skills/hive-bootstrap/SKILL.md"
+    },
+    {
+      "slug": "hive-brainstorm",
+      "name": "hive-brainstorm",
+      "description": "Interactive ideation and brainstorming skill for the Elephant & Goldfish Model (EGM). Helps turn half-baked concepts into structured hypotheses via clarifying questions, review, and iterative refinement. Produces an RFC summary for human review or more detailed design with hive-draft.",
+      "path": "skills/hive-brainstorm/SKILL.md"
+    },
+    {
+      "slug": "hive-draft",
+      "name": "hive-draft",
+      "description": "Drafts a design document section-by-section using the concepts brief from hive-brainstorm (or user notes). This is the second step in the Elephant-Goldfish (EGM) feature flow. Use when you are ready to write a design doc after aligning on requirements + solution.",
+      "path": "skills/hive-draft/SKILL.md"
+    },
+    {
+      "slug": "hive-drift-report",
+      "name": "hive-drift-report",
+      "description": "Runs drift detection on all design documents to check for document and code consistency. Produces an actionable report with differences. Use when the user asks to detect drift or check for consistency across all design documents or READMEs in a directory.",
+      "path": "skills/hive-drift-report/SKILL.md"
+    },
+    {
+      "slug": "hive-frontend-patterns",
+      "name": "hive-frontend-patterns",
+      "description": "Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices. Use when building or reviewing React or Next.js components, state, or render performance.",
+      "path": "skills/hive-frontend-patterns/SKILL.md"
+    },
+    {
+      "slug": "hive-mcp-server-patterns",
+      "name": "hive-mcp-server-patterns",
+      "description": "Build MCP servers with Node/TypeScript SDK — tools, resources, prompts, Zod validation, stdio vs Streamable HTTP. Use Context7 or official MCP docs for latest API. Use when building or debugging an MCP server — tools, resources, prompts, validation, or transport choice.",
+      "path": "skills/hive-mcp-server-patterns/SKILL.md"
+    },
+    {
+      "slug": "hive-python-patterns",
+      "name": "hive-python-patterns",
+      "description": "Pythonic idioms, PEP 8 standards, type hints, and best practices for building robust, efficient, and maintainable Python applications. Use when writing or reviewing Python code and idiomatic structure, typing, or PEP 8 is in question.",
+      "path": "skills/hive-python-patterns/SKILL.md"
+    },
+    {
+      "slug": "hive-resolve",
+      "name": "hive-resolve",
+      "description": "The Elephant resolution skill. Ingests flat deficiency reports from concurrent Goldfish reviewers, applies automated fixes for PROPOSE FIX items via UI multiple-choice gates, and presents interactive negotiation/re-sync checkpoints.",
+      "path": "skills/hive-resolve/SKILL.md"
+    },
+    {
+      "slug": "hive-reverse-engineering",
+      "name": "hive-reverse-engineering",
+      "description": "Reverse engineer native, managed, Electron/JavaScript, packaged, firmware, and browser targets with Hivework's reverse-engineering workflow (backed by the `rea` MCP server), and build agent environments (AgentEnv bundles) of web applications from a live instance or a capture, and of Linux desktop apps with a task from a request. Use shipped-artifact or requested runtime evidence to explain features, compare versions, decompile code, or guide a reconstruction. Skip this skill for ordinary source-repository architecture analysis.",
+      "path": "skills/hive-reverse-engineering/SKILL.md"
+    },
+    {
+      "slug": "hive-review",
+      "name": "hive-review",
+      "description": "Orchestrates the Hivework Goldfish Review Protocol. Used as part of the EGM process to perform design document reviews. Executes five review phases: Initial Zoom Out Review, Comprehension Review, Design Critique, Intermediate Zoom Out Review, and Implementation Readiness.",
+      "path": "skills/hive-review/SKILL.md"
+    },
+    {
+      "slug": "hive-review-loop",
+      "name": "hive-review-loop",
+      "description": "Executes the Antagonistic-Review process from the Elephant-Goldfish Model (EGM) via an automated multi-agent review loop to audit documents against qualitative standards and structural templates, and automatically apply approved fixes. Use when reviewing design docs, READMEs, feature specifications, implementation plans, or verifying document completeness and tone.",
+      "path": "skills/hive-review-loop/SKILL.md"
+    },
+    {
+      "slug": "hive-ruthless-advisor",
+      "name": "hive-ruthless-advisor",
+      "description": "Enforces the Advisor Persona & Critique Protocol — challenges assumptions first, bans sycophancy, rates confidence ([Certain]/[Likely]/[Guessing]), and delivers structured technical disagreements.",
+      "path": "skills/hive-ruthless-advisor/SKILL.md"
+    },
+    {
+      "slug": "hive-security-review",
+      "name": "hive-security-review",
+      "description": "Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or implementing payment/sensitive features. Provides comprehensive security checklist and patterns.",
+      "path": "skills/hive-security-review/SKILL.md"
+    },
+    {
+      "slug": "hive-security-scan",
+      "name": "hive-security-scan",
+      "description": "Scan your AI agent configuration (.claude/, .agents/, or config directories) for security vulnerabilities, misconfigurations, and injection risks using AgentShield. Checks CLAUDE.md, settings.json, MCP servers, hooks, and agent definitions. Use when auditing a .claude/ directory — CLAUDE.md, settings.json, MCP servers, hooks, or agent definitions.",
+      "path": "skills/hive-security-scan/SKILL.md"
+    },
+    {
+      "slug": "hive-swarm-simulation",
+      "name": "hive-swarm-simulation",
+      "description": "Operational protocol for running multi-agent swarm simulations to stress-test ideas, products, and policies. Generates competing synthetic personas, simulates emergent debate rounds, and produces an objective prediction report.",
+      "path": "skills/hive-swarm-simulation/SKILL.md"
+    },
+    {
+      "slug": "hive-tdd-workflow",
+      "name": "hive-tdd-workflow",
+      "description": "Test-driven development workflow: write a failing test first, watch it fail, implement the smallest change to green, then refactor with 80%+ coverage across unit, integration, and E2E tests. Use when writing a new feature, fixing a bug, refactoring, or when told to write failing tests first.",
+      "path": "skills/hive-tdd-workflow/SKILL.md"
+    },
+    {
+      "slug": "hive-tool-design",
+      "name": "hive-tool-design",
+      "description": "Audit, investigate, design, or change Hivework reverse-engineering investigation tools, CLI/MCP contracts, provider capabilities, and Evidence semantics.",
+      "path": "skills/hive-tool-design/SKILL.md"
+    },
+    {
+      "slug": "hive-typescript-patterns",
+      "name": "hive-typescript-patterns",
+      "description": "TypeScript patterns for strict, type-safe, maintainable code in modern TypeScript and JavaScript applications. Covers strict compiler configuration, type design, narrowing, discriminated unions, generics, async and error handling, module boundaries, dependency hygiene, and type-level testing. Use when writing or reviewing TypeScript or JavaScript code.",
+      "path": "skills/hive-typescript-patterns/SKILL.md"
+    },
+    {
+      "slug": "hive-verification-loop",
+      "name": "hive-verification-loop",
+      "description": "Run a six-phase verification of a coding session's work — build, type check, lint, tests with coverage, security grep, and diff review — then produce a PASS/FAIL verification report. Use when verifying work after completing a feature or refactor, before creating a PR, or when quality gates must pass.",
+      "path": "skills/hive-verification-loop/SKILL.md"
+    }
+  ],
+  "reviewers": [
+    {
+      "slug": "hive-bootstrap-orchestrator",
+      "name": "hive-bootstrap-orchestrator",
+      "description": "Orchestrates directory README documentation, partitions subtrees, and coordinates worker subagents.",
+      "path": "agents/hive-bootstrap-orchestrator.md"
+    },
+    {
+      "slug": "hive-codebase-details",
+      "name": "hive-codebase-details",
+      "description": "Pedantic Technical Quality Auditor verifying that documentation accurately and exhaustively matches actual codebase implementation and existing library reuse opportunities.",
+      "path": "agents/hive-codebase-details.md"
+    },
+    {
+      "slug": "hive-comprehension",
+      "name": "hive-comprehension",
+      "description": "Naive Reader persona auditing documents with zero assumed institutional knowledge, flagging undefined terms, acronyms, and comprehension gaps.",
+      "path": "agents/hive-comprehension.md"
+    },
+    {
+      "slug": "hive-design-critic",
+      "name": "hive-design-critic",
+      "description": "Hostile Design Critic persona focused on system architecture, scalability, infrastructure economics, and unmitigated risks.",
+      "path": "agents/hive-design-critic.md"
+    },
+    {
+      "slug": "hive-implementation-readiness",
+      "name": "hive-implementation-readiness",
+      "description": "Pragmatic Tech Lead persona verifying that implementation plans contain unambiguous, fully actionable execution instructions without leaving design decisions to the implementer.",
+      "path": "agents/hive-implementation-readiness.md"
+    },
+    {
+      "slug": "hive-inventive-catalyst",
+      "name": "hive-inventive-catalyst",
+      "description": "Inventive problem-solving Goldfish persona applying TRIZ principles to identify and eliminate system-level contradictions without compromise.",
+      "path": "agents/hive-inventive-catalyst.md"
+    },
+    {
+      "slug": "hive-structural",
+      "name": "hive-structural",
+      "description": "Structural Layout Validator and Document Architect persona focused on symmetry, heading hierarchy, formatting, and template compliance.",
+      "path": "agents/hive-structural.md"
+    },
+    {
+      "slug": "hive-style",
+      "name": "hive-style",
+      "description": "Technical Copy Editor persona focused on clarity, precision, brevity, objective framing, and stripping fluff.",
+      "path": "agents/hive-style.md"
+    },
+    {
+      "slug": "hive-synthesizer",
+      "name": "hive-synthesizer",
+      "description": "Intermediate Swarm Compiler and Aggregator coordinating parallel Goldfish reviewers, deduplicating findings, and compiling deliverable reports.",
+      "path": "agents/hive-synthesizer.md"
+    },
+    {
+      "slug": "hive-zoom-out",
+      "name": "hive-zoom-out",
+      "description": "Skeptical Architect persona focused on high-altitude simplicity, minimalism, YAGNI, and codebase reuse.",
+      "path": "agents/hive-zoom-out.md"
     }
   ],
   "runbooks": [

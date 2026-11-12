@@ -1,6 +1,6 @@
 /**
  * Hivework Data Model & Catalog Schema
- * Matches app/src/data/catalog.generated.json
+ * Matches src/data/catalog.generated.json
  */
 
 export interface CatalogTotals {
@@ -56,6 +56,13 @@ export interface DivisionSample {
   slug: string;
 }
 
+export interface AgentEntry {
+  name: string;
+  description: string;
+  slug: string;
+  path: string;
+}
+
 export interface DivisionEntry {
   id: string;
   slug: string;
@@ -64,6 +71,21 @@ export interface DivisionEntry {
   color: string;
   agentCount: number;
   samples: DivisionSample[];
+  agents: AgentEntry[];
+}
+
+export interface SkillEntry {
+  slug: string;
+  name: string;
+  description: string;
+  path: string;
+}
+
+export interface ReviewerEntry {
+  slug: string;
+  name: string;
+  description: string;
+  path: string;
 }
 
 export interface RunbookRosterGroup {
@@ -88,16 +110,24 @@ export interface CatalogData {
   totals: CatalogTotals;
   tools: ToolEntry[];
   divisions: DivisionEntry[];
+  skills: SkillEntry[];
+  reviewers: ReviewerEntry[];
   runbooks: RunbookEntry[];
 }
 
+export type CliCommandMode = 'local' | 'bootstrap';
+
 export interface CliOptions {
+  mode?: CliCommandMode;
+  repoUrl?: string;
   tool?: string;
   division?: string;
   skills?: boolean;
   link?: boolean;
   dryRun?: boolean;
+  noInteractive?: boolean;
   agent?: string;
+  agents?: string[];
 }
 
 export interface SiteConfig {
@@ -105,6 +135,7 @@ export interface SiteConfig {
   siteUrl: string;
   creatorName: string;
   creatorUrl: string;
+  buyMeACoffeeUrl?: string;
   primaryEmail: string;
   forwardTargetEmail: string;
   repoUrl: string;

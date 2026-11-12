@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Check, Copy, Terminal } from 'lucide-react';
-import type { DivisionEntry, ToolEntry } from '../data/types';
+import type { CliCommandMode, DivisionEntry, ToolEntry } from '../data/types';
 import { buildInstallCommand } from '../lib/cliBuilder';
 import { copyText } from '../lib/clipboard';
 import '../styles/sections.css';
@@ -37,6 +37,7 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
   const [skills, setSkills] = useState<boolean>(false);
   const [link, setLink] = useState<boolean>(false);
   const [dryRun, setDryRun] = useState<boolean>(false);
+  const [cliMode, setCliMode] = useState<CliCommandMode>('local');
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'failed'>('idle');
   const resetTimerRef = useRef<number | null>(null);
 
@@ -72,13 +73,14 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
   const installCommand = useMemo(
     () =>
       buildInstallCommand({
+        mode: cliMode,
         tool: activeTool?.kebab,
         division: selectedDivision || undefined,
         skills,
         link,
         dryRun,
       }),
-    [activeTool?.kebab, selectedDivision, skills, link, dryRun]
+    [cliMode, activeTool?.kebab, selectedDivision, skills, link, dryRun]
   );
 
   useEffect(() => {
@@ -342,6 +344,30 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
                       <Terminal size={12} aria-hidden="true" />
                       <span>install.sh</span>
                     </span>
+                    <div className="terminal-mode-switch" role="group" aria-label="Matrix CLI mode">
+                      <button
+                        type="button"
+                        className="terminal-mode-btn"
+                        aria-pressed={cliMode === 'local'}
+                        onClick={() => {
+                          setCliMode('local');
+                          resetCopyStatus();
+                        }}
+                      >
+                        Local CLI
+                      </button>
+                      <button
+                        type="button"
+                        className="terminal-mode-btn"
+                        aria-pressed={cliMode === 'bootstrap'}
+                        onClick={() => {
+                          setCliMode('bootstrap');
+                          resetCopyStatus();
+                        }}
+                      >
+                        Git Clone + Run
+                      </button>
+                    </div>
                   </div>
 
                   <div className="terminal-body">

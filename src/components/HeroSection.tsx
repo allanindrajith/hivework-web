@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Check, Copy, Terminal } from 'lucide-react';
-import type { CatalogTotals, SiteConfig } from '../data/types';
+import { ArrowRight, Check, Copy, ExternalLink, Terminal } from 'lucide-react';
+import type { CatalogTotals, CliCommandMode, SiteConfig } from '../data/types';
 import { copyText } from '../lib/clipboard';
+import { navigateToSection } from '../lib/navigation';
 import '../styles/landing.css';
 
 export interface HeroSectionProps {
@@ -14,38 +15,51 @@ type QuickStartTabId = 'install-all' | 'install-skills' | 'convert-all';
 interface QuickStartTab {
   id: QuickStartTabId;
   label: string;
-  command: string;
+  localCommand: string;
+  bootstrapCommand: string;
   caption: string;
 }
+
+const DEFAULT_REPO_URL = 'https://github.com/allanindrajith/hivework';
 
 const QUICK_START_TABS: readonly QuickStartTab[] = [
   {
     id: 'install-all',
     label: 'Install All',
-    command: './scripts/install.sh',
+    localCommand: './scripts/install.sh',
+    bootstrapCommand:
+      'git clone https://github.com/allanindrajith/hivework.git && cd hivework && ./scripts/install.sh',
     caption: 'Auto-detects installed local AI harnesses and deploys compatible agents interactively.',
   },
   {
     id: 'install-skills',
     label: 'Install Skills',
-    command: './scripts/install.sh --skills',
-    caption: 'Installs modular cross-tool skill directories alongside your chosen agent teams.',
+    localCommand: './scripts/install.sh --skills',
+    bootstrapCommand:
+      'git clone https://github.com/allanindrajith/hivework.git && cd hivework && ./scripts/install.sh --skills',
+    caption: 'Installs all 21 modular cross-tool SKILL.md workflows alongside your chosen agent teams.',
   },
   {
     id: 'convert-all',
     label: 'Convert All',
-    command: './scripts/convert.sh --parallel',
+    localCommand: './scripts/convert.sh --parallel',
+    bootstrapCommand:
+      'git clone https://github.com/allanindrajith/hivework.git && cd hivework && ./scripts/convert.sh --parallel',
     caption: 'Compiles canonical Markdown personas into native harness artifacts across integrations/.',
   },
 ];
 
 export function HeroSection({ totals, site }: HeroSectionProps) {
   const [activeTabId, setActiveTabId] = useState<QuickStartTabId>('install-all');
+  const [cliMode, setCliMode] = useState<CliCommandMode>('local');
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'failed'>('idle');
   const resetTimerRef = useRef<number | null>(null);
 
   const activeTab =
     QUICK_START_TABS.find((tab) => tab.id === activeTabId) ?? QUICK_START_TABS[0];
+
+  const activeCommand =
+    cliMode === 'bootstrap' ? activeTab.bootstrapCommand : activeTab.localCommand;
 
   const repoHref =
     [site.repoUrl, site.githubUrl]
@@ -60,8 +74,7 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
     };
   }, []);
 
-  const handleSelectTab = (tabId: QuickStartTabId) => {
-    setActiveTabId(tabId);
+  const resetCopy = () => {
     setCopyState('idle');
     if (resetTimerRef.current !== null) {
       window.clearTimeout(resetTimerRef.current);
@@ -69,13 +82,19 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
     }
   };
 
-  const handleCopy = async () => {
-    if (resetTimerRef.current !== null) {
-      window.clearTimeout(resetTimerRef.current);
-      resetTimerRef.current = null;
-    }
+  const handleSelectTab = (tabId: QuickStartTabId) => {
+    setActiveTabId(tabId);
+    resetCopy();
+  };
 
-    const ok = await copyText(activeTab.command);
+  const handleModeChange = (mode: CliCommandMode) => {
+    setCliMode(mode);
+    resetCopy();
+  };
+
+  const handleCopy = async () => {
+    resetCopy();
+    const ok = await copyText(activeCommand);
     setCopyState(ok ? 'copied' : 'failed');
 
     resetTimerRef.current = window.setTimeout(() => {
@@ -85,10 +104,10 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
   };
 
   const stats = [
-    { label: 'Specialized Agents', value: totals.agents },
-    { label: 'Workforce Divisions', value: totals.divisions },
-    { label: 'AI Harnesses', value: totals.tools },
-    { label: 'Modular Skills', value: totals.skills },
+    { label: 'Specialized Agents', value: totals.agents, sectionId: 'workforce' as const, href: '/agents' },
+    { label: 'Workforce Divisions', value: totals.divisions, sectionId: 'workforce' as const, href: '/agents' },
+    { label: 'AI Harnesses', value: totals.tools, sectionId: 'model-matrix' as const, href: '/harnesses' },
+    { label: 'Modular Skills', value: totals.skills, sectionId: 'skills' as const, href: '/skills' },
   ];
 
   return (
@@ -96,7 +115,7 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
       <div className="container hero-grid">
         <div>
           <p className="section-eyebrow">
-            HIVEWORK · {site.domain.toUpperCase()}
+            HIVEWORK OPERATOR HUB · {site.domain.toUpperCase()}
           </p>
 
           <h1 id="hero-heading" className="hero-title">
@@ -104,18 +123,34 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
           </h1>
 
           <p className="hero-subtitle">
-            Deploy {totals.agents} specialized Markdown agent personas across {totals.divisions} divisions
-            and {totals.skills} modular skills directly into Claude Code, Cursor, Codex, OpenCode,
-            Gemini CLI, and {totals.tools} total local tools—without vendor lock-in.
+            Browse, select, and install {totals.agents} specialized Markdown agents across{' '}
+            {totals.divisions} divisions, {totals.skills} modular <code className="inline-code">SKILL.md</code>{' '}
+            workflows, and {totals.reviewers} Goldfish reviewers into Claude Code, Cursor,
+            Antigravity, Codex, OpenCode, Gemini CLI, and {totals.tools} local tools.
           </p>
 
           <div className="hero-actions">
-            <a href="#model-matrix" className="btn-primary">
+            <a
+              href="/harnesses"
+              className="btn-primary"
+              onClick={(e) => navigateToSection('model-matrix', e)}
+            >
               <span>Connect {totals.tools} Harnesses</span>
               <ArrowRight size={16} aria-hidden="true" />
             </a>
-            <a href="#workforce" className="btn-outline">
-              Explore {totals.divisions} Divisions
+            <a
+              href="/agents"
+              className="btn-outline"
+              onClick={(e) => navigateToSection('workforce', e)}
+            >
+              Browse {totals.agents} Agents
+            </a>
+            <a
+              href="/skills"
+              className="btn-outline"
+              onClick={(e) => navigateToSection('skills', e)}
+            >
+              Explore {totals.skills} Skills
             </a>
             {repoHref ? (
               <a
@@ -124,7 +159,8 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
                 rel="noopener noreferrer"
                 className="btn-outline"
               >
-                Source Repository
+                <span>Source Repository</span>
+                <ExternalLink size={14} aria-hidden="true" />
               </a>
             ) : null}
           </div>
@@ -150,6 +186,24 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
               <Terminal size={12} aria-hidden="true" />
               <span>quick-start.sh</span>
             </span>
+            <div className="terminal-mode-switch" role="group" aria-label="Command execution mode">
+              <button
+                type="button"
+                className="terminal-mode-btn"
+                aria-pressed={cliMode === 'local'}
+                onClick={() => handleModeChange('local')}
+              >
+                Local CLI
+              </button>
+              <button
+                type="button"
+                className="terminal-mode-btn"
+                aria-pressed={cliMode === 'bootstrap'}
+                onClick={() => handleModeChange('bootstrap')}
+              >
+                Git Clone + Run
+              </button>
+            </div>
           </div>
 
           <div className="terminal-tabs" role="group" aria-label="Quick-start presets">
@@ -174,25 +228,37 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
               <span className="terminal-prompt" aria-hidden="true">
                 &gt;
               </span>
-              <code className="terminal-command">{activeTab.command}</code>
+              <code className="terminal-command">{activeCommand}</code>
             </pre>
 
             <p className="terminal-caption">{activeTab.caption}</p>
 
             <div className="terminal-footer">
-              <button
-                type="button"
-                className="terminal-copy-btn"
-                onClick={handleCopy}
-                aria-label="Copy command"
-              >
-                {copyState === 'copied' ? (
-                  <Check size={14} aria-hidden="true" />
-                ) : (
-                  <Copy size={14} aria-hidden="true" />
-                )}
-                <span>Copy command</span>
-              </button>
+              <div className="terminal-footer-actions">
+                <button
+                  type="button"
+                  className="terminal-copy-btn"
+                  onClick={handleCopy}
+                  aria-label="Copy command"
+                >
+                  {copyState === 'copied' ? (
+                    <Check size={14} aria-hidden="true" />
+                  ) : (
+                    <Copy size={14} aria-hidden="true" />
+                  )}
+                  <span>Copy command</span>
+                </button>
+
+                <a
+                  href={`${repoHref ?? DEFAULT_REPO_URL}/blob/main/scripts/install.sh`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="terminal-source-link"
+                >
+                  <span>install.sh source</span>
+                  <ExternalLink size={12} aria-hidden="true" />
+                </a>
+              </div>
 
               <span className="terminal-copy-status" role="status" aria-live="polite">
                 {copyState === 'copied'

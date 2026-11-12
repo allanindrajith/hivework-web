@@ -1,16 +1,19 @@
 import { ExternalLink } from 'lucide-react';
 import type { SiteConfig } from '../data/types';
+import { navigateToSection, type SectionId } from '../lib/navigation';
 import '../styles/landing.css';
 
 export interface HeaderNavProps {
   site: SiteConfig;
 }
 
-const NAV_ITEMS = [
-  { href: '#story', label: 'Story' },
-  { href: '#model-matrix', label: 'Model Matrix' },
-  { href: '#workforce', label: 'Workforce' },
-  { href: '#contact', label: 'Contact' },
+const NAV_ITEMS: readonly { sectionId: SectionId; href: string; label: string }[] = [
+  { sectionId: 'model-matrix', href: '/harnesses', label: 'Harnesses' },
+  { sectionId: 'workforce', href: '/agents', label: 'Agents' },
+  { sectionId: 'skills', href: '/skills', label: 'Skills' },
+  { sectionId: 'runbooks', href: '/runbooks', label: 'Runbooks' },
+  { sectionId: 'story', href: '/architecture', label: 'Architecture' },
+  { sectionId: 'contact', href: '/contact', label: 'Contact' },
 ] as const;
 
 function resolveRepoHref(site: SiteConfig): string | null {
@@ -23,18 +26,29 @@ function resolveRepoHref(site: SiteConfig): string | null {
 
 export function HeaderNav({ site }: HeaderNavProps) {
   const creatorHref = site.creatorUrl.trim();
+  const bmcHref = (site.buyMeACoffeeUrl ?? '').trim();
   const repoHref = resolveRepoHref(site);
 
   return (
     <header className="site-header" id="top">
       <div className="container site-header-inner">
-        <a href="#hero" className="brand-link" aria-label="Hivework home">
+        <a
+          href="/"
+          className="brand-link"
+          aria-label="Hivework home"
+          onClick={(e) => navigateToSection('hero', e)}
+        >
           <img src="./logo.svg" alt="Hivework" className="brand-logo" width={152} height={36} />
         </a>
 
         <nav className="site-nav" aria-label="Primary">
           {NAV_ITEMS.map((item) => (
-            <a key={item.href} href={item.href} className="site-nav-link">
+            <a
+              key={item.href}
+              href={item.href}
+              className="site-nav-link"
+              onClick={(e) => navigateToSection(item.sectionId, e)}
+            >
               {item.label}
             </a>
           ))}
@@ -53,6 +67,18 @@ export function HeaderNav({ site }: HeaderNavProps) {
             </a>
           ) : null}
 
+          {bmcHref && bmcHref !== '#' ? (
+            <a
+              href={bmcHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline bmc-button header-bmc-btn"
+            >
+              <span aria-hidden="true">☕</span>
+              <span>Buy me a coffee</span>
+            </a>
+          ) : null}
+
           {repoHref ? (
             <a
               href={repoHref}
@@ -64,7 +90,11 @@ export function HeaderNav({ site }: HeaderNavProps) {
             </a>
           ) : null}
 
-          <a href="#model-matrix" className="btn-primary btn-pill header-cta">
+          <a
+            href="/harnesses"
+            className="btn-primary btn-pill header-cta"
+            onClick={(e) => navigateToSection('model-matrix', e)}
+          >
             Connect Models
           </a>
         </div>
