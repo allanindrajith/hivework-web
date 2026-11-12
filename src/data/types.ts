@@ -10,6 +10,7 @@ export interface CatalogTotals {
   skills: number;
   reviewers: number;
   runbooks: number;
+  employees: number;
 }
 
 export interface ToolScope {
@@ -105,6 +106,21 @@ export interface RunbookEntry {
   totalAgents: number;
 }
 
+export interface EmployeeEntry {
+  slug: string;
+  name: string;
+  role: string;
+  version: string;
+  license: string;
+  repository: string;
+  objective: string;
+  standup: string;
+  reviewer: string;
+  routineCount: number;
+  routines: string[];
+  path: string;
+}
+
 export interface CatalogData {
   generatedAt: string;
   totals: CatalogTotals;
@@ -113,6 +129,7 @@ export interface CatalogData {
   skills: SkillEntry[];
   reviewers: ReviewerEntry[];
   runbooks: RunbookEntry[];
+  employees: EmployeeEntry[];
 }
 
 export type CliCommandMode = 'local' | 'bootstrap';

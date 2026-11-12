@@ -1,12 +1,13 @@
 {
-  "generatedAt": "2026-11-12T22:22:43.109Z",
+  "generatedAt": "2026-11-12T22:57:02.373Z",
   "totals": {
-    "agents": 296,
+    "agents": 345,
     "divisions": 18,
     "tools": 17,
-    "skills": 21,
+    "skills": 25,
     "reviewers": 10,
-    "runbooks": 4
+    "runbooks": 4,
+    "employees": 8
   },
   "tools": [
     {
@@ -1282,7 +1283,7 @@
       "label": "Game Development",
       "icon": "Gamepad2",
       "color": "#A855F7",
-      "agentCount": 22,
+      "agentCount": 71,
       "samples": [
         {
           "name": "Blender Add-on Engineer",
@@ -1290,19 +1291,19 @@
           "slug": "hive-blender-addon-engineer"
         },
         {
-          "name": "Game Studio Orchestrator",
-          "description": "Turn any AI coding session into a full game development studio. Coordinates 6-phase studio pipelines, creative direction, engineering, audio, art, and continuous dev-QA quality loops across Godot, Unity, and Unreal.",
-          "slug": "hive-game-studio-orchestrator"
+          "name": "Game Studio Accessibility Specialist",
+          "description": "Accessibility standards and assistive features — remapping, text scaling, colorblind modes, screen reader support.",
+          "slug": "hive-game-studio-accessibility-specialist"
         },
         {
-          "name": "Godot Gameplay Scripter",
-          "description": "Composition and signal integrity specialist - Masters GDScript 2.0, C# integration, node-based architecture, and type-safe signal design for Godot 4 projects",
-          "slug": "hive-godot-gameplay-scripter"
+          "name": "Game Studio Ai Programmer",
+          "description": "Implements game AI — behavior trees, state machines, pathfinding, perception, decision-making, NPC and enemy behavior, AI debugging.",
+          "slug": "hive-game-studio-ai-programmer"
         },
         {
-          "name": "Godot Multiplayer Engineer",
-          "description": "Godot 4 networking specialist - Masters the MultiplayerAPI, scene replication, ENet/WebRTC transport, RPCs, and authority models for real-time multiplayer games",
-          "slug": "hive-godot-multiplayer-engineer"
+          "name": "Game Studio Analytics Engineer",
+          "description": "Telemetry and analytics — event tracking, player behavior, A/B test frameworks, dashboard specification, data pipelines.",
+          "slug": "hive-game-studio-analytics-engineer"
         }
       ],
       "agents": [
@@ -1313,10 +1314,304 @@
           "path": "game-development/blender/hive-blender-addon-engineer.md"
         },
         {
+          "name": "Game Studio Accessibility Specialist",
+          "description": "Accessibility standards and assistive features — remapping, text scaling, colorblind modes, screen reader support.",
+          "slug": "hive-game-studio-accessibility-specialist",
+          "path": "game-development/game-studio/hive-game-studio-accessibility-specialist.md"
+        },
+        {
+          "name": "Game Studio Ai Programmer",
+          "description": "Implements game AI — behavior trees, state machines, pathfinding, perception, decision-making, NPC and enemy behavior, AI debugging.",
+          "slug": "hive-game-studio-ai-programmer",
+          "path": "game-development/game-studio/hive-game-studio-ai-programmer.md"
+        },
+        {
+          "name": "Game Studio Analytics Engineer",
+          "description": "Telemetry and analytics — event tracking, player behavior, A/B test frameworks, dashboard specification, data pipelines.",
+          "slug": "hive-game-studio-analytics-engineer",
+          "path": "game-development/game-studio/hive-game-studio-analytics-engineer.md"
+        },
+        {
+          "name": "Game Studio Art Director",
+          "description": "Owns visual identity — style guides, art bible, asset standards, color palettes, UI visual direction.",
+          "slug": "hive-game-studio-art-director",
+          "path": "game-development/game-studio/hive-game-studio-art-director.md"
+        },
+        {
+          "name": "Game Studio Audio Director",
+          "description": "Owns sonic identity — music direction, sound palette, audio implementation strategy, mix balance.",
+          "slug": "hive-game-studio-audio-director",
+          "path": "game-development/game-studio/hive-game-studio-audio-director.md"
+        },
+        {
+          "name": "Game Studio Community Manager",
+          "description": "Player-facing communication — patch notes, social posts, community updates, feedback collection, player bug triage, crisis communication.",
+          "slug": "hive-game-studio-community-manager",
+          "path": "game-development/game-studio/hive-game-studio-community-manager.md"
+        },
+        {
+          "name": "Game Studio Creative Director",
+          "description": "Highest creative authority — vision, tone, aesthetic direction. Use when a decision affects game identity or department leads deadlock.",
+          "slug": "hive-game-studio-creative-director",
+          "path": "game-development/game-studio/hive-game-studio-creative-director.md"
+        },
+        {
+          "name": "Game Studio Devops Engineer",
+          "description": "Build pipelines, CI/CD configuration, version control workflow, branching strategy, automated test pipelines, deployment infrastructure.",
+          "slug": "hive-game-studio-devops-engineer",
+          "path": "game-development/game-studio/hive-game-studio-devops-engineer.md"
+        },
+        {
+          "name": "Game Studio Economy Designer",
+          "description": "Resource economies — loot tables, sink/faucet analysis, progression curve calibration, economic balance.",
+          "slug": "hive-game-studio-economy-designer",
+          "path": "game-development/game-studio/hive-game-studio-economy-designer.md"
+        },
+        {
+          "name": "Game Studio Engine Programmer",
+          "description": "Core engine systems — rendering pipeline, physics, memory, resource loading, scene management, performance-critical framework code.",
+          "slug": "hive-game-studio-engine-programmer",
+          "path": "game-development/game-studio/hive-game-studio-engine-programmer.md"
+        },
+        {
+          "name": "Game Studio Game Designer",
+          "description": "Mechanical and systems design — core loops, progression, combat, economy, player-facing rules. Mechanics-level questions.",
+          "slug": "hive-game-studio-game-designer",
+          "path": "game-development/game-studio/hive-game-studio-game-designer.md"
+        },
+        {
+          "name": "Game Studio Gameplay Programmer",
+          "description": "Implements designed mechanics as code — player systems, combat, interactive features, gameplay system code.",
+          "slug": "hive-game-studio-gameplay-programmer",
+          "path": "game-development/game-studio/hive-game-studio-gameplay-programmer.md"
+        },
+        {
+          "name": "Game Studio Godot Csharp Specialist",
+          "description": "Godot 4 C# quality — .NET patterns, attribute-based exports, signal delegates, async patterns, type-safe node access.",
+          "slug": "hive-game-studio-godot-csharp-specialist",
+          "path": "game-development/game-studio/hive-game-studio-godot-csharp-specialist.md"
+        },
+        {
+          "name": "Game Studio Godot Gdextension Specialist",
+          "description": "Native code integration with Godot — GDExtension API, godot-cpp and godot-rust bindings, custom node types, the native boundary.",
+          "slug": "hive-game-studio-godot-gdextension-specialist",
+          "path": "game-development/game-studio/hive-game-studio-godot-gdextension-specialist.md"
+        },
+        {
+          "name": "Game Studio Godot Gdscript Specialist",
+          "description": "GDScript code quality — static typing enforcement, signal architecture, coroutine patterns, GDScript idioms, typed and performant.",
+          "slug": "hive-game-studio-godot-gdscript-specialist",
+          "path": "game-development/game-studio/hive-game-studio-godot-gdscript-specialist.md"
+        },
+        {
+          "name": "Game Studio Godot Shader Specialist",
+          "description": "Godot rendering customization — shading language, visual shaders, material setup, particle shaders, post-processing.",
+          "slug": "hive-game-studio-godot-shader-specialist",
+          "path": "game-development/game-studio/hive-game-studio-godot-shader-specialist.md"
+        },
+        {
+          "name": "Game Studio Godot Specialist",
+          "description": "Authority on Godot-specific patterns and APIs — node/scene architecture, signals, resources; guides GDScript vs C# vs GDExtension.",
+          "slug": "hive-game-studio-godot-specialist",
+          "path": "game-development/game-studio/hive-game-studio-godot-specialist.md"
+        },
+        {
+          "name": "Game Studio Lead Programmer",
+          "description": "Lead programmer — code-level architecture, coding standards, code review, API design, refactoring strategy, assigning work to specialist programmers.",
+          "slug": "hive-game-studio-lead-programmer",
+          "path": "game-development/game-studio/hive-game-studio-lead-programmer.md"
+        },
+        {
+          "name": "Game Studio Level Designer",
+          "description": "Spatial design for levels and areas — encounter layouts, pacing, difficulty, layout planning, environmental storytelling.",
+          "slug": "hive-game-studio-level-designer",
+          "path": "game-development/game-studio/hive-game-studio-level-designer.md"
+        },
+        {
+          "name": "Game Studio Live Ops Designer",
+          "description": "Post-launch content — seasonal events, battle passes, content cadence, retention, engagement analytics. Keeps the game fresh.",
+          "slug": "hive-game-studio-live-ops-designer",
+          "path": "game-development/game-studio/hive-game-studio-live-ops-designer.md"
+        },
+        {
+          "name": "Game Studio Localization Lead",
+          "description": "Internationalization architecture — i18n system design, string extraction workflows, locale testing, locale-specific issues, translation pipeline.",
+          "slug": "hive-game-studio-localization-lead",
+          "path": "game-development/game-studio/hive-game-studio-localization-lead.md"
+        },
+        {
+          "name": "Game Studio Narrative Director",
+          "description": "Story architecture, world-building, character design, dialogue strategy. Narrative structure and direction rather than writing individual lines.",
+          "slug": "hive-game-studio-narrative-director",
+          "path": "game-development/game-studio/hive-game-studio-narrative-director.md"
+        },
+        {
+          "name": "Game Studio Network Programmer",
+          "description": "Multiplayer networking — state replication, lag compensation, matchmaking, network protocol, netcode and bandwidth optimization.",
+          "slug": "hive-game-studio-network-programmer",
+          "path": "game-development/game-studio/hive-game-studio-network-programmer.md"
+        },
+        {
           "name": "Game Studio Orchestrator",
           "description": "Turn any AI coding session into a full game development studio. Coordinates 6-phase studio pipelines, creative direction, engineering, audio, art, and continuous dev-QA quality loops across Godot, Unity, and Unreal.",
           "slug": "hive-game-studio-orchestrator",
           "path": "game-development/game-studio/hive-game-studio-orchestrator.md"
+        },
+        {
+          "name": "Game Studio Performance Analyst",
+          "description": "Performance analyst — profiling, bottlenecks, memory analysis, frame time investigation, recommends optimizations, tracks metrics over time.",
+          "slug": "hive-game-studio-performance-analyst",
+          "path": "game-development/game-studio/hive-game-studio-performance-analyst.md"
+        },
+        {
+          "name": "Game Studio Producer",
+          "description": "Production concerns — sprint planning, milestone tracking, risk, scope, cross-department coordination when multiple departments must synchronize.",
+          "slug": "hive-game-studio-producer",
+          "path": "game-development/game-studio/hive-game-studio-producer.md"
+        },
+        {
+          "name": "Game Studio Prototyper",
+          "description": "Throwaway builds — concept prototypes after brainstorm to test an idea is fun before GDDs; vertical slices pre-production. Speed over standards.",
+          "slug": "hive-game-studio-prototyper",
+          "path": "game-development/game-studio/hive-game-studio-prototyper.md"
+        },
+        {
+          "name": "Game Studio Qa Lead",
+          "description": "Test strategy and process — test plan creation, bug severity assessment, regression planning, release quality gates, readiness evaluation.",
+          "slug": "hive-game-studio-qa-lead",
+          "path": "game-development/game-studio/hive-game-studio-qa-lead.md"
+        },
+        {
+          "name": "Game Studio Qa Tester",
+          "description": "Writes test cases, bug reports, and checklists — test case generation, regression checklist creation, execution documentation.",
+          "slug": "hive-game-studio-qa-tester",
+          "path": "game-development/game-studio/hive-game-studio-qa-tester.md"
+        },
+        {
+          "name": "Game Studio Release Manager",
+          "description": "Release pipeline — certification checklists, store submissions and page prep, platform requirements, version numbering, release-day coordination.",
+          "slug": "hive-game-studio-release-manager",
+          "path": "game-development/game-studio/hive-game-studio-release-manager.md"
+        },
+        {
+          "name": "Game Studio Security Engineer",
+          "description": "Protects against cheating, exploits, breaches — anti-cheat measures, secure save data and network comms, player privacy compliance.",
+          "slug": "hive-game-studio-security-engineer",
+          "path": "game-development/game-studio/hive-game-studio-security-engineer.md"
+        },
+        {
+          "name": "Game Studio Sound Designer",
+          "description": "SFX specifications and spec sheets — audio event documentation, mixing parameters, sound category definitions.",
+          "slug": "hive-game-studio-sound-designer",
+          "path": "game-development/game-studio/hive-game-studio-sound-designer.md"
+        },
+        {
+          "name": "Game Studio Systems Designer",
+          "description": "Detailed subsystem mechanics — combat formulas, progression curves, crafting recipes, status effect interactions, mathematical modeling of a mechanic.",
+          "slug": "hive-game-studio-systems-designer",
+          "path": "game-development/game-studio/hive-game-studio-systems-designer.md"
+        },
+        {
+          "name": "Game Studio Technical Artist",
+          "description": "Technical artist bridging art and engineering — shaders, VFX, rendering optimization, art pipeline tools, art-to-engine issues.",
+          "slug": "hive-game-studio-technical-artist",
+          "path": "game-development/game-studio/hive-game-studio-technical-artist.md"
+        },
+        {
+          "name": "Game Studio Technical Director",
+          "description": "High-level technical decisions — engine architecture, technology choices, performance strategy, technical risk, cross-system conflicts.",
+          "slug": "hive-game-studio-technical-director",
+          "path": "game-development/game-studio/hive-game-studio-technical-director.md"
+        },
+        {
+          "name": "Game Studio Tools Programmer",
+          "description": "Internal dev tools — editor extensions, content authoring tools, debug utilities, pipeline automation, editor workflow.",
+          "slug": "hive-game-studio-tools-programmer",
+          "path": "game-development/game-studio/hive-game-studio-tools-programmer.md"
+        },
+        {
+          "name": "Game Studio Ue Blueprint Specialist",
+          "description": "Blueprint architecture and Blueprint/C++ boundary — optimization, maintainable graphs. Prevents Blueprint spaghetti, enforces clean BP patterns.",
+          "slug": "hive-game-studio-ue-blueprint-specialist",
+          "path": "game-development/game-studio/hive-game-studio-ue-blueprint-specialist.md"
+        },
+        {
+          "name": "Game Studio Ue Gas Specialist",
+          "description": "Gameplay Ability System — abilities, gameplay effects, attribute sets, tags, ability tasks, prediction. Prevents common GAS anti-patterns.",
+          "slug": "hive-game-studio-ue-gas-specialist",
+          "path": "game-development/game-studio/hive-game-studio-ue-gas-specialist.md"
+        },
+        {
+          "name": "Game Studio Ue Replication Specialist",
+          "description": "Unreal networking — property replication, RPCs, client prediction, relevancy, net serialization, bandwidth. Server-authoritative architecture.",
+          "slug": "hive-game-studio-ue-replication-specialist",
+          "path": "game-development/game-studio/hive-game-studio-ue-replication-specialist.md"
+        },
+        {
+          "name": "Game Studio Ue Umg Specialist",
+          "description": "Unreal UI implementation — UMG widget hierarchy, data binding, CommonUI input routing, widget styling, UI optimization.",
+          "slug": "hive-game-studio-ue-umg-specialist",
+          "path": "game-development/game-studio/hive-game-studio-ue-umg-specialist.md"
+        },
+        {
+          "name": "Game Studio Ui Programmer",
+          "description": "Implements user interface systems — menus, HUDs, inventory screens, dialogue boxes, UI framework code, screen flow.",
+          "slug": "hive-game-studio-ui-programmer",
+          "path": "game-development/game-studio/hive-game-studio-ui-programmer.md"
+        },
+        {
+          "name": "Game Studio Unity Addressables Specialist",
+          "description": "Unity asset management — Addressable groups, loading/unloading, content catalogs, remote delivery, asset bundle optimization, fast load times.",
+          "slug": "hive-game-studio-unity-addressables-specialist",
+          "path": "game-development/game-studio/hive-game-studio-unity-addressables-specialist.md"
+        },
+        {
+          "name": "Game Studio Unity Dots Specialist",
+          "description": "Unity Data-Oriented Technology Stack — Entity Component System, Jobs, Burst compiler optimization, hybrid renderer, correct ECS patterns.",
+          "slug": "hive-game-studio-unity-dots-specialist",
+          "path": "game-development/game-studio/hive-game-studio-unity-dots-specialist.md"
+        },
+        {
+          "name": "Game Studio Unity Shader Specialist",
+          "description": "Unity rendering — Shader Graph, custom HLSL, VFX Graph, render pipeline customization (URP/HDRP), post-processing within performance budgets.",
+          "slug": "hive-game-studio-unity-shader-specialist",
+          "path": "game-development/game-studio/hive-game-studio-unity-shader-specialist.md"
+        },
+        {
+          "name": "Game Studio Unity Specialist",
+          "description": "Authority on Unity-specific patterns and APIs — guides MonoBehaviour vs DOTS/ECS, Unity subsystems including Addressables and Input System.",
+          "slug": "hive-game-studio-unity-specialist",
+          "path": "game-development/game-studio/hive-game-studio-unity-specialist.md"
+        },
+        {
+          "name": "Game Studio Unity Ui Specialist",
+          "description": "Unity UI implementation — UI Toolkit (UXML/USS), UGUI Canvas, data binding, runtime UI performance, cross-platform adaptation.",
+          "slug": "hive-game-studio-unity-ui-specialist",
+          "path": "game-development/game-studio/hive-game-studio-unity-ui-specialist.md"
+        },
+        {
+          "name": "Game Studio Unreal Specialist",
+          "description": "Authority on Unreal-specific patterns and APIs — guides Blueprint vs C++, UE subsystems (GAS, Enhanced Input, Niagara, etc.).",
+          "slug": "hive-game-studio-unreal-specialist",
+          "path": "game-development/game-studio/hive-game-studio-unreal-specialist.md"
+        },
+        {
+          "name": "Game Studio Ux Designer",
+          "description": "User experience flows, interaction design, information architecture — user flow mapping, interaction pattern design, onboarding, accessibility requirements.",
+          "slug": "hive-game-studio-ux-designer",
+          "path": "game-development/game-studio/hive-game-studio-ux-designer.md"
+        },
+        {
+          "name": "Game Studio World Builder",
+          "description": "World builder for lore — factions, cultures, history, geography, ecology, world rules. Faction design, lore consistency checks.",
+          "slug": "hive-game-studio-world-builder",
+          "path": "game-development/game-studio/hive-game-studio-world-builder.md"
+        },
+        {
+          "name": "Game Studio Writer",
+          "description": "Writer of player-facing text — dialogue, lore entries, item and ability descriptions, environmental text.",
+          "slug": "hive-game-studio-writer",
+          "path": "game-development/game-studio/hive-game-studio-writer.md"
         },
         {
           "name": "Godot Gameplay Scripter",
@@ -2981,13 +3276,19 @@
     {
       "slug": "hive-brainstorm",
       "name": "hive-brainstorm",
-      "description": "Interactive ideation and brainstorming skill for the Elephant & Goldfish Model (EGM). Helps turn half-baked concepts into structured hypotheses via clarifying questions, review, and iterative refinement. Produces an RFC summary for human review or more detailed design with hive-draft.",
+      "description": "Interactive ideation and brainstorming skill for the Elephant & Goldfish Model (Hivework Review Model). Helps turn half-baked concepts into structured hypotheses via clarifying questions, review, and iterative refinement. Produces an RFC summary for human review or more detailed design with hive-draft.",
       "path": "skills/hive-brainstorm/SKILL.md"
+    },
+    {
+      "slug": "hive-craft-anything",
+      "name": "hive-craft-anything",
+      "description": "Investigate how shipped software works (programs, apps, packages, firmware, web bundles) with evidence-backed answers through the Craft Anything MCP tools, keeping a durable brief, plan, hypotheses, findings and handoff in the project.",
+      "path": "skills/hive-craft-anything/SKILL.md"
     },
     {
       "slug": "hive-draft",
       "name": "hive-draft",
-      "description": "Drafts a design document section-by-section using the concepts brief from hive-brainstorm (or user notes). This is the second step in the Elephant-Goldfish (EGM) feature flow. Use when you are ready to write a design doc after aligning on requirements + solution.",
+      "description": "Drafts a design document section-by-section using the concepts brief from hive-brainstorm (or user notes). This is the second step in the Elephant-Goldfish (Hivework Review Model) feature flow. Use when you are ready to write a design doc after aligning on requirements + solution.",
       "path": "skills/hive-draft/SKILL.md"
     },
     {
@@ -3001,6 +3302,18 @@
       "name": "hive-frontend-patterns",
       "description": "Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices. Use when building or reviewing React or Next.js components, state, or render performance.",
       "path": "skills/hive-frontend-patterns/SKILL.md"
+    },
+    {
+      "slug": "hive-game-studio",
+      "name": "hive-game-studio",
+      "description": "Coordinates the 6-phase game studio production lifecycle across Godot, Unity, and Unreal Engine. Provides full-studio workflows, GDD authoring, balance checks, asset audits, engine setup, and continuous dev-QA quality loops within the Hivework ecosystem.",
+      "path": "skills/hive-game-studio/SKILL.md"
+    },
+    {
+      "slug": "hive-hire",
+      "name": "hive-hire",
+      "description": "Hire one of the eight open source Hivework AI Employees (GTM Engineer, SEO/AEO, Web Dev, Social Media, Ad Manager, Sales, Customer Satisfaction, Chief of Staff) into a local folder, prove it runs, and hand over its install prompt. Also answers which one to hire first, how a hired employee runs on a schedule, how to direct it, how it improves from corrections, and how to upgrade it. Use when the user says hire an employee, install an AI employee, set up the GTM Engineer, names one of the eight, or asks how Hivework AI Employees work. It copies files and runs self tests only. It registers no schedule and sends nothing.",
+      "path": "skills/hive-hire/SKILL.md"
     },
     {
       "slug": "hive-mcp-server-patterns",
@@ -3029,13 +3342,13 @@
     {
       "slug": "hive-review",
       "name": "hive-review",
-      "description": "Orchestrates the Hivework Goldfish Review Protocol. Used as part of the EGM process to perform design document reviews. Executes five review phases: Initial Zoom Out Review, Comprehension Review, Design Critique, Intermediate Zoom Out Review, and Implementation Readiness.",
+      "description": "Orchestrates the Hivework Goldfish Review Protocol. Used as part of the Hivework Review Model process to perform design document reviews. Executes five review phases: Initial Zoom Out Review, Comprehension Review, Design Critique, Intermediate Zoom Out Review, and Implementation Readiness.",
       "path": "skills/hive-review/SKILL.md"
     },
     {
       "slug": "hive-review-loop",
       "name": "hive-review-loop",
-      "description": "Executes the Antagonistic-Review process from the Elephant-Goldfish Model (EGM) via an automated multi-agent review loop to audit documents against qualitative standards and structural templates, and automatically apply approved fixes. Use when reviewing design docs, READMEs, feature specifications, implementation plans, or verifying document completeness and tone.",
+      "description": "Executes the Antagonistic-Review process from the Elephant-Goldfish Model (Hivework Review Model) via an automated multi-agent review loop to audit documents against qualitative standards and structural templates, and automatically apply approved fixes. Use when reviewing design docs, READMEs, feature specifications, implementation plans, or verifying document completeness and tone.",
       "path": "skills/hive-review-loop/SKILL.md"
     },
     {
@@ -3043,6 +3356,12 @@
       "name": "hive-ruthless-advisor",
       "description": "Enforces the Advisor Persona & Critique Protocol — challenges assumptions first, bans sycophancy, rates confidence ([Certain]/[Likely]/[Guessing]), and delivers structured technical disagreements.",
       "path": "skills/hive-ruthless-advisor/SKILL.md"
+    },
+    {
+      "slug": "hive-scrapling",
+      "name": "hive-scrapling",
+      "description": "Scrape web pages using Scrapling with HTTP requests, stealth browsers, JavaScript rendering, browser actions, API response capture, concurrent spiders, and adaptive parsing. Use when asked to scrape, crawl, or extract data from websites; web_fetch fails; the site has anti-bot protections; write Python code to scrape/crawl; or write spiders.",
+      "path": "skills/hive-scrapling/SKILL.md"
     },
     {
       "slug": "hive-security-review",
@@ -3323,6 +3642,188 @@
         }
       ],
       "totalAgents": 10
+    }
+  ],
+  "employees": [
+    {
+      "slug": "ad-manager-employee",
+      "name": "Ad Manager Employee",
+      "role": "Paid acquisition",
+      "version": "1.9.0",
+      "license": "MIT",
+      "repository": "https://github.com/allanindrajith/hivework",
+      "objective": "Qualified paid acquisition within the member budget",
+      "standup": "ads-desk-standup",
+      "reviewer": "ads-creative-retro",
+      "routineCount": 7,
+      "routines": [
+        "ads-account-intake",
+        "ads-account-read",
+        "ads-build-desk",
+        "ads-change-list",
+        "ads-creative-retro",
+        "ads-creative-studio",
+        "ads-desk-standup"
+      ],
+      "path": "employees/ad-manager-employee"
+    },
+    {
+      "slug": "chief-of-staff",
+      "name": "Chief of Staff",
+      "role": "Oversight and strategy",
+      "version": "1.9.0",
+      "license": "MIT",
+      "repository": "https://github.com/allanindrajith/hivework",
+      "objective": "Observed delivery and decisions that improve the business",
+      "standup": "cos-fleet-reconcile",
+      "reviewer": "cos-decision-review",
+      "routineCount": 7,
+      "routines": [
+        "cos-charter-and-fleet-audit",
+        "cos-decision-brief",
+        "cos-decision-review",
+        "cos-fault-dossier",
+        "cos-fleet-reconcile",
+        "cos-market-sweep",
+        "cos-metrics-review"
+      ],
+      "path": "employees/chief-of-staff"
+    },
+    {
+      "slug": "customer-satisfaction-employee",
+      "name": "Customer Satisfaction Employee",
+      "role": "Support and retention",
+      "version": "1.9.0",
+      "license": "MIT",
+      "repository": "https://github.com/allanindrajith/hivework",
+      "objective": "Verified resolutions and fewer recurring customer problems",
+      "standup": "csat-desk-standup",
+      "reviewer": "csat-satisfaction-report",
+      "routineCount": 8,
+      "routines": [
+        "csat-churn-watch",
+        "csat-deflection-desk",
+        "csat-desk-intake",
+        "csat-desk-standup",
+        "csat-inbox-sweep",
+        "csat-reply-desk",
+        "csat-satisfaction-report",
+        "csat-taxonomy-refresh"
+      ],
+      "path": "employees/customer-satisfaction-employee"
+    },
+    {
+      "slug": "gtm-engineer",
+      "name": "GTM Engineer",
+      "role": "Go to market and launch",
+      "version": "1.9.0",
+      "license": "MIT",
+      "repository": "https://github.com/allanindrajith/hivework",
+      "objective": "Qualified demand and completed launch milestones",
+      "standup": "gtm-board-standup",
+      "reviewer": "gtm-scoreboard",
+      "routineCount": 8,
+      "routines": [
+        "gtm-board-standup",
+        "gtm-icp-refresh",
+        "gtm-intake-and-dashboard",
+        "gtm-launch-step-runner",
+        "gtm-outreach-queue",
+        "gtm-paid-and-tracking-guard",
+        "gtm-scoreboard",
+        "gtm-signal-sweep"
+      ],
+      "path": "employees/gtm-engineer"
+    },
+    {
+      "slug": "sales-employee",
+      "name": "Sales Employee",
+      "role": "Pipeline and outreach",
+      "version": "1.9.0",
+      "license": "MIT",
+      "repository": "https://github.com/allanindrajith/hivework",
+      "objective": "Qualified opportunities and evidenced pipeline movement",
+      "standup": "sales-desk-standup",
+      "reviewer": "sales-pipeline-review",
+      "routineCount": 7,
+      "routines": [
+        "sales-desk-setup",
+        "sales-desk-standup",
+        "sales-first-touch-drafts",
+        "sales-followup-sweep",
+        "sales-pipeline-review",
+        "sales-prospect-sweep",
+        "sales-qualification-refresh"
+      ],
+      "path": "employees/sales-employee"
+    },
+    {
+      "slug": "seo-employee",
+      "name": "SEO/AEO Employee",
+      "role": "Search, content and answer visibility",
+      "version": "1.10.0",
+      "license": "MIT",
+      "repository": "https://github.com/allanindrajith/hivework",
+      "objective": "Qualified discovery, useful content and measurable answer visibility",
+      "standup": "seo-standup",
+      "reviewer": "seo-rank-review",
+      "routineCount": 8,
+      "routines": [
+        "seo-answer-visibility",
+        "seo-calendar-refill",
+        "seo-draft-run",
+        "seo-index-sweep",
+        "seo-intake-and-map",
+        "seo-publish-run",
+        "seo-rank-review",
+        "seo-standup"
+      ],
+      "path": "employees/seo-employee"
+    },
+    {
+      "slug": "social-media-employee",
+      "name": "Social Media Employee",
+      "role": "Audience and distribution",
+      "version": "1.9.0",
+      "license": "MIT",
+      "repository": "https://github.com/allanindrajith/hivework",
+      "objective": "Useful audience response and qualified visits",
+      "standup": "soc-calendar-standup",
+      "reviewer": "soc-performance-review",
+      "routineCount": 7,
+      "routines": [
+        "soc-calendar-standup",
+        "soc-draft-queue",
+        "soc-engagement-sweep",
+        "soc-intake-and-voice",
+        "soc-material-sweep",
+        "soc-performance-review",
+        "soc-publish-run"
+      ],
+      "path": "employees/social-media-employee"
+    },
+    {
+      "slug": "web-dev-employee",
+      "name": "Web Dev Employee",
+      "role": "Engineering and maintenance",
+      "version": "1.9.0",
+      "license": "MIT",
+      "repository": "https://github.com/allanindrajith/hivework",
+      "objective": "Verified reliability and useful shipped improvements",
+      "standup": "web-standup",
+      "reviewer": "web-weekly-report",
+      "routineCount": 8,
+      "routines": [
+        "web-dependency-run",
+        "web-fix-runner",
+        "web-guardrail-review",
+        "web-inventory-refresh",
+        "web-platform-guard",
+        "web-site-sweep",
+        "web-standup",
+        "web-weekly-report"
+      ],
+      "path": "employees/web-dev-employee"
     }
   ]
 }

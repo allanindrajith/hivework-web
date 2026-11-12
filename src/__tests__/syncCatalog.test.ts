@@ -87,6 +87,30 @@ function createFixtureRepo(rootDir: string) {
     'utf8'
   );
 
+  fs.mkdirSync(path.join(rootDir, 'employees/chief-of-staff/routines/standup'), { recursive: true });
+  fs.writeFileSync(
+    path.join(rootDir, 'employees/chief-of-staff/employee.json'),
+    JSON.stringify({
+      slug: 'chief-of-staff',
+      name: 'Chief of Staff',
+      role: 'Oversight and strategy',
+      version: '1.9.0',
+      license: 'MIT',
+      repository: 'https://github.com/allanindrajith/hivework',
+    }),
+    'utf8'
+  );
+  fs.writeFileSync(
+    path.join(rootDir, 'employees/chief-of-staff/work-profile.json'),
+    JSON.stringify({
+      objective: 'Observed delivery and decisions that improve the business',
+      standup: 'standup',
+      reviewer: 'review',
+      routines: { standup: {} },
+    }),
+    'utf8'
+  );
+
   fs.writeFileSync(path.join(rootDir, 'assets/logo.svg'), '<svg></svg>', 'utf8');
   fs.writeFileSync(path.join(rootDir, 'assets/logo-icon.svg'), '<svg></svg>', 'utf8');
 }
@@ -94,12 +118,13 @@ function createFixtureRepo(rootDir: string) {
 describe('sync-catalog', () => {
   it('contains exact verified extracted catalog totals sorted cleanly', () => {
     expect(catalogData.totals).toEqual({
-      agents: 296,
+      agents: 345,
       divisions: 18,
       tools: 17,
-      skills: 21,
+      skills: 25,
       reviewers: 10,
       runbooks: 4,
+      employees: 8,
     });
     expect(catalogData.tools.map((t) => t.order)).toEqual(
       Array.from({ length: 17 }, (_, i) => i + 1)
@@ -108,7 +133,7 @@ describe('sync-catalog', () => {
     expect(catalogData.divisions[0]).toHaveProperty('agents');
     expect(catalogData.divisions[0].agents.length).toBe(catalogData.divisions[0].agentCount);
     expect(catalogData.divisions[0].agents[0]).toHaveProperty('path');
-    expect(catalogData.skills).toHaveLength(21);
+    expect(catalogData.skills).toHaveLength(25);
     expect(catalogData.skills[0]).toMatchObject({
       slug: expect.stringMatching(/^hive-/),
       path: expect.stringMatching(/^skills\/hive-.*\/SKILL\.md$/),
@@ -118,6 +143,15 @@ describe('sync-catalog', () => {
     expect(catalogData.reviewers[0]).toMatchObject({
       slug: expect.stringMatching(/^hive-/),
       path: expect.stringMatching(/^agents\/hive-.*\.md$/),
+    });
+    expect(catalogData.employees).toHaveLength(8);
+    expect(catalogData.employees[0]).toMatchObject({
+      slug: expect.any(String),
+      name: expect.any(String),
+      role: expect.any(String),
+      routineCount: expect.any(Number),
+      routines: expect.any(Array),
+      path: expect.stringMatching(/^employees\//),
     });
   });
 

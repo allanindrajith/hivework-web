@@ -6,6 +6,7 @@ import { siteConfig } from '../data/site';
 import { ModelMatrix } from '../components/ModelMatrix';
 import { WorkforceSection } from '../components/WorkforceSection';
 import { SkillsSection } from '../components/SkillsSection';
+import { EmployeesSection } from '../components/EmployeesSection';
 import { ContactFooter } from '../components/ContactFooter';
 import { App } from '../App';
 
@@ -142,7 +143,7 @@ describe('WorkforceSection', () => {
 });
 
 describe('SkillsSection', () => {
-  it('renders 21 modular skills and 10 Goldfish reviewers with GitHub SKILL.md links and CLI copy', async () => {
+  it('renders 25 modular skills and 10 Goldfish reviewers with GitHub SKILL.md links and CLI copy', async () => {
     const writeText = vi.fn().mockResolvedValue(undefined);
     Object.assign(navigator, { clipboard: { writeText } });
 
@@ -169,6 +170,31 @@ describe('SkillsSection', () => {
   });
 });
 
+describe('EmployeesSection', () => {
+  it('renders all 8 autonomous AI employees, filters by search, and copies hive-hire install command', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.assign(navigator, { clipboard: { writeText } });
+
+    render(<EmployeesSection employees={catalog.employees} repoUrl={siteConfig.repoUrl} />);
+
+    expect(screen.getByText('Chief of Staff')).toBeInTheDocument();
+    expect(screen.getByText('GTM Engineer')).toBeInTheDocument();
+    expect(screen.getByText('Web Dev Employee')).toBeInTheDocument();
+    expect(screen.getByText(/Showing 8 of 8 employees/i)).toBeInTheDocument();
+
+    const searchInput = screen.getByRole('searchbox', { name: /Search employees/i });
+    fireEvent.change(searchInput, { target: { value: 'gtm' } });
+    expect(screen.getByText('GTM Engineer')).toBeInTheDocument();
+    expect(screen.queryByText('Chief of Staff')).not.toBeInTheDocument();
+
+    const copyBtn = screen.getByRole('button', { name: /Copy hire command for GTM Engineer/i });
+    fireEvent.click(copyBtn);
+    await waitFor(() =>
+      expect(writeText).toHaveBeenCalledWith('./scripts/install.sh --skill hive-hire')
+    );
+  });
+});
+
 describe('ContactFooter', () => {
   afterEach(() => {
     vi.restoreAllMocks();
@@ -190,10 +216,7 @@ describe('ContactFooter', () => {
       'href',
       'https://itsallan.me'
     );
-    expect(screen.getByRole('link', { name: /Buy me a coffee/i })).toHaveAttribute(
-      'href',
-      'https://www.buymeacoffee.com/allanidrajith'
-    );
+    expect(screen.queryByRole('link', { name: /Buy me a coffee/i })).not.toBeInTheDocument();
 
     const footerMark = screen.getByRole('img', { name: /Hivework/i });
     expect(footerMark).toHaveAttribute('src', './logo-icon.svg');
@@ -237,6 +260,7 @@ describe('App', () => {
     expect(container.querySelector('#model-matrix')).toBeInTheDocument();
     expect(container.querySelector('#workforce')).toBeInTheDocument();
     expect(container.querySelector('#skills')).toBeInTheDocument();
+    expect(container.querySelector('#employees')).toBeInTheDocument();
     expect(container.querySelector('#runbooks')).toBeInTheDocument();
     expect(container.querySelector('#contact')).toBeInTheDocument();
 

@@ -9,7 +9,6 @@ export interface StorySectionProps {
 
 export function StorySection({ totals, site }: StorySectionProps) {
   const creatorHref = (site.creatorUrl ?? '').trim();
-  const bmcHref = (site.buyMeACoffeeUrl ?? '').trim();
 
   return (
     <section id="story" className="story-section" aria-labelledby="story-heading">
@@ -82,19 +81,6 @@ export function StorySection({ totals, site }: StorySectionProps) {
                 className="btn-outline"
               >
                 <span>itsallan.me</span>
-                <ExternalLink size={14} aria-hidden="true" />
-              </a>
-            ) : null}
-
-            {bmcHref.length > 0 && bmcHref !== '#' ? (
-              <a
-                href={bmcHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline bmc-button"
-              >
-                <span aria-hidden="true">☕</span>
-                <span>Buy me a coffee</span>
                 <ExternalLink size={14} aria-hidden="true" />
               </a>
             ) : null}

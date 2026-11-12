@@ -18,10 +18,11 @@ describe('HeaderNav, HeroSection, and StorySection', () => {
         <HeroSection totals={catalog.totals} site={{ ...siteConfig, repoUrl: '', githubUrl: '' }} />
       </>
     );
-    expect(screen.getByText('296')).toBeInTheDocument();
+    expect(screen.getByText('345')).toBeInTheDocument();
     expect(screen.getByText('18')).toBeInTheDocument();
     expect(screen.getByText('17')).toBeInTheDocument();
-    expect(screen.getByText('21')).toBeInTheDocument();
+    expect(screen.getByText('25')).toBeInTheDocument();
+    expect(screen.getByText('8')).toBeInTheDocument();
     expect(screen.getAllByRole('link', { name: /itsallan\.me/i }).length).toBeGreaterThan(0);
     expect(screen.queryByRole('link', { name: /Buy me a coffee/i })).not.toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /GitHub/i })).not.toBeInTheDocument();
@@ -34,21 +35,27 @@ describe('HeaderNav, HeroSection, and StorySection', () => {
     });
   });
 
-  it('uses clean path URLs in HeaderNav (/harnesses, /agents, /skills, /runbooks, /architecture, /contact) and updates window.location.pathname on click', () => {
+  it('uses clean path URLs in HeaderNav (/harnesses, /agents, /skills, /employees, /runbooks, /architecture, /contact) and updates window.location.pathname on click', () => {
     render(<HeaderNav site={siteConfig} />);
 
     const harnessesLink = screen.getByRole('link', { name: /^Harnesses$/i });
     const agentsLink = screen.getByRole('link', { name: /^Agents$/i });
     const skillsLink = screen.getByRole('link', { name: /^Skills$/i });
+    const employeesLink = screen.getByRole('link', { name: /^Employees$/i });
     const runbooksLink = screen.getByRole('link', { name: /^Runbooks$/i });
 
     expect(harnessesLink).toHaveAttribute('href', '/harnesses');
     expect(agentsLink).toHaveAttribute('href', '/agents');
     expect(skillsLink).toHaveAttribute('href', '/skills');
+    expect(employeesLink).toHaveAttribute('href', '/employees');
     expect(runbooksLink).toHaveAttribute('href', '/runbooks');
 
     fireEvent.click(skillsLink);
     expect(window.location.pathname).toBe('/skills');
+    expect(window.location.hash).toBe('');
+
+    fireEvent.click(employeesLink);
+    expect(window.location.pathname).toBe('/employees');
     expect(window.location.hash).toBe('');
   });
 
@@ -115,10 +122,7 @@ describe('HeaderNav, HeroSection, and StorySection', () => {
     expect(screen.getByText(/03\. Native Compilation via/i)).toBeInTheDocument();
     // Anchored regex prevents matching "hello@itsallan.me", which also contains "itsallan.me"
     expect(screen.getByRole('link', { name: /^itsallan\.me$/i })).toHaveAttribute('href', 'https://itsallan.me');
-    expect(screen.getByRole('link', { name: /Buy me a coffee/i })).toHaveAttribute(
-      'href',
-      'https://www.buymeacoffee.com/allanidrajith'
-    );
+    expect(screen.queryByRole('link', { name: /Buy me a coffee/i })).not.toBeInTheDocument();
     expect(screen.getByRole('link', { name: /^hello@itsallan\.me$/i })).toHaveAttribute(
       'href',
       'mailto:hello@itsallan.me'

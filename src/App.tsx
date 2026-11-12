@@ -8,6 +8,7 @@ import { StorySection } from './components/StorySection';
 import { ModelMatrix } from './components/ModelMatrix';
 import { WorkforceSection } from './components/WorkforceSection';
 import { SkillsSection } from './components/SkillsSection';
+import { EmployeesSection } from './components/EmployeesSection';
 import { ContactFooter } from './components/ContactFooter';
 import { getSectionPath, resolveSectionFromPath } from './lib/navigation';
 import './styles/tokens.css';
@@ -74,6 +75,10 @@ export function App() {
         <SkillsSection
           skills={catalog.skills}
           reviewers={catalog.reviewers}
+          repoUrl={siteConfig.repoUrl}
+        />
+        <EmployeesSection
+          employees={catalog.employees}
           repoUrl={siteConfig.repoUrl}
         />
         <StorySection totals={catalog.totals} site={siteConfig} />

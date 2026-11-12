@@ -55,7 +55,6 @@ export function ContactFooter({ site }: ContactFooterProps) {
   const creatorHref = resolveExternalHref(site.creatorUrl);
   const repoHref = resolveExternalHref(site.repoUrl) ?? resolveExternalHref(site.githubUrl);
   const xHref = resolveExternalHref(site.xUrl);
-  const bmcHref = resolveExternalHref(site.buyMeACoffeeUrl);
 
   return (
     <footer id="contact" className="site-footer" aria-labelledby="contact-heading">
@@ -161,19 +160,6 @@ export function ContactFooter({ site }: ContactFooterProps) {
                   className="btn-outline"
                 >
                   <span>X</span>
-                  <ExternalLink size={14} aria-hidden="true" />
-                </a>
-              ) : null}
-
-              {bmcHref ? (
-                <a
-                  href={bmcHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-outline bmc-button"
-                >
-                  <span aria-hidden="true">☕</span>
-                  <span>Buy me a coffee</span>
                   <ExternalLink size={14} aria-hidden="true" />
                 </a>
               ) : null}

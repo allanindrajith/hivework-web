@@ -5,6 +5,7 @@ export type SectionId =
   | 'model-matrix'
   | 'workforce'
   | 'skills'
+  | 'employees'
   | 'runbooks'
   | 'story'
   | 'contact';
@@ -20,6 +21,7 @@ export const SECTION_ROUTES: readonly SectionRoute[] = [
   { id: 'model-matrix', path: '/harnesses', label: 'Harnesses' },
   { id: 'workforce', path: '/agents', label: 'Agents' },
   { id: 'skills', path: '/skills', label: 'Skills' },
+  { id: 'employees', path: '/employees', label: 'Employees' },
   { id: 'runbooks', path: '/runbooks', label: 'Runbooks' },
   { id: 'story', path: '/architecture', label: 'Architecture' },
   { id: 'contact', path: '/contact', label: 'Contact' },

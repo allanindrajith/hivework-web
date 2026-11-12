@@ -1150,3 +1150,233 @@
   border-color: var(--primary);
   background-color: rgba(245, 158, 11, 0.1);
 }
+
+/* ==========================================================================
+   EmployeesSection
+   ========================================================================== */
+
+.employee-hire-banner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(23, 21, 17, 0.95) 100%);
+  border-color: rgba(245, 158, 11, 0.25);
+}
+
+@media (min-width: 768px) {
+  .employee-hire-banner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2xl);
+  }
+}
+
+.employee-hire-info {
+  min-width: 0;
+  max-width: 68ch;
+}
+
+.employee-hire-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+}
+
+.employee-hire-title {
+  margin: 0 0 var(--space-xs) 0;
+  color: var(--ink-strong);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+.employee-hire-desc {
+  margin: 0;
+  color: var(--body);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.employee-hire-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.employee-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.employee-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.employee-title-group {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+.employee-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background-color: rgba(245, 158, 11, 0.12);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(245, 158, 11, 0.24);
+}
+
+.employee-card-name {
+  margin: 0;
+  color: var(--ink-strong);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.employee-card-role {
+  margin: 2px 0 0 0;
+  color: var(--primary-soft);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.employee-version-badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  flex-shrink: 0;
+}
+
+.employee-objective-box {
+  background-color: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.employee-objective-label {
+  margin: 0;
+  color: var(--mute);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.employee-objective-text {
+  margin: 0;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.employee-cadence-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--body);
+}
+
+.employee-cadence-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--mute);
+  font-size: 11px;
+}
+
+.employee-cadence-item span {
+  color: var(--body);
+}
+
+.employee-routines-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.employee-routines-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.employee-routines-count {
+  color: var(--mute);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.employee-routine-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.employee-routine-chip {
+  background-color: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-xs);
+  padding: 2px 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--body);
+}
+
+.employee-routine-more {
+  color: var(--primary-soft);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.employee-card-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--hairline);
+  margin-top: auto;
+}
+
+.employee-hire-btn {
+  flex: 1 0 auto;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 6px 10px;
+}
+
+.employee-source-link {
+  padding: 6px 10px;
+  flex-shrink: 0;
+}
+

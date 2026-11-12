@@ -11,6 +11,7 @@ const NAV_ITEMS: readonly { sectionId: SectionId; href: string; label: string }[
   { sectionId: 'model-matrix', href: '/harnesses', label: 'Harnesses' },
   { sectionId: 'workforce', href: '/agents', label: 'Agents' },
   { sectionId: 'skills', href: '/skills', label: 'Skills' },
+  { sectionId: 'employees', href: '/employees', label: 'Employees' },
   { sectionId: 'runbooks', href: '/runbooks', label: 'Runbooks' },
   { sectionId: 'story', href: '/architecture', label: 'Architecture' },
   { sectionId: 'contact', href: '/contact', label: 'Contact' },

@@ -37,7 +37,7 @@ const QUICK_START_TABS: readonly QuickStartTab[] = [
     localCommand: './scripts/install.sh --skills',
     bootstrapCommand:
       'git clone https://github.com/allanindrajith/hivework.git && cd hivework && ./scripts/install.sh --skills',
-    caption: 'Installs all 21 modular cross-tool SKILL.md workflows alongside your chosen agent teams.',
+    caption: 'Installs all 25 modular cross-tool SKILL.md workflows alongside your chosen agent teams.',
   },
   {
     id: 'convert-all',
@@ -105,6 +105,7 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
 
   const stats = [
     { label: 'Specialized Agents', value: totals.agents, sectionId: 'workforce' as const, href: '/agents' },
+    { label: 'AI Employees', value: totals.employees, sectionId: 'employees' as const, href: '/employees' },
     { label: 'Workforce Divisions', value: totals.divisions, sectionId: 'workforce' as const, href: '/agents' },
     { label: 'AI Harnesses', value: totals.tools, sectionId: 'model-matrix' as const, href: '/harnesses' },
     { label: 'Modular Skills', value: totals.skills, sectionId: 'skills' as const, href: '/skills' },
@@ -125,8 +126,9 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
           <p className="hero-subtitle">
             Browse, select, and install {totals.agents} specialized Markdown agents across{' '}
             {totals.divisions} divisions, {totals.skills} modular <code className="inline-code">SKILL.md</code>{' '}
-            workflows, and {totals.reviewers} Goldfish reviewers into Claude Code, Cursor,
-            Antigravity, Codex, OpenCode, Gemini CLI, and {totals.tools} local tools.
+            workflows, {totals.employees} autonomous AI employees, and {totals.reviewers} Goldfish
+            reviewers into Claude Code, Cursor, Antigravity, Codex, OpenCode, Gemini CLI, and{' '}
+            {totals.tools} local tools.
           </p>
 
           <div className="hero-actions">
@@ -144,6 +146,13 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
               onClick={(e) => navigateToSection('workforce', e)}
             >
               Browse {totals.agents} Agents
+            </a>
+            <a
+              href="/employees"
+              className="btn-outline"
+              onClick={(e) => navigateToSection('employees', e)}
+            >
+              Hire {totals.employees} Employees
             </a>
             <a
               href="/skills"

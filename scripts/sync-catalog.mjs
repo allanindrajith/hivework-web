@@ -202,6 +202,52 @@ export function buildCatalog(repoRoot) {
     }
   }
 
+  const employeesDir = path.join(repoRoot, 'employees');
+  const employees = [];
+  if (fs.existsSync(employeesDir)) {
+    const entries = fs
+      .readdirSync(employeesDir, { withFileTypes: true })
+      .filter((e) => e.isDirectory() && !e.name.startsWith('.'))
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    for (const entry of entries) {
+      const empJsonPath = path.join(employeesDir, entry.name, 'employee.json');
+      const workProfilePath = path.join(employeesDir, entry.name, 'work-profile.json');
+      if (fs.existsSync(empJsonPath) && fs.existsSync(workProfilePath)) {
+        try {
+          const ej = JSON.parse(fs.readFileSync(empJsonPath, 'utf8'));
+          const wp = JSON.parse(fs.readFileSync(workProfilePath, 'utf8'));
+          const routinesDir = path.join(employeesDir, entry.name, 'routines');
+          const routineDirs = fs.existsSync(routinesDir)
+            ? fs
+                .readdirSync(routinesDir, { withFileTypes: true })
+                .filter((r) => r.isDirectory() && !r.name.startsWith('.'))
+                .map((r) => r.name)
+            : [];
+          const routineKeys = Object.keys(wp.routines || {});
+          const combinedRoutines = Array.from(new Set([...routineDirs, ...routineKeys])).sort();
+
+          employees.push({
+            slug: ej.slug || entry.name,
+            name: ej.name || entry.name,
+            role: ej.role || '',
+            version: ej.version || '1.0.0',
+            license: ej.license || 'MIT',
+            repository: ej.repository || 'https://github.com/allanindrajith/hivework',
+            objective: wp.objective || '',
+            standup: wp.standup || '',
+            reviewer: wp.reviewer || '',
+            routineCount: combinedRoutines.length,
+            routines: combinedRoutines,
+            path: `employees/${entry.name}`,
+          });
+        } catch {
+          // Ignore unparseable employee entries
+        }
+      }
+    }
+  }
+
   const runbooks = runbooksJson.runbooks.map((r) => ({
     ...r,
     totalAgents: new Set(r.roster?.flatMap((g) => g.agents || []) || []).size,
@@ -216,12 +262,14 @@ export function buildCatalog(repoRoot) {
       skills: skills.length,
       reviewers: reviewers.length,
       runbooks: runbooks.length,
+      employees: employees.length,
     },
     tools,
     divisions,
     skills,
     reviewers,
     runbooks,
+    employees,
   };
 }
 
@@ -233,6 +281,7 @@ function extractCatalogPayload(catalog) {
     skills: catalog?.skills,
     reviewers: catalog?.reviewers,
     runbooks: catalog?.runbooks,
+    employees: catalog?.employees,
   };
 }
 
@@ -282,7 +331,7 @@ export function syncCatalog(repoRoot = DEFAULT_REPO_ROOT) {
   fs.copyFileSync(path.join(repoRoot, 'assets/logo-icon.svg'), path.join(publicDir, 'logo-icon.svg'));
 
   console.log(
-    `[sync-catalog] ✓ ${shouldWriteJson ? 'Synced' : 'Up-to-date'} catalog (${data.totals.agents} agents, ${data.totals.skills} skills, ${data.totals.tools} tools, ${data.totals.divisions} divisions) -> ${targetJsonPath}`
+    `[sync-catalog] ✓ ${shouldWriteJson ? 'Synced' : 'Up-to-date'} catalog (${data.totals.agents} agents, ${data.totals.skills} skills, ${data.totals.employees} employees, ${data.totals.tools} tools, ${data.totals.divisions} divisions) -> ${targetJsonPath}`
   );
   return data;
 }
