@@ -14,7 +14,7 @@
     "check:agents": "node scripts/check-agent-endpoints.mjs"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.13",
+    "@astrojs/cloudflare": "^14.4.6",
     "@astrojs/react": "^4.4.2",
     "@clerk/backend": "^3.0.1",
     "@clerk/clerk-react": "^5.60.1",
