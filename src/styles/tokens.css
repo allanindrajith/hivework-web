@@ -1,0 +1,252 @@
+/**
+ * Hivework Design System — Design Tokens & Core Primitives
+ * Grounded in DESIGN.md: Honeycomb Amber & Obsidian Canvas
+ */
+
+:root {
+  /* Brand & Accent (Honeycomb Amber) */
+  --primary: #f59e0b;
+  --primary-soft: #fbbf24;
+  --primary-deep: #d97706;
+  --on-primary: #0d0c0a;
+
+  /* Surfaces (Dark Hive Canvas) */
+  --canvas: #0d0c0a;
+  --canvas-soft: #171511;
+  --canvas-text-soft: #fdfbf7;
+
+  /* Hairlines & Dividers */
+  --hairline: #2d2920;
+  --hairline-soft: #3d372b;
+
+  /* Typography (Warm Ink & Legibility) */
+  --ink-strong: #ffffff;
+  --ink: #f7f5f0;
+  --body: #c2beb5;
+  --mute: #8c867a;
+
+  /* Typography Font Families */
+  --font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Spacing Scale */
+  --space-xxs: 2px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+  --space-4xl: 64px;
+  --space-section: 96px;
+
+  /* Border Radii */
+  --radius-none: 0px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 9999px;
+
+  /* Elevation & Glows */
+  --elevation-none: none;
+  --elevation-card: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --elevation-glow-amber: 0 0 20px rgba(245, 158, 11, 0.25);
+}
+
+/* Global Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  background-color: var(--canvas);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--canvas);
+  color: var(--body);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 26px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible Focus States */
+*:focus-visible {
+  outline: 2px solid var(--primary-soft);
+  outline-offset: 2px;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  background-color: var(--primary);
+  color: var(--on-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-soft);
+  box-shadow: var(--elevation-glow-amber);
+}
+
+.btn-primary:active {
+  background-color: var(--primary-deep);
+  transform: translateY(1px);
+}
+
+.btn-primary.btn-pill {
+  border-radius: var(--radius-pill);
+}
+
+.btn-outline,
+.button-secondary-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  background-color: var(--canvas-soft);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 10px 18px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.btn-outline:hover,
+.button-secondary-outline:hover {
+  border-color: var(--primary-deep);
+  color: var(--ink-strong);
+}
+
+.btn-outline:active,
+.button-secondary-outline:active {
+  background-color: rgba(245, 158, 11, 0.05);
+}
+
+/* Hairline Cards & Containers */
+.hairline-card,
+.agent-card {
+  background-color: var(--canvas-soft);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  box-shadow: var(--elevation-card);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hairline-card:hover,
+.agent-card:hover {
+  border-color: var(--primary-deep);
+}
+
+/* Terminal Execution Surface */
+.terminal-window {
+  background-color: var(--canvas-soft);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  color: var(--canvas-text-soft);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 20px;
+  overflow: hidden;
+}
+
+/* Badges & Pills */
+.pill-badge,
+.pill-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background-color: rgba(245, 158, 11, 0.12);
+  color: var(--primary);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  border-radius: var(--radius-pill);
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+}
+
+/* Layout & Grid Helpers (375px to 1440px) */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--space-2xl);
+    padding-right: var(--space-2xl);
+  }
+}
+
+.grid-responsive {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

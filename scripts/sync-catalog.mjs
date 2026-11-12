@@ -1,0 +1,243 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { isDeepStrictEqual } from 'node:util';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const DEFAULT_REPO_ROOT =
+  process.env.HIVEWORK_REPO_ROOT || path.resolve(__dirname, '../../Hivework');
+
+function parseFrontmatter(content) {
+  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!match) return {};
+  const lines = match[1].split(/\r?\n/);
+  const data = {};
+  let currentKey = null;
+  for (const line of lines) {
+    const keyMatch = line.match(/^([a-zA-Z0-9_-]+):\s*(.*)$/);
+    if (keyMatch) {
+      currentKey = keyMatch[1];
+      let val = keyMatch[2].trim();
+      if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+        val = val.slice(1, -1);
+      }
+      data[currentKey] = val;
+    } else if (currentKey && (line.startsWith('  ') || line.startsWith('\t'))) {
+      data[currentKey] += ' ' + line.trim();
+    }
+  }
+  return data;
+}
+
+function walkDirForMarkdown(dir) {
+  const files = [];
+  function walk(current) {
+    const entries = fs.readdirSync(current, { withFileTypes: true });
+    entries.sort((a, b) => a.name.localeCompare(b.name));
+    for (const entry of entries) {
+      const full = path.join(current, entry.name);
+      if (entry.isDirectory()) {
+        walk(full);
+      } else if (entry.isFile() && entry.name.endsWith('.md')) {
+        files.push(full);
+      }
+    }
+  }
+  walk(dir);
+  return files;
+}
+
+export function buildCatalog(repoRoot) {
+  if (!repoRoot || typeof repoRoot !== 'string') {
+    throw new Error('A valid repoRoot directory path must be provided');
+  }
+
+  const toolsPath = path.join(repoRoot, 'tools.json');
+  const divisionsPath = path.join(repoRoot, 'divisions.json');
+  const runbooksPath = path.join(repoRoot, 'strategy/runbooks.json');
+  const logoPath = path.join(repoRoot, 'assets/logo.svg');
+  const logoIconPath = path.join(repoRoot, 'assets/logo-icon.svg');
+
+  if (!fs.existsSync(toolsPath)) {
+    throw new Error(`tools.json not found at ${toolsPath}`);
+  }
+  if (!fs.existsSync(divisionsPath)) {
+    throw new Error(`divisions.json not found at ${divisionsPath}`);
+  }
+  if (!fs.existsSync(runbooksPath)) {
+    throw new Error(`strategy/runbooks.json not found at ${runbooksPath}`);
+  }
+  if (!fs.existsSync(logoPath)) {
+    throw new Error(`assets/logo.svg not found at ${logoPath}`);
+  }
+  if (!fs.existsSync(logoIconPath)) {
+    throw new Error(`assets/logo-icon.svg not found at ${logoIconPath}`);
+  }
+
+  let toolsJson;
+  let divisionsJson;
+  let runbooksJson;
+
+  try {
+    toolsJson = JSON.parse(fs.readFileSync(toolsPath, 'utf8'));
+  } catch (err) {
+    throw new Error(`Failed to parse tools.json: ${err.message}`);
+  }
+
+  try {
+    divisionsJson = JSON.parse(fs.readFileSync(divisionsPath, 'utf8'));
+  } catch (err) {
+    throw new Error(`Failed to parse divisions.json: ${err.message}`);
+  }
+
+  try {
+    runbooksJson = JSON.parse(fs.readFileSync(runbooksPath, 'utf8'));
+  } catch (err) {
+    throw new Error(`Failed to parse strategy/runbooks.json: ${err.message}`);
+  }
+
+  if (!toolsJson.tools || typeof toolsJson.tools !== 'object' || Object.keys(toolsJson.tools).length === 0) {
+    throw new Error('tools.json must contain a non-empty "tools" object');
+  }
+  if (!divisionsJson.divisions || typeof divisionsJson.divisions !== 'object' || Object.keys(divisionsJson.divisions).length === 0) {
+    throw new Error('divisions.json must contain a non-empty "divisions" object');
+  }
+  if (!Array.isArray(runbooksJson.runbooks) || runbooksJson.runbooks.length === 0) {
+    throw new Error('strategy/runbooks.json must contain a non-empty "runbooks" array');
+  }
+
+  const tools = Object.values(toolsJson.tools).sort((a, b) => a.order - b.order);
+
+  const divisions = [];
+  let totalAgents = 0;
+
+  for (const [key, meta] of Object.entries(divisionsJson.divisions)) {
+    const divDir = path.join(repoRoot, key);
+    if (!fs.existsSync(divDir)) {
+      throw new Error(`Division directory "${key}" not found at ${divDir}`);
+    }
+    const mdFiles = walkDirForMarkdown(divDir);
+    totalAgents += mdFiles.length;
+
+    const samples = mdFiles.slice(0, 4).map((filePath) => {
+      const content = fs.readFileSync(filePath, 'utf8');
+      const fm = parseFrontmatter(content);
+      return {
+        name: fm.name || path.basename(filePath, '.md'),
+        description: fm.description || '',
+        slug: path.basename(filePath, '.md'),
+      };
+    });
+
+    divisions.push({
+      id: key,
+      slug: key,
+      label: meta.label,
+      icon: meta.icon,
+      color: meta.color,
+      agentCount: mdFiles.length,
+      samples,
+    });
+  }
+
+  const skillsDir = path.join(repoRoot, 'skills');
+  let skillCount = 0;
+  if (fs.existsSync(skillsDir)) {
+    const entries = fs.readdirSync(skillsDir, { withFileTypes: true });
+    skillCount = entries.filter((e) => e.isDirectory() && !e.name.startsWith('.')).length;
+  }
+
+  const agentsDir = path.join(repoRoot, 'agents');
+  let reviewerCount = 0;
+  if (fs.existsSync(agentsDir)) {
+    const entries = fs.readdirSync(agentsDir);
+    reviewerCount = entries.filter((f) => f.endsWith('.md') && !f.startsWith('.')).length;
+  }
+
+  const runbooks = runbooksJson.runbooks.map((r) => ({
+    ...r,
+    totalAgents: new Set(r.roster?.flatMap((g) => g.agents || []) || []).size,
+  }));
+
+  return {
+    generatedAt: new Date().toISOString(),
+    totals: {
+      agents: totalAgents,
+      divisions: divisions.length,
+      tools: tools.length,
+      skills: skillCount,
+      reviewers: reviewerCount,
+      runbooks: runbooks.length,
+    },
+    tools,
+    divisions,
+    runbooks,
+  };
+}
+
+function extractCatalogPayload(catalog) {
+  return {
+    totals: catalog?.totals,
+    tools: catalog?.tools,
+    divisions: catalog?.divisions,
+    runbooks: catalog?.runbooks,
+  };
+}
+
+export function syncCatalog(repoRoot = DEFAULT_REPO_ROOT) {
+  const data = buildCatalog(repoRoot);
+
+  const appDir = path.join(repoRoot, 'app');
+  const targetJsonPath = path.join(appDir, 'src/data/catalog.generated.json');
+  let shouldWriteJson = true;
+
+  if (fs.existsSync(targetJsonPath)) {
+    try {
+      const existingRaw = fs.readFileSync(targetJsonPath, 'utf8');
+      const existing = JSON.parse(existingRaw);
+      if (
+        existing &&
+        typeof existing === 'object' &&
+        typeof existing.generatedAt === 'string' &&
+        existing.generatedAt.trim().length > 0
+      ) {
+        const nextPayload = JSON.parse(JSON.stringify(extractCatalogPayload(data)));
+        const existingPayload = extractCatalogPayload(existing);
+        if (isDeepStrictEqual(existingPayload, nextPayload)) {
+          data.generatedAt = existing.generatedAt;
+          const nextRaw = JSON.stringify(data, null, 2) + '\n';
+          if (existingRaw === nextRaw) {
+            shouldWriteJson = false;
+          }
+        }
+      }
+    } catch {
+      // Ignore unreadable or malformed existing catalog JSON and regenerate cleanly.
+    }
+  }
+
+  if (shouldWriteJson) {
+    fs.mkdirSync(path.dirname(targetJsonPath), { recursive: true });
+    fs.writeFileSync(targetJsonPath, JSON.stringify(data, null, 2) + '\n', 'utf8');
+  }
+
+  const publicDir = path.join(appDir, 'public');
+  fs.mkdirSync(publicDir, { recursive: true });
+  fs.copyFileSync(path.join(repoRoot, 'assets/logo.svg'), path.join(publicDir, 'logo.svg'));
+  fs.copyFileSync(path.join(repoRoot, 'assets/logo-icon.svg'), path.join(publicDir, 'logo-icon.svg'));
+
+  console.log(
+    `[sync-catalog] ✓ ${shouldWriteJson ? 'Synced' : 'Up-to-date'} catalog (${data.totals.agents} agents, ${data.totals.tools} tools, ${data.totals.divisions} divisions) -> ${targetJsonPath}`
+  );
+  return data;
+}
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  try {
+    syncCatalog();
+  } catch (err) {
+    console.error(`[sync-catalog] ✗ ${err.message}`);
+    process.exit(1);
+  }
+}

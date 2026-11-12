@@ -1,0 +1,1326 @@
+{
+  "generatedAt": "2026-11-12T19:23:36.062Z",
+  "totals": {
+    "agents": 296,
+    "divisions": 18,
+    "tools": 17,
+    "skills": 21,
+    "reviewers": 10,
+    "runbooks": 4
+  },
+  "tools": [
+    {
+      "id": "claudeCode",
+      "label": "Claude Code",
+      "short": "Claude",
+      "kebab": "claude-code",
+      "accent": "#D97757",
+      "icon": "claudecode",
+      "order": 1,
+      "scope": {
+        "user": true,
+        "project": true
+      },
+      "detect": {
+        "dirs": [
+          ".claude"
+        ],
+        "agentsDir": ".claude/agents"
+      },
+      "version": {
+        "bin": "claude",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "identity",
+      "installKind": "per-agent",
+      "slugFrom": "source",
+      "dest": {
+        "user": [
+          ".claude/agents/{slug}.md"
+        ],
+        "project": [
+          ".claude/agents/{slug}.md"
+        ]
+      }
+    },
+    {
+      "id": "codex",
+      "label": "Codex",
+      "short": "Codex",
+      "kebab": "codex",
+      "accent": "#10A37F",
+      "icon": "codex",
+      "order": 2,
+      "scope": {
+        "user": true,
+        "project": true
+      },
+      "detect": {
+        "dirs": [
+          ".codex"
+        ],
+        "agentsDir": ".codex/agents"
+      },
+      "version": {
+        "bin": "codex",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "codex-toml",
+      "installKind": "per-agent",
+      "slugFrom": "name",
+      "slugPrefix": "hive-",
+      "dest": {
+        "user": [
+          ".codex/agents/{slug}.toml"
+        ],
+        "project": [
+          ".codex/agents/{slug}.toml"
+        ]
+      }
+    },
+    {
+      "id": "geminiCli",
+      "label": "Gemini CLI",
+      "short": "Gemini",
+      "kebab": "gemini-cli",
+      "accent": "#4285F4",
+      "icon": "geminicli",
+      "order": 3,
+      "scope": {
+        "user": true,
+        "project": true
+      },
+      "detect": {
+        "dirs": [
+          ".gemini/agents"
+        ],
+        "agentsDir": ".gemini/agents"
+      },
+      "version": {
+        "bin": "gemini",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "gemini-md",
+      "installKind": "per-agent",
+      "slugFrom": "name",
+      "slugPrefix": "hive-",
+      "dest": {
+        "user": [
+          ".gemini/agents/{slug}.md"
+        ],
+        "project": [
+          ".gemini/agents/{slug}.md"
+        ]
+      }
+    },
+    {
+      "id": "copilot",
+      "label": "GitHub Copilot",
+      "short": "Copilot",
+      "kebab": "copilot",
+      "accent": "#6E40C9",
+      "icon": "githubcopilot",
+      "order": 4,
+      "scope": {
+        "user": true,
+        "project": true
+      },
+      "detect": {
+        "dirs": [
+          ".github",
+          ".copilot"
+        ],
+        "agentsDir": ".github/agents"
+      },
+      "version": {
+        "bin": "gh",
+        "args": [
+          "copilot",
+          "--version"
+        ]
+      },
+      "format": "identity",
+      "installKind": "per-agent",
+      "slugFrom": "source",
+      "dest": {
+        "user": [
+          ".copilot/agents/{slug}.md",
+          ".github/agents/{slug}.md"
+        ],
+        "project": [
+          ".github/agents/{slug}.md"
+        ]
+      }
+    },
+    {
+      "id": "qwen",
+      "label": "Qwen Code",
+      "short": "Qwen",
+      "kebab": "qwen",
+      "accent": "#615CED",
+      "icon": "qwen",
+      "order": 5,
+      "scope": {
+        "user": true,
+        "project": true
+      },
+      "detect": {
+        "dirs": [
+          ".qwen"
+        ],
+        "agentsDir": ".qwen/agents"
+      },
+      "version": {
+        "bin": "qwen",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "qwen-md",
+      "installKind": "per-agent",
+      "slugFrom": "name",
+      "slugPrefix": "hive-",
+      "dest": {
+        "user": [
+          ".qwen/agents/{slug}.md"
+        ],
+        "project": [
+          ".qwen/agents/{slug}.md"
+        ]
+      }
+    },
+    {
+      "id": "cursor",
+      "label": "Cursor",
+      "short": "Cursor",
+      "kebab": "cursor",
+      "accent": "#1F2430",
+      "icon": "cursor",
+      "order": 6,
+      "scope": {
+        "user": false,
+        "project": true
+      },
+      "detect": {
+        "dirs": [
+          ".cursor"
+        ],
+        "agentsDir": null
+      },
+      "version": {
+        "bin": "cursor",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "cursor-mdc",
+      "installKind": "per-agent",
+      "slugFrom": "name",
+      "slugPrefix": "hive-",
+      "dest": {
+        "user": [],
+        "project": [
+          ".cursor/rules/{slug}.mdc"
+        ]
+      }
+    },
+    {
+      "id": "opencode",
+      "label": "opencode",
+      "short": "opencode",
+      "kebab": "opencode",
+      "accent": "#FF6B35",
+      "icon": "opencode",
+      "order": 7,
+      "scope": {
+        "user": true,
+        "project": true
+      },
+      "detect": {
+        "dirs": [
+          ".config/opencode"
+        ],
+        "agentsDir": null
+      },
+      "version": {
+        "bin": "opencode",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "opencode-md",
+      "installKind": "per-agent",
+      "slugFrom": "name",
+      "slugPrefix": "hive-",
+      "dest": {
+        "user": [
+          ".config/opencode/agents/{slug}.md"
+        ],
+        "project": [
+          ".opencode/agents/{slug}.md"
+        ]
+      }
+    },
+    {
+      "id": "osaurus",
+      "label": "Osaurus",
+      "short": "Osaurus",
+      "kebab": "osaurus",
+      "accent": "#10B981",
+      "icon": null,
+      "order": 8,
+      "scope": {
+        "user": true,
+        "project": false
+      },
+      "detect": {
+        "dirs": [
+          ".osaurus"
+        ],
+        "agentsDir": ".osaurus/skills"
+      },
+      "version": {
+        "bin": "osaurus",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "skill-md",
+      "installKind": "per-agent",
+      "slugFrom": "name",
+      "slugPrefix": "hive-",
+      "dest": {
+        "user": [
+          ".osaurus/skills/{slug}/SKILL.md"
+        ],
+        "project": []
+      }
+    },
+    {
+      "id": "aider",
+      "label": "Aider",
+      "short": "Aider",
+      "kebab": "aider",
+      "accent": "#8B5CF6",
+      "icon": null,
+      "order": 9,
+      "scope": {
+        "user": false,
+        "project": true
+      },
+      "detect": {
+        "dirs": [],
+        "agentsDir": null
+      },
+      "version": {
+        "bin": "aider",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "aider-conventions",
+      "installKind": "roster",
+      "slugFrom": null,
+      "dest": {
+        "user": [],
+        "project": [
+          "CONVENTIONS.md"
+        ]
+      }
+    },
+    {
+      "id": "antigravity",
+      "label": "Antigravity",
+      "short": "antigravity",
+      "kebab": "antigravity",
+      "accent": "#0EA5E9",
+      "icon": "antigravity",
+      "order": 10,
+      "scope": {
+        "user": true,
+        "project": true
+      },
+      "detect": {
+        "dirs": [
+          ".gemini/config/skills",
+          ".agents/skills"
+        ],
+        "agentsDir": ".gemini/config/skills"
+      },
+      "version": {
+        "bin": "agy",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "skill-md",
+      "installKind": "per-agent",
+      "slugFrom": "name",
+      "slugPrefix": "hive-",
+      "dest": {
+        "user": [
+          ".gemini/config/skills/{slug}/SKILL.md"
+        ],
+        "project": [
+          ".agents/skills/{slug}/SKILL.md"
+        ]
+      }
+    },
+    {
+      "id": "kimi",
+      "label": "Kimi",
+      "short": "Kimi",
+      "kebab": "kimi",
+      "accent": "#0F0F12",
+      "icon": "kimi",
+      "order": 11,
+      "scope": {
+        "user": true,
+        "project": false
+      },
+      "detect": {
+        "dirs": [],
+        "agentsDir": ".config/kimi/agents"
+      },
+      "version": {
+        "bin": "kimi",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "kimi-agent",
+      "installKind": "per-agent",
+      "slugFrom": "name",
+      "slugPrefix": "hive-",
+      "dest": {
+        "user": [
+          ".config/kimi/agents/{slug}/agent.yaml",
+          ".config/kimi/agents/{slug}/system.md"
+        ],
+        "project": []
+      }
+    },
+    {
+      "id": "openclaw",
+      "label": "OpenClaw",
+      "short": "openclaw",
+      "kebab": "openclaw",
+      "accent": "#E11D48",
+      "icon": null,
+      "order": 12,
+      "scope": {
+        "user": true,
+        "project": false
+      },
+      "detect": {
+        "dirs": [
+          ".openclaw"
+        ],
+        "agentsDir": ".openclaw/hivework"
+      },
+      "version": {
+        "bin": "openclaw",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "openclaw-workspace",
+      "installKind": "per-agent",
+      "slugFrom": "name",
+      "slugPrefix": "hive-",
+      "dest": {
+        "user": [
+          ".openclaw/hivework/{slug}/SOUL.md",
+          ".openclaw/hivework/{slug}/AGENTS.md",
+          ".openclaw/hivework/{slug}/IDENTITY.md"
+        ],
+        "project": []
+      }
+    },
+    {
+      "id": "windsurf",
+      "label": "Windsurf",
+      "short": "Windsurf",
+      "kebab": "windsurf",
+      "accent": "#09B6A2",
+      "icon": "windsurf",
+      "order": 13,
+      "scope": {
+        "user": false,
+        "project": true
+      },
+      "detect": {
+        "dirs": [
+          ".codeium"
+        ],
+        "agentsDir": null
+      },
+      "version": {
+        "bin": "windsurf",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "windsurf-rules",
+      "installKind": "roster",
+      "slugFrom": null,
+      "dest": {
+        "user": [],
+        "project": [
+          ".windsurfrules"
+        ]
+      }
+    },
+    {
+      "id": "hermes",
+      "label": "Hermes",
+      "short": "Hermes",
+      "kebab": "hermes",
+      "accent": "#7C3AED",
+      "icon": null,
+      "order": 14,
+      "scope": {
+        "user": true,
+        "project": false
+      },
+      "detect": {
+        "dirs": [
+          ".hermes"
+        ],
+        "agentsDir": ".hermes/plugins"
+      },
+      "version": {
+        "bin": "hermes",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "hermes-router-plugin",
+      "installKind": "plugin",
+      "slugFrom": null,
+      "dest": {
+        "user": [
+          ".hermes/plugins/hive-agents-router"
+        ],
+        "project": []
+      }
+    },
+    {
+      "id": "vibe",
+      "label": "Mistral Vibe",
+      "short": "Vibe",
+      "kebab": "vibe",
+      "accent": "#FA520F",
+      "icon": null,
+      "order": 15,
+      "scope": {
+        "user": true,
+        "project": true
+      },
+      "detect": {
+        "dirs": [
+          ".vibe"
+        ],
+        "agentsDir": ".vibe/agents"
+      },
+      "version": {
+        "bin": "vibe",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "vibe-toml",
+      "installKind": "per-agent",
+      "slugFrom": "name",
+      "slugPrefix": "hive-",
+      "dest": {
+        "user": [
+          ".vibe/agents/{slug}.toml",
+          ".vibe/prompts/{slug}.md"
+        ],
+        "project": [
+          ".vibe/agents/{slug}.toml",
+          ".vibe/prompts/{slug}.md"
+        ]
+      }
+    },
+    {
+      "id": "zcode",
+      "label": "ZCode",
+      "short": "ZCode",
+      "kebab": "zcode",
+      "accent": "#4263EB",
+      "icon": "zcode",
+      "order": 16,
+      "scope": {
+        "user": true,
+        "project": true
+      },
+      "detect": {
+        "dirs": [
+          ".zcode"
+        ],
+        "agentsDir": ".zcode/agents"
+      },
+      "version": {
+        "bin": "zcode",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "zcode-md",
+      "installKind": "per-agent",
+      "slugFrom": "name",
+      "slugPrefix": "hive-",
+      "dest": {
+        "user": [
+          ".zcode/agents/{slug}.md"
+        ],
+        "project": [
+          ".zcode/agents/{slug}.md"
+        ]
+      }
+    },
+    {
+      "id": "deepseekHarness",
+      "label": "DeepSeek Harness",
+      "short": "DSH",
+      "kebab": "dsh",
+      "accent": "#4D6BFE",
+      "icon": null,
+      "order": 17,
+      "scope": {
+        "user": true,
+        "project": true
+      },
+      "detect": {
+        "dirs": [
+          ".dsh"
+        ],
+        "agentsDir": ".dsh/skills"
+      },
+      "version": {
+        "bin": "dsh",
+        "args": [
+          "--version"
+        ]
+      },
+      "format": "skill-md",
+      "installKind": "per-agent",
+      "slugFrom": "name",
+      "slugPrefix": "hive-",
+      "dest": {
+        "user": [
+          ".dsh/skills/{slug}/SKILL.md"
+        ],
+        "project": [
+          ".dsh/skills/{slug}/SKILL.md"
+        ]
+      }
+    }
+  ],
+  "divisions": [
+    {
+      "id": "academic",
+      "slug": "academic",
+      "label": "Academic",
+      "icon": "GraduationCap",
+      "color": "#8B5CF6",
+      "agentCount": 6,
+      "samples": [
+        {
+          "name": "Anthropologist",
+          "description": "Expert in cultural systems, rituals, kinship, belief systems, and ethnographic method — builds culturally coherent societies that feel lived-in rather than invented",
+          "slug": "hive-anthropologist"
+        },
+        {
+          "name": "Geographer",
+          "description": "Expert in physical and human geography, climate systems, cartography, and spatial analysis — builds geographically coherent worlds where terrain, climate, resources, and settlement patterns make scientific sense",
+          "slug": "hive-geographer"
+        },
+        {
+          "name": "Historian",
+          "description": "Expert in historical analysis, periodization, material culture, and historiography — validates historical coherence and enriches settings with authentic period detail grounded in primary and secondary sources",
+          "slug": "hive-historian"
+        },
+        {
+          "name": "Narratologist",
+          "description": "Expert in narrative theory, story structure, character arcs, and literary analysis — grounds advice in established frameworks from Propp to Campbell to modern narratology",
+          "slug": "hive-narratologist"
+        }
+      ]
+    },
+    {
+      "id": "design",
+      "slug": "design",
+      "label": "Design",
+      "icon": "PenTool",
+      "color": "#EC4899",
+      "agentCount": 10,
+      "samples": [
+        {
+          "name": "Brand Guardian",
+          "description": "Expert brand strategist and guardian specializing in brand identity development, consistency maintenance, and strategic brand positioning",
+          "slug": "hive-brand-guardian"
+        },
+        {
+          "name": "Image Prompt Engineer",
+          "description": "Expert photography prompt engineer specializing in crafting detailed, evocative prompts for AI image generation. Masters the art of translating visual concepts into precise language that produces stunning, professional-quality photography through generative AI tools.",
+          "slug": "hive-image-prompt-engineer"
+        },
+        {
+          "name": "Inclusive Visuals Specialist",
+          "description": "Representation expert who defeats systemic AI biases to generate culturally accurate, affirming, and non-stereotypical images and video.",
+          "slug": "hive-inclusive-visuals-specialist"
+        },
+        {
+          "name": "Persona Walkthrough Specialist",
+          "description": "Simulate cognitive walkthroughs of web pages from a defined persona's psychological perspective — captures emotional reactions and rational thought at each scroll position, then delivers structured CRO reports grounded in LIFT, Cialdini, and Fogg frameworks",
+          "slug": "hive-persona-walkthrough"
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "slug": "engineering",
+      "label": "Engineering",
+      "icon": "Code",
+      "color": "#3B82F6",
+      "agentCount": 66,
+      "samples": [
+        {
+          "name": "AI Data Remediation Engineer",
+          "description": "Specialist in self-healing data pipelines — uses air-gapped local SLMs and semantic clustering to automatically detect, classify, and fix data anomalies at scale. Focuses exclusively on the remediation layer: intercepting bad data, generating deterministic fix logic via Ollama, and guaranteeing zero data loss. Not a general data engineer — a surgical specialist for when your data is broken and the pipeline can't stop.",
+          "slug": "hive-ai-data-remediation-engineer"
+        },
+        {
+          "name": "AI Engineer",
+          "description": "Expert AI/ML engineer specializing in machine learning model development, deployment, and integration into production systems. Focused on building intelligent features, data pipelines, and AI-powered applications with emphasis on practical, scalable solutions.",
+          "slug": "hive-ai-engineer"
+        },
+        {
+          "name": "API Platform Engineer",
+          "description": "Expert API platform engineer for public and partner APIs — contract-first design (OpenAPI/gRPC), versioning and deprecation policy, SDK generation, API gateway concerns (auth, rate limiting, quotas), and developer-portal DX.",
+          "slug": "hive-api-platform-engineer"
+        },
+        {
+          "name": "ATS Validator Architect",
+          "description": "Architect and validator for Applicant Tracking Systems (ATS) and resume parsers. Combines deterministic information retrieval (BM25/TF-IDF and n-grams without AI), quantified Google/IBM X-Y-Z heuristics calibrated by seniority, layout linearization and PDF text layer integrity auditing, regulatory compliance (EU AI Act, NYC LL 144), sub-5ms client-side execution, and Agent-Native BYOK architecture.",
+          "slug": "hive-ats-validator-architect"
+        }
+      ]
+    },
+    {
+      "id": "finance",
+      "slug": "finance",
+      "label": "Finance",
+      "icon": "DollarSign",
+      "color": "#22C55E",
+      "agentCount": 5,
+      "samples": [
+        {
+          "name": "Bookkeeper & Controller",
+          "description": "Expert bookkeeper and controller specializing in day-to-day accounting operations, financial reconciliations, month-end close processes, and internal controls. Ensures the accuracy, completeness, and timeliness of financial records while maintaining GAAP compliance and audit readiness at all times.",
+          "slug": "hive-bookkeeper-controller"
+        },
+        {
+          "name": "Financial Analyst",
+          "description": "Expert financial analyst specializing in financial modeling, forecasting, scenario analysis, and data-driven decision support. Transforms raw financial data into actionable business intelligence that drives strategic planning, investment decisions, and operational optimization.",
+          "slug": "hive-financial-analyst"
+        },
+        {
+          "name": "FP&A Analyst",
+          "description": "Expert Financial Planning & Analysis (FP&A) analyst specializing in budgeting, variance analysis, financial planning, rolling forecasts, and strategic decision support. Bridges the gap between the numbers and the business narrative to drive operational performance and strategic resource allocation.",
+          "slug": "hive-fpa-analyst"
+        },
+        {
+          "name": "Investment Researcher",
+          "description": "Expert investment researcher specializing in market research, due diligence, portfolio analysis, and asset valuation. Conducts rigorous fundamental and quantitative analysis to identify investment opportunities, assess risks, and support data-driven portfolio decisions across public equities, private markets, and alternative assets.",
+          "slug": "hive-investment-researcher"
+        }
+      ]
+    },
+    {
+      "id": "game-development",
+      "slug": "game-development",
+      "label": "Game Development",
+      "icon": "Gamepad2",
+      "color": "#A855F7",
+      "agentCount": 22,
+      "samples": [
+        {
+          "name": "Blender Add-on Engineer",
+          "description": "Blender tooling specialist - Builds Python add-ons, asset validators, exporters, and pipeline automations that turn repetitive DCC work into reliable one-click workflows",
+          "slug": "hive-blender-addon-engineer"
+        },
+        {
+          "name": "Game Studio Orchestrator",
+          "description": "Turn any AI coding session into a full game development studio. Coordinates 6-phase studio pipelines, creative direction, engineering, audio, art, and continuous dev-QA quality loops across Godot, Unity, and Unreal.",
+          "slug": "hive-game-studio-orchestrator"
+        },
+        {
+          "name": "Godot Gameplay Scripter",
+          "description": "Composition and signal integrity specialist - Masters GDScript 2.0, C# integration, node-based architecture, and type-safe signal design for Godot 4 projects",
+          "slug": "hive-godot-gameplay-scripter"
+        },
+        {
+          "name": "Godot Multiplayer Engineer",
+          "description": "Godot 4 networking specialist - Masters the MultiplayerAPI, scene replication, ENet/WebRTC transport, RPCs, and authority models for real-time multiplayer games",
+          "slug": "hive-godot-multiplayer-engineer"
+        }
+      ]
+    },
+    {
+      "id": "gis",
+      "slug": "gis",
+      "label": "GIS",
+      "icon": "Map",
+      "color": "#14B8A6",
+      "agentCount": 13,
+      "samples": [
+        {
+          "name": "3D & Scene Developer",
+          "description": "Web 3D visualization specialist who creates immersive 3D scenes, terrain models, point cloud visualizations, and interactive web experiences using Cesium, ArcGIS Scene Viewer, and modern 3D web frameworks.",
+          "slug": "hive-3d-scene-developer"
+        },
+        {
+          "name": "GIS Analyst",
+          "description": "Day-to-day GIS operator who creates maps, manages layers, performs spatial queries, and maintains geospatial data integrity across desktop and web environments.",
+          "slug": "hive-analyst"
+        },
+        {
+          "name": "BIM/GIS Specialist",
+          "description": "Integration specialist who bridges Building Information Modeling and Geographic Information Systems — Revit/IFC data conversion, indoor mapping, digital twin architecture, and facility management data models.",
+          "slug": "hive-bim-specialist"
+        },
+        {
+          "name": "Cartography Designer",
+          "description": "Map aesthetics specialist who designs beautiful, readable, and effective maps — color theory, typography, label placement, basemap selection, and visual hierarchy for both print and web.",
+          "slug": "hive-cartography-designer"
+        }
+      ]
+    },
+    {
+      "id": "healthcare",
+      "slug": "healthcare",
+      "label": "Healthcare",
+      "icon": "Stethoscope",
+      "color": "#0D9488",
+      "agentCount": 3,
+      "samples": [
+        {
+          "name": "Clinical Evidence Agent",
+          "description": "Evidence standards and clinical credibility framework for AI agents operating in healthcare contexts. Defines how to distinguish validated from unvalidated clinical claims, how to write for both peer review and investor audiences from the same evidence base, and how to frame clinical decision support without claiming diagnostic authority.",
+          "slug": "hive-clinical-evidence-agent"
+        },
+        {
+          "name": "Healthcare Innovation Strategist",
+          "description": "Strategic narrative architect for healthcare founders operating at the intersection of clinical credibility, healthcare finance, and complex deployment contexts. Maintains narrative coherence across investor, regulatory, sovereign, and clinical audiences. Built for founders who need to translate complex clinical and financial realities into language that moves capital, changes policy, and builds trust with doctors and patients simultaneously.",
+          "slug": "hive-innovation-strategist"
+        },
+        {
+          "name": "Sovereign Health Systems Agent",
+          "description": "Government health mandate engagement framework for AI agents operating at the intersection of national health infrastructure, UHC policy, and emerging market deployment. Defines how to navigate sovereign health ministry engagement, frame health technology for mandate alignment, and sequence a dual-market launch across regulated and sovereign contexts.",
+          "slug": "hive-sovereign-health-systems-agent"
+        }
+      ]
+    },
+    {
+      "id": "marketing",
+      "slug": "marketing",
+      "label": "Marketing",
+      "icon": "Megaphone",
+      "color": "#F97316",
+      "agentCount": 37,
+      "samples": [
+        {
+          "name": "AEO Foundations Architect",
+          "description": "Expert in AI Engine Optimization infrastructure — implements llms.txt, AI-aware robots.txt, token-budgeted content, structured Markdown availability, and agent discovery files so AI crawlers, citation engines, and browsing agents can find, parse, and act on your site",
+          "slug": "hive-aeo-foundations"
+        },
+        {
+          "name": "Agentic Search Optimizer",
+          "description": "Expert in WebMCP readiness and agentic task completion — audits whether AI agents can actually accomplish tasks on your site (book, buy, register, subscribe), implements WebMCP declarative and imperative patterns, and measures task completion rates across AI browsing agents",
+          "slug": "hive-agentic-search-optimizer"
+        },
+        {
+          "name": "AI Citation Strategist",
+          "description": "Expert in AI recommendation engine optimization (AEO/GEO) — audits brand visibility across ChatGPT, Claude, Gemini, and Perplexity, identifies why competitors get cited instead, and delivers content fixes that improve AI citations",
+          "slug": "hive-ai-citation-strategist"
+        },
+        {
+          "name": "App Store Optimizer",
+          "description": "Expert app store marketing specialist focused on App Store Optimization (ASO), conversion rate optimization, and app discoverability",
+          "slug": "hive-app-store-optimizer"
+        }
+      ]
+    },
+    {
+      "id": "paid-media",
+      "slug": "paid-media",
+      "label": "Paid Media",
+      "icon": "Target",
+      "color": "#EAB308",
+      "agentCount": 7,
+      "samples": [
+        {
+          "name": "Paid Media Auditor",
+          "description": "Comprehensive paid media auditor who systematically evaluates Google Ads, Microsoft Ads, and Meta accounts across 200+ checkpoints spanning account structure, tracking, bidding, creative, audiences, and competitive positioning. Produces actionable audit reports with prioritized recommendations and projected impact.",
+          "slug": "hive-auditor"
+        },
+        {
+          "name": "Ad Creative Strategist",
+          "description": "Paid media creative specialist focused on ad copywriting, RSA optimization, asset group design, and creative testing frameworks across Google, Meta, Microsoft, and programmatic platforms. Bridges the gap between performance data and persuasive messaging.",
+          "slug": "hive-creative-strategist"
+        },
+        {
+          "name": "Paid Social Strategist",
+          "description": "Cross-platform paid social advertising specialist covering Meta (Facebook/Instagram), LinkedIn, TikTok, Pinterest, X, and Snapchat. Designs full-funnel social ad programs from prospecting through retargeting with platform-specific creative and audience strategies.",
+          "slug": "hive-paid-social-strategist"
+        },
+        {
+          "name": "PPC Campaign Strategist",
+          "description": "Senior paid media strategist specializing in large-scale search, shopping, and performance max campaign architecture across Google, Microsoft, and Amazon ad platforms. Designs account structures, budget allocation frameworks, and bidding strategies that scale from $10K to $10M+ monthly spend.",
+          "slug": "hive-ppc-strategist"
+        }
+      ]
+    },
+    {
+      "id": "product",
+      "slug": "product",
+      "label": "Product",
+      "icon": "Box",
+      "color": "#D946EF",
+      "agentCount": 6,
+      "samples": [
+        {
+          "name": "Behavioral Nudge Engine",
+          "description": "Behavioral psychology specialist that adapts software interaction cadences and styles to maximize user motivation and success.",
+          "slug": "hive-behavioral-nudge-engine"
+        },
+        {
+          "name": "DX Engineer",
+          "description": "Removes every unnecessary step between a developer and their first success — SDK samples, onboarding flows, error messages, and the feedback loops that make products feel like they were built by someone who's used them.",
+          "slug": "hive-dx-engineer"
+        },
+        {
+          "name": "Feedback Synthesizer",
+          "description": "Expert in collecting, analyzing, and synthesizing user feedback from multiple channels to extract actionable product insights. Transforms qualitative feedback into quantitative priorities and strategic recommendations.",
+          "slug": "hive-feedback-synthesizer"
+        },
+        {
+          "name": "Product Manager",
+          "description": "Holistic product leader who owns the full product lifecycle — from discovery and strategy through roadmap, stakeholder alignment, go-to-market, and outcome measurement. Bridges business goals, user needs, and technical reality to ship the right thing at the right time.",
+          "slug": "hive-manager"
+        }
+      ]
+    },
+    {
+      "id": "project-management",
+      "slug": "project-management",
+      "label": "Project Management",
+      "icon": "ClipboardList",
+      "color": "#0EA5E9",
+      "agentCount": 7,
+      "samples": [
+        {
+          "name": "Experiment Tracker",
+          "description": "Expert project manager specializing in experiment design, execution tracking, and data-driven decision making. Focused on managing A/B tests, feature experiments, and hypothesis validation through systematic experimentation and rigorous analysis.",
+          "slug": "hive-experiment-tracker"
+        },
+        {
+          "name": "Jira Workflow Steward",
+          "description": "Expert delivery operations specialist who enforces Jira-linked Git workflows, traceable commits, structured pull requests, and release-safe branch strategy across software teams.",
+          "slug": "hive-jira-workflow-steward"
+        },
+        {
+          "name": "Meeting Notes Specialist",
+          "description": "Extract structured decisions, action items, and open questions from meeting transcripts or rough notes into a clean 4-section summary.",
+          "slug": "hive-meeting-notes-specialist"
+        },
+        {
+          "name": "Senior Project Manager",
+          "description": "Converts specs to tasks and remembers previous projects. Focused on realistic scope, no background processes, exact spec requirements",
+          "slug": "hive-project-manager-senior"
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "slug": "research",
+      "label": "Research",
+      "icon": "Search",
+      "color": "#7C3AED",
+      "agentCount": 1,
+      "samples": [
+        {
+          "name": "Research Synthesist",
+          "description": "Expert in literature review, source evaluation, and evidence synthesis — turns a scattered pile of sources into a structured, honestly-weighted map of what the evidence actually supports",
+          "slug": "hive-synthesist"
+        }
+      ]
+    },
+    {
+      "id": "sales",
+      "slug": "sales",
+      "label": "Sales",
+      "icon": "TrendingUp",
+      "color": "#10B981",
+      "agentCount": 9,
+      "samples": [
+        {
+          "name": "Account Strategist",
+          "description": "Expert post-sale account strategist specializing in land-and-expand execution, stakeholder mapping, QBR facilitation, and net revenue retention. Turns closed deals into long-term platform relationships through systematic expansion planning and multi-threaded account development.",
+          "slug": "hive-account-strategist"
+        },
+        {
+          "name": "Sales Coach",
+          "description": "Expert sales coaching specialist focused on rep development, pipeline review facilitation, call coaching, deal strategy, and forecast accuracy. Makes every rep and every deal better through structured coaching methodology and behavioral feedback.",
+          "slug": "hive-coach"
+        },
+        {
+          "name": "Deal Strategist",
+          "description": "Senior deal strategist specializing in MEDDPICC qualification, competitive positioning, and win planning for complex B2B sales cycles. Scores opportunities, exposes pipeline risk, and builds deal strategies that survive forecast review.",
+          "slug": "hive-deal-strategist"
+        },
+        {
+          "name": "Discovery Coach",
+          "description": "Coaches sales teams on elite discovery methodology — question design, current-state mapping, gap quantification, and call structure that surfaces real buying motivation.",
+          "slug": "hive-discovery-coach"
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "slug": "security",
+      "label": "Security",
+      "icon": "ShieldCheck",
+      "color": "#EF4444",
+      "agentCount": 22,
+      "samples": [
+        {
+          "name": "Adversarial Security Verifier",
+          "description": "Independent vulnerability refutation specialist — disproves candidate security findings, stress-tests preconditions and sad paths, verifies source execution traces, and eliminates false positives with zero tolerance for ungrounded assumptions.",
+          "slug": "hive-adversarial-verifier"
+        },
+        {
+          "name": "AI-Generated Code Security Auditor",
+          "description": "Security reviewer for AI-generated and vibe-coded apps — hunts the hardcoded secrets, broken row-level security, and prompt-injection sinks that coding assistants ship by default, then drives a scan, fix, and rescan loop with honest, CWE-mapped findings.",
+          "slug": "hive-ai-generated-code-auditor"
+        },
+        {
+          "name": "Application Security Engineer",
+          "description": "AppSec specialist who secures the software development lifecycle through threat modeling, secure code review, SAST/DAST integration, and developer security education that makes secure code the default.",
+          "slug": "hive-appsec-engineer"
+        },
+        {
+          "name": "Security Architect",
+          "description": "Expert security architect specializing in threat modeling, secure-by-design architecture, trust-boundary analysis, defense-in-depth, and risk-based security reviews across web, API, cloud-native, and distributed systems. Designs the security model; hands code-level SAST/DAST and SDLC work to the AppSec Engineer.",
+          "slug": "hive-architect"
+        }
+      ]
+    },
+    {
+      "id": "spatial-computing",
+      "slug": "spatial-computing",
+      "label": "Spatial Computing",
+      "icon": "Boxes",
+      "color": "#06B6D4",
+      "agentCount": 6,
+      "samples": [
+        {
+          "name": "macOS Spatial/Metal Engineer",
+          "description": "Native Swift and Metal specialist building high-performance 3D rendering systems and spatial computing experiences for macOS and Vision Pro",
+          "slug": "hive-macos-spatial-metal-engineer"
+        },
+        {
+          "name": "Terminal Integration Specialist",
+          "description": "Terminal emulation, text rendering optimization, and SwiftTerm integration for modern Swift applications",
+          "slug": "hive-terminal-integration-specialist"
+        },
+        {
+          "name": "visionOS Spatial Engineer",
+          "description": "Native visionOS spatial computing, SwiftUI volumetric interfaces, and Liquid Glass design implementation",
+          "slug": "hive-visionos-spatial-engineer"
+        },
+        {
+          "name": "XR Cockpit Interaction Specialist",
+          "description": "Specialist in designing and developing immersive cockpit-based control systems for XR environments",
+          "slug": "hive-xr-cockpit-interaction-specialist"
+        }
+      ]
+    },
+    {
+      "id": "specialized",
+      "slug": "specialized",
+      "label": "Specialized",
+      "icon": "Sparkles",
+      "color": "#6366F1",
+      "agentCount": 61,
+      "samples": [
+        {
+          "name": "Accounts Payable Agent",
+          "description": "Autonomous payment processing specialist that executes vendor payments, contractor invoices, and recurring bills across any payment rail — crypto, fiat, stablecoins. Integrates with AI agent workflows via tool calls.",
+          "slug": "hive-accounts-payable-agent"
+        },
+        {
+          "name": "Ruthless Strategic Advisor",
+          "description": "Uncompromising strategic advisor who stress-tests architectures, challenges assumptions first, and enforces evidence-backed technical truth.",
+          "slug": "hive-advisor"
+        },
+        {
+          "name": "Agentic Identity & Trust Architect",
+          "description": "Designs identity, authentication, and trust verification systems for autonomous AI agents operating in multi-agent environments. Ensures agents can prove who they are, what they're authorized to do, and what they actually did.",
+          "slug": "hive-agentic-identity-trust"
+        },
+        {
+          "name": "Agents Orchestrator",
+          "description": "Autonomous pipeline manager that orchestrates the entire development workflow. You are the leader of this process.",
+          "slug": "hive-agents-orchestrator"
+        }
+      ]
+    },
+    {
+      "id": "support",
+      "slug": "support",
+      "label": "Support",
+      "icon": "LifeBuoy",
+      "color": "#84CC16",
+      "agentCount": 6,
+      "samples": [
+        {
+          "name": "Analytics Reporter",
+          "description": "Expert data analyst transforming raw data into actionable business insights. Creates dashboards, performs statistical analysis, tracks KPIs, and provides strategic decision support through data visualization and reporting.",
+          "slug": "hive-analytics-reporter"
+        },
+        {
+          "name": "Executive Summary Generator",
+          "description": "Consultant-grade AI specialist trained to think and communicate like a senior strategy consultant. Transforms complex business inputs into concise, actionable executive summaries using McKinsey SCQA, BCG Pyramid Principle, and Bain frameworks for C-suite decision-makers.",
+          "slug": "hive-executive-summary-generator"
+        },
+        {
+          "name": "Finance Tracker",
+          "description": "Expert financial analyst and controller specializing in financial planning, budget management, and business performance analysis. Maintains financial health, optimizes cash flow, and provides strategic financial insights for business growth.",
+          "slug": "hive-finance-tracker"
+        },
+        {
+          "name": "Infrastructure Maintainer",
+          "description": "Expert infrastructure specialist focused on system reliability, performance optimization, and technical operations management. Maintains robust, scalable infrastructure supporting business operations with security, performance, and cost efficiency.",
+          "slug": "hive-infrastructure-maintainer"
+        }
+      ]
+    },
+    {
+      "id": "testing",
+      "slug": "testing",
+      "label": "Testing",
+      "icon": "FlaskConical",
+      "color": "#F59E0B",
+      "agentCount": 9,
+      "samples": [
+        {
+          "name": "Accessibility Auditor",
+          "description": "Expert accessibility specialist who audits interfaces against WCAG standards, tests with assistive technologies, and ensures inclusive design. Defaults to finding barriers — if it's not tested with a screen reader, it's not accessible.",
+          "slug": "hive-accessibility-auditor"
+        },
+        {
+          "name": "API Tester",
+          "description": "Expert API testing specialist focused on comprehensive API validation, performance testing, and quality assurance across all systems and third-party integrations",
+          "slug": "hive-api-tester"
+        },
+        {
+          "name": "Evidence Collector",
+          "description": "Screenshot-obsessed, fantasy-allergic QA specialist - Reports reproducible issues with evidence and marks untested scope honestly",
+          "slug": "hive-evidence-collector"
+        },
+        {
+          "name": "Performance Benchmarker",
+          "description": "Expert performance testing and optimization specialist focused on measuring, analyzing, and improving system performance across all applications and infrastructure",
+          "slug": "hive-performance-benchmarker"
+        }
+      ]
+    }
+  ],
+  "runbooks": [
+    {
+      "slug": "startup-mvp",
+      "title": "Startup MVP Build",
+      "mode": "NEXUS-Sprint",
+      "duration": "4-6 weeks",
+      "summary": "Idea to live product with real users, fast — without skipping QA.",
+      "doc": "strategy/runbooks/scenario-startup-mvp.md",
+      "roster": [
+        {
+          "group": "Core Team",
+          "activation": "always",
+          "agents": [
+            "hive-agents-orchestrator",
+            "hive-project-manager-senior",
+            "hive-sprint-prioritizer",
+            "hive-ux-architect",
+            "hive-frontend-developer",
+            "hive-backend-architect",
+            "hive-devops-automator",
+            "hive-evidence-collector",
+            "hive-reality-checker"
+          ]
+        },
+        {
+          "group": "Growth Team",
+          "activation": "week 3+",
+          "agents": [
+            "hive-growth-hacker",
+            "hive-content-creator",
+            "hive-social-media-strategist"
+          ]
+        },
+        {
+          "group": "Support Team",
+          "activation": "as needed",
+          "agents": [
+            "hive-brand-guardian",
+            "hive-analytics-reporter",
+            "hive-rapid-prototyper",
+            "hive-ai-engineer",
+            "hive-performance-benchmarker",
+            "hive-infrastructure-maintainer"
+          ]
+        }
+      ],
+      "totalAgents": 18
+    },
+    {
+      "slug": "enterprise-feature",
+      "title": "Enterprise Feature Development",
+      "mode": "NEXUS-Sprint",
+      "duration": "6-12 weeks",
+      "summary": "Ship a major feature into an existing enterprise product with non-negotiable compliance, security, and quality gates, and multi-stakeholder alignment.",
+      "doc": "strategy/runbooks/scenario-enterprise-feature.md",
+      "roster": [
+        {
+          "group": "Core Team",
+          "activation": "always",
+          "agents": [
+            "hive-agents-orchestrator",
+            "hive-project-shepherd",
+            "hive-project-manager-senior",
+            "hive-sprint-prioritizer",
+            "hive-ux-architect",
+            "hive-ux-researcher",
+            "hive-ui-designer",
+            "hive-frontend-developer",
+            "hive-backend-architect",
+            "hive-senior-developer",
+            "hive-devops-automator",
+            "hive-evidence-collector",
+            "hive-api-tester",
+            "hive-reality-checker",
+            "hive-performance-benchmarker"
+          ]
+        },
+        {
+          "group": "Compliance & Governance",
+          "activation": "as needed",
+          "agents": [
+            "hive-legal-compliance-checker",
+            "hive-brand-guardian",
+            "hive-finance-tracker",
+            "hive-executive-summary-generator"
+          ]
+        },
+        {
+          "group": "Quality Assurance",
+          "activation": "as needed",
+          "agents": [
+            "hive-test-results-analyzer",
+            "hive-workflow-optimizer",
+            "hive-experiment-tracker"
+          ]
+        }
+      ],
+      "totalAgents": 22
+    },
+    {
+      "slug": "marketing-campaign",
+      "title": "Multi-Channel Marketing Campaign",
+      "mode": "NEXUS-Sprint",
+      "duration": "2-4 weeks",
+      "summary": "Launch a coordinated, brand-consistent campaign across channels that drives measurable acquisition and engagement.",
+      "doc": "strategy/runbooks/scenario-marketing-campaign.md",
+      "roster": [
+        {
+          "group": "Campaign Core",
+          "activation": "always",
+          "agents": [
+            "hive-social-media-strategist",
+            "hive-content-creator",
+            "hive-growth-hacker",
+            "hive-brand-guardian",
+            "hive-analytics-reporter"
+          ]
+        },
+        {
+          "group": "Platform Specialists",
+          "activation": "as needed",
+          "agents": [
+            "hive-twitter-engager",
+            "hive-tiktok-strategist",
+            "hive-instagram-curator",
+            "hive-reddit-community-builder",
+            "hive-app-store-optimizer"
+          ]
+        },
+        {
+          "group": "Support",
+          "activation": "as needed",
+          "agents": [
+            "hive-trend-researcher",
+            "hive-experiment-tracker",
+            "hive-executive-summary-generator",
+            "hive-legal-compliance-checker"
+          ]
+        }
+      ],
+      "totalAgents": 14
+    },
+    {
+      "slug": "incident-response",
+      "title": "Incident Response",
+      "mode": "NEXUS-Micro",
+      "duration": "Minutes to hours",
+      "summary": "Detection through post-mortem for a production incident — fast response without cutting corners.",
+      "doc": "strategy/runbooks/scenario-incident-response.md",
+      "roster": [
+        {
+          "group": "P0 Critical Response",
+          "activation": "always",
+          "agents": [
+            "hive-infrastructure-maintainer",
+            "hive-devops-automator",
+            "hive-backend-architect",
+            "hive-frontend-developer",
+            "hive-support-responder",
+            "hive-executive-summary-generator"
+          ]
+        },
+        {
+          "group": "Verification & Post-Mortem",
+          "activation": "post-fix",
+          "agents": [
+            "hive-evidence-collector",
+            "hive-api-tester",
+            "hive-workflow-optimizer",
+            "hive-sprint-prioritizer"
+          ]
+        }
+      ],
+      "totalAgents": 10
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 90" width="760" height="180" fill="none">
+  <title>Hivework - Horizontal Lockup (Light on Dark)</title>
+  <!-- Circuit Hex Icon -->
+  <g transform="translate(10, 5) scale(0.666)">
+    <path d="M60 12 L102 36 V84 L60 108 L18 84 V36 Z" 
+          stroke="#f59e0b" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M40 36 V48 L60 62 L80 48 V36" 
+          stroke="#f59e0b" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M60 62 V88" 
+          stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="60" cy="93" r="5" fill="#f59e0b"/>
+  </g>
+  <!-- Brand Logotype -->
+  <text x="100" y="57" fill="#ffffff" 
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-size="36" font-weight="600" letter-spacing="-0.5px">Hivework</text>
+</svg>
