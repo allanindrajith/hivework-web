@@ -9,7 +9,7 @@
  * to the value below so the button is never blank.
  */
 
-export const GITHUB_REPO = 'davila7/claude-code-templates';
+export const GITHUB_REPO = 'allanindrajith/Hivework';
 export const GITHUB_REPO_URL = `https://github.com/${GITHUB_REPO}`;
 
 /**

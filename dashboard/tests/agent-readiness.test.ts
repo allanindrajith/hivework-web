@@ -50,14 +50,13 @@ test('totalComponents sums only installable types', () => {
 test('buildLlmsTxt follows llmstxt.org structure', () => {
   const txt = buildLlmsTxt({ agents: 10, skills: 5, hooks: 0 });
   const lines = txt.split('\n');
-  assert.equal(lines[0], '# Claude Code Templates (aitmpl.com)');
+  assert.equal(lines[0], '# Hivework');
   assert.ok(lines.some((l) => l.startsWith('> ')), 'has a blockquote summary');
   assert.match(txt, /15\+ ready-to-use components/);
   assert.match(txt, /^## When to use this$/m);
   assert.match(txt, /\[Agents\]\(https:\/\/www\.aitmpl\.com\/agents\): 10 components, install with `--agent`/);
   assert.ok(!txt.includes('[Hooks]'), 'types with zero components are omitted');
   assert.match(txt, /https:\/\/www\.aitmpl\.com\/openapi\.json/);
-  assert.match(txt, /^## Optional$/m);
   // Every list item in a section is a Markdown link or plain bullet, never an empty link.
   assert.ok(!/\]\(\)/.test(txt));
 });

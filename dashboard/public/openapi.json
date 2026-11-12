@@ -1,17 +1,17 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Claude Code Templates catalog API",
+    "title": "Hivework catalog API",
     "version": "1.0.0",
-    "summary": "Read-only catalog of Claude Code components on aitmpl.com.",
-    "description": "Static JSON files that make up the aitmpl.com catalog of Claude Code components (agents, slash commands, skills, hooks, MCP server configurations, settings, loops and mods). Every endpoint is a plain GET with no authentication and CORS enabled; responses may be cached for up to 5 minutes and carry an ETag for conditional requests. To install a component, run `npx claude-code-templates@latest --{type} {category}/{name}` (for example `--agent development-team/frontend-developer`). Hooks, MCP servers and mods run code locally: read a component's content before installing it. The versioned endpoints under /api/v1/ are the stable contract (JSON Schema at /api/v1/schema.json, additive-only changes within v1, docs at https://www.aitmpl.com/developers/catalog-api). The other files are the site's own data, kept for compatibility, and may change without notice.",
+    "summary": "Read-only catalog of Hivework components.",
+    "description": "Static JSON files that make up the Hivework catalog of components (agents, slash commands, skills, hooks, MCP server configurations, settings, loops and mods). Every endpoint is a plain GET with no authentication and CORS enabled; responses may be cached for up to 5 minutes and carry an ETag for conditional requests. Hooks, MCP servers and mods run code locally: read a component's content before installing it. The versioned endpoints under /api/v1/ are the stable contract (JSON Schema at /api/v1/schema.json, additive-only changes within v1, docs at /developers/catalog-api). The other files are the site's own data, kept for compatibility, and may change without notice.",
     "license": {
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
     },
     "contact": {
-      "name": "Claude Code Templates",
-      "url": "https://github.com/davila7/claude-code-templates/issues"
+      "name": "Hivework",
+      "url": "https://github.com/allanindrajith/Hivework/issues"
     }
   },
   "externalDocs": {

@@ -1,4 +1,4 @@
-# Contributing to Claude Code Templates
+# Contributing to Hivework
 
 We welcome contributions! Help us make Claude Code even better for everyone.
 
@@ -503,4 +503,4 @@ All contributors are recognized in our:
 - **Release Notes** for significant contributions  
 - **Community Discussions** for helpful contributions
 
-Thank you for helping make Claude Code Templates better for everyone! 🚀
+Thank you for helping make Hivework better for everyone! 🚀

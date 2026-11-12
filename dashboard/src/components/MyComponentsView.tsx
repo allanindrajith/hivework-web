@@ -464,7 +464,7 @@ function CollectionContextMenu({
 // ── Main component ───────────────────────────────────────────────────────
 export default function MyComponentsView() {
   const { isSignedIn, isLoaded, email, getToken } = useGlobalAuth();
-  const canSendToRepo = email === 'dan.avila7@gmail.com';
+  const canSendToRepo = email === 'allanindrajith@gmail.com';
   const [collections, setCollections] = useState<Collection[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());

@@ -1,6 +1,5 @@
 ---
 import Sidebar from '../components/Sidebar.astro';
-import ClerkIsland from '../components/ClerkIsland.tsx';
 import '../styles/global.css';
 
 interface Props {
@@ -11,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = 'Claude Code Templates',
-  description = 'Browse and install 1000+ components for Claude Code: AI agents, slash commands, MCP integrations, hooks, settings, and skills. Free, open-source CLI tool.',
+  title = 'Hivework',
+  description = 'Browse and install components for AI workforce and Claude Code. Free, open-source CLI and dashboard.',
   ogImage = '/logo.png',
   ogImageAlt,
 } = Astro.props;
@@ -27,31 +26,30 @@ const schemaData = JSON.stringify({
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://www.aitmpl.com/#website",
-      "url": "https://www.aitmpl.com/",
-      "name": "Claude Code Templates",
-      "description": "Marketplace for Claude Code components: agents, commands, skills, settings, hooks, and MCPs",
-      "publisher": { "@id": "https://www.aitmpl.com/#organization" }
+      "@id": "https://github.com/allanindrajith/Hivework#website",
+      "url": "https://github.com/allanindrajith/Hivework",
+      "name": "Hivework",
+      "description": "Autonomous AI workforce platform and component ecosystem",
+      "publisher": { "@id": "https://github.com/allanindrajith/Hivework#organization" }
     },
     {
       "@type": "Organization",
-      "@id": "https://www.aitmpl.com/#organization",
-      "name": "Claude Code Templates",
-      "url": "https://www.aitmpl.com/",
+      "@id": "https://github.com/allanindrajith/Hivework#organization",
+      "name": "Hivework",
+      "url": "https://github.com/allanindrajith/Hivework",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.aitmpl.com/logo.png"
+        "url": "/logo.png"
       },
       "sameAs": [
-        "https://github.com/davila7/claude-code-templates",
-        "https://www.npmjs.com/package/claude-code-templates"
+        "https://github.com/allanindrajith/Hivework"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "technical support",
-        "email": "dan.avila7@gmail.com",
-        "url": "https://github.com/davila7/claude-code-templates/issues",
-        "availableLanguage": ["English", "Spanish"]
+        "email": "allanindrajith@gmail.com",
+        "url": "https://github.com/allanindrajith/Hivework/issues",
+        "availableLanguage": ["English"]
       }
     }
   ]
@@ -77,7 +75,7 @@ const schemaData = JSON.stringify({
     {ogImageSized && <meta property="og:image:width" content="1200" />}
     {ogImageSized && <meta property="og:image:height" content="630" />}
     {ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
-    <meta property="og:site_name" content="Claude Code Templates" />
+    <meta property="og:site_name" content="Hivework" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -135,29 +133,14 @@ const schemaData = JSON.stringify({
       <main id="main-content" class="flex-1 min-w-0 md:ml-[220px] overflow-y-auto bg-[var(--color-surface-0)] transition-all duration-300 ease-in-out">
         <slot />
         <footer class="border-t border-[var(--color-border)] mt-12 py-6 px-6 text-center text-sm text-[var(--color-text-secondary)]">
-          <nav aria-label="Site" class="flex items-center justify-center gap-4 flex-wrap mb-4 text-[12px]">
+          <nav aria-label="Site" class="flex items-center justify-center gap-4 flex-wrap text-[12px]">
             <a href="/about" class="hover:text-[var(--color-text-primary)] transition-colors">About</a>
             <a href="/privacy" class="hover:text-[var(--color-text-primary)] transition-colors">Privacy</a>
             <a href="https://docs.aitmpl.com" class="hover:text-[var(--color-text-primary)] transition-colors">Docs</a>
             <a href="/llms.txt" class="hover:text-[var(--color-text-primary)] transition-colors">llms.txt</a>
             <a href="/developers/catalog-api" class="hover:text-[var(--color-text-primary)] transition-colors">API</a>
-            <a href="https://github.com/davila7/claude-code-templates" class="hover:text-[var(--color-text-primary)] transition-colors">GitHub</a>
+            <a href="https://github.com/allanindrajith/Hivework" class="hover:text-[var(--color-text-primary)] transition-colors">GitHub</a>
           </nav>
-          <p class="mb-3">Supported by the open source programs of</p>
-          <div class="flex items-center justify-center gap-6 flex-wrap">
-            <a href="https://vercel.com/open-source-program" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-[var(--color-text-primary)] transition-colors">
-              <img src="https://cdn.simpleicons.org/vercel/ffffff" alt="Vercel" class="h-5 w-5 oss-icon" />
-              <span>Vercel</span>
-            </a>
-            <a href="https://neon.tech/open-source" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-[var(--color-text-primary)] transition-colors">
-              <img src="https://neon.tech/favicon/favicon.svg" alt="Neon" class="h-5 w-5" />
-              <span>Neon</span>
-            </a>
-            <a href="https://claude.com/contact-sales/claude-for-oss" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-[var(--color-text-primary)] transition-colors">
-              <img src="https://cdn.simpleicons.org/anthropic/ffffff" alt="Claude" class="h-5 w-5 oss-icon" />
-              <span>Claude</span>
-            </a>
-          </div>
         </footer>
       </main>
     </div>
@@ -216,10 +199,11 @@ const schemaData = JSON.stringify({
             document.querySelectorAll('.sidebar-nav-count').forEach(el => {
               (el as HTMLElement).style.opacity = '0';
               (el as HTMLElement).style.width = '0';
+              (el as HTMLElement).style.display = 'none';
             });
             
-            // Center all nav links with flex
-            document.querySelectorAll('.sidebar-nav-link, nav > a, nav > button').forEach(el => {
+            // Center all nav links and footer button with flex
+            document.querySelectorAll('.sidebar-nav-link, nav > a, nav > button, .sidebar-footer button').forEach(el => {
               (el as HTMLElement).style.display = 'flex';
               (el as HTMLElement).style.justifyContent = 'center';
               (el as HTMLElement).style.alignItems = 'center';
@@ -257,10 +241,11 @@ const schemaData = JSON.stringify({
             document.querySelectorAll('.sidebar-nav-count').forEach(el => {
               (el as HTMLElement).style.opacity = '1';
               (el as HTMLElement).style.width = 'auto';
+              (el as HTMLElement).style.display = '';
             });
             
             // Reset nav links alignment
-            document.querySelectorAll('.sidebar-nav-link, nav > a, nav > button').forEach(el => {
+            document.querySelectorAll('.sidebar-nav-link, nav > a, nav > button, .sidebar-footer button').forEach(el => {
               (el as HTMLElement).style.display = '';
               (el as HTMLElement).style.justifyContent = '';
               (el as HTMLElement).style.alignItems = '';
@@ -345,8 +330,5 @@ const schemaData = JSON.stringify({
 
       initMobileSidebar();
     </script>
-
-    <!-- Single Clerk island for auth — idle so it doesn't block first paint -->
-    <ClerkIsland client:idle />
   </body>
 </html>

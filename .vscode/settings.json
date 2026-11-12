@@ -1,3 +1,5 @@
 {
-    "CodeGPT.apiKey": "CodeGPT Plus Beta"
+    "CodeGPT.apiKey": "CodeGPT Plus Beta",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000
 }

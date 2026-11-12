@@ -62,31 +62,31 @@ const DAY_MS = 86_400_000;
 
 export const HOME_STATS: HomeStat[] = [
   {
-    key: 'downloads',
-    label: 'Downloads',
-    base: 1340064,
-    baseAt: TRENDING_MEASURED_AT,
-    perDay: 3300,
-    href: '/trending',
-    title: 'Components installed through the CLI, all time',
+    key: 'agents',
+    label: 'AI Agents',
+    base: 422,
+    baseAt: MEASURED_AT,
+    perDay: 0,
+    href: '/agents',
+    title: 'Autonomous AI agents available in Hivework',
   },
   {
-    key: 'componentPrs',
-    label: 'Component PRs',
-    base: 270,
+    key: 'skills',
+    label: 'Agent Skills',
+    base: 892,
     baseAt: MEASURED_AT,
-    perDay: 1.8,
-    href: 'https://github.com/davila7/claude-code-templates/pulls?q=is%3Apr+is%3Amerged',
-    title: 'Merged pull requests that added or improved a component',
+    perDay: 0,
+    href: '/skills',
+    title: 'Pre-configured agent skills and capabilities',
   },
   {
-    key: 'npmInstalls',
-    label: 'npm Installs',
-    base: 239282,
+    key: 'components',
+    label: 'Total Components',
+    base: 1924,
     baseAt: MEASURED_AT,
-    perDay: 466,
-    href: 'https://www.npmjs.com/package/claude-code-templates',
-    title: 'Installs of the claude-code-templates package on npm',
+    perDay: 0,
+    href: '/skills',
+    title: 'Total open-source components across agents, skills, commands, MCPs, and hooks',
   },
 ];
 
@@ -98,6 +98,7 @@ export const HOME_STATS: HomeStat[] = [
  * than a smaller one.
  */
 export function statValueAt(stat: HomeStat, now: number): number {
+  if (!stat.perDay || stat.perDay <= 0) return stat.base;
   const msPerUnit = DAY_MS / stat.perDay;
   const elapsed = now - stat.baseAt;
   if (elapsed <= 0) return stat.base;

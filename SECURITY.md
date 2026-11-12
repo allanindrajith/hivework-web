@@ -1,22 +1,22 @@
 # Security Policy
 
-Thank you for helping us keep Claude Code Templates and the systems they interact with secure.
+Thank you for helping us keep Hivework and the systems they interact with secure.
 
 ## Reporting Security Issues
 
-This project is maintained by Daniel Avila.
+This project is maintained by Allan Indrajith.
 
 The security of our CLI tool and the templates it generates is our top priority. We appreciate the work of security researchers acting in good faith in identifying and reporting potential vulnerabilities.
 
 ## How to Report a Vulnerability
 
-If you discover a security vulnerability in Claude Code Templates, please report it to us in one of the following ways:
+If you discover a security vulnerability in Hivework, please report it to us in one of the following ways:
 
 ### Email
-Send details of the vulnerability to [dan.avila7@gmail.com](mailto:dan.avila7@gmail.com) with the subject line "SECURITY: Claude Code Templates Vulnerability Report"
+Send details of the vulnerability to [allanindrajith@gmail.com](mailto:allanindrajith@gmail.com) with the subject line "SECURITY: Hivework Vulnerability Report"
 
 ### GitHub Security Advisories
-You can also report vulnerabilities through [GitHub Security Advisories](https://github.com/davila7/claude-code-templates/security/advisories/new) for this repository.
+You can also report vulnerabilities through GitHub Security Advisories for this repository.
 
 ## What to Include in Your Report
 
@@ -31,10 +31,10 @@ To help us understand and resolve the issue quickly, please include:
 
 ## Security Best Practices
 
-When using Claude Code Templates:
+When using Hivework:
 
 ### For Users
-- **Keep Updated**: Always use the latest version via `npx claude-code-templates@latest`
+- **Keep Updated**: Always use the latest version
 - **Review Templates**: Check generated files before committing to your repository
 - **Audit Hooks**: Review automation hooks before enabling them
 - **Secure Environment**: Use the tool in a secure development environment
@@ -47,10 +47,8 @@ When using Claude Code Templates:
 
 ## Contact Information
 
-- **Maintainer**: Daniel Avila
-- **Website**: [danielavila.me](https://danielavila.me)
-- **Email**: [dan.avila7@gmail.com](mailto:dan.avila7@gmail.com)
-- **GitHub**: [@davila7](https://github.com/davila7)
+- **Maintainer**: Allan Indrajith
+- **Email**: [allanindrajith@gmail.com](mailto:allanindrajith@gmail.com)
 
 ## Legal
 
@@ -62,4 +60,4 @@ This security policy is designed to encourage responsible security research. We 
 - Do not perform testing on systems they do not own
 - Report vulnerabilities through the channels described above
 
-Thank you for helping keep Claude Code Templates secure!
+Thank you for helping keep Hivework secure!

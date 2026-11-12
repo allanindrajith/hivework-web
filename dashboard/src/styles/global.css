@@ -1,72 +1,68 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #eef0fb;
-  --color-primary-100: #d4d7f2;
-  --color-primary-200: #a9b0e5;
-  --color-primary-300: #7e88d8;
-  --color-primary-400: #5e6ad2;
-  --color-primary-500: #5e6ad2;
-  --color-primary-600: #4b55a8;
-  --color-primary-700: #38407e;
-  --color-primary-800: #262b54;
-  --color-primary-900: #13152a;
+  --color-primary-50: #fffbeb;
+  --color-primary-100: #fef3c7;
+  --color-primary-200: #fde68a;
+  --color-primary-300: #fcd34d;
+  --color-primary-400: #fbbf24;
+  --color-primary-500: #f59e0b;
+  --color-primary-600: #d97706;
+  --color-primary-700: #b45309;
+  --color-primary-800: #92400e;
+  --color-primary-900: #78350f;
 
-  --color-accent-50: #fdf2ee;
-  --color-accent-100: #f9dcd2;
-  --color-accent-200: #f0b5a0;
-  --color-accent-300: #e38d6e;
-  --color-accent-400: #d57455;
-  --color-accent-500: #d57455;
-  --color-accent-600: #b35c3e;
-  --color-accent-700: #8c472f;
-  --color-accent-800: #663320;
-  --color-accent-900: #3f1f13;
+  --color-accent-50: #fffbeb;
+  --color-accent-100: #fef3c7;
+  --color-accent-200: #fde68a;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
+  --color-accent-800: #92400e;
+  --color-accent-900: #78350f;
 
-  --font-sans: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', monospace;
 }
 
-/* Dark mode (default) — near-black warm neutrals (Anthropic), orange as the single accent */
+/* Dark mode (default) — Hivework obsidian, charcoal, and warm amber accent */
 :root,
 html.dark {
   /* Backgrounds */
-  --color-surface-0: #0b0b0a;
-  --color-surface-1: #141413;
-  --color-surface-2: #1c1c1a;
-  --color-surface-3: #262624;
-  --color-surface-4: #302f2c;
+  --color-surface-0: #0d0c0a;
+  --color-surface-1: #171511;
+  --color-surface-2: #201d17;
+  --color-surface-3: #2b2720;
+  --color-surface-4: #38332a;
 
-  /* Borders - Sharp terminal borders */
-  --color-border: #2a2926;
-  --color-border-hover: #d57455;
-  --color-border-strong: #3d3c38;
+  /* Borders - Hairline container borders */
+  --color-border: #2d2920;
+  --color-border-hover: #f59e0b;
+  --color-border-strong: #3d372b;
 
   /* Text colors */
-  --color-text-primary: #faf9f5;
-  --color-text-secondary: #a3a197;
-  --color-text-tertiary: #85837b;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #c2beb5;
+  --color-text-tertiary: #8c867a;
 
   /* Accent color */
-  --color-accent: #d57455;
-  --color-accent-hover: #e38d6e;
-  --color-accent-light: rgba(213, 116, 85, 0.1);
+  --color-accent: #f59e0b;
+  --color-accent-hover: #fbbf24;
+  --color-accent-light: rgba(245, 158, 11, 0.1);
 
   /* Terminal green */
   --color-success: #3fb950;
   --color-success-bg: rgba(63, 185, 80, 0.1);
 
   /* Card backgrounds */
-  --color-card-bg: #141413;
-  --color-card-hover: #1c1c1a;
+  --color-card-bg: #171511;
+  --color-card-hover: #201d17;
 
   /* Card shadows — flat terminal look */
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-card-hover: 0 0 0 1px #d57455, 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-html.dark .oss-icon {
-  filter: invert(0);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-card-hover: 0 0 0 1px #f59e0b, 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* Light mode */
@@ -89,9 +85,9 @@ html.light {
   --color-text-tertiary: #8a8a8a;
 
   /* Accent color */
-  --color-accent: #d57455;
-  --color-accent-hover: #c5654a;
-  --color-accent-light: rgba(213, 116, 85, 0.08);
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+  --color-accent-light: rgba(245, 158, 11, 0.08);
 
   /* Card backgrounds */
   --color-card-bg: #ffffff;
@@ -100,10 +96,6 @@ html.light {
   /* Card shadows */
   --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
   --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
-}
-
-html.light .oss-icon {
-  filter: invert(1);
 }
 
 html {
@@ -177,6 +169,7 @@ body {
   opacity: 0;
   width: 0;
   overflow: hidden;
+  display: none !important;
 }
 
 /* Tooltip for collapsed sidebar items */
@@ -261,22 +254,47 @@ body {
   margin-left: 0 !important;
 }
 
-/* Center header content in collapsed state */
+/* Header content in collapsed state — center logo cleanly */
 #sidebar[data-collapsed="true"] > div > div:first-child {
+  flex-direction: row !important;
   justify-content: center !important;
+  align-items: center !important;
   padding-left: 0.5rem !important;
   padding-right: 0.5rem !important;
+  min-height: 65px !important;
 }
 
 #sidebar[data-collapsed="true"] > div > div:first-child > a {
-  width: auto !important;
-  min-width: auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   gap: 0 !important;
-  padding: 0 !important;
+  padding: 0.5rem !important;
+  overflow: visible !important;
 }
 
-#sidebar[data-collapsed="true"] > div > div:first-child > button {
-  margin: 0 auto !important;
+#sidebar[data-collapsed="true"] > div > div:first-child > a svg {
+  width: 32px !important;
+  height: 32px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Center bottom footer in collapsed state */
+#sidebar[data-collapsed="true"] .sidebar-footer {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+#sidebar[data-collapsed="true"] .sidebar-footer button {
+  justify-content: center !important;
+  padding: 0.5rem !important;
+  gap: 0 !important;
 }
 
 /* Center bottom section in collapsed state */
@@ -302,9 +320,9 @@ body {
   display: none !important;
 }
 
-/* Selection — orange terminal highlight */
+/* Selection — amber terminal highlight */
 ::selection {
-  background: rgba(213, 116, 85, 0.3);
+  background: rgba(245, 158, 11, 0.3);
 }
 
 /* Terminal focus ring — orange accent */

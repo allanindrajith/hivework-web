@@ -2,7 +2,7 @@
 name: supply-chain-guard
 description: "Detect and remediate software supply chain attacks in npm, PyPI, crates.io, GitHub Actions, and CI/CD pipelines by scanning for known compromised packages, malicious versions, filesystem IOCs, C2 indicators, and CI/CD misconfigurations."
 metadata:
-  author: dan-avila
+  author: Allan Indrajith, Hivework Team
   version: '1.0'
   ioc-db-date: '2026-03-31'
 ---

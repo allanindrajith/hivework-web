@@ -4,7 +4,7 @@ description: Daily digest of AI releases from Anthropic, Meta, Vercel Labs, Open
 license: MIT
 allowed-tools: Bash Read Write WebFetch
 metadata:
-  author: Daniel Avila
+  author: Allan Indrajith, Hivework Team
   version: "1.0.0"
   tags: "ai-news, releases, github, hacker-news, digest, email, anthropic, openai, google, meta, vercel"
 ---

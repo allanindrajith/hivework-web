@@ -21,7 +21,7 @@ const TONE_COLOR: Record<Tone, string> = {
   blue: '#58a6ff',
   cyan: '#39c5cf',
   yellow: '#d29922',
-  orange: '#d57455',
+  orange: '#f59e0b',
   magenta: '#bc8cff',
 };
 
@@ -485,7 +485,7 @@ export default function ComponentTerminal(props: ComponentTerminalProps) {
             setStarted(true);
             setRunId((n) => n + 1);
           }}
-          className="flex items-center gap-1.5 rounded-md border border-[#30363d] px-2 py-1 font-mono text-[10px] text-[#7d8590] transition-colors hover:border-[#d57455] hover:text-[#d57455]"
+          className="flex items-center gap-1.5 rounded-md border border-[#30363d] px-2 py-1 font-mono text-[10px] text-[#7d8590] transition-colors hover:border-[#f59e0b] hover:text-[#f59e0b]"
           aria-label="Replay terminal animation"
         >
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

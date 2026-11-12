@@ -37,7 +37,7 @@ export function notFoundMarkdown(pathname: string): string {
   const safePath = pathname.replace(/[\r\n`]/g, '').slice(0, 200);
   return `# 404 Not Found
 
-There is no page at \`${safePath}\` on aitmpl.com (Claude Code Templates).
+There is no page at \`${safePath}\` on Hivework.
 
 - Site overview for agents: ${SITE}/llms.txt
 - Every page on the site: ${SITE}/sitemap.xml
@@ -70,9 +70,9 @@ export function buildLlmsTxt(counts: Counts): string {
     .map(([key, label, flag]) => `- [${label}](${SITE}/${key}): ${counts[key]} components, install with \`${flag}\``)
     .join('\n');
 
-  return `# Claude Code Templates (aitmpl.com)
+  return `# Hivework
 
-> Open-source catalog and CLI of ${total}+ ready-to-use components for Claude Code: agents, slash commands, skills, hooks, MCP server configurations, settings, loops and mods. Every component is a plain file with its source on GitHub, and installs into a project with one \`${CLI_COMMAND}\` command.
+> Open-source catalog of ${total}+ ready-to-use components for AI workforce and Claude Code: agents, slash commands, skills, hooks, MCP server configurations, settings, loops and mods. Every component is a plain file with its source on GitHub.
 
 ## When to use this
 
@@ -100,7 +100,6 @@ ${typeLines}
 - [Catalog v1](${SITE}/api/v1/catalog.json): every component; [one type](${SITE}/api/v1/catalog/agents.json): replace \`agents\` with any plural type.
 - [Catalog version](${SITE}/api/v1/version.json): generatedAt, sha256 and counts per type; poll this before downloading the catalog.
 - [OpenAPI 3.1 spec](${SITE}/openapi.json): read-only GET endpoints for the catalog JSON files. No authentication, CORS enabled.
-- [Trending](${SITE}/trending-data.json): download statistics and trending components.
 - [Sitemap](${SITE}/sitemap.xml): every component page.
 
 ## CLI
@@ -111,13 +110,8 @@ ${typeLines}
 ## Docs and source
 
 - [Documentation](https://docs.aitmpl.com)
-- [GitHub repository](https://github.com/davila7/claude-code-templates): source of every component, issues and contributions.
+- [GitHub repository](https://github.com/allanindrajith/Hivework): source of every component, issues and contributions.
 - [About](${SITE}/about)
 - [Privacy](${SITE}/privacy)
-
-## Optional
-
-- [Plugins and marketplaces](${SITE}/plugins): third-party Claude Code plugin marketplaces indexed by the site.
-- [Trending components](${SITE}/trending)
 `;
 }

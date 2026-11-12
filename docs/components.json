@@ -9646,6 +9646,27 @@
       }
     },
     {
+      "name": "specialized-advisor",
+      "path": "expert-advisors/specialized-advisor.md",
+      "category": "expert-advisors",
+      "type": "agent",
+      "description": "Uncompromising strategic advisor who stress-tests architectures, challenges assumptions first, and enforces evidence-backed technical truth.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
       "name": "specification",
       "path": "expert-advisors/specification.md",
       "category": "expert-advisors",
@@ -10387,6 +10408,27 @@
       }
     },
     {
+      "name": "game-studio-orchestrator",
+      "path": "game-development/game-studio-orchestrator.md",
+      "category": "game-development",
+      "type": "agent",
+      "description": "Turn any AI coding session into a full game development studio. Coordinates 6-phase studio pipelines, creative direction, engineering, audio, art, and continuous dev-QA quality loops across Godot, Unity, and Unreal.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
       "name": "unity-game-developer",
       "path": "game-development/unity-game-developer.md",
       "category": "game-development",
@@ -10983,6 +11025,216 @@
         "hash": "b823ecb910ac0e19",
         "version": "2.12.0",
         "scannedAt": "2026-10-17T20:36:45Z"
+      }
+    },
+    {
+      "name": "bootstrap_orchestrator",
+      "path": "multi-agent-review/bootstrap_orchestrator.md",
+      "category": "multi-agent-review",
+      "type": "agent",
+      "description": "Orchestrates directory README documentation, partitions subtrees, and coordinates worker subagents.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "codebase_details",
+      "path": "multi-agent-review/codebase_details.md",
+      "category": "multi-agent-review",
+      "type": "agent",
+      "description": "Pedantic Technical Quality Auditor verifying that documentation accurately and exhaustively matches actual codebase implementation and existing library reuse opportunities.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "comprehension",
+      "path": "multi-agent-review/comprehension.md",
+      "category": "multi-agent-review",
+      "type": "agent",
+      "description": "Naive Reader persona auditing documents with zero assumed institutional knowledge, flagging undefined terms, acronyms, and comprehension gaps.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "design_critic",
+      "path": "multi-agent-review/design_critic.md",
+      "category": "multi-agent-review",
+      "type": "agent",
+      "description": "Hostile Design Critic persona focused on system architecture, scalability, infrastructure economics, and unmitigated risks.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "implementation_readiness",
+      "path": "multi-agent-review/implementation_readiness.md",
+      "category": "multi-agent-review",
+      "type": "agent",
+      "description": "Pragmatic Tech Lead persona verifying that implementation plans contain unambiguous, fully actionable execution instructions without leaving design decisions to the implementer.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "inventive_catalyst",
+      "path": "multi-agent-review/inventive_catalyst.md",
+      "category": "multi-agent-review",
+      "type": "agent",
+      "description": "Inventive problem-solving Goldfish persona applying TRIZ principles to identify and eliminate system-level contradictions without compromise.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "structural",
+      "path": "multi-agent-review/structural.md",
+      "category": "multi-agent-review",
+      "type": "agent",
+      "description": "Structural Layout Validator and Document Architect persona focused on symmetry, heading hierarchy, formatting, and template compliance.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "style",
+      "path": "multi-agent-review/style.md",
+      "category": "multi-agent-review",
+      "type": "agent",
+      "description": "Technical Copy Editor persona focused on clarity, precision, brevity, objective framing, and stripping fluff.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "synthesizer",
+      "path": "multi-agent-review/synthesizer.md",
+      "category": "multi-agent-review",
+      "type": "agent",
+      "description": "Intermediate Swarm Compiler and Aggregator coordinating parallel Goldfish reviewers, deduplicating findings, and compiling deliverable reports.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "zoom_out",
+      "path": "multi-agent-review/zoom_out.md",
+      "category": "multi-agent-review",
+      "type": "agent",
+      "description": "Skeptical Architect persona focused on high-altitude simplicity, minimalism, YAGNI, and codebase reuse.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
       }
     },
     {
@@ -14362,6 +14614,111 @@
       }
     },
     {
+      "name": "security-adversarial-verifier",
+      "path": "security/security-adversarial-verifier.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Independent vulnerability refutation specialist — disproves candidate security findings, stress-tests preconditions and sad paths, verifies source execution traces, and eliminates false positives with zero tolerance for ungrounded assumptions.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-ai-generated-code-auditor",
+      "path": "security/security-ai-generated-code-auditor.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Security reviewer for AI-generated and vibe-coded apps — hunts the hardcoded secrets, broken row-level security, and prompt-injection sinks that coding assistants ship by default, then drives a scan, fix, and rescan loop with honest, CWE-mapped findings.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-appsec-engineer",
+      "path": "security/security-appsec-engineer.md",
+      "category": "security",
+      "type": "agent",
+      "description": "AppSec specialist who secures the software development lifecycle through threat modeling, secure code review, SAST/DAST integration, and developer security education that makes secure code the default.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-architect",
+      "path": "security/security-architect.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Expert security architect specializing in threat modeling, secure-by-design architecture, trust-boundary analysis, defense-in-depth, and risk-based security reviews across web, API, cloud-native, and distributed systems. Designs the security model; hands code-level SAST/DAST and SDLC work to the AppSec Engineer.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-audit-orchestrator",
+      "path": "security/security-audit-orchestrator.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Multi-phase vulnerability discovery harness orchestrator — executes reconnaissance, maintains deterministic coverage ledgers, orchestrates parallel hunting waves, and drives adversarial validation through to structured schema-compliant reporting.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
       "name": "security-auditor",
       "path": "security/security-auditor.md",
       "category": "security",
@@ -14394,6 +14751,132 @@
       }
     },
     {
+      "name": "security-blockchain-security-auditor",
+      "path": "security/security-blockchain-security-auditor.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Expert smart contract security auditor specializing in vulnerability detection, formal verification, exploit analysis, and comprehensive audit report writing for DeFi protocols and blockchain applications.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-client-side-auditor",
+      "path": "security/security-client-side-auditor.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Browser runtime and frontend application security auditor — uncovers DOM XSS, prototype pollution, cross-origin web messaging (postMessage) bypasses, iframe sandbox escapes, and client-side storage leaks.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-cloud-security-architect",
+      "path": "security/security-cloud-security-architect.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Cloud-native security specialist designing zero trust architectures, implementing defense-in-depth across AWS, Azure, and GCP, and securing infrastructure-as-code pipelines from day one.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-compliance-auditor",
+      "path": "security/security-compliance-auditor.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Expert technical compliance auditor specializing in SOC 2, ISO 27001, HIPAA, and PCI-DSS audits — from readiness assessment through evidence collection to certification.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-data-isolation-auditor",
+      "path": "security/security-data-isolation-auditor.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Multi-tenant boundary and data lifecycle auditor — uncovers cross-tenant data leaks, search index pollution, shared cache poisoning, and tenant segregation failures across backups, migrations, and deletions.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-desktop-mobile-ipc-auditor",
+      "path": "security/security-desktop-mobile-ipc-auditor.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Native application, mobile OS, and local IPC auditor — investigates custom URL schemes, deep links, webview bridges, exported mobile components, Unix sockets, named pipes, and privileged helper daemons.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
       "name": "security-engineer",
       "path": "security/security-engineer.md",
       "category": "security",
@@ -14423,6 +14906,237 @@
         "hash": "7fa781497fa2f3c0",
         "version": "2.12.0",
         "scannedAt": "2026-10-17T20:36:45Z"
+      }
+    },
+    {
+      "name": "security-incident-responder",
+      "path": "security/security-incident-responder.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Digital forensics and incident response specialist who leads breach investigations, contains active threats, coordinates crisis response, and writes post-mortems that prevent recurrence.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-memory-safety-auditor",
+      "path": "security/security-memory-safety-auditor.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Low-level systems and memory corruption auditor — investigates C, C++, Rust unsafe, Go FFI, binary loaders, and kernel interfaces for bounds violations, integer truncation, UAF, concurrency races, and ABI mismatches.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-penetration-tester",
+      "path": "security/security-penetration-tester.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Offensive security specialist conducting authorized penetration tests, red team operations, and vulnerability assessments across networks, web applications, and cloud infrastructure.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-resource-exhaustion-auditor",
+      "path": "security/security-resource-exhaustion-auditor.md",
+      "category": "security",
+      "type": "agent",
+      "description": "DoS and economic exhaustion auditor — identifies algorithmic complexity traps, ReDoS, hash collision attacks, unbounded async queue growth, memory leaks, and third-party API billing/operator-spend bombs.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-rpc-messaging-auditor",
+      "path": "security/security-rpc-messaging-auditor.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Distributed systems and messaging protocol auditor — hunts serialization flaws, schema validation bypasses, queue/broker poison messages, and state machine desyncs across gRPC, Protobuf, WebSockets, and webhooks.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-secrets-credential-engineer",
+      "path": "security/security-secrets-credential-engineer.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Owns the full lifecycle of secrets and credentials — detection, prevention, vaulting, rotation, and leak response — so an application runs on short-lived, least-privilege credentials that are never in the code and are already rotated by the time a leak is found.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-senior-secops",
+      "path": "security/security-senior-secops.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Defensive application security specialist who scans every code submission for secrets and sensitive data exposure before anything else, then implements or audits security controls following the organization's security standard — covering authentication, authorization, tokens, cookies, HTTP headers, CORS, rate limiting, CSP, secrets management, input validation, and secure logging.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-supply-chain-auditor",
+      "path": "security/security-supply-chain-auditor.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Software supply chain and CI/CD security reviewer — audits package registries, dependency lockfile integrity, build pipeline poisoning, artifact provenance, signing keys, and extension/plugin sandboxes.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-threat-detection-engineer",
+      "path": "security/security-threat-detection-engineer.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Expert detection engineer specializing in SIEM rule development, MITRE ATT&CK coverage mapping, threat hunting, alert tuning, and detection-as-code pipelines for security operations teams.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-threat-intelligence-analyst",
+      "path": "security/security-threat-intelligence-analyst.md",
+      "category": "security",
+      "type": "agent",
+      "description": "Cyber threat intelligence specialist who tracks adversary groups, maps attack campaigns to MITRE ATT&CK, produces actionable intelligence reports, and builds detection rules that catch real threats.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      }
+    },
+    {
+      "name": "security-web-protocol-auth-auditor",
+      "path": "security/security-web-protocol-auth-auditor.md",
+      "category": "security",
+      "type": "agent",
+      "description": "HTTP protocol and authentication state specialist — uncovers request smuggling, HTTP/2 and HTTP/3 multiplexing desyncs, cache poisoning/deception, SSRF, OAuth/OIDC/SAML state confusion, and session fixation.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
       }
     },
     {
@@ -35709,7 +36423,7 @@
       "category": "ai-research",
       "type": "skill",
       "description": "Daily digest of AI releases from Anthropic, Meta, Vercel Labs, OpenAI and Google GitHub repos, the Claude Cowork changelog, the claude.dev blog and Hacker News, deduplicated against a local state file and sent by email. Use when the user asks for a daily AI news digest, to scan AI labs for new releases, or to set up a scheduled release-hunter job.",
-      "author": "Daniel Avila",
+      "author": "Allan Indrajith, Hivework Team",
       "repo": "",
       "version": "1.0.0",
       "license": "MIT",
@@ -50389,6 +51103,28 @@
       }
     },
     {
+      "name": "backend-patterns",
+      "path": "development/backend-patterns",
+      "category": "development",
+      "type": "skill",
+      "description": "Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes. Use when building or reviewing Node.js, Express, or Next.js API routes and their data access.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": []
+    },
+    {
       "name": "bash-linux",
       "path": "development/bash-linux",
       "category": "development",
@@ -53304,6 +54040,198 @@
       }
     },
     {
+      "name": "egm-bootstrap",
+      "path": "development/egm-bootstrap",
+      "category": "development",
+      "type": "skill",
+      "description": "Bootstrap directory README.md files across a repository subtree.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": [
+        "TEST.md",
+        "agents/openai.yaml",
+        "assets/icon.svg",
+        "references/templates.md",
+        "references/worker-return.schema.json",
+        "test_scenarios.yaml"
+      ]
+    },
+    {
+      "name": "egm-brainstorm",
+      "path": "development/egm-brainstorm",
+      "category": "development",
+      "type": "skill",
+      "description": "Interactive ideation and brainstorming skill for the Elephant & Goldfish Model (EGM). Helps turn half-baked concepts into structured hypotheses via clarifying questions, review, and iterative refinement. Produces an RFC summary for human review or more detailed design with egm-draft.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": [
+        "TEST.md",
+        "agents/openai.yaml",
+        "assets/icon.svg",
+        "test_scenarios.yaml"
+      ]
+    },
+    {
+      "name": "egm-draft",
+      "path": "development/egm-draft",
+      "category": "development",
+      "type": "skill",
+      "description": "Drafts a design document section-by-section using the concepts brief from egm-brainstorm (or user notes). This is the second step in the Elephant-Goldfish (EGM) feature flow. Use when you are ready to write a design doc after aligning on requirements + solution.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": [
+        "TEST.md",
+        "agents/openai.yaml",
+        "assets/icon.svg",
+        "references/design_doc.md",
+        "test_scenarios.yaml"
+      ]
+    },
+    {
+      "name": "egm-drift-report",
+      "path": "development/egm-drift-report",
+      "category": "development",
+      "type": "skill",
+      "description": "Runs drift detection on all design documents to check for document and code consistency. Produces an actionable report with differences. Use when the user asks to detect drift or check for consistency across all design documents or READMEs in a directory.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": [
+        "TEST.md",
+        "agents/openai.yaml",
+        "assets/icon.svg",
+        "test_scenarios.yaml"
+      ]
+    },
+    {
+      "name": "egm-resolve",
+      "path": "development/egm-resolve",
+      "category": "development",
+      "type": "skill",
+      "description": "The Elephant resolution skill. Ingests flat deficiency reports from concurrent Goldfish reviewers, applies automated fixes for PROPOSE FIX items via UI multiple-choice gates, and presents interactive negotiation/re-sync checkpoints.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": [
+        "TEST.md",
+        "agents/openai.yaml",
+        "assets/icon.svg",
+        "test_scenarios.yaml"
+      ]
+    },
+    {
+      "name": "egm-review",
+      "path": "development/egm-review",
+      "category": "development",
+      "type": "skill",
+      "description": "Orchestrates the EGM Goldfish Review Protocol. Used as part of the EGM process to perform design document reviews. Executes five review phases: Initial Zoom Out Review, Comprehension Review, Design Critique, Intermediate Zoom Out Review, and Implementation Readiness.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": [
+        "TEST.md",
+        "agents/openai.yaml",
+        "assets/icon.svg",
+        "test_scenarios.yaml"
+      ]
+    },
+    {
+      "name": "egm-review-loop",
+      "path": "development/egm-review-loop",
+      "category": "development",
+      "type": "skill",
+      "description": "Executes the Antagonistic-Review process from the Elephant-Goldfish Model (EGM) via an automated multi-agent review loop to audit documents against qualitative standards and structural templates, and automatically apply approved fixes. Use when reviewing design docs, READMEs, feature specifications, implementation plans, or verifying document completeness and tone.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "Apache-2.0",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": [
+        "TEST.md",
+        "agents/openai.yaml",
+        "assets/icon.svg",
+        "test_scenarios.yaml"
+      ]
+    },
+    {
       "name": "elixir-pro",
       "path": "development/elixir-pro",
       "category": "development",
@@ -54051,6 +54979,28 @@
         "version": "2.12.0",
         "scannedAt": "2026-10-17T20:36:45Z"
       }
+    },
+    {
+      "name": "frontend-patterns",
+      "path": "development/frontend-patterns",
+      "category": "development",
+      "type": "skill",
+      "description": "Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices. Use when building or reviewing React or Next.js components, state, or render performance.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": []
     },
     {
       "name": "gcp-cloud-run",
@@ -56036,6 +56986,28 @@
       }
     },
     {
+      "name": "mcp-server-patterns",
+      "path": "development/mcp-server-patterns",
+      "category": "development",
+      "type": "skill",
+      "description": "Build MCP servers with Node/TypeScript SDK — tools, resources, prompts, Zod validation, stdio vs Streamable HTTP. Use Context7 or official MCP docs for latest API. Use when building or debugging an MCP server — tools, resources, prompts, validation, or transport choice.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": []
+    },
+    {
       "name": "mermaid-diagram-specialist",
       "path": "development/mermaid-diagram-specialist",
       "category": "development",
@@ -57569,7 +58541,7 @@
       "path": "development/python-patterns",
       "category": "development",
       "type": "skill",
-      "description": "Python development principles and decision-making. Framework selection, async patterns, type hints, project structure. Teaches thinking, not copying.",
+      "description": "Pythonic idioms, PEP 8 standards, type hints, and best practices for building robust, efficient, and maintainable Python applications. Use when writing or reviewing Python code and idiomatic structure, typing, or PEP 8 is in question.",
       "author": "",
       "repo": "",
       "version": "",
@@ -59989,7 +60961,7 @@
       "path": "development/tdd-workflow",
       "category": "development",
       "type": "skill",
-      "description": "Test-Driven Development workflow principles. RED-GREEN-REFACTOR cycle.",
+      "description": "Test-driven development workflow: write a failing test first, watch it fail, implement the smallest change to green, then refactor with 80%+ coverage across unit, integration, and E2E tests. Use when writing a new feature, fixing a bug, refactoring, or when told to write failing tests first.",
       "author": "",
       "repo": "",
       "version": "",
@@ -60389,6 +61361,28 @@
       }
     },
     {
+      "name": "typescript-patterns",
+      "path": "development/typescript-patterns",
+      "category": "development",
+      "type": "skill",
+      "description": "TypeScript patterns for strict, type-safe, maintainable code in modern TypeScript and JavaScript applications. Covers strict compiler configuration, type design, narrowing, discriminated unions, generics, async and error handling, module boundaries, dependency hygiene, and type-level testing. Use when writing or reviewing TypeScript or JavaScript code.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": []
+    },
+    {
       "name": "typescript-pro",
       "path": "development/typescript-pro",
       "category": "development",
@@ -60630,6 +61624,28 @@
         "version": "2.12.0",
         "scannedAt": "2026-10-17T20:36:45Z"
       }
+    },
+    {
+      "name": "verification-loop",
+      "path": "development/verification-loop",
+      "category": "development",
+      "type": "skill",
+      "description": "Run a six-phase verification of a Claude Code session's work — build, type check, lint, tests with coverage, security grep, and diff review — then produce a PASS/FAIL verification report. Use when verifying work after completing a feature or refactor, before creating a PR, or when quality gates must pass.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "MIT",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": []
     },
     {
       "name": "web-artifacts-builder",
@@ -67024,6 +68040,28 @@
         "version": "2.12.0",
         "scannedAt": "2026-10-30T21:22:11Z"
       }
+    },
+    {
+      "name": "ruthless-advisor",
+      "path": "productivity/ruthless-advisor",
+      "category": "productivity",
+      "type": "skill",
+      "description": "Enforces the Advisor Persona & Critique Protocol — challenges assumptions first, bans sycophancy, rates confidence ([Certain]/[Likely]/[Guessing]), and delivers structured technical disagreements.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": []
     },
     {
       "name": "ship-learn-next",
@@ -77126,6 +78164,53 @@
       }
     },
     {
+      "name": "rea-analysis-optimization",
+      "path": "security/rea-analysis-optimization",
+      "category": "security",
+      "type": "skill",
+      "description": "Optimize REA providers and shared analysis workflows for agent context, latency, CPU, and memory while preserving correctness and Evidence. Use for analysis bottlenecks and cache or query design; CI/test-suite optimization belongs to rea-ci-tests-audit.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": [
+        "agents/openai.yaml",
+        "references/kuna-case-study.md"
+      ]
+    },
+    {
+      "name": "rea-tool-design",
+      "path": "security/rea-tool-design",
+      "category": "security",
+      "type": "skill",
+      "description": "Audit, investigate, design, or change REA investigation tools, CLI/MCP contracts, provider capabilities, and Evidence semantics.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": []
+    },
+    {
       "name": "red-team-tactics",
       "path": "security/red-team-tactics",
       "category": "security",
@@ -77262,6 +78347,37 @@
         "version": "2.12.0",
         "scannedAt": "2026-10-17T20:36:45Z"
       }
+    },
+    {
+      "name": "reverse-engineer-anything",
+      "path": "security/reverse-engineer-anything",
+      "category": "security",
+      "type": "skill",
+      "description": "Reverse engineer native, managed, Electron/JavaScript, packaged, firmware, and browser targets with REA, and build agent environments (AgentEnv bundles) of web applications from a live instance or a capture, and of Linux desktop apps with a task from a request. Use shipped-artifact or requested runtime evidence to explain features, compare versions, decompile code, or guide a reconstruction. Skip REA for ordinary source-repository architecture analysis.",
+      "author": "",
+      "repo": "",
+      "version": "61",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": [
+        "references/android-applications.md",
+        "references/connection-and-recovery.md",
+        "references/desktop-build.md",
+        "references/environments.md",
+        "references/evidence-workflows.md",
+        "references/javascript-applications.md",
+        "references/native-and-artifacts.md",
+        "references/runtime-observation.md"
+      ]
     },
     {
       "name": "sast-configuration",
@@ -77659,6 +78775,52 @@
       }
     },
     {
+      "name": "security-review",
+      "path": "security/security-review",
+      "category": "security",
+      "type": "skill",
+      "description": "Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or implementing payment/sensitive features. Provides comprehensive security checklist and patterns.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": [
+        "cloud-infrastructure-security.md"
+      ]
+    },
+    {
+      "name": "security-scan",
+      "path": "security/security-scan",
+      "category": "security",
+      "type": "skill",
+      "description": "Scan your Claude Code configuration (.claude/ directory) for security vulnerabilities, misconfigurations, and injection risks using AgentShield. Checks CLAUDE.md, settings.json, MCP servers, hooks, and agent definitions. Use when auditing a .claude/ directory — CLAUDE.md, settings.json, MCP servers, hooks, or agent definitions.",
+      "author": "",
+      "repo": "",
+      "version": "",
+      "license": "",
+      "keywords": [],
+      "downloads": 0,
+      "security": {
+        "validated": false,
+        "valid": null,
+        "score": null,
+        "errorCount": 0,
+        "warningCount": 0,
+        "lastValidated": null
+      },
+      "references": []
+    },
+    {
       "name": "security-threat-model",
       "path": "security/security-threat-model",
       "category": "security",
@@ -77980,7 +79142,7 @@
       "category": "security",
       "type": "skill",
       "description": "Detect and remediate software supply chain attacks in npm, PyPI, crates.io, GitHub Actions, and CI/CD pipelines by scanning for known compromised packages, malicious versions, filesystem IOCs, C2 indicators, and CI/CD misconfigurations.",
-      "author": "dan-avila",
+      "author": "Allan Indrajith, Hivework Team",
       "repo": "",
       "version": "1.0",
       "license": "",
@@ -81635,7 +82797,7 @@
       "category": "workflow-automation",
       "type": "skill",
       "description": "Review and manage Dependabot PRs. Categorizes by risk, checks CI status, auto-merges safe updates, and reports issues. Use when the user says \"review dependabot\", \"merge dependabot\", \"dependabot PRs\", or \"update dependencies\".",
-      "author": "claude-code-templates",
+      "author": "Allan Indrajith, Hivework Team",
       "repo": "",
       "version": "1.0.0",
       "license": "MIT",
@@ -88120,8 +89282,8 @@
       "language": "javascript-typescript",
       "description": "Angular-App with Javascript-Typescript",
       "files": [
-        ".claude/commands/services.md",
-        ".claude/commands/components.md"
+        ".claude/commands/components.md",
+        ".claude/commands/services.md"
       ],
       "installCommand": "npx claude-code-templates@latest --template=angular-app --yes",
       "downloads": 0
@@ -88134,9 +89296,9 @@
       "category": "languages",
       "description": "Common project template",
       "files": [
-        "README.md",
-        ".claude/commands/project-setup.md",
         ".claude/commands/git-workflow.md",
+        ".claude/commands/project-setup.md",
+        "README.md",
         "CLAUDE.md"
       ],
       "installCommand": "npx claude-code-templates@latest --template=common --yes",
@@ -88151,9 +89313,9 @@
       "language": "python",
       "description": "Django-App with Python",
       "files": [
+        ".claude/commands/django-model.md",
         ".claude/commands/admin.md",
         ".claude/commands/views.md",
-        ".claude/commands/django-model.md",
         "CLAUDE.md"
       ],
       "installCommand": "npx claude-code-templates@latest --template=django-app --yes",
@@ -88168,11 +89330,11 @@
       "language": "python",
       "description": "Fastapi-App with Python",
       "files": [
+        ".claude/commands/testing.md",
         ".claude/commands/deployment.md",
         ".claude/commands/auth.md",
-        ".claude/commands/database.md",
         ".claude/commands/api-endpoints.md",
-        ".claude/commands/testing.md",
+        ".claude/commands/database.md",
         "CLAUDE.md"
       ],
       "installCommand": "npx claude-code-templates@latest --template=fastapi-app --yes",
@@ -88187,12 +89349,12 @@
       "language": "python",
       "description": "Flask-App with Python",
       "files": [
-        ".claude/commands/deployment.md",
         ".claude/commands/flask-route.md",
-        ".claude/commands/blueprint.md",
-        ".claude/commands/app-factory.md",
-        ".claude/commands/database.md",
         ".claude/commands/testing.md",
+        ".claude/commands/deployment.md",
+        ".claude/commands/app-factory.md",
+        ".claude/commands/blueprint.md",
+        ".claude/commands/database.md",
         "CLAUDE.md"
       ],
       "installCommand": "npx claude-code-templates@latest --template=flask-app --yes",
@@ -88219,15 +89381,15 @@
       "category": "languages",
       "description": "Javascript-Typescript project template",
       "files": [
-        "README.md",
         ".claude/settings.json",
-        ".claude/commands/refactor.md",
-        ".claude/commands/npm-scripts.md",
-        ".claude/commands/typescript-migrate.md",
-        ".claude/commands/lint.md",
-        ".claude/commands/test.md",
         ".claude/commands/debug.md",
         ".claude/commands/api-endpoint.md",
+        ".claude/commands/typescript-migrate.md",
+        ".claude/commands/lint.md",
+        ".claude/commands/npm-scripts.md",
+        ".claude/commands/refactor.md",
+        ".claude/commands/test.md",
+        "README.md",
         "CLAUDE.md"
       ],
       "installCommand": "npx claude-code-templates@latest --template=javascript-typescript --yes",
@@ -88242,10 +89404,10 @@
       "language": "javascript-typescript",
       "description": "Node-Api with Javascript-Typescript",
       "files": [
-        ".claude/commands/database.md",
+        ".claude/commands/api-endpoint.md",
         ".claude/commands/middleware.md",
         ".claude/commands/route.md",
-        ".claude/commands/api-endpoint.md",
+        ".claude/commands/database.md",
         "CLAUDE.md"
       ],
       "installCommand": "npx claude-code-templates@latest --template=node-api --yes",
@@ -88292,8 +89454,8 @@
       "description": "React-App with Javascript-Typescript",
       "files": [
         ".claude/commands/state-management.md",
-        ".claude/commands/hooks.md",
         ".claude/commands/component.md",
+        ".claude/commands/hooks.md",
         "CLAUDE.md"
       ],
       "installCommand": "npx claude-code-templates@latest --template=react-app --yes",

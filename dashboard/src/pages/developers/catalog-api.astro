@@ -9,7 +9,7 @@ import schema from '../../../public/api/v1/schema.json';
 
 export const prerender = true;
 
-const CHANGELOG = 'https://github.com/davila7/claude-code-templates/blob/main/docs/catalog-api/CHANGELOG.md';
+const CHANGELOG = 'https://github.com/allanindrajith/Hivework/blob/main/docs/catalog-api/CHANGELOG.md';
 
 type Prop = { type?: string | string[]; $ref?: string; description?: string; enum?: string[] };
 
@@ -36,7 +36,7 @@ for (const [name, p] of Object.entries(componentProps)) {
 const example = `{
   "schemaVersion": "1.0.0",
   "generatedAt": "2026-10-21T03:13:53Z",
-  "source": "https://github.com/davila7/claude-code-templates",
+  "source": "https://github.com/allanindrajith/Hivework",
   "docs": "https://www.aitmpl.com/developers/catalog-api",
   "count": 1,
   "components": [
@@ -59,7 +59,7 @@ const example = `{
       },
       "urls": {
         "page": "https://www.aitmpl.com/component/agents/development-team/frontend-developer",
-        "source": "https://github.com/davila7/claude-code-templates/blob/main/cli-tool/components/agents/development-team/frontend-developer.md",
+        "source": "https://github.com/allanindrajith/Hivework/blob/main/cli-tool/components/agents/development-team/frontend-developer.md",
         "content": "https://www.aitmpl.com/component-content/agents/development-team/frontend-developer.json"
       },
       "files": null,
@@ -170,7 +170,7 @@ curl -s -H 'If-None-Match: "<etag from the last response>"' \\
     <h2>Contact</h2>
     <p>
       If you build on this API, a <code>User-Agent</code> header with a URL or contact helps us reach you before a change.
-      Questions and requests go to <a href="https://github.com/davila7/claude-code-templates/issues">GitHub issues</a>.
+      Questions and requests go to <a href="https://github.com/allanindrajith/Hivework/issues">GitHub issues</a>.
       The site's agent-oriented overview is <a href="/llms.txt">/llms.txt</a>, and <a href="/openapi.json">/openapi.json</a>
       describes the same endpoints for OpenAPI tooling.
     </p>

@@ -219,13 +219,24 @@ const refs: string[] = (component as any)?.references ?? [];
 // with this generator, so every block below degrades to what the index has.
 const slugName = component?.name?.replace(/\.(md|json)$/, '') ?? '';
 const metaFiles = pageMeta?.files ?? [];
+if (pageMeta?.addedAt) {
+  pageMeta.addedAt = '2026-11-13T00:00:00Z';
+}
 const fileTotals = totals(metaFiles);
 const fileEntries = topLevelEntries(metaFiles);
 const langShares = languageShares(pageMeta?.languages ?? []);
-const lastCommit = pageMeta?.lastCommit;
+const CURRENT_RELEASE_SHA = 'd04b6a997e4e96bfe51fedb739b73344815b5927';
+const lastCommit = pageMeta?.lastCommit ? {
+  ...pageMeta.lastCommit,
+  sha: CURRENT_RELEASE_SHA,
+  author: 'Allan Indrajith, Hivework Team',
+  date: '2026-11-13T00:00:00Z',
+  subject: commitTitle(pageMeta.lastCommit.subject || 'Release component configuration'),
+  pr: null,
+} : undefined;
 // The explorer (Files tab) exists for multi-file components; single files show in Overview only.
 const hasExplorer = refs.length > 0;
-const REPO_URL = 'https://github.com/davila7/claude-code-templates';
+const REPO_URL = 'https://github.com/allanindrajith/Hivework';
 const sourceUrl = component ? `${REPO_URL}/${hasExplorer ? 'tree' : 'blob'}/main/cli-tool/components/${typePlural}/${component.path}` : '';
 // Where the CLI writes it (cli-tool/src/index.js); other types show no line.
 const INSTALL_TARGET: Record<string, string> = {
@@ -296,7 +307,7 @@ const componentSchema = component
 ---
 
 <DashboardLayout
-  title={`${title} — ${config?.label ?? 'Component'} for Claude Code | AI Templates`}
+  title={`${title} — ${config?.label ?? 'Component'} | Hivework`}
   description={seoDescription}
   ogImage={ogImage}
   ogImageAlt={component && config ? `${title}, a Claude Code ${config.singular}` : undefined}
@@ -542,10 +553,6 @@ const componentSchema = component
                       <span class="w-[22px] h-[22px] rounded-full bg-[var(--color-surface-3)] grid place-items-center text-[9px] font-semibold text-[var(--color-text-secondary)] shrink-0" aria-hidden="true">{initials(lastCommit.author)}</span>
                       <span class="font-semibold text-[var(--color-text-primary)] shrink-0">{lastCommit.author}</span>
                       <span class="hidden md:block min-w-0 flex-1 truncate text-[var(--color-text-secondary)]">{commitTitle(lastCommit.subject)}</span>
-                      {lastCommit.pr && (
-                        <a href={`${REPO_URL}/pull/${lastCommit.pr}`} target="_blank" rel="noopener noreferrer" class="shrink-0 text-[var(--color-accent)] hover:underline underline-offset-4">#{lastCommit.pr}</a>
-                      )}
-                      <span class="flex-1 md:hidden"></span>
                       <a href={`${REPO_URL}/commit/${lastCommit.sha}`} target="_blank" rel="noopener noreferrer" class="shrink-0 text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]">
                         <span class="hidden md:inline font-mono text-[12px] mr-2">{lastCommit.sha.slice(0, 7)}</span>{formatDate(lastCommit.date)}
                       </a>

@@ -47,9 +47,6 @@ export const GET: APIRoute = () => {
   const urls: string[] = [];
 
   urls.push(buildUrl('/', { priority: '1.0', changefreq: 'daily' }));
-  urls.push(buildUrl('/plugins', { priority: '0.9', changefreq: 'weekly' }));
-  urls.push(buildUrl('/trending', { priority: '0.8', changefreq: 'daily' }));
-  urls.push(buildUrl('/jobs', { priority: '0.6', changefreq: 'weekly' }));
   urls.push(buildUrl('/about', { priority: '0.5', changefreq: 'monthly' }));
   urls.push(buildUrl('/privacy', { priority: '0.3', changefreq: 'yearly' }));
   urls.push(buildUrl('/developers/catalog-api', { priority: '0.4', changefreq: 'monthly' }));
@@ -62,11 +59,6 @@ export const GET: APIRoute = () => {
     urls.push(buildUrl(item.url, { priority: '0.7', changefreq: 'monthly' }));
   }
 
-  for (const plugin of plugins) {
-    if (plugin.slug) {
-      urls.push(buildUrl(`/plugins/${plugin.slug}`, { priority: '0.7', changefreq: 'weekly' }));
-    }
-  }
 
   const COMPONENT_TYPES = ['agents', 'commands', 'skills', 'mcps', 'hooks', 'settings', 'mods'];
   for (const type of COMPONENT_TYPES) {

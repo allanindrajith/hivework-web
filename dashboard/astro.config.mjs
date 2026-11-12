@@ -4,7 +4,8 @@ import cloudflare from '@astrojs/cloudflare';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://www.aitmpl.com',
+  site: 'https://allanindrajith.github.io/Hivework',
+  devToolbar: { enabled: false },
   output: 'server',
   adapter: cloudflare({ mode: 'directory' }),
   integrations: [react()],

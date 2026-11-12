@@ -38,7 +38,7 @@ interface SkillExplorerProps {
   files?: Record<string, string>;
 }
 
-const GITHUB_RAW_ROOT = 'https://raw.githubusercontent.com/davila7/claude-code-templates/main/cli-tool/components';
+const GITHUB_RAW_ROOT = 'https://raw.githubusercontent.com/allanindrajith/Hivework/main/cli-tool/components';
 
 const EXT_COLORS: Record<string, string> = {
   md: '#60a5fa', js: '#facc15', ts: '#60a5fa', tsx: '#60a5fa', jsx: '#facc15',

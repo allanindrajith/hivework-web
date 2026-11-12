@@ -315,6 +315,6 @@ function SaveButton({ componentType, componentPath, componentName, componentCate
   );
 }
 
-export default function SaveToCollectionButton(props: Props) {
-  return <SaveButton {...props} />;
+export default function SaveToCollectionButton(_props: Props) {
+  return null;
 }

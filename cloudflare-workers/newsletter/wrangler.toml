@@ -29,7 +29,7 @@ DASHBOARD_URL = "https://www.aitmpl.com"
 # sending again. Manual POST /trigger is NOT gated by this, so the newsletter
 # can still be tested while paused.
 NEWSLETTER_ENABLED = "false"
-RESEND_FROM_EMAIL = "Daniel Avila <daniel.avila@aitmpl.com>"
+RESEND_FROM_EMAIL = "Allan Indrajith <contact@hivework.io>"
 
 # Secrets (set via: wrangler secret put <KEY>)
 # Required:
