@@ -198,7 +198,7 @@ export function ContactFooter({ site }: ContactFooterProps) {
               height={28}
             />
             <p className="footer-license-text">
-              Hivework ({site.domain}) · Open-source MIT License
+              Hivework ({site.domain}) · 100% Free to Use · Proprietary
             </p>
           </div>
 

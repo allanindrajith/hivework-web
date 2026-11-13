@@ -5,7 +5,7 @@
 [![Live Website](https://img.shields.io/badge/Live-hivework.online-f59e0b?style=flat-square&logo=google-chrome&logoColor=white)](https://hivework.online)
 [![Test Suite](https://img.shields.io/badge/Tests-49%20Passing-emerald?style=flat-square&logo=vitest&logoColor=white)](https://github.com/allanindrajith/hivework-web)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![License](https://img.shields.io/badge/License-MIT-zinc?style=flat-square)](LICENSE)
+[![License: Free to Use](https://img.shields.io/badge/License-Free%20to%20Use-amber?style=flat-square)](LICENSE)
 
 <p align="center">
   <a href="https://hivework.online" target="_blank">
@@ -17,7 +17,7 @@
 
 ## About Hivework
 
-**Hivework Web** is the open-source client application powering [hivework.online](https://hivework.online). It serves as the live catalog, discovery engine, and interactive installation hub for the Hivework AI workforce repository ([allanindrajith/hivework](https://github.com/allanindrajith/hivework)).
+**Hivework Web** is the official web application powering [hivework.online](https://hivework.online). It serves as the live catalog, discovery engine, and interactive installation hub for the Hivework AI workforce repository ([allanindrajith/hivework](https://github.com/allanindrajith/hivework)).
 
 Instead of maintaining brittle, monolithic prompts that collapse across large codebases, Hivework defines specialized, version-controlled Markdown personas, modular `SKILL.md` workflows, and context-isolated Goldfish reviewers that compile natively into every major AI developer harness.
 
@@ -154,6 +154,10 @@ Designed, engineered, and maintained by **Allan Indrajith**.
 
 ---
 
-## License
+## License & Terms
 
-MIT © [Allan Indrajith](https://itsallan.me)
+Copyright © [Allan Indrajith](https://itsallan.me). All rights reserved.
+
+Hivework is **100% free to use** for personal, educational, and commercial development work with zero hidden charges or subscription gates. 
+
+This project is proprietary and not open source. You are granted permission to use, run, and integrate Hivework within your individual or organizational workflows. You may **not** redistribute, resell, sub-license, host as a competing commercial service, or repackage the workforce catalogs, agents, or assets without prior written authorization. See [LICENSE](LICENSE) for full legal terms.
