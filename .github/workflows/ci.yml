@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # The installer contract test compares the site's catalog and commands with the public main repo.
+      - uses: actions/checkout@v4
+        with:
+          repository: allanindrajith/hivework
+          path: .hivework
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm test
+        env:
+          HIVEWORK_REPO_ROOT: ${{ github.workspace }}/.hivework
+      - run: npm run build

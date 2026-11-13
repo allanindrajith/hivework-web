@@ -165,11 +165,15 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
                 <AppleLogo size={13} aria-hidden="true" />
                 <span>macOS Desktop App</span>
               </span>
-              <span className="matrix-download-version">{desktop.displayVersion} · Apple Silicon &amp; Intel</span>
+              <span className="matrix-download-version">{desktop.displayVersion} · Apple Silicon</span>
             </div>
             <h3 className="matrix-download-title">Prefer a native desktop GUI on your Mac?</h3>
             <p className="matrix-download-desc">
-              Download Hivework directly to macOS to visually inspect, configure, and switch between all {orderedTools.length} harnesses and 345 agent personas—no terminal required.
+              Download Hivework directly to macOS to visually inspect, configure, and switch between all {orderedTools.length} harnesses and the app's bundled agent personas—no terminal required.
+            </p>
+            <p className="matrix-download-desc">
+              Apple Silicon (M1 or later) only. The app is not notarized yet: on first launch, right-click
+              the app and choose Open, or allow it in System Settings → Privacy &amp; Security.
             </p>
           </div>
           <div className="matrix-download-action">

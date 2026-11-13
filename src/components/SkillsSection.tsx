@@ -373,7 +373,7 @@ export function SkillsSection({
                             ) : (
                               <Copy size={12} aria-hidden="true" />
                             )}
-                            <span>{isCopied ? 'Copied' : '--skills'}</span>
+                            <span>{isCopied ? 'Copied' : '--skills (all)'}</span>
                           </button>
 
                           <a

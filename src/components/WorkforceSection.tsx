@@ -327,7 +327,7 @@ export function WorkforceSection({
               id="division-search"
               className="workforce-search-input"
               aria-label="Search divisions"
-              placeholder="Filter divisions or 345 agents (e.g. engineering, security, godot, architect)..."
+              placeholder={`Filter divisions or ${divisions.reduce((sum, d) => sum + d.agentCount, 0)} agents (e.g. engineering, security, godot, architect)...`}
               value={query}
               onChange={(event) => setQuery(event.target.value)}
             />

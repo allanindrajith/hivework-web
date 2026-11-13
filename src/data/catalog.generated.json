@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-11-12T22:57:02.373Z",
+  "generatedAt": "2026-11-13T13:45:29.749Z",
   "totals": {
     "agents": 345,
     "divisions": 18,
     "tools": 17,
     "skills": 25,
     "reviewers": 10,
-    "runbooks": 4,
+    "runbooks": 12,
     "employees": 8
   },
   "tools": [
@@ -3470,178 +3470,424 @@
   ],
   "runbooks": [
     {
-      "slug": "startup-mvp",
-      "title": "Startup MVP Build",
-      "mode": "NEXUS-Sprint",
-      "duration": "4-6 weeks",
-      "summary": "Idea to live product with real users, fast — without skipping QA.",
+      "slug": "product-sprint",
+      "title": "Full-Stack Web App Sprint",
+      "mode": "Autonomous Agile",
+      "duration": "1 - 3 Days",
+      "summary": "End-to-end web feature delivery from system architecture to accessible frontend UI and evidence QA.",
       "doc": "strategy/runbooks/scenario-startup-mvp.md",
       "roster": [
         {
-          "group": "Core Team",
-          "activation": "always",
+          "group": "Architecture & Planning",
+          "activation": "Phase 1 - Blueprint",
           "agents": [
             "hive-agents-orchestrator",
-            "hive-project-manager-senior",
-            "hive-sprint-prioritizer",
-            "hive-ux-architect",
-            "hive-frontend-developer",
-            "hive-backend-architect",
-            "hive-devops-automator",
-            "hive-evidence-collector",
-            "hive-reality-checker"
+            "hive-ux-architect"
           ]
         },
         {
-          "group": "Growth Team",
-          "activation": "week 3+",
+          "group": "Implementation",
+          "activation": "Phase 2 - Build",
           "agents": [
-            "hive-growth-hacker",
-            "hive-content-creator",
-            "hive-social-media-strategist"
-          ]
-        },
-        {
-          "group": "Support Team",
-          "activation": "as needed",
-          "agents": [
-            "hive-brand-guardian",
-            "hive-analytics-reporter",
-            "hive-rapid-prototyper",
-            "hive-ai-engineer",
-            "hive-performance-benchmarker",
-            "hive-infrastructure-maintainer"
-          ]
-        }
-      ],
-      "totalAgents": 18
-    },
-    {
-      "slug": "enterprise-feature",
-      "title": "Enterprise Feature Development",
-      "mode": "NEXUS-Sprint",
-      "duration": "6-12 weeks",
-      "summary": "Ship a major feature into an existing enterprise product with non-negotiable compliance, security, and quality gates, and multi-stakeholder alignment.",
-      "doc": "strategy/runbooks/scenario-enterprise-feature.md",
-      "roster": [
-        {
-          "group": "Core Team",
-          "activation": "always",
-          "agents": [
-            "hive-agents-orchestrator",
-            "hive-project-shepherd",
-            "hive-project-manager-senior",
-            "hive-sprint-prioritizer",
-            "hive-ux-architect",
-            "hive-ux-researcher",
-            "hive-ui-designer",
-            "hive-frontend-developer",
-            "hive-backend-architect",
             "hive-senior-developer",
-            "hive-devops-automator",
-            "hive-evidence-collector",
-            "hive-api-tester",
+            "hive-frontend-developer"
+          ]
+        },
+        {
+          "group": "Verification",
+          "activation": "Phase 3 - Evidence QA",
+          "agents": [
             "hive-reality-checker",
-            "hive-performance-benchmarker"
-          ]
-        },
-        {
-          "group": "Compliance & Governance",
-          "activation": "as needed",
-          "agents": [
-            "hive-legal-compliance-checker",
-            "hive-brand-guardian",
-            "hive-finance-tracker",
-            "hive-executive-summary-generator"
-          ]
-        },
-        {
-          "group": "Quality Assurance",
-          "activation": "as needed",
-          "agents": [
-            "hive-test-results-analyzer",
-            "hive-workflow-optimizer",
-            "hive-experiment-tracker"
+            "hive-evidence-collector"
           ]
         }
       ],
-      "totalAgents": 22
+      "totalAgents": 6
     },
     {
-      "slug": "marketing-campaign",
-      "title": "Multi-Channel Marketing Campaign",
-      "mode": "NEXUS-Sprint",
-      "duration": "2-4 weeks",
-      "summary": "Launch a coordinated, brand-consistent campaign across channels that drives measurable acquisition and engagement.",
-      "doc": "strategy/runbooks/scenario-marketing-campaign.md",
-      "roster": [
-        {
-          "group": "Campaign Core",
-          "activation": "always",
-          "agents": [
-            "hive-social-media-strategist",
-            "hive-content-creator",
-            "hive-growth-hacker",
-            "hive-brand-guardian",
-            "hive-analytics-reporter"
-          ]
-        },
-        {
-          "group": "Platform Specialists",
-          "activation": "as needed",
-          "agents": [
-            "hive-twitter-engager",
-            "hive-tiktok-strategist",
-            "hive-instagram-curator",
-            "hive-reddit-community-builder",
-            "hive-app-store-optimizer"
-          ]
-        },
-        {
-          "group": "Support",
-          "activation": "as needed",
-          "agents": [
-            "hive-trend-researcher",
-            "hive-experiment-tracker",
-            "hive-executive-summary-generator",
-            "hive-legal-compliance-checker"
-          ]
-        }
-      ],
-      "totalAgents": 14
-    },
-    {
-      "slug": "incident-response",
-      "title": "Incident Response",
-      "mode": "NEXUS-Micro",
-      "duration": "Minutes to hours",
-      "summary": "Detection through post-mortem for a production incident — fast response without cutting corners.",
+      "slug": "bug-hardening",
+      "title": "Systematic Bug Triage & Hardening",
+      "mode": "Adversarial TDD",
+      "duration": "4 Hours",
+      "summary": "Deep diagnostics, unit & integration test coverage expansion, and strict security verification.",
       "doc": "strategy/runbooks/scenario-incident-response.md",
       "roster": [
         {
-          "group": "P0 Critical Response",
-          "activation": "always",
+          "group": "Root Cause Investigation",
+          "activation": "Phase 1 - Trace",
           "agents": [
-            "hive-infrastructure-maintainer",
-            "hive-devops-automator",
-            "hive-backend-architect",
-            "hive-frontend-developer",
-            "hive-support-responder",
-            "hive-executive-summary-generator"
+            "hive-codebase-onboarding-engineer",
+            "hive-lsp-index-engineer"
           ]
         },
         {
-          "group": "Verification & Post-Mortem",
-          "activation": "post-fix",
+          "group": "Resolution & TDD",
+          "activation": "Phase 2 - Fix & Test",
           "agents": [
-            "hive-evidence-collector",
-            "hive-api-tester",
-            "hive-workflow-optimizer",
-            "hive-sprint-prioritizer"
+            "hive-senior-developer",
+            "hive-test-automation-engineer"
+          ]
+        },
+        {
+          "group": "Security Gate",
+          "activation": "Phase 3 - Certify",
+          "agents": [
+            "hive-appsec-engineer",
+            "hive-reality-checker"
           ]
         }
       ],
-      "totalAgents": 10
+      "totalAgents": 6
+    },
+    {
+      "slug": "gtm-launch",
+      "title": "Product Launch & Multi-Channel GTM",
+      "mode": "Parallel Publishing",
+      "duration": "2 Days",
+      "summary": "Coordinates high-converting landing page design, brand positioning, documentation, and app store copy.",
+      "doc": "strategy/runbooks/scenario-marketing-campaign.md",
+      "roster": [
+        {
+          "group": "Creative & Brand",
+          "activation": "Phase 1 - Positioning",
+          "agents": [
+            "hive-brand-guardian",
+            "hive-ux-architect"
+          ]
+        },
+        {
+          "group": "Content Engine",
+          "activation": "Phase 2 - Collateral",
+          "agents": [
+            "hive-content-creator",
+            "hive-email-strategist"
+          ]
+        },
+        {
+          "group": "Distribution",
+          "activation": "Phase 3 - Release",
+          "agents": [
+            "hive-app-store-optimizer",
+            "hive-growth-hacker"
+          ]
+        }
+      ],
+      "totalAgents": 6
+    },
+    {
+      "slug": "cloud-devops",
+      "title": "Cloud Ops & Infrastructure Hardening",
+      "mode": "GitOps Orchestration",
+      "duration": "1 Day",
+      "summary": "Zero-downtime CI/CD pipelines, containerization, cloud observability, and automated rollbacks.",
+      "doc": "strategy/runbooks/scenario-enterprise-feature.md",
+      "roster": [
+        {
+          "group": "Infra Engineering",
+          "activation": "Phase 1 - Provision",
+          "agents": [
+            "hive-devops-automator",
+            "hive-cloud-security-architect"
+          ]
+        },
+        {
+          "group": "Observability",
+          "activation": "Phase 2 - Instrument",
+          "agents": [
+            "hive-sre",
+            "hive-threat-detection-engineer"
+          ]
+        },
+        {
+          "group": "Quality Gate",
+          "activation": "Phase 3 - Verify",
+          "agents": [
+            "hive-evidence-collector",
+            "hive-reality-checker"
+          ]
+        }
+      ],
+      "totalAgents": 6
+    },
+    {
+      "slug": "ai-rag-platform",
+      "title": "AI Agent & RAG Production Pipeline",
+      "mode": "Eval-Driven ML",
+      "duration": "2 Days",
+      "summary": "Production-grade RAG indexing, evaluation-driven prompt optimization, and low-latency API architecture.",
+      "doc": "strategy/runbooks/scenario-enterprise-feature.md",
+      "roster": [
+        {
+          "group": "System Architecture",
+          "activation": "Phase 1 - Pipeline Spec",
+          "agents": [
+            "hive-ai-engineer",
+            "hive-rag-pipeline-engineer"
+          ]
+        },
+        {
+          "group": "Prompt & Embeddings",
+          "activation": "Phase 2 - Eval Tuning",
+          "agents": [
+            "hive-prompt-engineer",
+            "hive-data-engineer"
+          ]
+        },
+        {
+          "group": "Safety & Performance",
+          "activation": "Phase 3 - Red Team",
+          "agents": [
+            "hive-adversarial-verifier",
+            "hive-performance-benchmarker"
+          ]
+        }
+      ],
+      "totalAgents": 6
+    },
+    {
+      "slug": "security-zero-trust",
+      "title": "Zero-Trust Security Audit & Penetration",
+      "mode": "Red/Blue Team",
+      "duration": "1 Day",
+      "summary": "Exhaustive vulnerability discovery, auth bypass probing, credential hygiene, and audit remediation.",
+      "doc": "strategy/runbooks/scenario-enterprise-feature.md",
+      "roster": [
+        {
+          "group": "Offensive Audit",
+          "activation": "Phase 1 - Penetration",
+          "agents": [
+            "hive-penetration-tester",
+            "hive-client-side-auditor"
+          ]
+        },
+        {
+          "group": "Defensive Architecture",
+          "activation": "Phase 2 - Remediation",
+          "agents": [
+            "hive-cloud-security-architect",
+            "hive-secrets-credential-engineer"
+          ]
+        },
+        {
+          "group": "Compliance Signoff",
+          "activation": "Phase 3 - Attestation",
+          "agents": [
+            "hive-compliance-auditor",
+            "hive-reality-checker"
+          ]
+        }
+      ],
+      "totalAgents": 6
+    },
+    {
+      "slug": "mobile-app-release",
+      "title": "Cross-Platform Mobile App Launch",
+      "mode": "Store-Ready Sprint",
+      "duration": "2 - 4 Days",
+      "summary": "Take a mobile application from prototype to signed App Store and Play Store release builds.",
+      "doc": "strategy/runbooks/scenario-startup-mvp.md",
+      "roster": [
+        {
+          "group": "Experience Design",
+          "activation": "Phase 1 - Mobile UX",
+          "agents": [
+            "hive-mobile-app-builder",
+            "hive-ui-designer"
+          ]
+        },
+        {
+          "group": "Native Build & Telemetry",
+          "activation": "Phase 2 - Packaging",
+          "agents": [
+            "hive-mobile-release-engineer",
+            "hive-tracking-specialist"
+          ]
+        },
+        {
+          "group": "Store Optimization",
+          "activation": "Phase 3 - ASO & Cert",
+          "agents": [
+            "hive-app-store-optimizer",
+            "hive-evidence-collector"
+          ]
+        }
+      ],
+      "totalAgents": 6
+    },
+    {
+      "slug": "game-studio-vertical-slice",
+      "title": "Game Studio Vertical Slice Production",
+      "mode": "Playable Milestone",
+      "duration": "3 - 5 Days",
+      "summary": "Produce a fully playable slice with balanced gameplay loops, game audio, shaders, and performance profiling.",
+      "doc": "strategy/runbooks/scenario-startup-mvp.md",
+      "roster": [
+        {
+          "group": "Creative & Systems",
+          "activation": "Phase 1 - GDD & Mechanics",
+          "agents": [
+            "hive-game-studio-game-designer",
+            "hive-game-studio-systems-designer"
+          ]
+        },
+        {
+          "group": "Engine & Visuals",
+          "activation": "Phase 2 - Implementation",
+          "agents": [
+            "hive-game-studio-gameplay-programmer",
+            "hive-game-studio-technical-artist"
+          ]
+        },
+        {
+          "group": "Audio & Quality",
+          "activation": "Phase 3 - Polish & Profile",
+          "agents": [
+            "hive-game-studio-sound-designer",
+            "hive-game-studio-qa-tester"
+          ]
+        }
+      ],
+      "totalAgents": 6
+    },
+    {
+      "slug": "paid-media-roas-blitz",
+      "title": "Paid Media & Conversion Rate Blitz",
+      "mode": "ROAS Optimization",
+      "duration": "1 - 2 Days",
+      "summary": "Multi-channel advertising blitz across Meta, Google, and TikTok with pixel verification and creative matrices.",
+      "doc": "strategy/runbooks/scenario-marketing-campaign.md",
+      "roster": [
+        {
+          "group": "Audience & Strategy",
+          "activation": "Phase 1 - Campaign Matrix",
+          "agents": [
+            "hive-ppc-strategist",
+            "hive-creative-strategist"
+          ]
+        },
+        {
+          "group": "Execution & Creative",
+          "activation": "Phase 2 - Creative Pipeline",
+          "agents": [
+            "hive-paid-social-strategist",
+            "hive-carousel-growth-engine"
+          ]
+        },
+        {
+          "group": "Attribution & Auditing",
+          "activation": "Phase 3 - Audit & ROAS",
+          "agents": [
+            "hive-audit-orchestrator",
+            "hive-tracking-specialist"
+          ]
+        }
+      ],
+      "totalAgents": 6
+    },
+    {
+      "slug": "design-system-overhaul",
+      "title": "Design System & WCAG 2.2 Accessibility Overhaul",
+      "mode": "Token-First UI",
+      "duration": "1 - 2 Days",
+      "summary": "Establish semantic token architecture, accessible component hierarchy, and strict WCAG compliance audit.",
+      "doc": "strategy/runbooks/scenario-enterprise-feature.md",
+      "roster": [
+        {
+          "group": "Design Foundations",
+          "activation": "Phase 1 - Semantic Tokens",
+          "agents": [
+            "hive-ux-architect",
+            "hive-ui-designer"
+          ]
+        },
+        {
+          "group": "Frontend Implementation",
+          "activation": "Phase 2 - Component Library",
+          "agents": [
+            "hive-frontend-developer",
+            "hive-ui-finish-gate-reviewer"
+          ]
+        },
+        {
+          "group": "Accessibility Gate",
+          "activation": "Phase 3 - Section 508 & WCAG",
+          "agents": [
+            "hive-accessibility-auditor",
+            "hive-section-508-specialist"
+          ]
+        }
+      ],
+      "totalAgents": 6
+    },
+    {
+      "slug": "enterprise-outbound-revops",
+      "title": "Enterprise Outbound & Revenue Operations",
+      "mode": "Pipeline Engine",
+      "duration": "2 Days",
+      "summary": "Signal-based B2B prospecting, discovery call frameworks, and high-converting personalized sequences.",
+      "doc": "strategy/runbooks/scenario-marketing-campaign.md",
+      "roster": [
+        {
+          "group": "Targeting & Signals",
+          "activation": "Phase 1 - ICP Definition",
+          "agents": [
+            "hive-outbound-strategist",
+            "hive-deal-strategist"
+          ]
+        },
+        {
+          "group": "Outreach & Discovery",
+          "activation": "Phase 2 - Messaging Cadence",
+          "agents": [
+            "hive-sales-outreach",
+            "hive-discovery-coach"
+          ]
+        },
+        {
+          "group": "Pipeline Governance",
+          "activation": "Phase 3 - CRM Integrity",
+          "agents": [
+            "hive-salesforce-architect",
+            "hive-coach"
+          ]
+        }
+      ],
+      "totalAgents": 6
+    },
+    {
+      "slug": "data-warehouse-analytics",
+      "title": "Real-Time Data Warehouse & BI Telemetry",
+      "mode": "Contract-First Data",
+      "duration": "1 - 2 Days",
+      "summary": "Architect analytics pipelines, data contracts, warehouse schemas, and executive business telemetry.",
+      "doc": "strategy/runbooks/scenario-enterprise-feature.md",
+      "roster": [
+        {
+          "group": "Data Modeling",
+          "activation": "Phase 1 - Pipeline Spec",
+          "agents": [
+            "hive-data-engineer",
+            "hive-backend-architect"
+          ]
+        },
+        {
+          "group": "Optimization & Integrity",
+          "activation": "Phase 2 - Performance",
+          "agents": [
+            "hive-database-optimizer",
+            "hive-database-reliability-engineer"
+          ]
+        },
+        {
+          "group": "Business Intelligence",
+          "activation": "Phase 3 - Executive BI",
+          "agents": [
+            "hive-data-visualization-engineer",
+            "hive-analytics-reporter"
+          ]
+        }
+      ],
+      "totalAgents": 6
     }
   ],
   "employees": [

@@ -99,23 +99,25 @@ describe('WorkforceSection', () => {
     expect(screen.getByText(/Showing 18 of 18 divisions/i)).toBeInTheDocument();
   });
 
-  it('renders all 4 NEXUS runbook cards with core agent install commands and copies them', async () => {
+  it('renders every catalog NEXUS runbook card with a core agent install command and copies it', async () => {
     const writeText = vi.fn().mockResolvedValue(undefined);
     Object.assign(navigator, { clipboard: { writeText } });
 
     render(<WorkforceSection divisions={catalog.divisions} runbooks={catalog.runbooks} />);
 
-    expect(screen.getByText('Startup MVP Build')).toBeInTheDocument();
-    expect(screen.getByText('Enterprise Feature Development')).toBeInTheDocument();
-    expect(screen.getByText('Multi-Channel Marketing Campaign')).toBeInTheDocument();
-    expect(screen.getByText('Incident Response')).toBeInTheDocument();
+    expect(catalog.runbooks.length).toBe(catalog.totals.runbooks);
+    for (const runbook of catalog.runbooks) {
+      expect(screen.getByText(runbook.title)).toBeInTheDocument();
+    }
 
-    const copyBtn = screen.getByRole('button', { name: /Copy Startup MVP Build command/i });
+    const first = catalog.runbooks[0];
+    const coreGroup = first.roster.find((group) => group.activation === 'always') ?? first.roster[0];
+    const copyBtn = screen.getByRole('button', { name: `Copy ${first.title} command` });
     fireEvent.click(copyBtn);
 
     await waitFor(() =>
       expect(writeText).toHaveBeenCalledWith(
-        expect.stringContaining('./scripts/install.sh --agent hive-agents-orchestrator')
+        expect.stringContaining(`./scripts/install.sh --agent ${coreGroup.agents[0]}`)
       )
     );
   });

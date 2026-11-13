@@ -85,7 +85,7 @@ export function HeaderNav({ site }: HeaderNavProps) {
             href={desktop.dmgUrl}
             download="Hivework.dmg"
             className="btn-outline header-mac-btn"
-            title={`Download Hivework ${desktop.displayVersion} for macOS (Universal DMG)`}
+            title={`Download Hivework ${desktop.displayVersion} for macOS (Apple Silicon DMG)`}
           >
             <AppleLogo size={13} aria-hidden="true" />
             <span>macOS App</span>

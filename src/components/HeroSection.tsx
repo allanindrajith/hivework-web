@@ -19,8 +19,7 @@ interface QuickStartTab {
   id: QuickStartTabId;
   label: string;
   localCommand: string;
-  bootstrapCommand: string;
-  caption: string;
+  caption: (totals: CatalogTotals) => string;
 }
 
 const DEFAULT_REPO_URL = 'https://github.com/allanindrajith/hivework';
@@ -30,25 +29,22 @@ const QUICK_START_TABS: readonly QuickStartTab[] = [
     id: 'install-all',
     label: 'Install All',
     localCommand: './scripts/install.sh',
-    bootstrapCommand:
-      'git clone https://github.com/allanindrajith/hivework.git && cd hivework && ./scripts/install.sh',
-    caption: 'Auto-detects installed local AI harnesses and deploys compatible agents interactively.',
+    caption: () =>
+      'Auto-detects installed local AI harnesses and deploys compatible agents interactively. Nothing detected? Add --tool <name>.',
   },
   {
     id: 'install-skills',
     label: 'Install Skills',
     localCommand: './scripts/install.sh --skills',
-    bootstrapCommand:
-      'git clone https://github.com/allanindrajith/hivework.git && cd hivework && ./scripts/install.sh --skills',
-    caption: 'Installs all 25 modular cross-tool SKILL.md workflows alongside your chosen agent teams.',
+    caption: (totals) =>
+      `Installs all ${totals.skills} modular cross-tool SKILL.md workflows alongside your chosen agent teams.`,
   },
   {
     id: 'convert-all',
     label: 'Convert All',
     localCommand: './scripts/convert.sh --parallel',
-    bootstrapCommand:
-      'git clone https://github.com/allanindrajith/hivework.git && cd hivework && ./scripts/convert.sh --parallel',
-    caption: 'Compiles canonical Markdown personas into native harness artifacts across integrations/.',
+    caption: () =>
+      'Compiles canonical Markdown personas into native harness artifacts across integrations/.',
   },
 ];
 
@@ -255,7 +251,7 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
               <code className="terminal-command">{activeCommand}</code>
             </pre>
 
-            <p className="terminal-caption">{activeTab.caption}</p>
+            <p className="terminal-caption">{activeTab.caption(totals)}</p>
 
             <div className="terminal-footer">
               <div className="terminal-footer-actions">

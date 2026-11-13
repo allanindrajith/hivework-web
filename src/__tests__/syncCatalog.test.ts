@@ -123,7 +123,7 @@ describe('sync-catalog', () => {
       tools: 17,
       skills: 25,
       reviewers: 10,
-      runbooks: 4,
+      runbooks: 12,
       employees: 8,
     });
     expect(catalogData.tools.map((t) => t.order)).toEqual(

@@ -9,6 +9,10 @@ export function verifyDistHtml(html) {
   if (typeof html !== 'string') {
     throw new Error('Expected html content as string');
   }
+  const leftoverToken = html.match(/%HW_[A-Z_]+%/);
+  if (leftoverToken) {
+    throw new Error(`HTML still contains the unfilled catalog token ${leftoverToken[0]} (catalogTotalsHtml plugin not applied).`);
+  }
   const rootAssetPattern = /(href|src)=["']\/(assets|logo)/i;
   if (rootAssetPattern.test(html)) {
     throw new Error(

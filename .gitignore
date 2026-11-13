@@ -13,3 +13,6 @@ coverage/
 .env
 .env.*
 !.env.example
+
+# CI checkout of the main repo for the installer contract test
+.hivework/

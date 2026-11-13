@@ -1,7 +1,9 @@
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isDeepStrictEqual } from 'node:util';
+import { gunzipSync } from 'node:zlib';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -241,8 +243,8 @@ export function buildCatalog(repoRoot) {
             routines: combinedRoutines,
             path: `employees/${entry.name}`,
           });
-        } catch {
-          // Ignore unparseable employee entries
+        } catch (err) {
+          console.warn(`[sync-catalog] ⚠ Skipped employee "${entry.name}": ${err.message}`);
         }
       }
     }
@@ -285,7 +287,7 @@ function extractCatalogPayload(catalog) {
   };
 }
 
-export function syncCatalog(repoRoot = DEFAULT_REPO_ROOT) {
+export function syncCatalog(repoRoot = DEFAULT_REPO_ROOT, { withDesktop = false } = {}) {
   const data = buildCatalog(repoRoot);
 
   const appDir =
@@ -330,7 +332,10 @@ export function syncCatalog(repoRoot = DEFAULT_REPO_ROOT) {
   fs.copyFileSync(path.join(repoRoot, 'assets/logo.svg'), path.join(publicDir, 'logo.svg'));
   fs.copyFileSync(path.join(repoRoot, 'assets/logo-icon.svg'), path.join(publicDir, 'logo-icon.svg'));
 
-  syncDesktopApp(appDir);
+  // Publishing a binary is opt-in: `npm run sync:desktop`. A plain catalog sync never copies a DMG.
+  if (withDesktop) {
+    syncDesktopApp(appDir);
+  }
 
   console.log(
     `[sync-catalog] ✓ ${shouldWriteJson ? 'Synced' : 'Up-to-date'} catalog (${data.totals.agents} agents, ${data.totals.skills} skills, ${data.totals.employees} employees, ${data.totals.tools} tools, ${data.totals.divisions} divisions) -> ${targetJsonPath}`
@@ -338,47 +343,150 @@ export function syncCatalog(repoRoot = DEFAULT_REPO_ROOT) {
   return data;
 }
 
-function syncDesktopApp(appDir) {
-  const siblingAppDir = path.resolve(appDir, '../Hivework-app');
-  if (!fs.existsSync(siblingAppDir)) return;
+const MACH_CPU = { 0x0100000c: 'aarch64', 0x01000007: 'x86_64' };
+const UPDATE_BUNDLE = 'Hivework.app.tar.gz';
 
+/** Returns the Tauri arch names ('aarch64', 'x86_64') a Mach-O executable header declares. */
+export function machoArchs(buf) {
+  if (buf.length < 8) return [];
+  if (buf.readUInt32BE(0) === 0xcafebabe) {
+    const count = buf.readUInt32BE(4);
+    const archs = [];
+    for (let i = 0; i < count && 8 + i * 20 + 4 <= buf.length; i += 1) {
+      const arch = MACH_CPU[buf.readUInt32BE(8 + i * 20)];
+      if (arch) archs.push(arch);
+    }
+    return archs;
+  }
+  if (buf.readUInt32LE(0) === 0xfeedfacf) {
+    const arch = MACH_CPU[buf.readUInt32LE(4)];
+    return arch ? [arch] : [];
+  }
+  return [];
+}
+
+/** Reads the first executable under *.app/Contents/MacOS/ from a gzipped tarball. */
+function readAppExecutable(tarGzPath) {
+  const tar = gunzipSync(fs.readFileSync(tarGzPath));
+  const field = (header, start, end) => header.toString('utf8', start, end).replace(/\0.*$/s, '');
+  let paxPath = null;
+  for (let offset = 0; offset + 512 <= tar.length; ) {
+    const header = tar.subarray(offset, offset + 512);
+    const name = field(header, 0, 100);
+    if (!name) break;
+    const size = parseInt(field(header, 124, 136).trim() || '0', 8);
+    const body = tar.subarray(offset + 512, offset + 512 + size);
+    const type = String.fromCharCode(header[156] || 0x30);
+    offset += 512 + Math.ceil(size / 512) * 512;
+
+    if (type === 'x') {
+      // PAX extended header (bsdtar/GNU tar): may override the next entry's path.
+      paxPath = body.toString('utf8').match(/^\d+ path=(.*)$/m)?.[1] ?? null;
+      continue;
+    }
+    const prefix = field(header, 345, 500);
+    const fullName = paxPath ?? (prefix ? `${prefix}/${name}` : name);
+    paxPath = null;
+    const baseName = fullName.split('/').pop() ?? '';
+    // Skip AppleDouble metadata files (._name) that macOS tar adds next to real files.
+    if (type === '0' && !baseName.startsWith('._') && /\.app\/Contents\/MacOS\/[^/]+$/.test(fullName)) {
+      return body;
+    }
+  }
+  return null;
+}
+
+/** Newest Hivework*.dmg in the Tauri bundle folder (Tauri names it Hivework_<version>_<arch>.dmg). */
+function findLatestDmg(dmgDir) {
+  if (!fs.existsSync(dmgDir)) return null;
+  const candidates = fs
+    .readdirSync(dmgDir)
+    .filter((f) => /^Hivework.*\.dmg$/i.test(f))
+    .map((f) => path.join(dmgDir, f))
+    .sort((a, b) => fs.statSync(b).mtimeMs - fs.statSync(a).mtimeMs);
+  return candidates[0] ?? null;
+}
+
+function copyWithChecksum(source, dest) {
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.copyFileSync(source, dest);
+  const sha256 = createHash('sha256').update(fs.readFileSync(dest)).digest('hex');
+  const sizeMb = (fs.statSync(dest).size / (1024 * 1024)).toFixed(1);
+  console.log(`[sync-catalog] ✓ ${path.basename(source)} (${sizeMb} MB) -> ${path.relative(process.cwd(), dest)}`);
+  console.log(`[sync-catalog]   sha256 ${sha256}`);
+}
+
+/**
+ * Publishes the sibling Hivework-app build: the DMG for first installs, and the signed updater
+ * bundle plus public/updater.json for in-app updates. Only architectures actually present in the
+ * app binary are listed, so an arm64-only build is never offered to Intel Macs.
+ */
+export function syncDesktopApp(appDir) {
+  const siblingAppDir = path.resolve(appDir, '../Hivework-app');
   const tauriConfPath = path.join(siblingAppDir, 'src-tauri/tauri.conf.json');
-  if (!fs.existsSync(tauriConfPath)) return;
+  if (!fs.existsSync(tauriConfPath)) {
+    console.warn(`[sync-catalog] ⚠ No desktop app at ${siblingAppDir}; skipped.`);
+    return;
+  }
 
   try {
     const tauriConf = JSON.parse(fs.readFileSync(tauriConfPath, 'utf8'));
     const version = tauriConf.version;
-    if (!version) return;
+    if (!version) throw new Error('tauri.conf.json has no version');
+    const bundleDir = path.join(siblingAppDir, 'src-tauri/target/release/bundle');
+    const downloadsDir = path.join(appDir, 'public/downloads');
+
+    const dmgSource = findLatestDmg(path.join(bundleDir, 'dmg'));
+    if (dmgSource) {
+      copyWithChecksum(dmgSource, path.join(downloadsDir, 'Hivework.dmg'));
+    } else {
+      console.warn('[sync-catalog] ⚠ No Hivework*.dmg in the app bundle folder; DMG not updated.');
+    }
+
+    const bundleSource = path.join(bundleDir, 'macos', UPDATE_BUNDLE);
+    const sigSource = `${bundleSource}.sig`;
+    if (!fs.existsSync(bundleSource) || !fs.existsSync(sigSource)) {
+      console.warn('[sync-catalog] ⚠ Signed updater bundle (.tar.gz + .sig) not found; updater.json not changed.');
+      return;
+    }
+    // Tauri leaves the old .sig in place when a build runs without TAURI_SIGNING_PRIVATE_KEY.
+    // Publishing that pair would make every in-app update fail signature verification.
+    if (fs.statSync(sigSource).mtimeMs + 1000 < fs.statSync(bundleSource).mtimeMs) {
+      console.warn(
+        `[sync-catalog] ⚠ ${UPDATE_BUNDLE}.sig is older than the bundle (rebuilt without the signing key); updater not published.`
+      );
+      return;
+    }
+    const executable = readAppExecutable(bundleSource);
+    const archs = executable ? machoArchs(executable) : [];
+    if (archs.length === 0) {
+      throw new Error(`could not read the app architecture from ${UPDATE_BUNDLE}`);
+    }
+
+    const endpoint = tauriConf.plugins?.updater?.endpoints?.[0] ?? 'https://hivework.online/updater.json';
+    const bundleUrl = new URL(`downloads/${UPDATE_BUNDLE}`, endpoint).toString();
+    const signature = fs.readFileSync(sigSource, 'utf8').trim();
+
+    copyWithChecksum(bundleSource, path.join(downloadsDir, UPDATE_BUNDLE));
 
     const updaterPath = path.join(appDir, 'public/updater.json');
-    if (fs.existsSync(updaterPath)) {
-      const updater = JSON.parse(fs.readFileSync(updaterPath, 'utf8'));
-      if (updater.version !== version) {
-        updater.version = version;
-        fs.writeFileSync(updaterPath, JSON.stringify(updater, null, 2) + '\n', 'utf8');
-        console.log(`[sync-catalog] ✓ Synced public/updater.json to v${version}`);
-      }
-    }
-
-    const dmgSource = path.join(siblingAppDir, 'src-tauri/target/release/bundle/dmg/Hivework.dmg');
-    if (fs.existsSync(dmgSource)) {
-      const dmgDest = path.join(appDir, 'public/downloads/Hivework.dmg');
-      const rootDmgDest = path.join(appDir, 'public/Hivework.dmg');
-      fs.mkdirSync(path.dirname(dmgDest), { recursive: true });
-      fs.copyFileSync(dmgSource, dmgDest);
-      fs.copyFileSync(dmgSource, rootDmgDest);
-      const stats = fs.statSync(dmgSource);
-      const sizeMb = (stats.size / (1024 * 1024)).toFixed(1);
-      console.log(`[sync-catalog] ✓ Synced desktop app bundle v${version} (${sizeMb} MB) -> public/downloads/Hivework.dmg`);
-    }
+    const previous = fs.existsSync(updaterPath) ? JSON.parse(fs.readFileSync(updaterPath, 'utf8')) : {};
+    const updater = {
+      version,
+      notes: previous.notes ?? `Hivework v${version}`,
+      pub_date: fs.statSync(bundleSource).mtime.toISOString().replace(/\.\d{3}Z$/, 'Z'),
+      platforms: Object.fromEntries(archs.map((arch) => [`darwin-${arch}`, { signature, url: bundleUrl }])),
+    };
+    fs.writeFileSync(updaterPath, JSON.stringify(updater, null, 2) + '\n', 'utf8');
+    console.log(`[sync-catalog] ✓ public/updater.json -> v${version} for ${archs.map((a) => `darwin-${a}`).join(', ')}`);
   } catch (err) {
-    console.warn(`[sync-catalog] ⚠ Could not auto-sync desktop app: ${err.message}`);
+    console.warn(`[sync-catalog] ⚠ Could not sync desktop app: ${err.message}`);
   }
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
   try {
-    syncCatalog();
+    syncCatalog(DEFAULT_REPO_ROOT, { withDesktop: process.argv.includes('--with-desktop') });
   } catch (err) {
     console.error(`[sync-catalog] ✗ ${err.message}`);
     process.exit(1);

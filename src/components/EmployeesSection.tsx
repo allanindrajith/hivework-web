@@ -128,7 +128,7 @@ export function EmployeesSection({ employees, repoUrl }: EmployeesSectionProps) 
         <div className="section-header-block">
           <p className="section-eyebrow">AUTONOMOUS AI EMPLOYEES · SCHEDULED WORKFORCE</p>
           <h2 id="employees-heading" className="section-heading">
-            8 autonomous AI employees with self-executing routines
+            {employees.length} autonomous AI employees with self-executing routines
           </h2>
           <p className="section-lead">
             Hivework AI Employees are self-contained operational units with automated cron routines,
