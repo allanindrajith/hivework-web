@@ -1,15 +1,11 @@
 {
   "version": "0.4.0",
-  "notes": "Hivework v0.4.0 \u2014 Unified 296 hive-* agent corpus, Obsidian & Honeycomb Amber UI matching hivework.online, and dual-endpoint self-updater.",
-  "pub_date": "2026-11-12T23:35:22Z",
+  "notes": "Hivework v0.4.0 — Unified 296 hive-* agent corpus, Obsidian & Honeycomb Amber UI matching hivework.online, and dual-endpoint self-updater.",
+  "pub_date": "2026-11-13T00:28:40Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTM2Uwd1hVUTJxR2JhQ1U4OEJUbU1CdlJIUkFpOWRiUlM2aE8wdm9qVjd5YWJMK0h2ZWU1Zy9CRktQRjlzd3g1MEpRKzBoWWQ4NTk5Ni9mSTRDM3JadURadG1nZ1FvbFFzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0NTI2NDk4CWZpbGU6SGl2ZXdvcmsuYXBwLnRhci5negp2YzhONkRyMnJZbzRYMkFxRHlJM1VlSjZxUThsLzQrUW5ZVnBXYUlGUk1TR0Z3R2l0RDBvK0hEdHppekdya21rc3pUV285bkM3TXVGSGdJRFBPdmpEdz09Cg==",
-      "url": "https://github.com/allanindrajith/hivework-app/releases/download/v0.4.0/Hivework.app.tar.gz"
-    },
-    "darwin-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTM2Uwd1hVUTJxR2JhQ1U4OEJUbU1CdlJIUkFpOWRiUlM2aE8wdm9qVjd5YWJMK0h2ZWU1Zy9CRktQRjlzd3g1MEpRKzBoWWQ4NTk5Ni9mSTRDM3JadURadG1nZ1FvbFFzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0NTI2NDk4CWZpbGU6SGl2ZXdvcmsuYXBwLnRhci5negp2YzhONkRyMnJZbzRYMkFxRHlJM1VlSjZxUThsLzQrUW5ZVnBXYUlGUk1TR0Z3R2l0RDBvK0hEdHppekdya21rc3pUV285bkM3TXVGSGdJRFBPdmpEdz09Cg==",
-      "url": "https://github.com/allanindrajith/hivework-app/releases/download/v0.4.0/Hivework.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTM2Uwd1hVUTJxR2JjNERiZ0dxUFdSSFVURzhoU01saklkRm01VUZBMlY3TmlldjR5SHNYd2JOWW1Vd2twWWVvRXlJSTJGMUFUWXJUVVRsbURpR2pnVHUyTUZIc3BKd0FJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0NTc3NTIzCWZpbGU6SGl2ZXdvcmsuYXBwLnRhci5negpYSWQyaXRqdE1zcUJSWHNRTVFQejZYSkwvQkRFVUl0RzlKZThsS0xiQTJDdEIxdEZCSlZJa015VXA2UE1paThhc3M0M3QzMUtINHlSUXpJV0FMKytEdz09Cg==",
+      "url": "https://hivework.online/downloads/Hivework.app.tar.gz"
     }
   }
 }
