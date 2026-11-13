@@ -115,17 +115,18 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
 
   return (
     <section id="hero" className="hero-section" aria-labelledby="hero-heading">
+      <div className="hero-preloader-bar" aria-hidden="true" />
       <div className="container hero-grid">
         <div>
-          <p className="section-eyebrow">
+          <p className="section-eyebrow hero-animate hero-delay-1">
             HIVEWORK OPERATOR HUB · {site.domain.toUpperCase()}
           </p>
 
-          <h1 id="hero-heading" className="hero-title">
-            One canonical AI workforce across every coding harness.
+          <h1 id="hero-heading" className="hero-title hero-animate hero-delay-2">
+            One canonical <span className="hero-highlight">AI workforce</span> across every coding harness.
           </h1>
 
-          <p className="hero-subtitle">
+          <p className="hero-subtitle hero-animate hero-delay-3">
             Browse, select, and install {totals.agents} specialized Markdown agents across{' '}
             {totals.divisions} divisions, {totals.skills} modular <code className="inline-code">SKILL.md</code>{' '}
             workflows, {totals.employees} autonomous AI employees, and {totals.reviewers} Goldfish
@@ -133,61 +134,74 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
             {totals.tools} local tools.
           </p>
 
-          <div className="hero-actions">
-            <a
-              href="/harnesses"
-              className="btn-primary"
-              onClick={(e) => navigateToSection('model-matrix', e)}
-            >
-              <span>Connect {totals.tools} Harnesses</span>
-              <ArrowRight size={16} aria-hidden="true" />
-            </a>
-            <a
-              href={desktop.dmgUrl}
-              download="Hivework.dmg"
-              className="btn-outline hero-mac-btn"
-              title={`Download Hivework ${desktop.displayVersion} for macOS`}
-            >
-              <AppleLogo size={14} aria-hidden="true" />
-              <span>macOS App ({desktop.displayVersion})</span>
-            </a>
-            <a
-              href="/agents"
-              className="btn-outline"
-              onClick={(e) => navigateToSection('workforce', e)}
-            >
-              Browse {totals.agents} Agents
-            </a>
-            <a
-              href="/employees"
-              className="btn-outline"
-              onClick={(e) => navigateToSection('employees', e)}
-            >
-              Hire {totals.employees} Employees
-            </a>
-            <a
-              href="/skills"
-              className="btn-outline"
-              onClick={(e) => navigateToSection('skills', e)}
-            >
-              Explore {totals.skills} Skills
-            </a>
-            {repoHref ? (
+          <div className="hero-actions-container">
+            <div className="hero-actions-primary hero-animate hero-delay-4">
               <a
-                href={repoHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline"
+                href="/harnesses"
+                className="btn-primary hero-btn-main"
+                onClick={(e) => navigateToSection('model-matrix', e)}
               >
-                <span>Source Repository</span>
-                <ExternalLink size={14} aria-hidden="true" />
+                <span>Connect {totals.tools} Harnesses</span>
+                <ArrowRight size={16} aria-hidden="true" />
               </a>
-            ) : null}
+              <a
+                href={desktop.dmgUrl}
+                download="Hivework.dmg"
+                className="btn-outline hero-mac-btn"
+                title={`Download Hivework ${desktop.displayVersion} for macOS`}
+              >
+                <AppleLogo size={14} aria-hidden="true" />
+                <span>macOS App ({desktop.displayVersion})</span>
+              </a>
+            </div>
+
+            <div className="hero-actions-sub hero-animate hero-delay-5" role="group" aria-label="Catalog direct links">
+              <a
+                href="/agents"
+                className="hero-sub-link"
+                onClick={(e) => navigateToSection('workforce', e)}
+              >
+                Browse {totals.agents} Agents
+              </a>
+              <span className="hero-sub-sep" aria-hidden="true">·</span>
+              <a
+                href="/employees"
+                className="hero-sub-link"
+                onClick={(e) => navigateToSection('employees', e)}
+              >
+                Hire {totals.employees} Employees
+              </a>
+              <span className="hero-sub-sep" aria-hidden="true">·</span>
+              <a
+                href="/skills"
+                className="hero-sub-link"
+                onClick={(e) => navigateToSection('skills', e)}
+              >
+                Explore {totals.skills} Skills
+              </a>
+              {repoHref ? (
+                <>
+                  <span className="hero-sub-sep" aria-hidden="true">·</span>
+                  <a
+                    href={repoHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hero-sub-link"
+                  >
+                    <span>Source Repository</span>
+                    <ExternalLink size={12} aria-hidden="true" />
+                  </a>
+                </>
+              ) : null}
+            </div>
           </div>
 
           <dl className="hero-stats" aria-label="Verified catalog metrics">
-            {stats.map((stat) => (
-              <div key={stat.label} className="hero-stat-card">
+            {stats.map((stat, idx) => (
+              <div
+                key={stat.label}
+                className={`hero-stat-card hero-animate hero-delay-${idx + 7}`}
+              >
                 <dt className="hero-stat-label">{stat.label}</dt>
                 <dd className="hero-stat-value">{stat.value}</dd>
               </div>
@@ -195,7 +209,11 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
           </dl>
         </div>
 
-        <div className="terminal-window hero-terminal" role="region" aria-label="Quick-start CLI commands">
+        <div
+          className="terminal-window hero-terminal hero-animate hero-delay-6"
+          role="region"
+          aria-label="Quick-start CLI commands"
+        >
           <div className="terminal-header">
             <div className="terminal-dots" aria-hidden="true">
               <span className="terminal-dot terminal-dot-active" />

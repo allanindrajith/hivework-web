@@ -1,53 +1,138 @@
-# hivework-web
+# Hivework Web
 
-Source for [hivework.online](https://hivework.online): a static Vite + React site that lists the Hivework agents, skills, employees and runbooks, and builds copy-paste install commands for the installer in [allanindrajith/hivework](https://github.com/allanindrajith/hivework).
+> The official web operator hub for [Hivework](https://hivework.online) — One canonical AI workforce across every coding harness.
 
-## Requirements
+[![Live Website](https://img.shields.io/badge/Live-hivework.online-f59e0b?style=flat-square&logo=google-chrome&logoColor=white)](https://hivework.online)
+[![Test Suite](https://img.shields.io/badge/Tests-49%20Passing-emerald?style=flat-square&logo=vitest&logoColor=white)](https://github.com/allanindrajith/hivework-web)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-MIT-zinc?style=flat-square)](LICENSE)
 
-- Node 22.12+ or 24+ (required by Vitest 5)
-- npm
-- For `npm run sync` only: a checkout of the main `hivework` repo
+---
 
-## Quick start
+## About Hivework
 
-```bash
-npm ci        # install dependencies
-npm test      # unit and component tests
-npm run dev   # local dev server
-npm run build # type-check, bundle to dist/, verify relative asset paths
+**Hivework Web** is the open-source client application powering [hivework.online](https://hivework.online). It serves as the live catalog, discovery engine, and interactive installation hub for the Hivework AI workforce repository ([allanindrajith/hivework](https://github.com/allanindrajith/hivework)).
+
+Instead of maintaining brittle, monolithic prompts that collapse across large codebases, Hivework defines specialized, version-controlled Markdown personas, modular `SKILL.md` workflows, and context-isolated Goldfish reviewers that compile natively into every major AI developer harness.
+
+### Catalog Totals (Verified)
+
+| Metric | Count | Description |
+|---|---|---|
+| **Specialized Agents** | `345` | Role-specific Markdown personas across software engineering, architecture, QA, security, and game development |
+| **Workforce Divisions** | `18` | Structured departments ensuring clean task boundaries and domain mastery |
+| **Modular Skills** | `25` | Reusable cross-tool `SKILL.md` procedural recipes |
+| **AI Employees** | `8` | Autonomous end-to-end multi-agent personas |
+| **Goldfish Reviewers** | `10` | Fresh-context, zero-bias code reviewers |
+| **Supported Harnesses** | `17` | Claude Code, Cursor, Antigravity, Codex, OpenCode, Gemini CLI, Copilot, and 10+ local tools |
+
+---
+
+## Core Features
+
+- **Interactive Model Matrix**: Live compatibility matrix filtering 17 AI developer harnesses by installation type, CLI flags, configuration paths, and supported formats.
+- **Workforce Explorer & Selection Cart**: Search and filter 345 agents across 18 divisions with pagination, live tag filtering, and a multi-agent cart that dynamically composes custom `./scripts/install.sh` installation commands.
+- **Modular Skills & Reviewers**: Directory of 25 cross-tool skills and 10 Goldfish review personas with direct GitHub repository links.
+- **Autonomous AI Employees**: Dedicated section for 8 autonomous employee roles (`hive-hire`).
+- **Apple-Grade Hardware-Accelerated Design**: Obsidian and Honeycomb Amber design system with GPU-composited 120Hz entrance sequences, ambient radial glows, and responsive terminal components.
+- **Desktop Companion App**: Built-in distribution and auto-update metadata channel for Hivework macOS app (`Hivework.dmg` with Sparkle/updater support).
+
+---
+
+## Design System & Craft
+
+Hivework Web follows a restrained, high-signal developer aesthetic:
+
+- **Color Palette**: Obsidian Canvas (`#0d0c0a`, `#171511`) accented with Honeycomb Amber (`#f59e0b`, `#fbbf24`, `#d97706`).
+- **Typography**: Inter for editorial legibility; JetBrains Mono / SF Mono for terminal commands, flags, and catalog metrics.
+- **Performance**: Zero runtime CSS animation libraries — all transitions run on GPU compositor layers (`translate3d`, `opacity`, `will-change`) with full support for `@media (prefers-reduced-motion: reduce)`.
+- **Preloader Sequence**: A non-blocking 2px amber laser progress indicator paired with a stepped 850ms element arrival cadence.
+
+---
+
+## Project Structure
+
+```text
+hivework-web/
+├── docs/                      # Architectural specs, audit reports & deploy guides
+│   ├── deploy-hivework-online.md
+│   ├── plans/
+│   └── specs/
+├── public/                    # Static public assets, downloads & updater config
+│   ├── downloads/             # Hivework macOS DMG and update bundles
+│   └── updater.json           # Sparkle auto-update feed
+├── scripts/                   # Catalog synchronization & deployment verifications
+│   ├── sync-catalog.mjs       # Extracts canonical data from main Hivework repo
+│   └── verify-dist.mjs        # Production asset integrity checker
+├── src/
+│   ├── components/            # React UI components
+│   │   ├── ContactFooter.tsx  # Direct creator contact & email forwarder
+│   │   ├── EmployeesSection.tsx # Autonomous AI employee cards
+│   │   ├── HeaderNav.tsx      # Clean-path navigational header
+│   │   ├── HeroSection.tsx    # Hero showcase with quick-start terminal
+│   │   ├── ModelMatrix.tsx    # 17-tool compatibility matrix
+│   │   ├── SkillsSection.tsx  # 25 skills and 10 Goldfish reviewers
+│   │   ├── StorySection.tsx   # Origin story and architecture breakdown
+│   │   └── WorkforceSection.tsx # Searchable 345-agent catalog
+│   ├── data/                  # Types, site config, and generated catalog
+│   │   └── catalog.generated.json
+│   ├── styles/                # CSS design system (tokens, landing, sections)
+│   └── __tests__/             # Vitest component & unit test suites
+└── vite.config.ts             # Vite configuration
 ```
 
-## Scripts
+---
 
-| Script | What it does |
+## Local Development
+
+### Requirements
+
+- Node.js 22.12+ or 24+
+- npm 10+
+- (Optional) Local clone of [allanindrajith/hivework](https://github.com/allanindrajith/hivework) for running catalog synchronizations
+
+### Quick Start
+
+```bash
+# 1. Install dependencies
+npm ci
+
+# 2. Run the test suite
+npm test
+
+# 3. Start local development server (http://localhost:5173)
+npm run dev
+
+# 4. Compile and verify production build
+npm run build
+```
+
+---
+
+## Scripts & Automation
+
+| Command | Description |
 |---|---|
-| `npm run dev` | Vite dev server |
-| `npm test` | Vitest, once |
-| `npm run test:coverage` | Vitest with V8 coverage |
-| `npm run build` | `tsc --noEmit`, `vite build`, then `scripts/verify-dist.mjs` |
-| `npm run sync` | Regenerates `src/data/catalog.generated.json` and copies the logos from the main repo |
-| `npm run sync:desktop` | Same as `sync`, and also copies the desktop DMG from `../Hivework-app` into `public/downloads/` |
-| `npm run deploy` | Tests, build, then `rsync --delete` of `dist/` to the `cpanel` SSH host. Overwrites the live site |
+| `npm run dev` | Starts Vite local development server with HMR |
+| `npm test` | Runs the full Vitest suite (49 unit and integration tests) |
+| `npm run test:coverage` | Generates V8 code coverage reports |
+| `npm run build` | Runs TypeScript type checking (`tsc --noEmit`), bundles with Vite, and runs `verify-dist.mjs` |
+| `npm run sync` | Pulls catalog metrics, agents, skills, and logos from the main `hivework` repository |
+| `npm run sync:desktop` | Synchronizes catalog data and copies updated macOS desktop builds from `../Hivework-app` |
+| `npm run deploy` | Runs tests, compiles dist, and deploys via `rsync` to live `cpanel` production host |
 
-## Syncing the catalog
+---
 
-The catalog is generated from the main repo. By default the script looks for it at `../Hivework` (capital H). Point it elsewhere with `HIVEWORK_REPO_ROOT`:
+## About the Author & Maintainer
 
-```bash
-git clone https://github.com/allanindrajith/hivework.git ../hivework
-HIVEWORK_REPO_ROOT=../hivework npm run sync
-```
+Designed, engineered, and maintained by **Allan Indrajith**.
 
-Sync from a commit that is already pushed. If the catalog lists agents or skills the public repo does not have yet, visitors get `Unknown agent` errors and dead GitHub links.
+- **Portfolio**: [itsallan.me](https://itsallan.me)
+- **Email**: [hello@itsallan.me](mailto:hello@itsallan.me) / [hello@hivework.online](mailto:hello@hivework.online)
+- **GitHub**: [@allanindrajith](https://github.com/allanindrajith)
 
-## Installer contract test
+---
 
-`src/__tests__/installerContract.test.ts` checks that every flag, tool, agent, skill, employee and runbook the site shows exists in the main repo. It is skipped unless `HIVEWORK_REPO_ROOT` is set. Run it before every deploy:
+## License
 
-```bash
-HIVEWORK_REPO_ROOT=../hivework npm run deploy
-```
-
-## Deploying
-
-See [docs/deploy-hivework-online.md](docs/deploy-hivework-online.md).
+MIT © [Allan Indrajith](https://itsallan.me)
