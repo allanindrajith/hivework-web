@@ -1,5 +1,7 @@
 # Hivework (`hivework.online`) Landing Page Design Specification
 
+> **Historical — do not execute.** Written when the site lived in `app/` inside the main Hivework repo. Paths like `app/src/…` and the `git add app/…` steps no longer exist. For current setup see `README.md`.
+
 ## Overview
 
 Build the official static landing page for **Hivework** (`https://hivework.online`) inside `app/`, compiling into a self-contained Namecheap upload folder (`app/dist/`) using relative `./` asset paths so it never lives at or pollutes the repository root or Namecheap `public_html/` root.

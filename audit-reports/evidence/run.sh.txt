@@ -1,0 +1,11 @@
+#!/bin/bash
+# usage: run.sh <id> <home-name> <cwd> <command string>
+SB="$(cd "$(dirname "$0")" && pwd)"
+id="$1"; home="$SB/homes/$2"; cwd="$3"; shift 3
+mkdir -p "$home" "$SB/logs"
+log="$SB/logs/$id.log"
+( cd "$cwd" && env -i HOME="$home" PATH="/private/tmp/claude-501/-Users-allanindrajith-AI-hackathon-Hivework-web/5b3c602d-139d-4720-906a-5499b7b61edd/scratchpad/sandbox/shim:/usr/bin:/bin:/usr/sbin:/sbin" TERM=dumb NO_COLOR=1 LANG=en_US.UTF-8 TMPDIR="/private/tmp/claude-501/-Users-allanindrajith-AI-hackathon-Hivework-web/5b3c602d-139d-4720-906a-5499b7b61edd/scratchpad/sandbox/tmp" GIT_TERMINAL_PROMPT=0 /bin/bash -c "$*" ) >"$log" 2>&1 </dev/null
+rc=$?
+grep -v "xcrun_db\|trust settings" "$log" > "$log.tmp"; mv "$log.tmp" "$log"
+printf '### %s | exit=%s | lines=%s | $ %s\n' "$id" "$rc" "$(wc -l <"$log" | tr -d ' ')" "$*"
+tail -n "${TAILN:-6}" "$log" | cut -c1-220

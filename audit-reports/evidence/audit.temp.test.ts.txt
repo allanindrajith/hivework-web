@@ -1,0 +1,84 @@
+// TEMPORARY audit tests — live only in the sandbox copy, never in the original repo.
+import fs from 'node:fs';
+import path from 'node:path';
+import { describe, expect, it } from 'vitest';
+import catalog from '../data/catalog.generated.json';
+import { buildInstallCommand } from '../lib/cliBuilder';
+import { resolveSectionFromPath } from '../lib/navigation';
+
+const PUBLIC = process.env.AUDIT_PUBLIC_CLONE as string;
+const read = (p: string) => fs.readFileSync(path.resolve(__dirname, '..', p), 'utf8');
+const installer = fs.readFileSync(path.join(PUBLIC, 'scripts/install.sh'), 'utf8');
+const usage = installer.slice(installer.indexOf('USAGE-START'), installer.indexOf('USAGE-END'));
+const supported = new Set(usage.match(/--[a-z][a-z-]+/g));
+
+describe('AUDIT contract: site-emitted commands vs real installer', () => {
+  it('A1 every install.sh flag hardcoded in components is a real installer flag', () => {
+    const files = fs.readdirSync(path.resolve(__dirname, '../components')).map((f) => read(`components/${f}`));
+    const emitted = new Set<string>();
+    for (const src of files) for (const m of src.matchAll(/install\.sh((?:\s+--[a-z-]+(?:\s+[a-z-]+)?)+)/g))
+      for (const f of m[1].match(/--[a-z-]+/g) ?? []) emitted.add(f);
+    const unknown = [...emitted].filter((f) => !supported.has(f));
+    expect(unknown).toEqual([]);
+  });
+  it('A2 every flag cliBuilder can emit is a real installer flag', () => {
+    const cmd = buildInstallCommand({ tool: 'x', division: 'y', agents: ['z'], skills: true, link: true, dryRun: true, noInteractive: true });
+    expect((cmd.match(/--[a-z-]+/g) ?? []).filter((f) => !supported.has(f))).toEqual([]);
+  });
+  it('A3 every catalog tool kebab is accepted by the installer', () => {
+    const m = installer.match(/ALL_TOOLS=\(([^)]*)\)/);
+    const tools = new Set((m?.[1] ?? '').split(/\s+/).filter(Boolean));
+    expect(tools.size).toBeGreaterThan(0);
+    expect(catalog.tools.map((t) => t.kebab).filter((k) => !tools.has(k))).toEqual([]);
+  });
+  it('A4 every agent path linked from the site exists in the public repo', () => {
+    const missing = catalog.divisions.flatMap((d) => d.agents).filter((a) => !fs.existsSync(path.join(PUBLIC, a.path)));
+    expect(missing.length).toBe(0);
+  });
+  it('A5 every skill linked from the site exists in the public repo', () => {
+    expect(catalog.skills.filter((s) => !fs.existsSync(path.join(PUBLIC, s.path))).map((s) => s.slug)).toEqual([]);
+  });
+  it('A6 every employee advertised on the site exists in the public repo', () => {
+    expect(catalog.employees.filter((e) => !fs.existsSync(path.join(PUBLIC, e.path))).map((e) => e.slug)).toEqual([]);
+  });
+  it('A7 runbook docs and runbook agents exist in the public repo', () => {
+    const slugs = new Set(catalog.divisions.flatMap((d) => d.agents).filter((a) => fs.existsSync(path.join(PUBLIC, a.path))).map((a) => a.slug));
+    const bad = catalog.runbooks.flatMap((r) => r.roster.flatMap((g) => g.agents)).filter((a) => !slugs.has(a));
+    expect(bad).toEqual([]);
+    expect(catalog.runbooks.filter((r) => !fs.existsSync(path.join(PUBLIC, r.doc))).map((r) => r.slug)).toEqual([]);
+  });
+});
+
+describe('AUDIT cliBuilder edge cases', () => {
+  it('B1 bootstrap cd target follows a custom repo URL', () => {
+    expect(buildInstallCommand({ mode: 'bootstrap', repoUrl: 'https://github.com/someone/my-fork' })).toContain('cd my-fork');
+  });
+  it('B2 shell metacharacters in an agent slug are not emitted raw', () => {
+    expect(buildInstallCommand({ agents: ['x; echo pwned'] })).not.toContain('; echo pwned');
+  });
+  it('B3 whitespace-only agents produce no --agent flag', () => {
+    expect(buildInstallCommand({ agents: ['  ', ''] })).toBe('./scripts/install.sh');
+  });
+});
+
+describe('AUDIT hardcoded marketing numbers vs catalog', () => {
+  const html = fs.readFileSync(path.resolve(__dirname, '../../index.html'), 'utf8');
+  it('C1 index.html agent/division/employee/skill counts match catalog totals', () => {
+    expect(html).toContain(`${catalog.totals.agents} Autonomous AI Agents across ${catalog.totals.divisions} Divisions & ${catalog.totals.employees} AI Employees`);
+    expect(html).toContain(`${catalog.totals.skills} modular skills`);
+  });
+  it('C2 index.html harness count matches catalog tools', () => {
+    expect(html).toContain(`${catalog.totals.tools}+ AI developer harnesses`);
+  });
+  it('C3 updater.json notes agree with catalog agent total', () => {
+    const u = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../public/updater.json'), 'utf8'));
+    expect(u.notes).toContain(String(catalog.totals.agents));
+  });
+});
+
+describe('AUDIT routing', () => {
+  it('D1 trailing slash and unknown paths resolve', () => {
+    expect(resolveSectionFromPath('/agents/')).toBe('workforce');
+    expect(resolveSectionFromPath('/nope')).toBe('hero');
+  });
+});

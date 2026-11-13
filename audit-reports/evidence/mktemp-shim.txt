@@ -1,0 +1,6 @@
+#!/bin/sh
+# Audit shim: macOS bare `mktemp` ignores TMPDIR and writes to /var/folders, which the audit sandbox denies.
+d=""; t=""
+for a in "$@"; do case "$a" in -d) d="-d";; -*) ;; *) t="$a";; esac; done
+[ -n "$t" ] || t="${TMPDIR:-/tmp}/tmp.XXXXXXXX"
+exec /usr/bin/mktemp $d "$t"

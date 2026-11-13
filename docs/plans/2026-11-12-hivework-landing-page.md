@@ -1,5 +1,7 @@
 # Hivework (`hivework.online`) Landing Page Implementation Plan
 
+> **Historical — do not execute.** Written when the site lived in `app/` inside the main Hivework repo. Paths like `app/src/…` and the `git add app/…` steps no longer exist. For current setup see `README.md`.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Build the static Hivework landing page (`https://hivework.online`) inside `app/`, compiled into a self-contained Namecheap-ready upload folder (`app/dist/`) showcasing the story, all 17 AI harness connections, 18 divisions, `itsallan.me`, and `hello@hivework.online` → `hello@itsallan.me`.
