@@ -1485,3 +1485,117 @@
   flex-shrink: 0;
 }
 
+/* ==========================================================================
+   Pagination & Standalone Runbooks Styling
+   ========================================================================== */
+
+.pagination-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--hairline);
+}
+
+@media (min-width: 640px) {
+  .pagination-bar {
+    flex-direction: row;
+  }
+}
+
+.pagination-count-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--body);
+}
+
+.pagination-count-text strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.pagination-page-indicator {
+  padding: 3px 8px;
+  background: var(--canvas-soft);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  color: var(--ink);
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.pagination-pages-list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pagination-page-btn,
+.pagination-nav-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--canvas-soft);
+  color: var(--body);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pagination-page-btn {
+  min-width: 34px;
+  padding: 6px 8px;
+}
+
+.pagination-page-btn:hover:not(:disabled),
+.pagination-nav-btn:hover:not(:disabled) {
+  border-color: var(--primary-deep);
+  color: var(--ink-strong);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.pagination-page-btn-active {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+}
+
+.pagination-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.runbooks-standalone-section {
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
+  border-top: 1px solid var(--hairline);
+}
+
+.runbooks-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+

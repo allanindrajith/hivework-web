@@ -11,7 +11,9 @@ import {
   UserCheck,
 } from 'lucide-react';
 import type { EmployeeEntry } from '../data/types';
+import { buildInstallCommand } from '../lib/cliBuilder';
 import { copyText } from '../lib/clipboard';
+import { PaginationBar } from './PaginationBar';
 import '../styles/sections.css';
 
 export interface EmployeesSectionProps {
@@ -21,8 +23,25 @@ export interface EmployeesSectionProps {
 
 const DEFAULT_REPO_URL = 'https://github.com/allanindrajith/hivework';
 
+// install.sh has no single-skill flag: `--skills` installs every modular skill, hive-hire included.
+const HIRE_INSTALL_COMMAND = buildInstallCommand({ skills: true });
+
+const PRIORITY_EMPLOYEE_SLUGS = [
+  'chief-of-staff',
+  'web-dev-employee',
+  'gtm-engineer',
+  'ad-manager-employee',
+  'customer-satisfaction-employee',
+  'sales-employee',
+  'seo-aeo-employee',
+  'social-media-employee',
+];
+
+const EMPLOYEES_PER_PAGE = 6;
+
 export function EmployeesSection({ employees, repoUrl }: EmployeesSectionProps) {
   const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
   const [copiedSlug, setCopiedSlug] = useState<string | null>(null);
   const [copiedInstaller, setCopiedInstaller] = useState(false);
   const resetTimerRef = useRef<number | null>(null);
@@ -35,18 +54,39 @@ export function EmployeesSection({ employees, repoUrl }: EmployeesSectionProps) 
     };
   }, []);
 
+  const trimmedQuery = searchQuery.trim().toLowerCase();
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [trimmedQuery]);
+
   const filteredEmployees = useMemo(() => {
-    const q = searchQuery.trim().toLowerCase();
-    if (!q) return employees;
+    if (!trimmedQuery) return employees;
     return employees.filter(
       (emp) =>
-        emp.name.toLowerCase().includes(q) ||
-        emp.role.toLowerCase().includes(q) ||
-        emp.objective.toLowerCase().includes(q) ||
-        emp.slug.toLowerCase().includes(q) ||
-        emp.routines.some((r) => r.toLowerCase().includes(q))
+        emp.name.toLowerCase().includes(trimmedQuery) ||
+        emp.role.toLowerCase().includes(trimmedQuery) ||
+        emp.objective.toLowerCase().includes(trimmedQuery) ||
+        emp.slug.toLowerCase().includes(trimmedQuery) ||
+        emp.routines.some((r) => r.toLowerCase().includes(trimmedQuery))
     );
-  }, [employees, searchQuery]);
+  }, [employees, trimmedQuery]);
+
+  const sortedEmployees = useMemo(() => {
+    if (trimmedQuery) return filteredEmployees;
+    return [...filteredEmployees].sort((a, b) => {
+      const aIdx = PRIORITY_EMPLOYEE_SLUGS.indexOf(a.slug);
+      const bIdx = PRIORITY_EMPLOYEE_SLUGS.indexOf(b.slug);
+      return (aIdx === -1 ? 999 : aIdx) - (bIdx === -1 ? 999 : bIdx);
+    });
+  }, [filteredEmployees, trimmedQuery]);
+
+  const totalPages = Math.ceil(sortedEmployees.length / EMPLOYEES_PER_PAGE) || 1;
+
+  const paginatedEmployees = useMemo(() => {
+    const start = (currentPage - 1) * EMPLOYEES_PER_PAGE;
+    return sortedEmployees.slice(start, start + EMPLOYEES_PER_PAGE);
+  }, [sortedEmployees, currentPage]);
 
   const handleCopyHire = async (slug: string) => {
     if (resetTimerRef.current !== null) {
@@ -54,8 +94,7 @@ export function EmployeesSection({ employees, repoUrl }: EmployeesSectionProps) 
       resetTimerRef.current = null;
     }
 
-    const command = `./scripts/install.sh --skill hive-hire`;
-    const ok = await copyText(command);
+    const ok = await copyText(HIRE_INSTALL_COMMAND);
     if (ok) {
       setCopiedSlug(slug);
       resetTimerRef.current = window.setTimeout(() => {
@@ -71,8 +110,7 @@ export function EmployeesSection({ employees, repoUrl }: EmployeesSectionProps) 
       resetTimerRef.current = null;
     }
 
-    const command = `./scripts/install.sh --skill hive-hire`;
-    const ok = await copyText(command);
+    const ok = await copyText(HIRE_INSTALL_COMMAND);
     if (ok) {
       setCopiedInstaller(true);
       resetTimerRef.current = window.setTimeout(() => {
@@ -108,8 +146,8 @@ export function EmployeesSection({ employees, repoUrl }: EmployeesSectionProps) 
             </div>
             <h3 className="employee-hire-title">Hire employees with the hive-hire skill</h3>
             <p className="employee-hire-desc">
-              Run <code className="inline-code">./scripts/install.sh --skill hive-hire</code> to install
-              the universal hiring manager into Claude Code, Cursor, Codex, OpenCode, or Antigravity,
+              Run <code className="inline-code">{HIRE_INSTALL_COMMAND}</code> to install
+              the universal hiring manager into Claude Code, Codex, Antigravity, Osaurus, or DSH,
               then invoke <code className="inline-code">/hive-hire &lt;slug&gt;</code> to deploy.
             </p>
           </div>
@@ -121,7 +159,7 @@ export function EmployeesSection({ employees, repoUrl }: EmployeesSectionProps) 
               aria-label="Copy hive-hire install command"
             >
               {copiedInstaller ? <Check size={14} aria-hidden="true" /> : <Copy size={14} aria-hidden="true" />}
-              <span>{copiedInstaller ? 'Copied' : './scripts/install.sh --skill hive-hire'}</span>
+              <span>{copiedInstaller ? 'Copied' : HIRE_INSTALL_COMMAND}</span>
             </button>
             <a
               href={`${effectiveRepo}/blob/main/skills/hive-hire/SKILL.md`}
@@ -149,11 +187,11 @@ export function EmployeesSection({ employees, repoUrl }: EmployeesSectionProps) 
             />
           </div>
           <p className="workforce-count">
-            Showing {filteredEmployees.length} of {employees.length} employees
+            Showing {filteredEmployees.length} of {employees.length} employees · Page {currentPage} of {totalPages}
           </p>
         </div>
 
-        {filteredEmployees.length === 0 ? (
+        {sortedEmployees.length === 0 ? (
           <div className="workforce-empty hairline-card">
             <p className="workforce-empty-title">No employees match &ldquo;{searchQuery}&rdquo;</p>
             <p className="workforce-empty-body">
@@ -168,85 +206,97 @@ export function EmployeesSection({ employees, repoUrl }: EmployeesSectionProps) 
             </button>
           </div>
         ) : (
-          <div className="grid-responsive workforce-grid employees-grid">
-            {filteredEmployees.map((emp) => {
-              const isCopied = copiedSlug === emp.slug;
-              return (
-                <article key={emp.slug} className="hairline-card employee-card" aria-labelledby={`emp-title-${emp.slug}`}>
-                  <div className="employee-card-header">
-                    <div className="employee-title-group">
-                      <div className="employee-avatar">
-                        <Briefcase size={18} aria-hidden="true" />
+          <>
+            <div className="grid-responsive workforce-grid employees-grid">
+              {paginatedEmployees.map((emp) => {
+                const isCopied = copiedSlug === emp.slug;
+                return (
+                  <article key={emp.slug} className="hairline-card employee-card" aria-labelledby={`emp-title-${emp.slug}`}>
+                    <div className="employee-card-header">
+                      <div className="employee-title-group">
+                        <div className="employee-avatar">
+                          <Briefcase size={18} aria-hidden="true" />
+                        </div>
+                        <div>
+                          <h3 id={`emp-title-${emp.slug}`} className="employee-card-name">
+                            {emp.name}
+                          </h3>
+                          <p className="employee-card-role">{emp.role}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 id={`emp-title-${emp.slug}`} className="employee-card-name">
-                          {emp.name}
-                        </h3>
-                        <p className="employee-card-role">{emp.role}</p>
+                      <span className="pill-badge employee-version-badge">v{emp.version}</span>
+                    </div>
+
+                    <div className="employee-objective-box">
+                      <p className="employee-objective-label">OBJECTIVE</p>
+                      <p className="employee-objective-text">{emp.objective}</p>
+                    </div>
+
+                    <div className="employee-cadence-row">
+                      <div className="employee-cadence-item">
+                        <Clock size={12} aria-hidden="true" />
+                        <span>Standup: <code className="inline-code">{emp.standup}</code></span>
+                      </div>
+                      <div className="employee-cadence-item">
+                        <UserCheck size={12} aria-hidden="true" />
+                        <span>Reviewer: <code className="inline-code">{emp.reviewer}</code></span>
                       </div>
                     </div>
-                    <span className="pill-badge employee-version-badge">v{emp.version}</span>
-                  </div>
 
-                  <div className="employee-objective-box">
-                    <p className="employee-objective-label">OBJECTIVE</p>
-                    <p className="employee-objective-text">{emp.objective}</p>
-                  </div>
-
-                  <div className="employee-cadence-row">
-                    <div className="employee-cadence-item">
-                      <Clock size={12} aria-hidden="true" />
-                      <span>Standup: <code className="inline-code">{emp.standup}</code></span>
+                    <div className="employee-routines-box">
+                      <div className="employee-routines-header">
+                        <span className="employee-routines-count">{emp.routineCount} Automated Routines</span>
+                      </div>
+                      <div className="employee-routine-chips">
+                        {emp.routines.slice(0, 4).map((routine) => (
+                          <span key={routine} className="employee-routine-chip">
+                            {routine}
+                          </span>
+                        ))}
+                        {emp.routines.length > 4 ? (
+                          <span className="employee-routine-chip employee-routine-more">
+                            +{emp.routines.length - 4} more
+                          </span>
+                        ) : null}
+                      </div>
                     </div>
-                    <div className="employee-cadence-item">
-                      <UserCheck size={12} aria-hidden="true" />
-                      <span>Reviewer: <code className="inline-code">{emp.reviewer}</code></span>
-                    </div>
-                  </div>
 
-                  <div className="employee-routines-box">
-                    <div className="employee-routines-header">
-                      <span className="employee-routines-count">{emp.routineCount} Automated Routines</span>
-                    </div>
-                    <div className="employee-routine-chips">
-                      {emp.routines.slice(0, 4).map((routine) => (
-                        <span key={routine} className="employee-routine-chip">
-                          {routine}
-                        </span>
-                      ))}
-                      {emp.routines.length > 4 ? (
-                        <span className="employee-routine-chip employee-routine-more">
-                          +{emp.routines.length - 4} more
-                        </span>
-                      ) : null}
-                    </div>
-                  </div>
+                    <div className="employee-card-actions">
+                      <button
+                        type="button"
+                        className="btn-outline employee-hire-btn"
+                        onClick={() => handleCopyHire(emp.slug)}
+                        aria-label={`Copy hire command for ${emp.name}`}
+                      >
+                        {isCopied ? <Check size={14} aria-hidden="true" /> : <Terminal size={14} aria-hidden="true" />}
+                        <span>{isCopied ? 'Copied' : `Hire ${emp.slug}`}</span>
+                      </button>
 
-                  <div className="employee-card-actions">
-                    <button
-                      type="button"
-                      className="btn-outline employee-hire-btn"
-                      onClick={() => handleCopyHire(emp.slug)}
-                      aria-label={`Copy hire command for ${emp.name}`}
-                    >
-                      {isCopied ? <Check size={14} aria-hidden="true" /> : <Terminal size={14} aria-hidden="true" />}
-                      <span>{isCopied ? 'Copied' : `Hire ${emp.slug}`}</span>
-                    </button>
+                      <a
+                        href={`${effectiveRepo}/tree/main/${emp.path}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-outline employee-source-link"
+                        aria-label={`View ${emp.name} source on GitHub`}
+                      >
+                        <ExternalLink size={14} aria-hidden="true" />
+                      </a>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
 
-                    <a
-                      href={`${effectiveRepo}/tree/main/${emp.path}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-outline employee-source-link"
-                      aria-label={`View ${emp.name} source on GitHub`}
-                    >
-                      <ExternalLink size={14} aria-hidden="true" />
-                    </a>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+            <PaginationBar
+              currentPage={currentPage}
+              totalPages={totalPages}
+              totalItems={sortedEmployees.length}
+              itemsPerPage={EMPLOYEES_PER_PAGE}
+              itemLabel="employees"
+              onPageChange={setCurrentPage}
+              sectionId="employees"
+            />
+          </>
         )}
       </div>
     </section>

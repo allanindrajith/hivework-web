@@ -9,6 +9,7 @@ import { ModelMatrix } from './components/ModelMatrix';
 import { WorkforceSection } from './components/WorkforceSection';
 import { SkillsSection } from './components/SkillsSection';
 import { EmployeesSection } from './components/EmployeesSection';
+import { RunbooksSection } from './components/RunbooksSection';
 import { ContactFooter } from './components/ContactFooter';
 import { getSectionPath, resolveSectionFromPath } from './lib/navigation';
 import './styles/tokens.css';
@@ -69,8 +70,8 @@ export function App() {
         <ModelMatrix tools={catalog.tools} divisions={catalog.divisions} />
         <WorkforceSection
           divisions={catalog.divisions}
-          runbooks={catalog.runbooks}
           repoUrl={siteConfig.repoUrl}
+          includeRunbooks={false}
         />
         <SkillsSection
           skills={catalog.skills}
@@ -79,6 +80,10 @@ export function App() {
         />
         <EmployeesSection
           employees={catalog.employees}
+          repoUrl={siteConfig.repoUrl}
+        />
+        <RunbooksSection
+          runbooks={catalog.runbooks}
           repoUrl={siteConfig.repoUrl}
         />
         <StorySection totals={catalog.totals} site={siteConfig} />

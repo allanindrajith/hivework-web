@@ -3,6 +3,7 @@ import { ArrowRight, Check, Copy, ExternalLink, Terminal } from 'lucide-react';
 import type { CatalogTotals, CliCommandMode, SiteConfig } from '../data/types';
 import { useDesktopRelease } from '../hooks/useDesktopRelease';
 import { AppleLogo } from './icons/AppleLogo';
+import { buildBootstrapCommand } from '../lib/cliBuilder';
 import { copyText } from '../lib/clipboard';
 import { navigateToSection } from '../lib/navigation';
 import '../styles/landing.css';
@@ -62,7 +63,9 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
     QUICK_START_TABS.find((tab) => tab.id === activeTabId) ?? QUICK_START_TABS[0];
 
   const activeCommand =
-    cliMode === 'bootstrap' ? activeTab.bootstrapCommand : activeTab.localCommand;
+    cliMode === 'bootstrap'
+      ? buildBootstrapCommand(activeTab.localCommand, site.repoUrl)
+      : activeTab.localCommand;
 
   const repoHref =
     [site.repoUrl, site.githubUrl]

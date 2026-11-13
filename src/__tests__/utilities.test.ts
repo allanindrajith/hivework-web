@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { siteConfig } from '../data/site';
 import {
+  buildBootstrapCommand,
   buildGitHubBlobUrl,
   buildInstallCommand,
   buildRunbookCommand,
@@ -43,8 +44,39 @@ describe('cliBuilder', () => {
         noInteractive: true,
       })
     ).toBe(
-      'git clone https://github.com/allanindrajith/hivework.git && cd hivework && ./scripts/install.sh --tool claude-code --agent hive-ai-engineer,hive-backend-architect --skills --no-interactive'
+      '([ -d ~/hivework ] && git -C ~/hivework pull --ff-only || git clone https://github.com/allanindrajith/hivework.git ~/hivework) && ~/hivework/scripts/install.sh --tool claude-code --agent hive-ai-engineer,hive-backend-architect --skills --no-interactive'
     );
+  });
+
+  it('bootstrap runs the script by path so project-scoped tools install into the current folder', () => {
+    const cmd = buildInstallCommand({ mode: 'bootstrap', tool: 'cursor' });
+    expect(cmd).not.toContain('cd ');
+    expect(cmd).toMatch(/&& ~\/hivework\/scripts\/install\.sh --tool cursor$/);
+  });
+
+  it('bootstrap is re-runnable: pulls when the clone exists, clones otherwise', () => {
+    const cmd = buildInstallCommand({ mode: 'bootstrap' });
+    expect(cmd).toContain('[ -d ~/hivework ] && git -C ~/hivework pull --ff-only');
+    expect(cmd).toContain('|| git clone https://github.com/allanindrajith/hivework.git ~/hivework');
+  });
+
+  it('bootstrap clone folder follows a custom repo URL', () => {
+    const cmd = buildInstallCommand({ mode: 'bootstrap', repoUrl: 'https://github.com/someone/my-fork.git/' });
+    expect(cmd).toContain('git clone https://github.com/someone/my-fork.git ~/my-fork');
+    expect(cmd).toContain('~/my-fork/scripts/install.sh');
+  });
+
+  it('bootstrap wraps convert.sh and other repo scripts the same way', () => {
+    expect(buildBootstrapCommand('./scripts/convert.sh --parallel')).toBe(
+      '([ -d ~/hivework ] && git -C ~/hivework pull --ff-only || git clone https://github.com/allanindrajith/hivework.git ~/hivework) && ~/hivework/scripts/convert.sh --parallel'
+    );
+  });
+
+  it('drops slugs containing shell metacharacters instead of emitting them raw', () => {
+    expect(buildInstallCommand({ agents: ['x; echo pwned', 'hive-ok'] })).toBe(
+      './scripts/install.sh --agent hive-ok'
+    );
+    expect(buildInstallCommand({ tool: '$(rm -rf ~)', division: 'eng && ls' })).toBe('./scripts/install.sh');
   });
 
   it('builds GitHub blob deep links for skills and agent markdown files', () => {

@@ -178,6 +178,27 @@ describe('SkillsSection', () => {
     expect(screen.getByText('hive-design-critic')).toBeInTheDocument();
     expect(screen.queryByText('hive-brainstorm')).not.toBeInTheDocument();
   });
+
+  it('offers no CLI copy button on reviewer cards because install.sh cannot install reviewers', () => {
+    render(
+      <SkillsSection
+        skills={catalog.skills}
+        reviewers={catalog.reviewers}
+        repoUrl={siteConfig.repoUrl}
+      />
+    );
+
+    expect(
+      screen.queryByRole('button', { name: /Copy CLI command for hive-design-critic/i })
+    ).not.toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Open hive-design-critic on GitHub/i })).toHaveAttribute(
+      'href',
+      'https://github.com/allanindrajith/hivework/blob/main/agents/hive-design-critic.md'
+    );
+    expect(
+      screen.getByRole('button', { name: /Copy CLI command for hive-brainstorm/i })
+    ).toBeInTheDocument();
+  });
 });
 
 describe('EmployeesSection', () => {
@@ -200,7 +221,25 @@ describe('EmployeesSection', () => {
     const copyBtn = screen.getByRole('button', { name: /Copy hire command for GTM Engineer/i });
     fireEvent.click(copyBtn);
     await waitFor(() =>
-      expect(writeText).toHaveBeenCalledWith('./scripts/install.sh --skill hive-hire')
+      expect(writeText).toHaveBeenCalledWith('./scripts/install.sh --skills')
+    );
+  });
+
+  it('never emits the unsupported --skill flag and lists only skill-capable harnesses', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.assign(navigator, { clipboard: { writeText } });
+
+    const { container } = render(
+      <EmployeesSection employees={catalog.employees} repoUrl={siteConfig.repoUrl} />
+    );
+
+    expect(container.textContent).not.toMatch(/--skill\b(?!s)/);
+    expect(container.textContent).toContain('Claude Code, Codex, Antigravity, Osaurus, or DSH');
+    expect(container.textContent).not.toMatch(/Cursor|OpenCode/);
+
+    fireEvent.click(screen.getByRole('button', { name: /Copy hive-hire install command/i }));
+    await waitFor(() =>
+      expect(writeText).toHaveBeenCalledWith('./scripts/install.sh --skills')
     );
   });
 });
@@ -265,17 +304,33 @@ describe('ContactFooter', () => {
 });
 
 describe('App', () => {
-  it('composes all hub sections with clean path URLs (zero # hashes) and verified counts', () => {
+  it('composes all hub sections in the exact order of the navigation bar with clean path URLs', () => {
     const { container } = render(<App />);
 
-    expect(container.querySelector('#hero')).toBeInTheDocument();
-    expect(container.querySelector('#story')).toBeInTheDocument();
-    expect(container.querySelector('#model-matrix')).toBeInTheDocument();
-    expect(container.querySelector('#workforce')).toBeInTheDocument();
-    expect(container.querySelector('#skills')).toBeInTheDocument();
-    expect(container.querySelector('#employees')).toBeInTheDocument();
-    expect(container.querySelector('#runbooks')).toBeInTheDocument();
-    expect(container.querySelector('#contact')).toBeInTheDocument();
+    const expectedOrder = [
+      'hero',
+      'model-matrix',
+      'workforce',
+      'skills',
+      'employees',
+      'runbooks',
+      'story',
+      'contact',
+    ];
+
+    const elements = expectedOrder.map((id) => {
+      const el = container.querySelector(`#${id}`);
+      expect(el).toBeInTheDocument();
+      return el!;
+    });
+
+    // Verify DOM sequence follows navigation bar exactly
+    for (let i = 0; i < elements.length - 1; i++) {
+      expect(
+        elements[i].compareDocumentPosition(elements[i + 1]) &
+          Node.DOCUMENT_POSITION_FOLLOWING
+      ).toBeTruthy();
+    }
 
     const links = screen.getAllByRole('link');
     links.forEach((link) => {
@@ -283,5 +338,20 @@ describe('App', () => {
       expect(href).toBeTruthy();
       expect(href.startsWith('#')).toBe(false);
     });
+  });
+
+  it('paginates divisions, skills, and employees to 6 items per page with pager navigation', () => {
+    render(<App />);
+
+    // Workforce pager: 18 divisions across 3 pages (6 per page)
+    expect(screen.getByRole('navigation', { name: /Pagination for divisions/i })).toBeInTheDocument();
+    expect(screen.getAllByText(/Page 1 of 3/i).length).toBeGreaterThan(0);
+    const workforceNextBtn = screen.getAllByRole('button', { name: /Go to next page/i })[0];
+    fireEvent.click(workforceNextBtn);
+    expect(screen.getAllByText(/Page 2 of 3/i).length).toBeGreaterThan(0);
+
+    // Employees pager: 8 employees across 2 pages (6 on page 1, 2 on page 2)
+    expect(screen.getByRole('navigation', { name: /Pagination for employees/i })).toBeInTheDocument();
+    expect(screen.getAllByText(/Page 1 of 2/i).length).toBeGreaterThan(0);
   });
 });

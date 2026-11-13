@@ -2,27 +2,53 @@ import type { CliOptions } from '../data/types';
 
 const DEFAULT_CLI_REPO_URL = 'https://github.com/allanindrajith/hivework';
 
+// Catalog slugs are kebab-case. Anything else is dropped so a pasted command can never carry shell syntax.
+const SAFE_SLUG = /^[a-z0-9][a-z0-9-]*$/;
+
+function safeSlug(value: string | undefined): string | null {
+  const trimmed = (value ?? '').trim();
+  return SAFE_SLUG.test(trimmed) ? trimmed : null;
+}
+
+function normalizeRepoUrl(repoUrl?: string): string {
+  return (repoUrl || DEFAULT_CLI_REPO_URL).trim().replace(/\/+$/, '').replace(/\.git$/, '');
+}
+
 /**
- * Builds the `./scripts/install.sh` (or one-line git clone bootstrap) command string.
+ * Wraps a repo-relative script command (e.g. `./scripts/convert.sh --parallel`) in a one-liner that
+ * clones the repo to ~/<name> (or fast-forwards an existing clone) and runs the script by path.
+ * Running by path keeps the caller's working directory, so project-scoped tools (Cursor, OpenCode,
+ * Qwen, Aider, Windsurf) install into the user's project, and the command is safe to re-run.
+ */
+export function buildBootstrapCommand(scriptCommand: string, repoUrl?: string): string {
+  const cleanRepo = normalizeRepoUrl(repoUrl);
+  const repoName = cleanRepo.split('/').filter(Boolean).pop() || 'hivework';
+  const cloneDir = `~/${repoName}`;
+  const script = scriptCommand.replace(/^\.\//, `${cloneDir}/`);
+  return `([ -d ${cloneDir} ] && git -C ${cloneDir} pull --ff-only || git clone ${cleanRepo}.git ${cloneDir}) && ${script}`;
+}
+
+/**
+ * Builds the `./scripts/install.sh` (or one-line bootstrap) command string.
  * Deterministic flag ordering: --tool, --division, --agent, --skills, --link, --dry-run, --no-interactive
- * Omits --tool when tool is 'all' or omitted.
+ * Omits --tool when tool is 'all' or omitted. Drops any value that is not a plain kebab-case slug.
  */
 export function buildInstallCommand(opts: CliOptions = {}): string {
   const parts: string[] = ['./scripts/install.sh'];
 
-  if (opts.tool && opts.tool !== 'all') {
-    parts.push(`--tool ${opts.tool}`);
+  const tool = safeSlug(opts.tool);
+  if (tool && tool !== 'all') {
+    parts.push(`--tool ${tool}`);
   }
-  if (opts.division) {
-    parts.push(`--division ${opts.division}`);
+  const division = safeSlug(opts.division);
+  if (division) {
+    parts.push(`--division ${division}`);
   }
 
-  const agentList =
-    opts.agents && opts.agents.length > 0
-      ? Array.from(new Set(opts.agents.map((a) => a.trim()).filter(Boolean)))
-      : opts.agent && opts.agent.trim().length > 0
-        ? [opts.agent.trim()]
-        : [];
+  const rawAgents = opts.agents && opts.agents.length > 0 ? opts.agents : [opts.agent ?? ''];
+  const agentList = Array.from(
+    new Set(rawAgents.map(safeSlug).filter((slug): slug is string => slug !== null))
+  );
 
   if (agentList.length > 0) {
     parts.push(`--agent ${agentList.join(',')}`);
@@ -43,8 +69,7 @@ export function buildInstallCommand(opts: CliOptions = {}): string {
   const baseCmd = parts.join(' ');
 
   if (opts.mode === 'bootstrap') {
-    const cleanRepo = (opts.repoUrl || DEFAULT_CLI_REPO_URL).replace(/\/+$/, '').replace(/\.git$/, '');
-    return `git clone ${cleanRepo}.git && cd hivework && ${baseCmd}`;
+    return buildBootstrapCommand(baseCmd, opts.repoUrl);
   }
 
   return baseCmd;
@@ -74,7 +99,7 @@ export function buildRunbookCommand(
  * Builds a canonical GitHub blob URL for viewing a Markdown skill or agent source file.
  */
 export function buildGitHubBlobUrl(repoUrl: string, relativePath: string, branch = 'main'): string {
-  const base = (repoUrl || DEFAULT_CLI_REPO_URL).trim().replace(/\/+$/, '').replace(/\.git$/, '');
+  const base = normalizeRepoUrl(repoUrl);
   const cleanRel = relativePath.replace(/^\/+/, '');
   return `${base}/blob/${branch}/${cleanRel}`;
 }
