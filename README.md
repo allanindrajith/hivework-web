@@ -7,6 +7,12 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/License-MIT-zinc?style=flat-square)](LICENSE)
 
+<p align="center">
+  <a href="https://hivework.online" target="_blank">
+    <img src="docs/images/preview-hero.png" alt="Hivework Web Live Interface Preview" width="100%" style="border-radius: 8px;" />
+  </a>
+</p>
+
 ---
 
 ## About Hivework
@@ -36,6 +42,21 @@ Instead of maintaining brittle, monolithic prompts that collapse across large co
 - **Autonomous AI Employees**: Dedicated section for 8 autonomous employee roles (`hive-hire`).
 - **Apple-Grade Hardware-Accelerated Design**: Obsidian and Honeycomb Amber design system with GPU-composited 120Hz entrance sequences, ambient radial glows, and responsive terminal components.
 - **Desktop Companion App**: Built-in distribution and auto-update metadata channel for Hivework macOS app (`Hivework.dmg` with Sparkle/updater support).
+
+---
+
+## Live Interface Gallery
+
+Captured directly from [hivework.online](https://hivework.online):
+
+### 1. Interactive Model Matrix (17 AI Developer Harnesses)
+![Interactive Model Matrix](docs/images/preview-model-matrix.png)
+
+### 2. Workforce Explorer & Selection Cart (345 Specialized Agents)
+![Workforce Explorer](docs/images/preview-workforce.png)
+
+### 3. Autonomous AI Employees
+![Autonomous AI Employees](docs/images/preview-employees.png)
 
 ---
 
