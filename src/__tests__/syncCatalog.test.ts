@@ -121,7 +121,7 @@ describe('sync-catalog', () => {
       agents: 345,
       divisions: 18,
       tools: 17,
-      skills: 25,
+      skills: 24,
       reviewers: 10,
       runbooks: 12,
       employees: 8,
@@ -133,7 +133,7 @@ describe('sync-catalog', () => {
     expect(catalogData.divisions[0]).toHaveProperty('agents');
     expect(catalogData.divisions[0].agents.length).toBe(catalogData.divisions[0].agentCount);
     expect(catalogData.divisions[0].agents[0]).toHaveProperty('path');
-    expect(catalogData.skills).toHaveLength(25);
+    expect(catalogData.skills).toHaveLength(24);
     expect(catalogData.skills[0]).toMatchObject({
       slug: expect.stringMatching(/^hive-/),
       path: expect.stringMatching(/^skills\/hive-.*\/SKILL\.md$/),

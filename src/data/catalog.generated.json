@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-13T13:45:29.749Z",
+  "generatedAt": "2026-11-14T09:53:00.957Z",
   "totals": {
     "agents": 345,
     "divisions": 18,
     "tools": 17,
-    "skills": 25,
+    "skills": 24,
     "reviewers": 10,
     "runbooks": 12,
     "employees": 8
@@ -3276,7 +3276,7 @@
     {
       "slug": "hive-brainstorm",
       "name": "hive-brainstorm",
-      "description": "Interactive ideation and brainstorming skill for the Elephant & Goldfish Model (Hivework Review Model). Helps turn half-baked concepts into structured hypotheses via clarifying questions, review, and iterative refinement. Produces an RFC summary for human review or more detailed design with hive-draft.",
+      "description": "Interactive ideation and brainstorming skill for the Elephant & Hivework Reviewer Model (Hivework Review Model). Helps turn half-baked concepts into structured hypotheses via clarifying questions, review, and iterative refinement. Produces an RFC summary for human review or more detailed design with hive-draft.",
       "path": "skills/hive-brainstorm/SKILL.md"
     },
     {
@@ -3288,7 +3288,7 @@
     {
       "slug": "hive-draft",
       "name": "hive-draft",
-      "description": "Drafts a design document section-by-section using the concepts brief from hive-brainstorm (or user notes). This is the second step in the Elephant-Goldfish (Hivework Review Model) feature flow. Use when you are ready to write a design doc after aligning on requirements + solution.",
+      "description": "Drafts a design document section-by-section using the concepts brief from hive-brainstorm (or user notes). This is the second step in the Hivework Review Model feature flow. Use when you are ready to write a design doc after aligning on requirements + solution.",
       "path": "skills/hive-draft/SKILL.md"
     },
     {
@@ -3312,7 +3312,7 @@
     {
       "slug": "hive-hire",
       "name": "hive-hire",
-      "description": "Hire one of the eight open source Hivework AI Employees (GTM Engineer, SEO/AEO, Web Dev, Social Media, Ad Manager, Sales, Customer Satisfaction, Chief of Staff) into a local folder, prove it runs, and hand over its install prompt. Also answers which one to hire first, how a hired employee runs on a schedule, how to direct it, how it improves from corrections, and how to upgrade it. Use when the user says hire an employee, install an AI employee, set up the GTM Engineer, names one of the eight, or asks how Hivework AI Employees work. It copies files and runs self tests only. It registers no schedule and sends nothing.",
+      "description": "Hire one of the eight Hivework AI Employees (free for personal use: GTM Engineer, SEO/AEO, Web Dev, Social Media, Ad Manager, Sales, Customer Satisfaction, Chief of Staff) into a local folder, prove it runs, and hand over its install prompt. Also answers which one to hire first, how a hired employee runs on a schedule, how to direct it, how it improves from corrections, and how to upgrade it. Use when the user says hire an employee, install an AI employee, set up the GTM Engineer, names one of the eight, or asks how Hivework AI Employees work. It copies files and runs self tests only. It registers no schedule and sends nothing.",
       "path": "skills/hive-hire/SKILL.md"
     },
     {
@@ -3330,7 +3330,7 @@
     {
       "slug": "hive-resolve",
       "name": "hive-resolve",
-      "description": "The Elephant resolution skill. Ingests flat deficiency reports from concurrent Goldfish reviewers, applies automated fixes for PROPOSE FIX items via UI multiple-choice gates, and presents interactive negotiation/re-sync checkpoints.",
+      "description": "The Elephant resolution skill. Ingests flat deficiency reports from concurrent Hivework reviewers, applies automated fixes for PROPOSE FIX items via UI multiple-choice gates, and presents interactive negotiation/re-sync checkpoints.",
       "path": "skills/hive-resolve/SKILL.md"
     },
     {
@@ -3342,13 +3342,13 @@
     {
       "slug": "hive-review",
       "name": "hive-review",
-      "description": "Orchestrates the Hivework Goldfish Review Protocol. Used as part of the Hivework Review Model process to perform design document reviews. Executes five review phases: Initial Zoom Out Review, Comprehension Review, Design Critique, Intermediate Zoom Out Review, and Implementation Readiness.",
+      "description": "Orchestrates the Hivework Hivework Review Protocol. Used as part of the Hivework Review Model process to perform design document reviews. Executes five review phases: Initial Zoom Out Review, Comprehension Review, Design Critique, Intermediate Zoom Out Review, and Implementation Readiness.",
       "path": "skills/hive-review/SKILL.md"
     },
     {
       "slug": "hive-review-loop",
       "name": "hive-review-loop",
-      "description": "Executes the Antagonistic-Review process from the Elephant-Goldfish Model (Hivework Review Model) via an automated multi-agent review loop to audit documents against qualitative standards and structural templates, and automatically apply approved fixes. Use when reviewing design docs, READMEs, feature specifications, implementation plans, or verifying document completeness and tone.",
+      "description": "Executes the Antagonistic-Review process from the Hivework Review Model (Hivework Review Model) via an automated multi-agent review loop to audit documents against qualitative standards and structural templates, and automatically apply approved fixes. Use when reviewing design docs, READMEs, feature specifications, implementation plans, or verifying document completeness and tone.",
       "path": "skills/hive-review-loop/SKILL.md"
     },
     {
@@ -3356,12 +3356,6 @@
       "name": "hive-ruthless-advisor",
       "description": "Enforces the Advisor Persona & Critique Protocol — challenges assumptions first, bans sycophancy, rates confidence ([Certain]/[Likely]/[Guessing]), and delivers structured technical disagreements.",
       "path": "skills/hive-ruthless-advisor/SKILL.md"
-    },
-    {
-      "slug": "hive-scrapling",
-      "name": "hive-scrapling",
-      "description": "Scrape web pages using Scrapling with HTTP requests, stealth browsers, JavaScript rendering, browser actions, API response capture, concurrent spiders, and adaptive parsing. Use when asked to scrape, crawl, or extract data from websites; web_fetch fails; the site has anti-bot protections; write Python code to scrape/crawl; or write spiders.",
-      "path": "skills/hive-scrapling/SKILL.md"
     },
     {
       "slug": "hive-security-review",
@@ -3372,7 +3366,7 @@
     {
       "slug": "hive-security-scan",
       "name": "hive-security-scan",
-      "description": "Scan your AI agent configuration (.claude/, .agents/, or config directories) for security vulnerabilities, misconfigurations, and injection risks using AgentShield. Checks CLAUDE.md, settings.json, MCP servers, hooks, and agent definitions. Use when auditing a .claude/ directory — CLAUDE.md, settings.json, MCP servers, hooks, or agent definitions.",
+      "description": "Scan your AI agent configuration (.claude/, .agents/, or config directories) for security vulnerabilities, misconfigurations, and injection risks using Hivework Security Scan. Checks CLAUDE.md, settings.json, MCP servers, hooks, and agent definitions. Use when auditing a .claude/ directory — CLAUDE.md, settings.json, MCP servers, hooks, or agent definitions.",
       "path": "skills/hive-security-scan/SKILL.md"
     },
     {
@@ -3440,7 +3434,7 @@
     {
       "slug": "hive-inventive-catalyst",
       "name": "hive-inventive-catalyst",
-      "description": "Inventive problem-solving Goldfish persona applying TRIZ principles to identify and eliminate system-level contradictions without compromise.",
+      "description": "Inventive problem-solving Hivework review persona applying TRIZ principles to identify and eliminate system-level contradictions without compromise.",
       "path": "agents/hive-inventive-catalyst.md"
     },
     {
@@ -3458,7 +3452,7 @@
     {
       "slug": "hive-synthesizer",
       "name": "hive-synthesizer",
-      "description": "Intermediate Swarm Compiler and Aggregator coordinating parallel Goldfish reviewers, deduplicating findings, and compiling deliverable reports.",
+      "description": "Intermediate Swarm Compiler and Aggregator coordinating parallel Hivework reviewers, deduplicating findings, and compiling deliverable reports.",
       "path": "agents/hive-synthesizer.md"
     },
     {
@@ -3896,7 +3890,7 @@
       "name": "Ad Manager Employee",
       "role": "Paid acquisition",
       "version": "1.9.0",
-      "license": "MIT",
+      "license": "PolyForm-Noncommercial-1.0.0",
       "repository": "https://github.com/allanindrajith/hivework",
       "objective": "Qualified paid acquisition within the member budget",
       "standup": "ads-desk-standup",
@@ -3918,7 +3912,7 @@
       "name": "Chief of Staff",
       "role": "Oversight and strategy",
       "version": "1.9.0",
-      "license": "MIT",
+      "license": "PolyForm-Noncommercial-1.0.0",
       "repository": "https://github.com/allanindrajith/hivework",
       "objective": "Observed delivery and decisions that improve the business",
       "standup": "cos-fleet-reconcile",
@@ -3940,7 +3934,7 @@
       "name": "Customer Satisfaction Employee",
       "role": "Support and retention",
       "version": "1.9.0",
-      "license": "MIT",
+      "license": "PolyForm-Noncommercial-1.0.0",
       "repository": "https://github.com/allanindrajith/hivework",
       "objective": "Verified resolutions and fewer recurring customer problems",
       "standup": "csat-desk-standup",
@@ -3963,7 +3957,7 @@
       "name": "GTM Engineer",
       "role": "Go to market and launch",
       "version": "1.9.0",
-      "license": "MIT",
+      "license": "PolyForm-Noncommercial-1.0.0",
       "repository": "https://github.com/allanindrajith/hivework",
       "objective": "Qualified demand and completed launch milestones",
       "standup": "gtm-board-standup",
@@ -3986,7 +3980,7 @@
       "name": "Sales Employee",
       "role": "Pipeline and outreach",
       "version": "1.9.0",
-      "license": "MIT",
+      "license": "PolyForm-Noncommercial-1.0.0",
       "repository": "https://github.com/allanindrajith/hivework",
       "objective": "Qualified opportunities and evidenced pipeline movement",
       "standup": "sales-desk-standup",
@@ -4008,7 +4002,7 @@
       "name": "SEO/AEO Employee",
       "role": "Search, content and answer visibility",
       "version": "1.10.0",
-      "license": "MIT",
+      "license": "PolyForm-Noncommercial-1.0.0",
       "repository": "https://github.com/allanindrajith/hivework",
       "objective": "Qualified discovery, useful content and measurable answer visibility",
       "standup": "seo-standup",
@@ -4031,7 +4025,7 @@
       "name": "Social Media Employee",
       "role": "Audience and distribution",
       "version": "1.9.0",
-      "license": "MIT",
+      "license": "PolyForm-Noncommercial-1.0.0",
       "repository": "https://github.com/allanindrajith/hivework",
       "objective": "Useful audience response and qualified visits",
       "standup": "soc-calendar-standup",
@@ -4053,7 +4047,7 @@
       "name": "Web Dev Employee",
       "role": "Engineering and maintenance",
       "version": "1.9.0",
-      "license": "MIT",
+      "license": "PolyForm-Noncommercial-1.0.0",
       "repository": "https://github.com/allanindrajith/hivework",
       "objective": "Verified reliability and useful shipped improvements",
       "standup": "web-standup",

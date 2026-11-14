@@ -21,7 +21,7 @@ describe('HeaderNav, HeroSection, and StorySection', () => {
     expect(screen.getByText('345')).toBeInTheDocument();
     expect(screen.getByText('18')).toBeInTheDocument();
     expect(screen.getByText('17')).toBeInTheDocument();
-    expect(screen.getByText('25')).toBeInTheDocument();
+    expect(screen.getByText('24')).toBeInTheDocument();
     expect(screen.getByText('8')).toBeInTheDocument();
     expect(screen.getAllByRole('link', { name: /itsallan\.me/i }).length).toBeGreaterThan(0);
     expect(screen.queryByRole('link', { name: /Buy me a coffee/i })).not.toBeInTheDocument();

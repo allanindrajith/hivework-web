@@ -154,7 +154,7 @@ describe('WorkforceSection', () => {
 });
 
 describe('SkillsSection', () => {
-  it('renders 25 modular skills and 10 Goldfish reviewers with GitHub SKILL.md links and CLI copy', async () => {
+  it('renders 24 modular skills and 10 Goldfish reviewers with GitHub SKILL.md links and CLI copy', async () => {
     const writeText = vi.fn().mockResolvedValue(undefined);
     Object.assign(navigator, { clipboard: { writeText } });
 
