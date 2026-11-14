@@ -142,6 +142,36 @@ describe('HeaderNav, HeroSection, and StorySection', () => {
     );
   });
 
+  it('renders Windows SmartScreen notice with PowerShell and AI Agent Prompt options when Windows is selected in HeroSection', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.assign(navigator, { clipboard: { writeText } });
+
+    render(<HeroSection totals={catalog.totals} site={siteConfig} />);
+
+    const windowsTab = screen.getByRole('tab', { name: /^Windows$/i });
+    fireEvent.click(windowsTab);
+
+    expect(screen.getByText(/Windows SmartScreen/i)).toBeInTheDocument();
+    expect(screen.getByText(/Unblock-File/i)).toBeInTheDocument();
+
+    const copyPowerShellBtn = screen.getByRole('button', { name: /Copy PowerShell command/i });
+    fireEvent.click(copyPowerShellBtn);
+    await waitFor(() => expect(writeText).toHaveBeenCalledWith('Unblock-File .\\Hivework_0.4.0_x64-setup.exe'));
+
+    const agentTab = screen.getByRole('tab', { name: /AI Agent Prompt/i });
+    fireEvent.click(agentTab);
+
+    expect(screen.getByText(/Run the downloaded Hivework Windows installer/i)).toBeInTheDocument();
+
+    const copyAgentBtn = screen.getByRole('button', { name: /Copy AI Agent prompt/i });
+    fireEvent.click(copyAgentBtn);
+    await waitFor(() =>
+      expect(writeText).toHaveBeenCalledWith(
+        'Run the downloaded Hivework Windows installer (Hivework_0.4.0_x64-setup.exe). If Windows Defender SmartScreen blocks it, click "More info" and "Run anyway", or run "Unblock-File .\\Hivework_0.4.0_x64-setup.exe" in PowerShell.'
+      )
+    );
+  });
+
   it('displays origin story and Allan creator card with itsallan.me and hello@itsallan.me', () => {
     render(<StorySection totals={catalog.totals} site={siteConfig} />);
     expect(screen.getByText(/01\. Single-Prompt Drift/i)).toBeInTheDocument();

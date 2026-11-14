@@ -2,8 +2,14 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Bot, Check, Copy, Download, Terminal } from 'lucide-react';
 import type { CliCommandMode, DivisionEntry, ToolEntry } from '../data/types';
 import { useDesktopRelease } from '../hooks/useDesktopRelease';
-import { MAC_AGENT_INSTALL_PROMPT, MAC_QUARANTINE_CMD } from '../data/desktopRelease';
+import {
+  MAC_AGENT_INSTALL_PROMPT,
+  MAC_QUARANTINE_CMD,
+  WIN_AGENT_INSTALL_PROMPT,
+  WIN_UNBLOCK_CMD,
+} from '../data/desktopRelease';
 import { AppleLogo } from './icons/AppleLogo';
+import { WindowsLogo } from './icons/WindowsLogo';
 import { buildInstallCommand } from '../lib/cliBuilder';
 import { copyText } from '../lib/clipboard';
 import '../styles/sections.css';
@@ -43,13 +49,17 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
   const [dryRun, setDryRun] = useState<boolean>(false);
   const [cliMode, setCliMode] = useState<CliCommandMode>('local');
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'failed'>('idle');
+  const [matrixOS, setMatrixOS] = useState<'mac' | 'windows'>('mac');
   const [macMethod, setMacMethod] = useState<'terminal' | 'agent'>('terminal');
   const [quarantineCopied, setQuarantineCopied] = useState<boolean>(false);
   const [agentPromptCopied, setAgentPromptCopied] = useState<boolean>(false);
   const resetTimerRef = useRef<number | null>(null);
 
+  const currentUnblockCmd = matrixOS === 'mac' ? MAC_QUARANTINE_CMD : WIN_UNBLOCK_CMD;
+  const currentAgentPrompt = matrixOS === 'mac' ? MAC_AGENT_INSTALL_PROMPT : WIN_AGENT_INSTALL_PROMPT;
+
   const handleCopyQuarantine = async () => {
-    const success = await copyText(MAC_QUARANTINE_CMD);
+    const success = await copyText(currentUnblockCmd);
     if (success) {
       setQuarantineCopied(true);
       setTimeout(() => setQuarantineCopied(false), 2000);
@@ -57,7 +67,7 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
   };
 
   const handleCopyAgentPrompt = async () => {
-    const success = await copyText(MAC_AGENT_INSTALL_PROMPT);
+    const success = await copyText(currentAgentPrompt);
     if (success) {
       setAgentPromptCopied(true);
       setTimeout(() => setAgentPromptCopied(false), 2000);
@@ -178,24 +188,52 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
           ))}
         </div>
 
-        <aside className="matrix-download-card" aria-label="Hivework for macOS">
+        <aside className="matrix-download-card" aria-label="Hivework Desktop App">
           <div className="matrix-download-content">
             <div className="matrix-download-badge-row">
               <span className="pill-badge pill-badge-mac">
                 <AppleLogo size={13} aria-hidden="true" />
-                <span>macOS Desktop App</span>
+                <WindowsLogo size={13} aria-hidden="true" />
+                <span>macOS &amp; Windows Desktop App</span>
               </span>
-              <span className="matrix-download-version">{desktop.displayVersion} · Apple Silicon</span>
+              <span className="matrix-download-version">{desktop.displayVersion} · Universal &amp; x64</span>
             </div>
-            <h3 className="matrix-download-title">Prefer a native desktop GUI on your Mac?</h3>
+            <h3 className="matrix-download-title">Prefer a native desktop GUI on your Mac or Windows PC?</h3>
             <p className="matrix-download-desc">
               Download Hivework directly from GitHub Releases to visually inspect, configure, and switch between all {orderedTools.length} harnesses and the app&rsquo;s bundled agent personas—no terminal required.
             </p>
             <p className="matrix-download-desc">
-              Apple Silicon (M1+) and Intel macOS. Since Hivework is community-built without an Apple Developer certificate, macOS Gatekeeper blocks first launch. Move <code>Hivework.app</code> to <code>/Applications</code>, then bypass Gatekeeper:
+              {matrixOS === 'mac' ? (
+                <>Apple Silicon (M1+) and Intel macOS. Since Hivework is community-built without an Apple Developer certificate, macOS Gatekeeper blocks first launch. Move <code>Hivework.app</code> to <code>/Applications</code>, then bypass Gatekeeper:</>
+              ) : (
+                <>Windows 10/11 (x64 / ARM64). Since Hivework is community-built without an EV code signing certificate, Microsoft Defender SmartScreen prompts on first run. Click <code>More info</code> &rarr; <code>Run anyway</code>, or unblock via PowerShell:</>
+              )}
             </p>
             <div className="matrix-mac-guide">
-              <div className="matrix-mac-tabs" role="tablist" aria-label="macOS install method">
+              <div className="matrix-mac-tabs" role="tablist" aria-label="Platform and install method">
+                <div className="matrix-os-toggle" role="tablist" aria-label="Operating system selection">
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={matrixOS === 'mac'}
+                    className={`matrix-mac-tab-btn ${matrixOS === 'mac' ? 'active' : ''}`}
+                    onClick={() => { setMatrixOS('mac'); setMacMethod('terminal'); }}
+                  >
+                    <AppleLogo size={12} aria-hidden="true" />
+                    <span>macOS</span>
+                  </button>
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={matrixOS === 'windows'}
+                    className={`matrix-mac-tab-btn ${matrixOS === 'windows' ? 'active' : ''}`}
+                    onClick={() => { setMatrixOS('windows'); setMacMethod('terminal'); }}
+                  >
+                    <WindowsLogo size={12} aria-hidden="true" />
+                    <span>Windows</span>
+                  </button>
+                </div>
+
                 <button
                   type="button"
                   role="tab"
@@ -204,7 +242,7 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
                   onClick={() => setMacMethod('terminal')}
                 >
                   <Terminal size={12} aria-hidden="true" />
-                  <span>Terminal Command</span>
+                  <span>{matrixOS === 'mac' ? 'Terminal Command' : 'PowerShell Command'}</span>
                 </button>
                 <button
                   type="button"
@@ -220,13 +258,13 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
 
               {macMethod === 'terminal' ? (
                 <div className="matrix-quarantine-box">
-                  <code>{MAC_QUARANTINE_CMD}</code>
+                  <code>{currentUnblockCmd}</code>
                   <button
                     type="button"
                     className="matrix-quarantine-btn"
                     onClick={handleCopyQuarantine}
-                    title="Copy Terminal command"
-                    aria-label="Copy Terminal command"
+                    title={matrixOS === 'mac' ? 'Copy Terminal command' : 'Copy PowerShell command'}
+                    aria-label={matrixOS === 'mac' ? 'Copy Terminal command' : 'Copy PowerShell command'}
                   >
                     {quarantineCopied ? <Check size={12} aria-hidden="true" /> : <Copy size={12} aria-hidden="true" />}
                     <span>{quarantineCopied ? 'Copied' : 'Copy'}</span>
@@ -234,7 +272,7 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
                 </div>
               ) : (
                 <div className="matrix-quarantine-box matrix-agent-box">
-                  <code className="matrix-agent-code">{MAC_AGENT_INSTALL_PROMPT}</code>
+                  <code className="matrix-agent-code">{currentAgentPrompt}</code>
                   <button
                     type="button"
                     className="matrix-quarantine-btn"
@@ -260,6 +298,29 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
               <span>Download on GitHub</span>
               <span className="matrix-download-filetag">{desktop.displayVersion}</span>
             </a>
+            <div className="matrix-direct-downloads">
+              <a
+                href={desktop.dmgUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="matrix-platform-link"
+                title="Download Hivework for macOS"
+              >
+                <AppleLogo size={12} aria-hidden="true" />
+                <span>macOS (DMG)</span>
+              </a>
+              <span className="matrix-platform-sep" aria-hidden="true">·</span>
+              <a
+                href={desktop.windowsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="matrix-platform-link"
+                title="Download Hivework for Windows"
+              >
+                <WindowsLogo size={12} aria-hidden="true" />
+                <span>Windows (EXE)</span>
+              </a>
+            </div>
           </div>
         </aside>
 

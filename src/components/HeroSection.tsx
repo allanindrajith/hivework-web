@@ -2,8 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Bot, Check, Copy, ExternalLink, Terminal } from 'lucide-react';
 import type { CatalogTotals, CliCommandMode, SiteConfig } from '../data/types';
 import { useDesktopRelease } from '../hooks/useDesktopRelease';
-import { MAC_AGENT_INSTALL_PROMPT, MAC_QUARANTINE_CMD } from '../data/desktopRelease';
+import {
+  MAC_AGENT_INSTALL_PROMPT,
+  MAC_QUARANTINE_CMD,
+  WIN_AGENT_INSTALL_PROMPT,
+  WIN_UNBLOCK_CMD,
+} from '../data/desktopRelease';
 import { AppleLogo } from './icons/AppleLogo';
+import { WindowsLogo } from './icons/WindowsLogo';
 import { buildBootstrapCommand } from '../lib/cliBuilder';
 import { copyText } from '../lib/clipboard';
 import { navigateToSection } from '../lib/navigation';
@@ -54,6 +60,7 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
   const [activeTabId, setActiveTabId] = useState<QuickStartTabId>('install-all');
   const [cliMode, setCliMode] = useState<CliCommandMode>('local');
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'failed'>('idle');
+  const [activeOS, setActiveOS] = useState<'mac' | 'windows'>('mac');
   const [macNoticeMode, setMacNoticeMode] = useState<'terminal' | 'agent'>('terminal');
   const [macNoticeCopied, setMacNoticeCopied] = useState<boolean>(false);
   const resetTimerRef = useRef<number | null>(null);
@@ -108,10 +115,13 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
     }, 2400);
   };
 
+  const currentNoticeCommand =
+    activeOS === 'mac'
+      ? (macNoticeMode === 'terminal' ? MAC_QUARANTINE_CMD : MAC_AGENT_INSTALL_PROMPT)
+      : (macNoticeMode === 'terminal' ? WIN_UNBLOCK_CMD : WIN_AGENT_INSTALL_PROMPT);
+
   const handleCopyMacNotice = async () => {
-    const textToCopy =
-      macNoticeMode === 'terminal' ? MAC_QUARANTINE_CMD : MAC_AGENT_INSTALL_PROMPT;
-    const ok = await copyText(textToCopy);
+    const ok = await copyText(currentNoticeCommand);
     if (ok) {
       setMacNoticeCopied(true);
       window.setTimeout(() => setMacNoticeCopied(false), 2000);
@@ -167,13 +177,52 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
                 <AppleLogo size={14} aria-hidden="true" />
                 <span>macOS App ({desktop.displayVersion})</span>
               </a>
+              <a
+                href={desktop.windowsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline hero-win-btn"
+                title={`Download Hivework ${desktop.displayVersion} on GitHub Releases`}
+              >
+                <WindowsLogo size={14} aria-hidden="true" />
+                <span>Windows App ({desktop.displayVersion})</span>
+              </a>
             </div>
 
             <div className="hero-mac-notice hero-animate hero-delay-4" role="region" aria-label="macOS installation instructions">
               <div className="hero-mac-notice-header">
-                <span className="hero-mac-notice-badge">macOS Gatekeeper</span>
+                <div className="hero-os-toggle" role="tablist" aria-label="Desktop Operating System">
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={activeOS === 'mac'}
+                    className={`hero-os-toggle-btn ${activeOS === 'mac' ? 'active' : ''}`}
+                    onClick={() => setActiveOS('mac')}
+                  >
+                    <AppleLogo size={11} aria-hidden="true" />
+                    <span>macOS</span>
+                  </button>
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={activeOS === 'windows'}
+                    className={`hero-os-toggle-btn ${activeOS === 'windows' ? 'active' : ''}`}
+                    onClick={() => setActiveOS('windows')}
+                  >
+                    <WindowsLogo size={11} aria-hidden="true" />
+                    <span>Windows</span>
+                  </button>
+                </div>
+
+                <span className="hero-mac-notice-badge">
+                  {activeOS === 'mac' ? 'macOS Gatekeeper' : 'Windows SmartScreen'}
+                </span>
                 <span className="hero-mac-notice-text">
-                  Unsigned app? Move <code>Hivework.app</code> to <code>/Applications</code>, then:
+                  {activeOS === 'mac' ? (
+                    <>Unsigned app? Move <code>Hivework.app</code> to <code>/Applications</code>, then:</>
+                  ) : (
+                    <>Unsigned app? Click <code>More info</code> &rarr; <code>Run anyway</code>, or in PowerShell:</>
+                  )}
                 </span>
                 <div className="hero-mac-notice-tabs" role="tablist" aria-label="macOS install method">
                   <button
@@ -184,7 +233,7 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
                     onClick={() => setMacNoticeMode('terminal')}
                   >
                     <Terminal size={11} aria-hidden="true" />
-                    <span>Terminal</span>
+                    <span>{activeOS === 'mac' ? 'Terminal' : 'PowerShell'}</span>
                   </button>
                   <button
                     type="button"
@@ -201,14 +250,14 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
 
               <div className="hero-mac-notice-box">
                 <code>
-                  {macNoticeMode === 'terminal' ? MAC_QUARANTINE_CMD : MAC_AGENT_INSTALL_PROMPT}
+                  {currentNoticeCommand}
                 </code>
                 <button
                   type="button"
                   className="hero-mac-notice-copy-btn"
                   onClick={handleCopyMacNotice}
-                  title={`Copy ${macNoticeMode === 'terminal' ? 'Terminal command' : 'AI Agent prompt'}`}
-                  aria-label={`Copy ${macNoticeMode === 'terminal' ? 'Terminal command' : 'AI Agent prompt'}`}
+                  title={`Copy ${macNoticeMode === 'terminal' ? (activeOS === 'mac' ? 'Terminal command' : 'PowerShell command') : 'AI Agent prompt'}`}
+                  aria-label={`Copy ${macNoticeMode === 'terminal' ? (activeOS === 'mac' ? 'Terminal command' : 'PowerShell command') : 'AI Agent prompt'}`}
                 >
                   {macNoticeCopied ? <Check size={12} aria-hidden="true" /> : <Copy size={12} aria-hidden="true" />}
                   <span>{macNoticeCopied ? 'Copied' : 'Copy'}</span>

@@ -94,7 +94,9 @@
   font-size: 13px;
 }
 
-.header-mac-btn {
+.header-mac-btn,
+.header-win-btn,
+.header-desktop-btn {
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -104,23 +106,31 @@
   border-color: rgba(245, 158, 11, 0.4);
   color: var(--ink-strong);
   transition: all 0.15s ease;
+  white-space: nowrap;
 }
 
-.header-mac-btn:hover {
+.header-mac-btn:hover,
+.header-win-btn:hover,
+.header-desktop-btn:hover {
   border-color: var(--primary);
   color: var(--primary-soft);
   background-color: rgba(245, 158, 11, 0.08);
 }
 
-.hero-mac-btn {
+.hero-mac-btn,
+.hero-win-btn,
+.hero-desktop-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   border-color: rgba(245, 158, 11, 0.4);
   color: var(--primary-soft);
+  white-space: nowrap;
 }
 
-.hero-mac-btn:hover {
+.hero-mac-btn:hover,
+.hero-win-btn:hover,
+.hero-desktop-btn:hover {
   border-color: var(--primary);
   background-color: rgba(245, 158, 11, 0.08);
 }
@@ -297,6 +307,44 @@
   gap: var(--space-xs);
   font-size: 12px;
   color: var(--body);
+}
+
+.hero-os-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-xs);
+  padding: 1px;
+  gap: 2px;
+  margin-right: 2px;
+}
+
+.hero-os-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  border-radius: 3px;
+  color: var(--mute);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.hero-os-toggle-btn:hover {
+  color: var(--body);
+}
+
+.hero-os-toggle-btn.active,
+.hero-os-toggle-btn[aria-selected="true"] {
+  background: rgba(245, 158, 11, 0.2);
+  color: var(--primary-soft);
+  font-weight: 600;
 }
 
 .hero-mac-notice-header code {

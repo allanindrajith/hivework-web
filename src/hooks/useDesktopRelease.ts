@@ -19,6 +19,7 @@ export function useDesktopRelease(): DesktopReleaseInfo {
             version: raw,
             displayVersion: raw.startsWith('v') ? raw : `v${raw}`,
             dmgUrl: 'https://github.com/allanindrajith/hivework-app/releases/latest',
+            windowsUrl: 'https://github.com/allanindrajith/hivework-app/releases/latest',
           });
         }
       })

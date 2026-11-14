@@ -2,6 +2,7 @@ import { ExternalLink } from 'lucide-react';
 import type { SiteConfig } from '../data/types';
 import { useDesktopRelease } from '../hooks/useDesktopRelease';
 import { AppleLogo } from './icons/AppleLogo';
+import { WindowsLogo } from './icons/WindowsLogo';
 import { navigateToSection, type SectionId } from '../lib/navigation';
 import '../styles/landing.css';
 
@@ -90,6 +91,17 @@ export function HeaderNav({ site }: HeaderNavProps) {
           >
             <AppleLogo size={13} aria-hidden="true" />
             <span>macOS App</span>
+          </a>
+
+          <a
+            href={desktop.windowsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline header-win-btn"
+            title={`Download Hivework ${desktop.displayVersion} for Windows on GitHub Releases`}
+          >
+            <WindowsLogo size={13} aria-hidden="true" />
+            <span>Windows App</span>
           </a>
 
           <a

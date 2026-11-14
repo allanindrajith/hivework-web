@@ -63,13 +63,13 @@ describe('ModelMatrix', () => {
     await waitFor(() => expect(screen.getByText(/Copied/i)).toBeInTheDocument());
   });
 
-  it('renders direct macOS desktop app download CTA with link to GitHub releases', () => {
+  it('renders direct macOS and Windows desktop app download CTA with link to GitHub releases', () => {
     render(<ModelMatrix tools={catalog.tools} divisions={catalog.divisions} />);
 
     const downloadLink = screen.getByRole('link', { name: /Download on GitHub/i });
     expect(downloadLink).toBeInTheDocument();
     expect(downloadLink).toHaveAttribute('href', 'https://github.com/allanindrajith/hivework-app/releases/latest');
-    expect(screen.getByText(/Prefer a native desktop GUI on your Mac\?/i)).toBeInTheDocument();
+    expect(screen.getByText(/Prefer a native desktop GUI on your Mac or Windows PC\?/i)).toBeInTheDocument();
   });
 
   it('supports toggling between Terminal and AI Agent Prompt for macOS Gatekeeper bypass in ModelMatrix', async () => {
