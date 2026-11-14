@@ -11,5 +11,5 @@ const rawVersion = typeof updaterConfig?.version === 'string' ? updaterConfig.ve
 export const desktopRelease: DesktopReleaseInfo = {
   version: rawVersion,
   displayVersion: rawVersion.startsWith('v') ? rawVersion : `v${rawVersion}`,
-  dmgUrl: '/downloads/Hivework.dmg',
+  dmgUrl: 'https://github.com/allanindrajith/hivework-app/releases/latest',
 };

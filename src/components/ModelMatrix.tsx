@@ -42,7 +42,16 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
   const [dryRun, setDryRun] = useState<boolean>(false);
   const [cliMode, setCliMode] = useState<CliCommandMode>('local');
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'failed'>('idle');
+  const [quarantineCopied, setQuarantineCopied] = useState<boolean>(false);
   const resetTimerRef = useRef<number | null>(null);
+
+  const handleCopyQuarantine = async () => {
+    const success = await copyText('xattr -cr /Applications/Hivework.app');
+    if (success) {
+      setQuarantineCopied(true);
+      setTimeout(() => setQuarantineCopied(false), 2000);
+    }
+  };
 
   const counts = useMemo(() => {
     let perAgent = 0;
@@ -169,22 +178,35 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
             </div>
             <h3 className="matrix-download-title">Prefer a native desktop GUI on your Mac?</h3>
             <p className="matrix-download-desc">
-              Download Hivework directly to macOS to visually inspect, configure, and switch between all {orderedTools.length} harnesses and the app's bundled agent personas—no terminal required.
+              Download Hivework directly from GitHub Releases to visually inspect, configure, and switch between all {orderedTools.length} harnesses and the app&rsquo;s bundled agent personas—no terminal required.
             </p>
             <p className="matrix-download-desc">
-              Apple Silicon (M1 or later) only. The app is not notarized yet: on first launch, right-click
-              the app and choose Open, or allow it in System Settings → Privacy &amp; Security.
+              Apple Silicon (M1+) and Intel macOS. If macOS shows <em>&ldquo;Hivework is damaged and can&rsquo;t be opened&rdquo;</em>, clear Apple&rsquo;s quarantine flag via Terminal:
             </p>
+            <div className="matrix-quarantine-box">
+              <code>xattr -cr /Applications/Hivework.app</code>
+              <button
+                type="button"
+                className="matrix-quarantine-btn"
+                onClick={handleCopyQuarantine}
+                title="Copy Terminal command"
+                aria-label="Copy Terminal command"
+              >
+                {quarantineCopied ? <Check size={12} aria-hidden="true" /> : <Copy size={12} aria-hidden="true" />}
+                <span>{quarantineCopied ? 'Copied' : 'Copy'}</span>
+              </button>
+            </div>
           </div>
           <div className="matrix-download-action">
             <a
               href={desktop.dmgUrl}
-              download="Hivework.dmg"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary matrix-download-btn"
             >
               <Download size={16} aria-hidden="true" />
-              <span>Download for macOS</span>
-              <span className="matrix-download-filetag">DMG · {desktop.displayVersion}</span>
+              <span>Download on GitHub</span>
+              <span className="matrix-download-filetag">{desktop.displayVersion}</span>
             </a>
           </div>
         </aside>

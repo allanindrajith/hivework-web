@@ -146,9 +146,10 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
               </a>
               <a
                 href={desktop.dmgUrl}
-                download="Hivework.dmg"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-outline hero-mac-btn"
-                title={`Download Hivework ${desktop.displayVersion} for macOS`}
+                title={`Download Hivework ${desktop.displayVersion} on GitHub Releases`}
               >
                 <AppleLogo size={14} aria-hidden="true" />
                 <span>macOS App ({desktop.displayVersion})</span>
