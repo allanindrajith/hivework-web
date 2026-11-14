@@ -191,39 +191,35 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
 
             <div className="hero-mac-notice hero-animate hero-delay-4" role="region" aria-label="macOS installation instructions">
               <div className="hero-mac-notice-header">
-                <div className="hero-os-toggle" role="tablist" aria-label="Desktop Operating System">
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={activeOS === 'mac'}
-                    className={`hero-os-toggle-btn ${activeOS === 'mac' ? 'active' : ''}`}
-                    onClick={() => setActiveOS('mac')}
-                  >
-                    <AppleLogo size={11} aria-hidden="true" />
-                    <span>macOS</span>
-                  </button>
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={activeOS === 'windows'}
-                    className={`hero-os-toggle-btn ${activeOS === 'windows' ? 'active' : ''}`}
-                    onClick={() => setActiveOS('windows')}
-                  >
-                    <WindowsLogo size={11} aria-hidden="true" />
-                    <span>Windows</span>
-                  </button>
+                <div className="hero-mac-notice-meta">
+                  <div className="hero-os-toggle" role="tablist" aria-label="Desktop Operating System">
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={activeOS === 'mac'}
+                      className={`hero-os-toggle-btn ${activeOS === 'mac' ? 'active' : ''}`}
+                      onClick={() => setActiveOS('mac')}
+                    >
+                      <AppleLogo size={11} aria-hidden="true" />
+                      <span>macOS</span>
+                    </button>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={activeOS === 'windows'}
+                      className={`hero-os-toggle-btn ${activeOS === 'windows' ? 'active' : ''}`}
+                      onClick={() => setActiveOS('windows')}
+                    >
+                      <WindowsLogo size={11} aria-hidden="true" />
+                      <span>Windows</span>
+                    </button>
+                  </div>
+
+                  <span className="hero-mac-notice-badge">
+                    {activeOS === 'mac' ? 'macOS Gatekeeper' : 'Windows SmartScreen'}
+                  </span>
                 </div>
 
-                <span className="hero-mac-notice-badge">
-                  {activeOS === 'mac' ? 'macOS Gatekeeper' : 'Windows SmartScreen'}
-                </span>
-                <span className="hero-mac-notice-text">
-                  {activeOS === 'mac' ? (
-                    <>Unsigned app? Move <code>Hivework.app</code> to <code>/Applications</code>, then:</>
-                  ) : (
-                    <>Unsigned app? Click <code>More info</code> &rarr; <code>Run anyway</code>, or in PowerShell:</>
-                  )}
-                </span>
                 <div className="hero-mac-notice-tabs" role="tablist" aria-label="macOS install method">
                   <button
                     type="button"
@@ -246,6 +242,14 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
                     <span>AI Agent Prompt</span>
                   </button>
                 </div>
+              </div>
+
+              <div className="hero-mac-notice-text">
+                {activeOS === 'mac' ? (
+                  <>Unsigned app? Move <code>Hivework.app</code> to <code>/Applications</code>, then:</>
+                ) : (
+                  <>Unsigned app? Click <code>More info</code> &rarr; <code>Run anyway</code>, or in PowerShell:</>
+                )}
               </div>
 
               <div className="hero-mac-notice-box">
