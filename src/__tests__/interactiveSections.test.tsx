@@ -71,6 +71,39 @@ describe('ModelMatrix', () => {
     expect(downloadLink).toHaveAttribute('href', 'https://github.com/allanindrajith/hivework-app/releases/latest');
     expect(screen.getByText(/Prefer a native desktop GUI on your Mac\?/i)).toBeInTheDocument();
   });
+
+  it('supports toggling between Terminal and AI Agent Prompt for macOS Gatekeeper bypass in ModelMatrix', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.assign(navigator, { clipboard: { writeText } });
+
+    render(<ModelMatrix tools={catalog.tools} divisions={catalog.divisions} />);
+
+    expect(screen.getByText('xattr -cr /Applications/Hivework.app')).toBeInTheDocument();
+
+    const terminalTab = screen.getByRole('tab', { name: /Terminal Command/i });
+    const agentTab = screen.getByRole('tab', { name: /AI Agent Prompt/i });
+    expect(terminalTab).toHaveAttribute('aria-selected', 'true');
+    expect(agentTab).toHaveAttribute('aria-selected', 'false');
+
+    // Copy terminal command
+    const copyBtn = screen.getByRole('button', { name: /Copy Terminal command/i });
+    fireEvent.click(copyBtn);
+    await waitFor(() => expect(writeText).toHaveBeenCalledWith('xattr -cr /Applications/Hivework.app'));
+
+    // Switch to agent prompt tab
+    fireEvent.click(agentTab);
+    expect(agentTab).toHaveAttribute('aria-selected', 'true');
+    expect(screen.getByText(/Install the downloaded Hivework app by copying it to \/Applications/i)).toBeInTheDocument();
+
+    // Copy agent prompt
+    const copyAgentBtn = screen.getByRole('button', { name: /Copy AI Agent prompt/i });
+    fireEvent.click(copyAgentBtn);
+    await waitFor(() =>
+      expect(writeText).toHaveBeenCalledWith(
+        'Install the downloaded Hivework app by copying it to /Applications and run "xattr -cr /Applications/Hivework.app" in Terminal to bypass macOS Gatekeeper.'
+      )
+    );
+  });
 });
 
 describe('WorkforceSection', () => {

@@ -115,6 +115,33 @@ describe('HeaderNav, HeroSection, and StorySection', () => {
     await waitFor(() => expect(screen.getByRole('status')).toHaveTextContent(/Copy failed/i));
   });
 
+  it('renders macOS Gatekeeper notice with Terminal and AI Agent Prompt options in HeroSection', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.assign(navigator, { clipboard: { writeText } });
+
+    render(<HeroSection totals={catalog.totals} site={siteConfig} />);
+
+    expect(screen.getByText(/macOS Gatekeeper/i)).toBeInTheDocument();
+    expect(screen.getByText('xattr -cr /Applications/Hivework.app')).toBeInTheDocument();
+
+    const copyTerminalBtn = screen.getByRole('button', { name: /Copy Terminal command/i });
+    fireEvent.click(copyTerminalBtn);
+    await waitFor(() => expect(writeText).toHaveBeenCalledWith('xattr -cr /Applications/Hivework.app'));
+
+    const agentTab = screen.getByRole('tab', { name: /AI Agent Prompt/i });
+    fireEvent.click(agentTab);
+
+    expect(screen.getByText(/Install the downloaded Hivework app by copying it to \/Applications/i)).toBeInTheDocument();
+
+    const copyAgentBtn = screen.getByRole('button', { name: /Copy AI Agent prompt/i });
+    fireEvent.click(copyAgentBtn);
+    await waitFor(() =>
+      expect(writeText).toHaveBeenCalledWith(
+        'Install the downloaded Hivework app by copying it to /Applications and run "xattr -cr /Applications/Hivework.app" in Terminal to bypass macOS Gatekeeper.'
+      )
+    );
+  });
+
   it('displays origin story and Allan creator card with itsallan.me and hello@itsallan.me', () => {
     render(<StorySection totals={catalog.totals} site={siteConfig} />);
     expect(screen.getByText(/01\. Single-Prompt Drift/i)).toBeInTheDocument();

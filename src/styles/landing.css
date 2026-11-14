@@ -279,6 +279,123 @@
   box-shadow: 0 0 28px rgba(245, 158, 11, 0.45);
 }
 
+.hero-mac-notice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  background: rgba(23, 21, 17, 0.7);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  max-width: 580px;
+}
+
+.hero-mac-notice-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  font-size: 12px;
+  color: var(--body);
+}
+
+.hero-mac-notice-header code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--primary-soft);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 1px 4px;
+  border-radius: var(--radius-xs);
+}
+
+.hero-mac-notice-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 1px 6px;
+  border-radius: var(--radius-xs);
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--primary-soft);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.hero-mac-notice-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.hero-mac-notice-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-xs);
+  color: var(--mute);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 2px 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.hero-mac-notice-tab:hover {
+  color: var(--body);
+  border-color: var(--hairline-soft);
+}
+
+.hero-mac-notice-tab.active,
+.hero-mac-notice-tab[aria-selected="true"] {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: var(--primary-border);
+  color: var(--primary-soft);
+}
+
+.hero-mac-notice-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-xs);
+  padding: 5px 8px;
+}
+
+.hero-mac-notice-box code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--primary-soft);
+  word-break: break-word;
+  line-height: 1.35;
+}
+
+.hero-mac-notice-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-xs);
+  color: var(--mute);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 2px 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.hero-mac-notice-copy-btn:hover {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: var(--primary-border);
+  color: var(--primary-soft);
+}
+
 .hero-actions-sub {
   display: flex;
   flex-wrap: wrap;

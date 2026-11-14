@@ -188,6 +188,46 @@
   line-height: 20px;
 }
 
+.matrix-mac-guide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: 6px;
+}
+
+.matrix-mac-tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.matrix-mac-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-xs);
+  color: var(--mute);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.matrix-mac-tab-btn:hover {
+  color: var(--body);
+  border-color: var(--primary-border);
+}
+
+.matrix-mac-tab-btn.active,
+.matrix-mac-tab-btn[aria-selected="true"] {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: var(--primary-border);
+  color: var(--primary-soft);
+}
+
 .matrix-quarantine-box {
   display: inline-flex;
   align-items: center;
@@ -195,15 +235,30 @@
   background: rgba(0, 0, 0, 0.45);
   border: 1px solid var(--hairline-strong);
   border-radius: var(--radius-sm);
-  padding: 4px 10px;
-  margin-top: 4px;
+  padding: 6px 10px;
+  margin-top: 2px;
   width: fit-content;
+  max-width: 100%;
+}
+
+.matrix-quarantine-box.matrix-agent-box {
+  display: flex;
+  justify-content: space-between;
+  max-width: 620px;
 }
 
 .matrix-quarantine-box code {
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--primary-soft);
+  word-break: break-word;
+}
+
+.matrix-agent-code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--primary-soft);
+  line-height: 1.4;
 }
 
 .matrix-quarantine-btn {

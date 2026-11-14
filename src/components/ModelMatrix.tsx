@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Check, Copy, Download, Terminal } from 'lucide-react';
+import { Bot, Check, Copy, Download, Terminal } from 'lucide-react';
 import type { CliCommandMode, DivisionEntry, ToolEntry } from '../data/types';
 import { useDesktopRelease } from '../hooks/useDesktopRelease';
+import { MAC_AGENT_INSTALL_PROMPT, MAC_QUARANTINE_CMD } from '../data/desktopRelease';
 import { AppleLogo } from './icons/AppleLogo';
 import { buildInstallCommand } from '../lib/cliBuilder';
 import { copyText } from '../lib/clipboard';
@@ -42,14 +43,24 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
   const [dryRun, setDryRun] = useState<boolean>(false);
   const [cliMode, setCliMode] = useState<CliCommandMode>('local');
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'failed'>('idle');
+  const [macMethod, setMacMethod] = useState<'terminal' | 'agent'>('terminal');
   const [quarantineCopied, setQuarantineCopied] = useState<boolean>(false);
+  const [agentPromptCopied, setAgentPromptCopied] = useState<boolean>(false);
   const resetTimerRef = useRef<number | null>(null);
 
   const handleCopyQuarantine = async () => {
-    const success = await copyText('xattr -cr /Applications/Hivework.app');
+    const success = await copyText(MAC_QUARANTINE_CMD);
     if (success) {
       setQuarantineCopied(true);
       setTimeout(() => setQuarantineCopied(false), 2000);
+    }
+  };
+
+  const handleCopyAgentPrompt = async () => {
+    const success = await copyText(MAC_AGENT_INSTALL_PROMPT);
+    if (success) {
+      setAgentPromptCopied(true);
+      setTimeout(() => setAgentPromptCopied(false), 2000);
     }
   };
 
@@ -181,20 +192,61 @@ export function ModelMatrix({ tools, divisions }: ModelMatrixProps) {
               Download Hivework directly from GitHub Releases to visually inspect, configure, and switch between all {orderedTools.length} harnesses and the app&rsquo;s bundled agent personas—no terminal required.
             </p>
             <p className="matrix-download-desc">
-              Apple Silicon (M1+) and Intel macOS. If macOS shows <em>&ldquo;Hivework is damaged and can&rsquo;t be opened&rdquo;</em>, clear Apple&rsquo;s quarantine flag via Terminal:
+              Apple Silicon (M1+) and Intel macOS. Since Hivework is community-built without an Apple Developer certificate, macOS Gatekeeper blocks first launch. Move <code>Hivework.app</code> to <code>/Applications</code>, then bypass Gatekeeper:
             </p>
-            <div className="matrix-quarantine-box">
-              <code>xattr -cr /Applications/Hivework.app</code>
-              <button
-                type="button"
-                className="matrix-quarantine-btn"
-                onClick={handleCopyQuarantine}
-                title="Copy Terminal command"
-                aria-label="Copy Terminal command"
-              >
-                {quarantineCopied ? <Check size={12} aria-hidden="true" /> : <Copy size={12} aria-hidden="true" />}
-                <span>{quarantineCopied ? 'Copied' : 'Copy'}</span>
-              </button>
+            <div className="matrix-mac-guide">
+              <div className="matrix-mac-tabs" role="tablist" aria-label="macOS install method">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={macMethod === 'terminal'}
+                  className={`matrix-mac-tab-btn ${macMethod === 'terminal' ? 'active' : ''}`}
+                  onClick={() => setMacMethod('terminal')}
+                >
+                  <Terminal size={12} aria-hidden="true" />
+                  <span>Terminal Command</span>
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={macMethod === 'agent'}
+                  className={`matrix-mac-tab-btn ${macMethod === 'agent' ? 'active' : ''}`}
+                  onClick={() => setMacMethod('agent')}
+                >
+                  <Bot size={12} aria-hidden="true" />
+                  <span>AI Agent Prompt</span>
+                </button>
+              </div>
+
+              {macMethod === 'terminal' ? (
+                <div className="matrix-quarantine-box">
+                  <code>{MAC_QUARANTINE_CMD}</code>
+                  <button
+                    type="button"
+                    className="matrix-quarantine-btn"
+                    onClick={handleCopyQuarantine}
+                    title="Copy Terminal command"
+                    aria-label="Copy Terminal command"
+                  >
+                    {quarantineCopied ? <Check size={12} aria-hidden="true" /> : <Copy size={12} aria-hidden="true" />}
+                    <span>{quarantineCopied ? 'Copied' : 'Copy'}</span>
+                  </button>
+                </div>
+              ) : (
+                <div className="matrix-quarantine-box matrix-agent-box">
+                  <code className="matrix-agent-code">{MAC_AGENT_INSTALL_PROMPT}</code>
+                  <button
+                    type="button"
+                    className="matrix-quarantine-btn"
+                    onClick={handleCopyAgentPrompt}
+                    title="Copy AI Agent prompt"
+                    aria-label="Copy AI Agent prompt"
+                  >
+                    {agentPromptCopied ? <Check size={12} aria-hidden="true" /> : <Copy size={12} aria-hidden="true" />}
+                    <span>{agentPromptCopied ? 'Copied' : 'Copy'}</span>
+                  </button>
+                </div>
+              )}
             </div>
           </div>
           <div className="matrix-download-action">

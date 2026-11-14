@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Check, Copy, ExternalLink, Terminal } from 'lucide-react';
+import { ArrowRight, Bot, Check, Copy, ExternalLink, Terminal } from 'lucide-react';
 import type { CatalogTotals, CliCommandMode, SiteConfig } from '../data/types';
 import { useDesktopRelease } from '../hooks/useDesktopRelease';
+import { MAC_AGENT_INSTALL_PROMPT, MAC_QUARANTINE_CMD } from '../data/desktopRelease';
 import { AppleLogo } from './icons/AppleLogo';
 import { buildBootstrapCommand } from '../lib/cliBuilder';
 import { copyText } from '../lib/clipboard';
@@ -53,6 +54,8 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
   const [activeTabId, setActiveTabId] = useState<QuickStartTabId>('install-all');
   const [cliMode, setCliMode] = useState<CliCommandMode>('local');
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'failed'>('idle');
+  const [macNoticeMode, setMacNoticeMode] = useState<'terminal' | 'agent'>('terminal');
+  const [macNoticeCopied, setMacNoticeCopied] = useState<boolean>(false);
   const resetTimerRef = useRef<number | null>(null);
 
   const activeTab =
@@ -105,6 +108,16 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
     }, 2400);
   };
 
+  const handleCopyMacNotice = async () => {
+    const textToCopy =
+      macNoticeMode === 'terminal' ? MAC_QUARANTINE_CMD : MAC_AGENT_INSTALL_PROMPT;
+    const ok = await copyText(textToCopy);
+    if (ok) {
+      setMacNoticeCopied(true);
+      window.setTimeout(() => setMacNoticeCopied(false), 2000);
+    }
+  };
+
   const stats = [
     { label: 'Specialized Agents', value: totals.agents, sectionId: 'workforce' as const, href: '/agents' },
     { label: 'AI Employees', value: totals.employees, sectionId: 'employees' as const, href: '/employees' },
@@ -154,6 +167,53 @@ export function HeroSection({ totals, site }: HeroSectionProps) {
                 <AppleLogo size={14} aria-hidden="true" />
                 <span>macOS App ({desktop.displayVersion})</span>
               </a>
+            </div>
+
+            <div className="hero-mac-notice hero-animate hero-delay-4" role="region" aria-label="macOS installation instructions">
+              <div className="hero-mac-notice-header">
+                <span className="hero-mac-notice-badge">macOS Gatekeeper</span>
+                <span className="hero-mac-notice-text">
+                  Unsigned app? Move <code>Hivework.app</code> to <code>/Applications</code>, then:
+                </span>
+                <div className="hero-mac-notice-tabs" role="tablist" aria-label="macOS install method">
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={macNoticeMode === 'terminal'}
+                    className={`hero-mac-notice-tab ${macNoticeMode === 'terminal' ? 'active' : ''}`}
+                    onClick={() => setMacNoticeMode('terminal')}
+                  >
+                    <Terminal size={11} aria-hidden="true" />
+                    <span>Terminal</span>
+                  </button>
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={macNoticeMode === 'agent'}
+                    className={`hero-mac-notice-tab ${macNoticeMode === 'agent' ? 'active' : ''}`}
+                    onClick={() => setMacNoticeMode('agent')}
+                  >
+                    <Bot size={11} aria-hidden="true" />
+                    <span>AI Agent Prompt</span>
+                  </button>
+                </div>
+              </div>
+
+              <div className="hero-mac-notice-box">
+                <code>
+                  {macNoticeMode === 'terminal' ? MAC_QUARANTINE_CMD : MAC_AGENT_INSTALL_PROMPT}
+                </code>
+                <button
+                  type="button"
+                  className="hero-mac-notice-copy-btn"
+                  onClick={handleCopyMacNotice}
+                  title={`Copy ${macNoticeMode === 'terminal' ? 'Terminal command' : 'AI Agent prompt'}`}
+                  aria-label={`Copy ${macNoticeMode === 'terminal' ? 'Terminal command' : 'AI Agent prompt'}`}
+                >
+                  {macNoticeCopied ? <Check size={12} aria-hidden="true" /> : <Copy size={12} aria-hidden="true" />}
+                  <span>{macNoticeCopied ? 'Copied' : 'Copy'}</span>
+                </button>
+              </div>
             </div>
 
             <div className="hero-actions-sub hero-animate hero-delay-5" role="group" aria-label="Catalog direct links">
